@@ -5320,17 +5320,20 @@ var $elm$core$Task$perform = F2(
 	});
 var $elm$browser$Browser$element = _Browser_element;
 var $author$project$Main$LoadData = {$: 'LoadData'};
+var $author$project$Main$Defenses = F5(
+	function (x4, x2, x0, half, quarter) {
+		return {half: half, quarter: quarter, x0: x0, x2: x2, x4: x4};
+	});
 var $author$project$Main$DualTypeMatchup = {$: 'DualTypeMatchup'};
 var $author$project$Main$initModel = {
 	allPokemon: _List_Nil,
 	allTypes: _List_Nil,
 	currentPokemon: $elm$core$Maybe$Nothing,
 	currentType: $elm$core$Maybe$Nothing,
+	currentTypeDefenses: A5($author$project$Main$Defenses, _List_Nil, _List_Nil, _List_Nil, _List_Nil, _List_Nil),
 	mode: $author$project$Main$DualTypeMatchup,
 	searchResults: _List_Nil,
-	selectedTypes: _Utils_Tuple2(
-		$elm$core$Maybe$Just('Bug'),
-		$elm$core$Maybe$Just('Steel'))
+	selectedTypes: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
 };
 var $author$project$Main$PokemonLoaded = function (a) {
 	return {$: 'PokemonLoaded', a: a};
@@ -6249,6 +6252,239 @@ var $author$project$Main$getDataList = F3(
 			});
 	});
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $elm$core$List$append = F2(
+	function (xs, ys) {
+		if (!ys.b) {
+			return xs;
+		} else {
+			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
+		}
+	});
+var $author$project$Main$assignByValue = F2(
+	function (_v0, defenses) {
+		var val = _v0.a;
+		var typeList = _v0.b;
+		switch (val) {
+			case 0:
+				return _Utils_update(
+					defenses,
+					{x4: typeList});
+			case 1:
+				return _Utils_update(
+					defenses,
+					{x2: typeList});
+			case 3:
+				return _Utils_update(
+					defenses,
+					{half: typeList});
+			case 4:
+				return _Utils_update(
+					defenses,
+					{quarter: typeList});
+			case 5:
+				return _Utils_update(
+					defenses,
+					{x0: typeList});
+			default:
+				return defenses;
+		}
+	});
+var $elm$core$List$partition = F2(
+	function (pred, list) {
+		var step = F2(
+			function (x, _v0) {
+				var trues = _v0.a;
+				var falses = _v0.b;
+				return pred(x) ? _Utils_Tuple2(
+					A2($elm$core$List$cons, x, trues),
+					falses) : _Utils_Tuple2(
+					trues,
+					A2($elm$core$List$cons, x, falses));
+			});
+		return A3(
+			$elm$core$List$foldr,
+			step,
+			_Utils_Tuple2(_List_Nil, _List_Nil),
+			list);
+	});
+var $elm_community$list_extra$List$Extra$gatherWith = F2(
+	function (testFn, list) {
+		var helper = F2(
+			function (scattered, gathered) {
+				if (!scattered.b) {
+					return $elm$core$List$reverse(gathered);
+				} else {
+					var toGather = scattered.a;
+					var population = scattered.b;
+					var _v1 = A2(
+						$elm$core$List$partition,
+						testFn(toGather),
+						population);
+					var gathering = _v1.a;
+					var remaining = _v1.b;
+					return A2(
+						helper,
+						remaining,
+						A2(
+							$elm$core$List$cons,
+							_Utils_Tuple2(toGather, gathering),
+							gathered));
+				}
+			});
+		return A2(helper, list, _List_Nil);
+	});
+var $elm_community$list_extra$List$Extra$gatherEqualsBy = F2(
+	function (extract, list) {
+		return A2(
+			$elm_community$list_extra$List$Extra$gatherWith,
+			F2(
+				function (a, b) {
+					return _Utils_eq(
+						extract(a),
+						extract(b));
+				}),
+			list);
+	});
+var $elm$core$List$any = F2(
+	function (isOkay, list) {
+		any:
+		while (true) {
+			if (!list.b) {
+				return false;
+			} else {
+				var x = list.a;
+				var xs = list.b;
+				if (isOkay(x)) {
+					return true;
+				} else {
+					var $temp$isOkay = isOkay,
+						$temp$list = xs;
+					isOkay = $temp$isOkay;
+					list = $temp$list;
+					continue any;
+				}
+			}
+		}
+	});
+var $elm$core$List$member = F2(
+	function (x, xs) {
+		return A2(
+			$elm$core$List$any,
+			function (a) {
+				return _Utils_eq(a, x);
+			},
+			xs);
+	});
+var $author$project$Main$getBoolValue = F2(
+	function (typeList, typeName) {
+		return A2($elm$core$List$member, typeName, typeList) ? 1 : 0;
+	});
+var $elm$core$Tuple$mapBoth = F3(
+	function (funcA, funcB, _v0) {
+		var x = _v0.a;
+		var y = _v0.b;
+		return _Utils_Tuple2(
+			funcA(x),
+			funcB(y));
+	});
+var $elm$core$Tuple$pair = F2(
+	function (a, b) {
+		return _Utils_Tuple2(a, b);
+	});
+var $elm$core$Tuple$second = function (_v0) {
+	var y = _v0.b;
+	return y;
+};
+var $elm$core$List$sortBy = _List_sortBy;
+var $TSFoster$elm_tuple_extra$Tuple2$uncurry = F2(
+	function (fn, _v0) {
+		var a = _v0.a;
+		var b = _v0.b;
+		return A2(fn, a, b);
+	});
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $author$project$Main$calculateDefenses = F2(
+	function (model, bothTypes) {
+		var dualType = A3(
+			$elm$core$Tuple$mapBoth,
+			$elm$core$Maybe$withDefault(''),
+			$elm$core$Maybe$withDefault(''),
+			bothTypes);
+		var sortedMap = A2(
+			$elm$core$List$sortBy,
+			$elm$core$Tuple$first,
+			A2(
+				$elm$core$List$map,
+				function (valueSet) {
+					return A2(
+						$elm$core$Tuple$pair,
+						valueSet.a.b,
+						A2(
+							$elm$core$List$append,
+							_List_fromArray(
+								[valueSet.a.a]),
+							A2(
+								$elm$core$List$map,
+								function (a) {
+									return a.a;
+								},
+								valueSet.b)));
+				},
+				A2(
+					$elm_community$list_extra$List$Extra$gatherEqualsBy,
+					$elm$core$Tuple$second,
+					A2(
+						$elm$core$List$map,
+						function (curType) {
+							var noEffect = A2(
+								$TSFoster$elm_tuple_extra$Tuple2$uncurry,
+								$elm$core$Basics$or,
+								A3(
+									$elm$core$Tuple$mapBoth,
+									function (a) {
+										return A2($elm$core$List$member, a, curType.noEffects);
+									},
+									function (a) {
+										return A2($elm$core$List$member, a, curType.noEffects);
+									},
+									dualType));
+							var good = A2(
+								$TSFoster$elm_tuple_extra$Tuple2$uncurry,
+								$elm$core$Basics$add,
+								A3(
+									$elm$core$Tuple$mapBoth,
+									$author$project$Main$getBoolValue(curType.ineffectives),
+									$author$project$Main$getBoolValue(curType.ineffectives),
+									dualType));
+							var bad = A2(
+								$TSFoster$elm_tuple_extra$Tuple2$uncurry,
+								$elm$core$Basics$add,
+								A3(
+									$elm$core$Tuple$mapBoth,
+									$author$project$Main$getBoolValue(curType.strengths),
+									$author$project$Main$getBoolValue(curType.strengths),
+									dualType));
+							return noEffect ? _Utils_Tuple2(curType.name, 5) : _Utils_Tuple2(curType.name, (good - bad) + 2);
+						},
+						model.allTypes))));
+		return _Utils_update(
+			model,
+			{
+				currentTypeDefenses: A3(
+					$elm$core$List$foldl,
+					$author$project$Main$assignByValue,
+					A5($author$project$Main$Defenses, _List_Nil, _List_Nil, _List_Nil, _List_Nil, _List_Nil),
+					sortedMap)
+			});
+	});
 var $author$project$Main$updatedSelectedTypes = F2(
 	function (newType, model) {
 		var _v0 = model.selectedTypes;
@@ -6290,9 +6526,12 @@ var $author$project$Main$updatedSelectedTypes = F2(
 				}
 			}
 		}();
-		return _Utils_update(
-			model,
-			{selectedTypes: newTypes});
+		return A2(
+			$author$project$Main$calculateDefenses,
+			_Utils_update(
+				model,
+				{selectedTypes: newTypes}),
+			newTypes);
 	});
 var $author$project$Main$update = F2(
 	function (msg, model) {
@@ -6399,9 +6638,61 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $elm$html$Html$h3 = _VirtualDom_node('h3');
+var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $author$project$Main$renderDefenseInfoSet = F2(
+	function (typeList, modifier) {
+		if (!typeList.b) {
+			return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+		} else {
+			var items = typeList;
+			return A2(
+				$elm$html$Html$p,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text(
+						'Receives ' + (modifier + (' damage from: ' + A2($elm$core$String$join, ', ', items))))
+					]));
+		}
+	});
+var $author$project$Main$renderDefenses = function (model) {
+	return A2(
+		$elm$html$Html$div,
+		_List_Nil,
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$h3,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Weaknesses:')
+					])),
+				A2($author$project$Main$renderDefenseInfoSet, model.currentTypeDefenses.x4, '4x'),
+				A2($author$project$Main$renderDefenseInfoSet, model.currentTypeDefenses.x2, '2x'),
+				A2(
+				$elm$html$Html$h3,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Strengths:')
+					])),
+				A2($author$project$Main$renderDefenseInfoSet, model.currentTypeDefenses.half, '1/2'),
+				A2($author$project$Main$renderDefenseInfoSet, model.currentTypeDefenses.quarter, '1/4'),
+				A2(
+				$elm$html$Html$h3,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Immunities:')
+					])),
+				A2($author$project$Main$renderDefenseInfoSet, model.currentTypeDefenses.x0, 'NO')
+			]));
+};
 var $author$project$Main$renderDualTypeInfo = function (model) {
 	var _v0 = model.selectedTypes;
 	if ((_v0.a.$ === 'Just') && (_v0.b.$ === 'Just')) {
@@ -6413,12 +6704,13 @@ var $author$project$Main$renderDualTypeInfo = function (model) {
 			_List_fromArray(
 				[
 					A2(
-					$elm$html$Html$h3,
+					$elm$html$Html$h2,
 					_List_Nil,
 					_List_fromArray(
 						[
 							$elm$html$Html$text('Dual Type: ' + (one + ('/' + two)))
-						]))
+						])),
+					$author$project$Main$renderDefenses(model)
 				]));
 	} else {
 		return A2($elm$html$Html$div, _List_Nil, _List_Nil);
@@ -6515,7 +6807,6 @@ var $author$project$Main$renderPokedex = function (model) {
 };
 var $author$project$Main$BackToTypeList = {$: 'BackToTypeList'};
 var $elm$html$Html$button = _VirtualDom_node('button');
-var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
 };

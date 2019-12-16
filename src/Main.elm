@@ -8,7 +8,9 @@ import Html.Events exposing (..)
 import Http exposing (Error)
 import Json.Decode as JD exposing (decodeString, dict, list, string)
 import List.Extra as LX exposing (find)
+import Maybe.Extra as MX exposing (orElse)
 import String exposing (join, split)
+import Tuple2 as TX exposing (uncurry)
 
 
 main =
@@ -38,6 +40,15 @@ type alias Type =
     }
 
 
+type alias Defenses =
+    { x4 : List String
+    , x2 : List String
+    , x0 : List String
+    , half : List String
+    , quarter : List String
+    }
+
+
 type alias Pokemon =
     { name : String
     , number : String
@@ -58,6 +69,7 @@ type alias Model =
     , selectedTypes : ( Maybe String, Maybe String )
     , mode : Mode
     , currentType : Maybe Type
+    , currentTypeDefenses : Defenses
     , currentPokemon : Maybe Pokemon
     }
 
@@ -121,9 +133,10 @@ initModel =
     { allTypes = []
     , allPokemon = []
     , searchResults = []
-    , selectedTypes = ( Just "Bug", Just "Steel" )
+    , selectedTypes = ( Nothing, Nothing )
     , mode = DualTypeMatchup
     , currentType = Maybe.Nothing
+    , currentTypeDefenses = Defenses [] [] [] [] []
     , currentPokemon = Maybe.Nothing
     }
 
@@ -238,7 +251,91 @@ updatedSelectedTypes newType model =
                         -- Something went wrong; don't modify anything
                         ( Just a, Just b )
     in
-    { model | selectedTypes = newTypes }
+    newTypes |> calculateDefenses { model | selectedTypes = newTypes }
+
+
+getBoolValue : List String -> String -> Int
+getBoolValue typeList typeName =
+    if typeList |> List.member typeName then
+        1
+
+    else
+        0
+
+
+assignByValue : ( Int, List String ) -> Defenses -> Defenses
+assignByValue ( val, typeList ) defenses =
+    case val of
+        0 ->
+            { defenses | x4 = typeList }
+
+        1 ->
+            { defenses | x2 = typeList }
+
+        3 ->
+            { defenses | half = typeList }
+
+        4 ->
+            { defenses | quarter = typeList }
+
+        5 ->
+            { defenses | x0 = typeList }
+
+        _ ->
+            defenses
+
+
+calculateDefenses : Model -> ( Maybe String, Maybe String ) -> Model
+calculateDefenses model bothTypes =
+    let
+        dualType =
+            bothTypes |> Tuple.mapBoth (Maybe.withDefault "") (Maybe.withDefault "")
+
+        sortedMap =
+            model.allTypes
+                |> List.map
+                    (\curType ->
+                        let
+                            bad =
+                                dualType
+                                    |> Tuple.mapBoth (getBoolValue curType.strengths) (getBoolValue curType.strengths)
+                                    |> TX.uncurry (+)
+
+                            good =
+                                dualType
+                                    |> Tuple.mapBoth (getBoolValue curType.ineffectives) (getBoolValue curType.ineffectives)
+                                    |> TX.uncurry (+)
+
+                            noEffect =
+                                dualType
+                                    |> Tuple.mapBoth (\a -> List.member a curType.noEffects) (\a -> List.member a curType.noEffects)
+                                    |> TX.uncurry (||)
+                        in
+                        if noEffect then
+                            ( curType.name, 5 )
+
+                        else
+                            ( curType.name, good - bad + 2 )
+                    )
+                |> LX.gatherEqualsBy Tuple.second
+                |> List.map
+                    (\valueSet ->
+                        Tuple.pair
+                            (Tuple.second
+                                (Tuple.first valueSet)
+                            )
+                            (List.append
+                                [ Tuple.first (Tuple.first valueSet) ]
+                                (List.map (\a -> Tuple.first a) (Tuple.second valueSet))
+                            )
+                    )
+                |> List.sortBy Tuple.first
+    in
+    { model
+        | currentTypeDefenses =
+            sortedMap
+                |> List.foldl assignByValue (Defenses [] [] [] [] [])
+    }
 
 
 
@@ -368,12 +465,37 @@ renderPokedex model =
         ]
 
 
+renderDefenseInfoSet : List String -> String -> Html Msg
+renderDefenseInfoSet typeList modifier =
+    case typeList of
+        [] ->
+            div [] []
+
+        items ->
+            p [] [ text ("Receives " ++ modifier ++ " damage from: " ++ String.join ", " items) ]
+
+
+renderDefenses : Model -> Html Msg
+renderDefenses model =
+    div []
+        [ h3 [] [ text "Weaknesses:" ]
+        , renderDefenseInfoSet model.currentTypeDefenses.x4 "4x"
+        , renderDefenseInfoSet model.currentTypeDefenses.x2 "2x"
+        , h3 [] [ text "Strengths:" ]
+        , renderDefenseInfoSet model.currentTypeDefenses.half "1/2"
+        , renderDefenseInfoSet model.currentTypeDefenses.quarter "1/4"
+        , h3 [] [ text "Immunities:" ]
+        , renderDefenseInfoSet model.currentTypeDefenses.x0 "NO"
+        ]
+
+
 renderDualTypeInfo : Model -> Html Msg
 renderDualTypeInfo model =
     case model.selectedTypes of
         ( Just one, Just two ) ->
             div []
-                [ h3 [] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
+                [ h2 [] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
+                , renderDefenses model
                 ]
 
         _ ->
