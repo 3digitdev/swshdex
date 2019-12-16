@@ -6638,11 +6638,100 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $author$project$Main$SearchPokedex = function (a) {
+	return {$: 'SearchPokedex', a: a};
+};
+var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$html$Html$Attributes$height = function (n) {
+	return A2(
+		_VirtualDom_attribute,
+		'height',
+		$elm$core$String$fromInt(n));
+};
+var $elm$html$Html$input = _VirtualDom_node('input');
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$html$Html$Events$alwaysStop = function (x) {
+	return _Utils_Tuple2(x, true);
+};
+var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
+	return {$: 'MayStopPropagation', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$stopPropagationOn = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
+	});
+var $elm$json$Json$Decode$at = F2(
+	function (fields, decoder) {
+		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
+	});
+var $elm$html$Html$Events$targetValue = A2(
+	$elm$json$Json$Decode$at,
+	_List_fromArray(
+		['target', 'value']),
+	$elm$json$Json$Decode$string);
+var $elm$html$Html$Events$onInput = function (tagger) {
+	return A2(
+		$elm$html$Html$Events$stopPropagationOn,
+		'input',
+		A2(
+			$elm$json$Json$Decode$map,
+			$elm$html$Html$Events$alwaysStop,
+			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
+};
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $author$project$Main$renderPokedex = function (model) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('pokedex')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$h1,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Pokemon')
+					])),
+				A2(
+				$elm$html$Html$input,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('dex-search'),
+						$elm$html$Html$Events$onInput($author$project$Main$SearchPokedex),
+						$elm$html$Html$Attributes$height(50),
+						$elm$html$Html$Attributes$type_('text')
+					]),
+				_List_Nil),
+				A2(
+				$elm$html$Html$ul,
+				_List_Nil,
+				A2(
+					$elm$core$List$map,
+					function (result) {
+						return A2(
+							$elm$html$Html$li,
+							_List_Nil,
+							_List_fromArray(
+								[
+									$elm$html$Html$text(result.name)
+								]));
+					},
+					model.searchResults))
+			]));
+};
 var $elm$html$Html$h2 = _VirtualDom_node('h2');
 var $elm$html$Html$h3 = _VirtualDom_node('h3');
 var $elm$html$Html$p = _VirtualDom_node('p');
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
 var $author$project$Main$renderDefenseInfoSet = F2(
 	function (typeList, modifier) {
 		if (!typeList.b) {
@@ -6693,143 +6782,57 @@ var $author$project$Main$renderDefenses = function (model) {
 				A2($author$project$Main$renderDefenseInfoSet, model.currentTypeDefenses.x0, 'NO')
 			]));
 };
-var $author$project$Main$renderDualTypeInfo = function (model) {
-	var _v0 = model.selectedTypes;
-	if ((_v0.a.$ === 'Just') && (_v0.b.$ === 'Just')) {
-		var one = _v0.a.a;
-		var two = _v0.b.a;
-		return A2(
-			$elm$html$Html$div,
-			_List_Nil,
-			_List_fromArray(
-				[
-					A2(
-					$elm$html$Html$h2,
-					_List_Nil,
-					_List_fromArray(
-						[
-							$elm$html$Html$text('Dual Type: ' + (one + ('/' + two)))
-						])),
-					$author$project$Main$renderDefenses(model)
-				]));
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
 	} else {
-		return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+		return $elm$core$Maybe$Nothing;
 	}
 };
-var $author$project$Main$SearchPokedex = function (a) {
-	return {$: 'SearchPokedex', a: a};
-};
-var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $elm$html$Html$Attributes$height = function (n) {
-	return A2(
-		_VirtualDom_attribute,
-		'height',
-		$elm$core$String$fromInt(n));
-};
-var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$html$Html$li = _VirtualDom_node('li');
-var $elm$html$Html$Events$alwaysStop = function (x) {
-	return _Utils_Tuple2(x, true);
-};
-var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
-	return {$: 'MayStopPropagation', a: a};
-};
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
-var $elm$html$Html$Events$stopPropagationOn = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$MayStopPropagation(decoder));
-	});
-var $elm$json$Json$Decode$at = F2(
-	function (fields, decoder) {
-		return A3($elm$core$List$foldr, $elm$json$Json$Decode$field, decoder, fields);
-	});
-var $elm$html$Html$Events$targetValue = A2(
-	$elm$json$Json$Decode$at,
-	_List_fromArray(
-		['target', 'value']),
-	$elm$json$Json$Decode$string);
-var $elm$html$Html$Events$onInput = function (tagger) {
-	return A2(
-		$elm$html$Html$Events$stopPropagationOn,
-		'input',
-		A2(
-			$elm$json$Json$Decode$map,
-			$elm$html$Html$Events$alwaysStop,
-			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
-};
-var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
-var $elm$html$Html$ul = _VirtualDom_node('ul');
-var $author$project$Main$renderPokedex = function (model) {
-	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('pokedex')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$h1,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Pokemon')
-					])),
-				A2(
-				$elm$html$Html$input,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$class('dex-search'),
-						$elm$html$Html$Events$onInput($author$project$Main$SearchPokedex),
-						$elm$html$Html$Attributes$height(50),
-						$elm$html$Html$Attributes$type_('text')
-					]),
-				_List_Nil),
-				A2(
-				$elm$html$Html$ul,
-				_List_Nil,
-				A2(
-					$elm$core$List$map,
-					function (result) {
-						return A2(
-							$elm$html$Html$li,
-							_List_Nil,
-							_List_fromArray(
-								[
-									$elm$html$Html$text(result.name)
-								]));
-					},
-					model.searchResults))
-			]));
-};
-var $author$project$Main$BackToTypeList = {$: 'BackToTypeList'};
-var $elm$html$Html$button = _VirtualDom_node('button');
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
-};
-var $author$project$Main$renderTypeInfo = function (curType) {
-	var noEffect = function () {
-		var _v0 = curType.noEffects;
-		if (!_v0.b) {
+var $author$project$Main$renderSingleInfoSet = F2(
+	function (typeList, preText) {
+		if (!typeList.b) {
 			return A2($elm$html$Html$div, _List_Nil, _List_Nil);
 		} else {
-			var typeList = _v0;
+			var items = typeList;
+			return A2(
+				$elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$h3,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(preText)
+							])),
+						A2(
+						$elm$html$Html$p,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(
+								A2($elm$core$String$join, ', ', items))
+							]))
+					]));
+		}
+	});
+var $author$project$Main$renderSingleTypeInfo = F2(
+	function (model, typeName) {
+		var foundType = $elm$core$List$head(
+			A2(
+				$elm$core$List$filter,
+				function (t) {
+					return _Utils_eq(t.name, typeName);
+				},
+				model.allTypes));
+		if (foundType.$ === 'Nothing') {
+			return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+		} else {
+			var typeInfo = foundType.a;
 			return A2(
 				$elm$html$Html$div,
 				_List_Nil,
@@ -6840,91 +6843,49 @@ var $author$project$Main$renderTypeInfo = function (curType) {
 						_List_Nil,
 						_List_fromArray(
 							[
-								$elm$html$Html$text('Has no effect on:')
+								$elm$html$Html$text(typeName + ' Type:')
 							])),
+						A2($author$project$Main$renderSingleInfoSet, typeInfo.strengths, 'Super effective against:'),
+						A2($author$project$Main$renderSingleInfoSet, typeInfo.ineffectives, 'Not very effective against:'),
+						A2($author$project$Main$renderSingleInfoSet, typeInfo.weaknesses, 'Weak to:'),
+						A2($author$project$Main$renderDefenseInfoSet, typeInfo.noEffects, 'Has no effect on:')
+					]));
+		}
+	});
+var $author$project$Main$renderTypeInfo = function (model) {
+	var _v0 = model.selectedTypes;
+	if (_v0.a.$ === 'Just') {
+		if (_v0.b.$ === 'Just') {
+			var one = _v0.a.a;
+			var two = _v0.b.a;
+			return A2(
+				$elm$html$Html$div,
+				_List_Nil,
+				_List_fromArray(
+					[
 						A2(
-						$elm$html$Html$h3,
+						$elm$html$Html$h2,
 						_List_Nil,
 						_List_fromArray(
 							[
-								$elm$html$Html$text(
-								A2($elm$core$String$join, ', ', typeList))
-							]))
+								$elm$html$Html$text('Dual Type: ' + (one + ('/' + two)))
+							])),
+						$author$project$Main$renderDefenses(model)
 					]));
+		} else {
+			var typeName = _v0.a.a;
+			var _v1 = _v0.b;
+			return A2($author$project$Main$renderSingleTypeInfo, model, typeName);
 		}
-	}();
-	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				$elm$html$Html$Attributes$class('types')
-			]),
-		_List_fromArray(
-			[
-				A2(
-				$elm$html$Html$button,
-				_List_fromArray(
-					[
-						$elm$html$Html$Events$onClick($author$project$Main$BackToTypeList)
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('<- Back to Types')
-					])),
-				A2(
-				$elm$html$Html$h1,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text(curType.name + ' Type:')
-					])),
-				A2(
-				$elm$html$Html$h2,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Super effective against:')
-					])),
-				A2(
-				$elm$html$Html$h3,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text(
-						A2($elm$core$String$join, ', ', curType.strengths))
-					])),
-				A2(
-				$elm$html$Html$h2,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Weak to:')
-					])),
-				A2(
-				$elm$html$Html$h3,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text(
-						A2($elm$core$String$join, ', ', curType.weaknesses))
-					])),
-				A2(
-				$elm$html$Html$h2,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Not very effective against:')
-					])),
-				A2(
-				$elm$html$Html$h3,
-				_List_Nil,
-				_List_fromArray(
-					[
-						$elm$html$Html$text(
-						A2($elm$core$String$join, ', ', curType.ineffectives))
-					])),
-				noEffect
-			]));
+	} else {
+		if (_v0.b.$ === 'Just') {
+			var _v2 = _v0.a;
+			var typeName = _v0.b.a;
+			return A2($author$project$Main$renderSingleTypeInfo, model, typeName);
+		} else {
+			return A2($elm$html$Html$div, _List_Nil, _List_Nil);
+		}
+	}
 };
 var $elm$core$List$drop = F2(
 	function (n, list) {
@@ -7096,6 +7057,22 @@ var $author$project$Main$ChangeCurrentType = function (a) {
 var $author$project$Main$SelectType = function (a) {
 	return {$: 'SelectType', a: a};
 };
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
 var $elm$html$Html$td = _VirtualDom_node('td');
 var $author$project$Main$typeIsSelected = F2(
 	function (_v0, typeStr) {
@@ -7200,7 +7177,7 @@ var $author$project$Main$view = function (model) {
 		var _v1 = model.currentType;
 		if (_v1.$ === 'Just') {
 			var typeData = _v1.a;
-			return $author$project$Main$renderTypeInfo(typeData);
+			return $author$project$Main$renderTypeList(model);
 		} else {
 			return $author$project$Main$renderTypeList(model);
 		}
@@ -7217,7 +7194,7 @@ var $author$project$Main$view = function (model) {
 					_List_fromArray(
 						[
 							$author$project$Main$renderTypeList(model),
-							$author$project$Main$renderDualTypeInfo(model)
+							$author$project$Main$renderTypeInfo(model)
 						]));
 			default:
 				return $author$project$Main$renderPokedex(model);

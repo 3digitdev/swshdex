@@ -351,33 +351,6 @@ subscriptions model =
 -- VIEW
 
 
-renderTypeInfo : Type -> Html Msg
-renderTypeInfo curType =
-    let
-        noEffect =
-            case curType.noEffects of
-                [] ->
-                    div [] []
-
-                typeList ->
-                    div []
-                        [ h2 [] [ text "Has no effect on:" ]
-                        , h3 [] [ text (join ", " typeList) ]
-                        ]
-    in
-    div [ class "types" ]
-        [ button [ onClick BackToTypeList ] [ text "<- Back to Types" ]
-        , h1 [] [ text (curType.name ++ " Type:") ]
-        , h2 [] [ text "Super effective against:" ]
-        , h3 [] [ text (join ", " curType.strengths) ]
-        , h2 [] [ text "Weak to:" ]
-        , h3 [] [ text (join ", " curType.weaknesses) ]
-        , h2 [] [ text "Not very effective against:" ]
-        , h3 [] [ text (join ", " curType.ineffectives) ]
-        , noEffect
-        ]
-
-
 typeIsSelected : ( Maybe String, Maybe String ) -> String -> Bool
 typeIsSelected ( one, two ) typeStr =
     case ( one, two ) of
@@ -489,14 +462,55 @@ renderDefenses model =
         ]
 
 
-renderDualTypeInfo : Model -> Html Msg
-renderDualTypeInfo model =
+renderSingleInfoSet : List String -> String -> Html Msg
+renderSingleInfoSet typeList preText =
+    case typeList of
+        [] ->
+            div [] []
+
+        items ->
+            div []
+                [ h3 [] [ text preText ]
+                , p [] [ text (String.join ", " items) ]
+                ]
+
+
+renderSingleTypeInfo : Model -> String -> Html Msg
+renderSingleTypeInfo model typeName =
+    let
+        foundType =
+            model.allTypes
+                |> List.filter (\t -> t.name == typeName)
+                |> List.head
+    in
+    case foundType of
+        Nothing ->
+            div [] []
+
+        Just typeInfo ->
+            div []
+                [ h2 [] [ text (typeName ++ " Type:") ]
+                , renderSingleInfoSet typeInfo.strengths "Super effective against:"
+                , renderSingleInfoSet typeInfo.ineffectives "Not very effective against:"
+                , renderSingleInfoSet typeInfo.weaknesses "Weak to:"
+                , renderDefenseInfoSet typeInfo.noEffects "Has no effect on:"
+                ]
+
+
+renderTypeInfo : Model -> Html Msg
+renderTypeInfo model =
     case model.selectedTypes of
         ( Just one, Just two ) ->
             div []
                 [ h2 [] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
                 , renderDefenses model
                 ]
+
+        ( Just typeName, Nothing ) ->
+            typeName |> renderSingleTypeInfo model
+
+        ( Nothing, Just typeName ) ->
+            typeName |> renderSingleTypeInfo model
 
         _ ->
             div [] []
@@ -508,7 +522,7 @@ view model =
         renderTypeMatchup =
             case model.currentType of
                 Just typeData ->
-                    renderTypeInfo typeData
+                    renderTypeList model
 
                 Maybe.Nothing ->
                     renderTypeList model
@@ -521,7 +535,7 @@ view model =
                 DualTypeMatchup ->
                     div []
                         [ renderTypeList model
-                        , renderDualTypeInfo model
+                        , renderTypeInfo model
                         ]
 
                 Pokedex ->
