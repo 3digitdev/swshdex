@@ -102,7 +102,7 @@ decodePokemonData =
                                 JD.succeed (Single typeName)
 
                             _ ->
-                                JD.fail "Invalid PokemonType"
+                                JD.fail ("Invalid PokemonType " ++ typeStr)
                     )
             )
         )
@@ -132,7 +132,7 @@ initModel =
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
     , mode = Pokedex
-    , currentTypeDefenses = Defenses [] [] [] [] []
+    , currentTypeDefenses = { x4 = [], x2 = [], x0 = [], half = [], quarter = [] }
     , currentPokemon = Maybe.Nothing
     }
 
@@ -250,9 +250,7 @@ findMatchByName searchTerm pokemonList =
             matchFront
 
         _ ->
-            matchAnywhere
-                |> List.append matchFront
-                |> LX.uniqueBy (\r -> r.number)
+            (matchFront ++ matchAnywhere) |> LX.uniqueBy (\r -> r.number)
 
 
 updatedSelectedTypes : String -> Model -> Model
@@ -371,9 +369,8 @@ calculateDefenses model bothTypes =
                             (Tuple.second
                                 (Tuple.first valueSet)
                             )
-                            (List.append
-                                [ Tuple.first (Tuple.first valueSet) ]
-                                (List.map (\a -> Tuple.first a) (Tuple.second valueSet))
+                            ([ Tuple.first (Tuple.first valueSet) ]
+                                ++ List.map (\a -> Tuple.first a) (Tuple.second valueSet)
                             )
                     )
                 |> List.sortBy Tuple.first
