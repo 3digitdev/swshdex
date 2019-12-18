@@ -75,16 +75,6 @@ type alias Model =
 -- Loading Data
 
 
-typeToString : PokemonType -> String
-typeToString pokemonType =
-    case pokemonType of
-        Single typeStr ->
-            typeStr
-
-        Dual one two ->
-            one ++ " / " ++ two
-
-
 decodeTypeData : JD.Decoder Type
 decodeTypeData =
     JD.map5 Type
@@ -149,6 +139,18 @@ initModel =
 
 
 -- UPDATE
+
+
+type Msg
+    = LoadData
+    | ChangeMode Mode
+    | TypesLoaded (Result Http.Error (List Type))
+    | PokemonLoaded (Result Http.Error (List Pokemon))
+    | SearchPokedex String
+    | SelectType String
+    | SetType PokemonType
+    | ResetTypeSelections
+    | NoOp
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -219,16 +221,8 @@ update msg model =
             ( { model | selectedTypes = ( Nothing, Nothing ) }, Cmd.none )
 
 
-type Msg
-    = LoadData
-    | ChangeMode Mode
-    | TypesLoaded (Result Http.Error (List Type))
-    | PokemonLoaded (Result Http.Error (List Pokemon))
-    | SearchPokedex String
-    | SelectType String
-    | SetType PokemonType
-    | ResetTypeSelections
-    | NoOp
+
+-- Support functions for UPDATE
 
 
 findMatchByName : String -> List Pokemon -> List Pokemon
@@ -404,69 +398,35 @@ subscriptions model =
 -- VIEW
 
 
-typeIsSelected : ( Maybe String, Maybe String ) -> String -> Bool
-typeIsSelected ( one, two ) typeStr =
-    case ( one, two ) of
-        ( Nothing, Nothing ) ->
-            False
-
-        ( Just a, Nothing ) ->
-            a == typeStr
-
-        ( Nothing, Just a ) ->
-            a == typeStr
-
-        ( Just a, Just b ) ->
-            a == typeStr || b == typeStr
-
-
-setTypeColorProps : List String -> String -> String
-setTypeColorProps propsList tStr =
+view : Model -> Html Msg
+view model =
     let
-        typeStr =
-            String.toLower tStr
-    in
-    propsList
-        |> List.map (\prop -> typeStr ++ "-" ++ prop ++ "-color")
-        |> String.join " "
-
-
-renderTypeBadge : PokemonType -> Html Msg
-renderTypeBadge pokeType =
-    case pokeType of
-        Single t ->
-            a [ class "nes-badge" ]
-                [ span
-                    [ class (String.toLower t ++ "-badge") ]
-                    [ text (pokeType |> typeToString) ]
-                ]
-
-        Dual one two ->
-            a [ class "nes-badge" ]
-                [ span [ class (String.toLower one ++ "-badge") ]
-                    [ text one ]
-                , span [ class (String.toLower two ++ "-badge") ]
-                    [ text two ]
-                ]
-
-
-renderTypeButton : String -> Model -> Html Msg
-renderTypeButton typeStr model =
-    let
-        ( innerText, clickFn ) =
+        renderFn =
             case model.mode of
                 TypeInfo ->
-                    if typeStr |> typeIsSelected model.selectedTypes then
-                        ( "> " ++ typeStr ++ " <", SelectType )
+                    [ div [ class "btn-container" ]
+                        [ button [ class "nes-btn reset-btn", onClick ResetTypeSelections ] [ text "RESET" ]
+                        , button [ class "nes-btn", onClick (ChangeMode Pokedex) ] [ text "POKEDEX" ]
+                        ]
+                    , renderTypeList model
+                    , renderTypeInfo model
+                    ]
 
-                    else
-                        ( typeStr, SelectType )
-
-                _ ->
-                    ( typeStr, SelectType )
+                Pokedex ->
+                    [ div [ class "btn-container" ]
+                        [ button
+                            [ class "nes-btn", onClick (ChangeMode TypeInfo) ]
+                            [ text "TYPE MATCHUPS" ]
+                        ]
+                    , renderPokedex model
+                    ]
     in
-    td [ class "type-link", onClick (clickFn typeStr) ]
-        [ text innerText ]
+    div [ class "container" ]
+        renderFn
+
+
+
+-- TYPE MATCHUP VIEW
 
 
 renderTypeList : Model -> Html Msg
@@ -497,58 +457,58 @@ renderTypeList model =
                 ]
 
 
-renderPokemon : Pokemon -> Html Msg
-renderPokemon pokemon =
-    li [ class "search-result-item" ]
-        [ text ("#" ++ pokemon.number ++ " — ")
-        , strong [] [ text pokemon.name ]
-        , div
-            [ class "type-link"
-            , onClick (SetType pokemon.pokeType)
-            ]
-            [ pokemon.pokeType |> renderTypeBadge ]
-        ]
+renderTypeButton : String -> Model -> Html Msg
+renderTypeButton typeStr model =
+    let
+        ( innerText, clickFn ) =
+            case model.mode of
+                TypeInfo ->
+                    if typeStr |> typeIsSelected model.selectedTypes then
+                        ( "> " ++ typeStr ++ " <", SelectType )
+
+                    else
+                        ( typeStr, SelectType )
+
+                _ ->
+                    ( typeStr, SelectType )
+    in
+    td [ class "type-link", onClick (clickFn typeStr) ]
+        [ text innerText ]
 
 
-renderPokedex : Model -> Html Msg
-renderPokedex model =
-    div [ class "pokedex" ]
-        [ h1 [] [ text "Pokemon" ]
-        , div [ class "nes-field" ]
-            [ label [ for "search-box" ]
-                [ text "Search:" ]
-            , input
-                [ class "nes-input dex-search"
-                , onInput SearchPokedex
-                , id "search-box"
-                , type_ "text"
+typeIsSelected : ( Maybe String, Maybe String ) -> String -> Bool
+typeIsSelected ( one, two ) typeStr =
+    case ( one, two ) of
+        ( Nothing, Nothing ) ->
+            False
+
+        ( Just a, Nothing ) ->
+            a == typeStr
+
+        ( Nothing, Just a ) ->
+            a == typeStr
+
+        ( Just a, Just b ) ->
+            a == typeStr || b == typeStr
+
+
+renderTypeInfo : Model -> Html Msg
+renderTypeInfo model =
+    case model.selectedTypes of
+        ( Just one, Just two ) ->
+            div [ class "nes-container with-title is-rounded" ]
+                [ p [ class "title" ] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
+                , renderDefenses model
                 ]
-                []
-            ]
-        , p [ class "search-hint" ] [ text "Hint:  Click a Pokemon's type(s) to jump to type matchups!" ]
-        , ul [] (List.map renderPokemon model.searchResults)
-        ]
 
+        ( Just typeName, Nothing ) ->
+            typeName |> renderSingleTypeInfo model
 
-renderBadgeList : List String -> Html Msg
-renderBadgeList typeList =
-    div [ class "badge-container" ]
-        (typeList
-            |> List.map (\i -> renderTypeBadge (Single i))
-        )
+        ( Nothing, Just typeName ) ->
+            typeName |> renderSingleTypeInfo model
 
-
-renderDefenseInfoSet : List String -> String -> Html Msg
-renderDefenseInfoSet typeList modifier =
-    case typeList of
-        [] ->
+        _ ->
             div [] []
-
-        items ->
-            p []
-                [ strong [] [ text (modifier ++ " damage from: ") ]
-                , renderBadgeList items
-                ]
 
 
 renderDefenses : Model -> Html Msg
@@ -565,15 +525,15 @@ renderDefenses model =
         ]
 
 
-renderSingleInfoSet : List String -> String -> Html Msg
-renderSingleInfoSet typeList preText =
+renderDefenseInfoSet : List String -> String -> Html Msg
+renderDefenseInfoSet typeList modifier =
     case typeList of
         [] ->
             div [] []
 
         items ->
-            div []
-                [ h4 [] [ text preText ]
+            p []
+                [ strong [] [ text (modifier ++ " damage from: ") ]
                 , renderBadgeList items
                 ]
 
@@ -600,47 +560,78 @@ renderSingleTypeInfo model typeName =
                 ]
 
 
-renderTypeInfo : Model -> Html Msg
-renderTypeInfo model =
-    case model.selectedTypes of
-        ( Just one, Just two ) ->
-            div [ class "nes-container with-title is-rounded" ]
-                [ p [ class "title" ] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
-                , renderDefenses model
-                ]
-
-        ( Just typeName, Nothing ) ->
-            typeName |> renderSingleTypeInfo model
-
-        ( Nothing, Just typeName ) ->
-            typeName |> renderSingleTypeInfo model
-
-        _ ->
+renderSingleInfoSet : List String -> String -> Html Msg
+renderSingleInfoSet typeList preText =
+    case typeList of
+        [] ->
             div [] []
 
+        items ->
+            div []
+                [ h4 [] [ text preText ]
+                , renderBadgeList items
+                ]
 
-view : Model -> Html Msg
-view model =
-    let
-        renderFn =
-            case model.mode of
-                TypeInfo ->
-                    [ div [ class "btn-container" ]
-                        [ button [ class "nes-btn reset-btn", onClick ResetTypeSelections ] [ text "RESET" ]
-                        , button [ class "nes-btn", onClick (ChangeMode Pokedex) ] [ text "POKEDEX" ]
-                        ]
-                    , renderTypeList model
-                    , renderTypeInfo model
-                    ]
 
-                Pokedex ->
-                    [ div [ class "btn-container" ]
-                        [ button
-                            [ class "nes-btn", onClick (ChangeMode TypeInfo) ]
-                            [ text "TYPE MATCHUPS" ]
-                        ]
-                    , renderPokedex model
-                    ]
-    in
-    div [ class "container" ]
-        renderFn
+renderPokedex : Model -> Html Msg
+renderPokedex model =
+    div []
+        [ h1 [] [ text "Pokemon" ]
+        , div [ class "nes-field" ]
+            [ label [ for "search-box" ]
+                [ text "Search:" ]
+            , input
+                [ class "nes-input dex-search"
+                , onInput SearchPokedex
+                , id "search-box"
+                , type_ "text"
+                ]
+                []
+            ]
+        , p [ class "search-hint" ] [ text "Hint:  Click a Pokemon's type(s) to jump to type matchups!" ]
+        , ul [] (List.map renderPokemon model.searchResults)
+        ]
+
+
+renderPokemon : Pokemon -> Html Msg
+renderPokemon pokemon =
+    li [ class "search-result-item" ]
+        [ text (pokemon.number ++ ": ")
+        , strong [] [ text pokemon.name ]
+        , div
+            [ class "type-link"
+            , onClick (SetType pokemon.pokeType)
+            ]
+            [ pokemon.pokeType |> renderTypeBadge ]
+        ]
+
+
+
+-- Rendering Type Badges
+
+
+renderBadgeList : List String -> Html Msg
+renderBadgeList typeList =
+    div [ class "badge-container" ]
+        (typeList
+            |> List.map (\i -> renderTypeBadge (Single i))
+        )
+
+
+renderTypeBadge : PokemonType -> Html Msg
+renderTypeBadge pokeType =
+    case pokeType of
+        Single t ->
+            a [ class "nes-badge" ]
+                [ span
+                    [ class (String.toLower t ++ "-badge") ]
+                    [ text t ]
+                ]
+
+        Dual one two ->
+            a [ class "nes-badge" ]
+                [ span [ class (String.toLower one ++ "-badge") ]
+                    [ text one ]
+                , span [ class (String.toLower two ++ "-badge") ]
+                    [ text two ]
+                ]

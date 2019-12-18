@@ -1,0 +1,89 @@
+.bug-badge {
+    background-color: #A8B820;
+    box-shadow: 0 0.5em #A8B820, 0 -0.5em #A8B820, 0.5em 0 #A8B820, -0.5em 0 #A8B820;
+}
+
+.dark-badge {
+    background-color: #705848;
+    box-shadow: 0 0.5em #705848, 0 -0.5em #705848, 0.5em 0 #705848, -0.5em 0 #705848;
+}
+
+.dragon-badge {
+    background-color: #7038F8;
+    box-shadow: 0 0.5em #7038F8, 0 -0.5em #7038F8, 0.5em 0 #7038F8, -0.5em 0 #7038F8;
+}
+
+.electric-badge {
+    background-color: #F8D030;
+    box-shadow: 0 0.5em #F8D030, 0 -0.5em #F8D030, 0.5em 0 #F8D030, -0.5em 0 #F8D030;
+}
+
+.fairy-badge {
+    background-color: #EE99AC;
+    box-shadow: 0 0.5em #EE99AC, 0 -0.5em #EE99AC, 0.5em 0 #EE99AC, -0.5em 0 #EE99AC;
+}
+
+.fighting-badge {
+    background-color: #C03028;
+    box-shadow: 0 0.5em #C03028, 0 -0.5em #C03028, 0.5em 0 #C03028, -0.5em 0 #C03028;
+}
+
+.fire-badge {
+    background-color: #F08030;
+    box-shadow: 0 0.5em #F08030, 0 -0.5em #F08030, 0.5em 0 #F08030, -0.5em 0 #F08030;
+}
+
+.flying-badge {
+    background-color: #A890F0;
+    box-shadow: 0 0.5em #A890F0, 0 -0.5em #A890F0, 0.5em 0 #A890F0, -0.5em 0 #A890F0;
+}
+
+.ghost-badge {
+    background-color: #705898;
+    box-shadow: 0 0.5em #705898, 0 -0.5em #705898, 0.5em 0 #705898, -0.5em 0 #705898;
+}
+
+.grass-badge {
+    background-color: #78C850;
+    box-shadow: 0 0.5em #78C850, 0 -0.5em #78C850, 0.5em 0 #78C850, -0.5em 0 #78C850;
+}
+
+.ground-badge {
+    background-color: #E0C068;
+    box-shadow: 0 0.5em #E0C068, 0 -0.5em #E0C068, 0.5em 0 #E0C068, -0.5em 0 #E0C068;
+}
+
+.ice-badge {
+    background-color: #98D8D8;
+    box-shadow: 0 0.5em #98D8D8, 0 -0.5em #98D8D8, 0.5em 0 #98D8D8, -0.5em 0 #98D8D8;
+}
+
+.normal-badge {
+    background-color: #A8A878;
+    box-shadow: 0 0.5em #A8A878, 0 -0.5em #A8A878, 0.5em 0 #A8A878, -0.5em 0 #A8A878;
+}
+
+.poison-badge {
+    background-color: #A040A0;
+    box-shadow: 0 0.5em #A040A0, 0 -0.5em #A040A0, 0.5em 0 #A040A0, -0.5em 0 #A040A0;
+}
+
+.psychic-badge {
+    background-color: #F85888;
+    box-shadow: 0 0.5em #F85888, 0 -0.5em #F85888, 0.5em 0 #F85888, -0.5em 0 #F85888;
+}
+
+.rock-badge {
+    background-color: #B8A038;
+    box-shadow: 0 0.5em #B8A038, 0 -0.5em #B8A038, 0.5em 0 #B8A038, -0.5em 0 #B8A038;
+}
+
+.steel-badge {
+    background-color: #B8B8D0;
+    box-shadow: 0 0.5em #B8B8D0, 0 -0.5em #B8B8D0, 0.5em 0 #B8B8D0, -0.5em 0 #B8B8D0;
+}
+
+.water-badge {
+    background-color: #6890F0;
+    box-shadow: 0 0.5em #6890F0, 0 -0.5em #6890F0, 0.5em 0 #6890F0, -0.5em 0 #6890F0;
+}
