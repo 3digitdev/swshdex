@@ -52,12 +52,12 @@
   {
     "name": "Dottler",
     "number": "011",
-    "pokeType": "Bug,Psychic"
+    "pokeType": "Bug/Psychic"
   },
   {
     "name": "Orbeetle",
     "number": "012",
-    "pokeType": "Bug,Psychic"
+    "pokeType": "Bug/Psychic"
   },
   {
     "name": "Caterpie",
@@ -72,7 +72,7 @@
   {
     "name": "Butterfree",
     "number": "015",
-    "pokeType": "Bug,Flying"
+    "pokeType": "Bug/Flying"
   },
   {
     "name": "Grubbin",
@@ -82,22 +82,22 @@
   {
     "name": "Charjabug",
     "number": "017",
-    "pokeType": "Bug,Electric"
+    "pokeType": "Bug/Electric"
   },
   {
     "name": "Vikavolt",
     "number": "018",
-    "pokeType": "Bug,Electric"
+    "pokeType": "Bug/Electric"
   },
   {
     "name": "Hoothoot",
     "number": "019",
-    "pokeType": "Normal,Flying"
+    "pokeType": "Normal/Flying"
   },
   {
     "name": "Noctowl",
     "number": "020",
-    "pokeType": "Normal,Flying"
+    "pokeType": "Normal/Flying"
   },
   {
     "name": "Rookidee",
@@ -112,7 +112,7 @@
   {
     "name": "Corviknight",
     "number": "023",
-    "pokeType": "Flying,Steel"
+    "pokeType": "Flying/Steel"
   },
   {
     "name": "Skwovet",
@@ -127,17 +127,17 @@
   {
     "name": "Pidove",
     "number": "026",
-    "pokeType": "Normal,Flying"
+    "pokeType": "Normal/Flying"
   },
   {
     "name": "Tranquill",
     "number": "027",
-    "pokeType": "Normal,Flying"
+    "pokeType": "Normal/Flying"
   },
   {
     "name": "Unfezant",
     "number": "028",
-    "pokeType": "Normal,Flying"
+    "pokeType": "Normal/Flying"
   },
   {
     "name": "Nickit",
@@ -152,17 +152,17 @@
   {
     "name": "Zigzagoon",
     "number": "031",
-    "pokeType": "Dark,Normal"
+    "pokeType": "Dark/Normal"
   },
   {
     "name": "Linoone",
     "number": "032",
-    "pokeType": "Dark,Normal"
+    "pokeType": "Dark/Normal"
   },
   {
     "name": "Obstagoon",
     "number": "033",
-    "pokeType": "Dark,Normal"
+    "pokeType": "Dark/Normal"
   },
   {
     "name": "Wooloo",
@@ -177,17 +177,17 @@
   {
     "name": "Lotad",
     "number": "036",
-    "pokeType": "Water,Grass"
+    "pokeType": "Water/Grass"
   },
   {
     "name": "Lombre",
     "number": "037",
-    "pokeType": "Water,Grass"
+    "pokeType": "Water/Grass"
   },
   {
     "name": "Ludicolo",
     "number": "038",
-    "pokeType": "Water,Grass"
+    "pokeType": "Water/Grass"
   },
   {
     "name": "Seedot",
@@ -197,12 +197,12 @@
   {
     "name": "Nuzleaf",
     "number": "040",
-    "pokeType": "Grass,Dark"
+    "pokeType": "Grass/Dark"
   },
   {
     "name": "Shiftry",
     "number": "041",
-    "pokeType": "Grass,Dark"
+    "pokeType": "Grass/Dark"
   },
   {
     "name": "Chewtle",
@@ -212,7 +212,7 @@
   {
     "name": "Drednaw",
     "number": "043",
-    "pokeType": "Water,Rock"
+    "pokeType": "Water/Rock"
   },
   {
     "name": "Purrloin",
@@ -242,7 +242,7 @@
   {
     "name": "Diggersby",
     "number": "049",
-    "pokeType": "Normal,Ground"
+    "pokeType": "Normal/Ground"
   },
   {
     "name": "Minccino",
@@ -272,17 +272,17 @@
   {
     "name": "Oddish",
     "number": "055",
-    "pokeType": "Grass,Poison"
+    "pokeType": "Grass/Poison"
   },
   {
     "name": "Gloom",
     "number": "056",
-    "pokeType": "Grass,Poison"
+    "pokeType": "Grass/Poison"
   },
   {
     "name": "Vileplume",
     "number": "057",
-    "pokeType": "Grass,Poison"
+    "pokeType": "Grass/Poison"
   },
   {
     "name": "Bellossom",
@@ -292,37 +292,37 @@
   {
     "name": "Budew",
     "number": "059",
-    "pokeType": "Grass,Poison"
+    "pokeType": "Grass/Poison"
   },
   {
     "name": "Roselia",
     "number": "060",
-    "pokeType": "Grass,Poison"
+    "pokeType": "Grass/Poison"
   },
   {
     "name": "Roserade",
     "number": "061",
-    "pokeType": "Grass,Poison"
+    "pokeType": "Grass/Poison"
   },
   {
     "name": "Wingull",
     "number": "062",
-    "pokeType": "Water,Flying"
+    "pokeType": "Water/Flying"
   },
   {
     "name": "Pelipper",
     "number": "063",
-    "pokeType": "Water,Flying"
+    "pokeType": "Water/Flying"
   },
   {
     "name": "Joltik",
     "number": "064",
-    "pokeType": "Bug,Electric"
+    "pokeType": "Bug/Electric"
   },
   {
     "name": "Galvantula",
     "number": "065",
-    "pokeType": "Bug,Electric"
+    "pokeType": "Bug/Electric"
   },
   {
     "name": "Electrike",
@@ -372,22 +372,22 @@
   {
     "name": "Swinub",
     "number": "075",
-    "pokeType": "Ice,Ground"
+    "pokeType": "Ice/Ground"
   },
   {
     "name": "Piloswine",
     "number": "076",
-    "pokeType": "Ice,Ground"
+    "pokeType": "Ice/Ground"
   },
   {
     "name": "Mamoswine",
     "number": "077",
-    "pokeType": "Ice,Ground"
+    "pokeType": "Ice/Ground"
   },
   {
     "name": "Delibird",
     "number": "078",
-    "pokeType": "Ice,Flying"
+    "pokeType": "Ice/Flying"
   },
   {
     "name": "Snorunt",
@@ -402,17 +402,17 @@
   {
     "name": "Froslass",
     "number": "081",
-    "pokeType": "Ice,Ghost"
+    "pokeType": "Ice/Ghost"
   },
   {
     "name": "Baltoy",
     "number": "082",
-    "pokeType": "Ground,Psychic"
+    "pokeType": "Ground/Psychic"
   },
   {
     "name": "Claydol",
     "number": "083",
-    "pokeType": "Ground,Psychic"
+    "pokeType": "Ground/Psychic"
   },
   {
     "name": "Mudbray",
@@ -427,22 +427,22 @@
   {
     "name": "Dwebble",
     "number": "086",
-    "pokeType": "Bug,Rock"
+    "pokeType": "Bug/Rock"
   },
   {
     "name": "Crustle",
     "number": "087",
-    "pokeType": "Bug,Rock"
+    "pokeType": "Bug/Rock"
   },
   {
     "name": "Golett",
     "number": "088",
-    "pokeType": "Ground,Ghost"
+    "pokeType": "Ground/Ghost"
   },
   {
     "name": "Golurk",
     "number": "089",
-    "pokeType": "Ground,Ghost"
+    "pokeType": "Ground/Ghost"
   },
   {
     "name": "Munna",
@@ -457,32 +457,32 @@
   {
     "name": "Natu",
     "number": "092",
-    "pokeType": "Psychic,Flying"
+    "pokeType": "Psychic/Flying"
   },
   {
     "name": "Xatu",
     "number": "093",
-    "pokeType": "Psychic,Flying"
+    "pokeType": "Psychic/Flying"
   },
   {
     "name": "Stufful",
     "number": "094",
-    "pokeType": "Normal,Fighting"
+    "pokeType": "Normal/Fighting"
   },
   {
     "name": "Bewear",
     "number": "095",
-    "pokeType": "Normal,Fighting"
+    "pokeType": "Normal/Fighting"
   },
   {
     "name": "Snover",
     "number": "096",
-    "pokeType": "Grass,Ice"
+    "pokeType": "Grass/Ice"
   },
   {
     "name": "Abomasnow",
     "number": "097",
-    "pokeType": "Grass,Ice"
+    "pokeType": "Grass/Ice"
   },
   {
     "name": "Krabby",
@@ -497,12 +497,12 @@
   {
     "name": "Wooper",
     "number": "100",
-    "pokeType": "Water,Ground"
+    "pokeType": "Water/Ground"
   },
   {
     "name": "Quagsire",
     "number": "101",
-    "pokeType": "Water,Ground"
+    "pokeType": "Water/Ground"
   },
   {
     "name": "Corphish",
@@ -512,22 +512,22 @@
   {
     "name": "Crawdaunt",
     "number": "103",
-    "pokeType": "Water,Dark"
+    "pokeType": "Water/Dark"
   },
   {
     "name": "Nincada",
     "number": "104",
-    "pokeType": "Bug,Ground"
+    "pokeType": "Bug/Ground"
   },
   {
     "name": "Ninjask",
     "number": "105",
-    "pokeType": "Bug,Flying"
+    "pokeType": "Bug/Flying"
   },
   {
     "name": "Shedinja",
     "number": "106",
-    "pokeType": "Bug,Ghost"
+    "pokeType": "Bug/Ghost"
   },
   {
     "name": "Tyrogue",
@@ -557,7 +557,7 @@
   {
     "name": "Pangoro",
     "number": "112",
-    "pokeType": "Fighting,Dark"
+    "pokeType": "Fighting/Dark"
   },
   {
     "name": "Klink",
@@ -577,52 +577,52 @@
   {
     "name": "Combee",
     "number": "116",
-    "pokeType": "Bug,Flying"
+    "pokeType": "Bug/Flying"
   },
   {
     "name": "Vespiquen",
     "number": "117",
-    "pokeType": "Bug,Flying"
+    "pokeType": "Bug/Flying"
   },
   {
     "name": "Bronzor",
     "number": "118",
-    "pokeType": "Steel,Psychic"
+    "pokeType": "Steel/Psychic"
   },
   {
     "name": "Bronzong",
     "number": "119",
-    "pokeType": "Steel,Psychic"
+    "pokeType": "Steel/Psychic"
   },
   {
     "name": "Ralts",
     "number": "120",
-    "pokeType": "Psychic,Fairy"
+    "pokeType": "Psychic/Fairy"
   },
   {
     "name": "Kirlia",
     "number": "121",
-    "pokeType": "Psychic,Fairy"
+    "pokeType": "Psychic/Fairy"
   },
   {
     "name": "Gardevoir",
     "number": "122",
-    "pokeType": "Psychic,Fairy"
+    "pokeType": "Psychic/Fairy"
   },
   {
     "name": "Gallade",
     "number": "123",
-    "pokeType": "Psychic,Fighting"
+    "pokeType": "Psychic/Fighting"
   },
   {
     "name": "Drifloon",
     "number": "124",
-    "pokeType": "Ghost,Flying"
+    "pokeType": "Ghost/Flying"
   },
   {
     "name": "Drifblim",
     "number": "125",
-    "pokeType": "Ghost,Flying"
+    "pokeType": "Ghost/Flying"
   },
   {
     "name": "Gossifleur",
@@ -647,12 +647,12 @@
   {
     "name": "Stunky",
     "number": "130",
-    "pokeType": "Poison,Dark"
+    "pokeType": "Poison/Dark"
   },
   {
     "name": "Skuntank",
     "number": "131",
-    "pokeType": "Poison,Dark"
+    "pokeType": "Poison/Dark"
   },
   {
     "name": "Tympole",
@@ -662,12 +662,12 @@
   {
     "name": "Palpitoad",
     "number": "133",
-    "pokeType": "Water,Ground"
+    "pokeType": "Water/Ground"
   },
   {
     "name": "Seismitoad",
     "number": "134",
-    "pokeType": "Water,Ground"
+    "pokeType": "Water/Ground"
   },
   {
     "name": "Duskull",
@@ -702,17 +702,17 @@
   {
     "name": "Gastly",
     "number": "141",
-    "pokeType": "Ghost,Poison"
+    "pokeType": "Ghost/Poison"
   },
   {
     "name": "Haunter",
     "number": "142",
-    "pokeType": "Ghost,Poison"
+    "pokeType": "Ghost/Poison"
   },
   {
     "name": "Gengar",
     "number": "143",
-    "pokeType": "Ghost,Poison"
+    "pokeType": "Ghost/Poison"
   },
   {
     "name": "Magikarp",
@@ -722,7 +722,7 @@
   {
     "name": "Gyarados",
     "number": "145",
-    "pokeType": "Water,Flying"
+    "pokeType": "Water/Flying"
   },
   {
     "name": "Goldeen",
@@ -752,7 +752,7 @@
   {
     "name": "Cloyster",
     "number": "151",
-    "pokeType": "Water,Ice"
+    "pokeType": "Water/Ice"
   },
   {
     "name": "Feebas",
@@ -792,12 +792,12 @@
   {
     "name": "Sizzlipede",
     "number": "159",
-    "pokeType": "Fire,Bug"
+    "pokeType": "Fire/Bug"
   },
   {
     "name": "Centiskorch",
     "number": "160",
-    "pokeType": "Fire,Bug"
+    "pokeType": "Fire/Bug"
   },
   {
     "name": "Rolycoly",
@@ -807,12 +807,12 @@
   {
     "name": "Carkol",
     "number": "162",
-    "pokeType": "Rock,Fire"
+    "pokeType": "Rock/Fire"
   },
   {
     "name": "Coalossal",
     "number": "163",
-    "pokeType": "Rock,Fire"
+    "pokeType": "Rock/Fire"
   },
   {
     "name": "Diglett",
@@ -832,7 +832,7 @@
   {
     "name": "Excadrill",
     "number": "167",
-    "pokeType": "Ground,Steel"
+    "pokeType": "Ground/Steel"
   },
   {
     "name": "Roggenrola",
@@ -867,32 +867,32 @@
   {
     "name": "Woobat",
     "number": "174",
-    "pokeType": "Psychic,Flying"
+    "pokeType": "Psychic/Flying"
   },
   {
     "name": "Swoobat",
     "number": "175",
-    "pokeType": "Psychic,Flying"
+    "pokeType": "Psychic/Flying"
   },
   {
     "name": "Noibat",
     "number": "176",
-    "pokeType": "Flying,Dragon"
+    "pokeType": "Flying/Dragon"
   },
   {
     "name": "Noivern",
     "number": "177",
-    "pokeType": "Flying,Dragon"
+    "pokeType": "Flying/Dragon"
   },
   {
     "name": "Onix",
     "number": "178",
-    "pokeType": "Rock,Ground"
+    "pokeType": "Rock/Ground"
   },
   {
     "name": "Steelix",
     "number": "179",
-    "pokeType": "Steel,Ground"
+    "pokeType": "Steel/Ground"
   },
   {
     "name": "Arrokuda",
@@ -932,32 +932,32 @@
   {
     "name": "Cutiefly",
     "number": "187",
-    "pokeType": "Bug,Fairy"
+    "pokeType": "Bug/Fairy"
   },
   {
     "name": "Ribombee",
     "number": "188",
-    "pokeType": "Bug,Fairy"
+    "pokeType": "Bug/Fairy"
   },
   {
     "name": "Ferroseed",
     "number": "189",
-    "pokeType": "Grass,Steel"
+    "pokeType": "Grass/Steel"
   },
   {
     "name": "Ferrothorn",
     "number": "190",
-    "pokeType": "Grass,Steel"
+    "pokeType": "Grass/Steel"
   },
   {
     "name": "Pumpkaboo",
     "number": "191",
-    "pokeType": "Ghost,Grass"
+    "pokeType": "Ghost/Grass"
   },
   {
     "name": "Gourgeist",
     "number": "192",
-    "pokeType": "Ghost,Grass"
+    "pokeType": "Ghost/Grass"
   },
   {
     "name": "Pichu",
@@ -1022,17 +1022,17 @@
   {
     "name": "Applin",
     "number": "205",
-    "pokeType": "Grass,Dragon"
+    "pokeType": "Grass/Dragon"
   },
   {
     "name": "Flapple",
     "number": "206",
-    "pokeType": "Grass,Dragon"
+    "pokeType": "Grass/Dragon"
   },
   {
     "name": "Appletun",
     "number": "207",
-    "pokeType": "Grass,Dragon"
+    "pokeType": "Grass/Dragon"
   },
   {
     "name": "Espurr",
@@ -1067,12 +1067,12 @@
   {
     "name": "Dewpider",
     "number": "214",
-    "pokeType": "Water,Bug"
+    "pokeType": "Water/Bug"
   },
   {
     "name": "Araquanid",
     "number": "215",
-    "pokeType": "Water,Bug"
+    "pokeType": "Water/Bug"
   },
   {
     "name": "Wynaut",
@@ -1097,52 +1097,52 @@
   {
     "name": "Chinchou",
     "number": "220",
-    "pokeType": "Water,Electric"
+    "pokeType": "Water/Electric"
   },
   {
     "name": "Lanturn",
     "number": "221",
-    "pokeType": "Water,Electric"
+    "pokeType": "Water/Electric"
   },
   {
     "name": "Croagunk",
     "number": "222",
-    "pokeType": "Poison,Fighting"
+    "pokeType": "Poison/Fighting"
   },
   {
     "name": "Toxicroak",
     "number": "223",
-    "pokeType": "Poison,Fighting"
+    "pokeType": "Poison/Fighting"
   },
   {
     "name": "Scraggy",
     "number": "224",
-    "pokeType": "Dark,Fighting"
+    "pokeType": "Dark/Fighting"
   },
   {
     "name": "Scrafty",
     "number": "225",
-    "pokeType": "Dark,Fighting"
+    "pokeType": "Dark/Fighting"
   },
   {
     "name": "Stunfisk",
     "number": "226",
-    "pokeType": "Ground,Steel"
+    "pokeType": "Ground/Steel"
   },
   {
     "name": "Shuckle",
     "number": "227",
-    "pokeType": "Bug,Rock"
+    "pokeType": "Bug/Rock"
   },
   {
     "name": "Barboach",
     "number": "228",
-    "pokeType": "Water,Ground"
+    "pokeType": "Water/Ground"
   },
   {
     "name": "Whiscash",
     "number": "229",
-    "pokeType": "Water,Ground"
+    "pokeType": "Water/Ground"
   },
   {
     "name": "Shellos",
@@ -1152,27 +1152,27 @@
   {
     "name": "Gastrodon",
     "number": "231",
-    "pokeType": "Water,Ground"
+    "pokeType": "Water/Ground"
   },
   {
     "name": "Wimpod",
     "number": "232",
-    "pokeType": "Bug,Water"
+    "pokeType": "Bug/Water"
   },
   {
     "name": "Golisopod",
     "number": "233",
-    "pokeType": "Bug,Water"
+    "pokeType": "Bug/Water"
   },
   {
     "name": "Binacle",
     "number": "234",
-    "pokeType": "Rock,Water"
+    "pokeType": "Rock/Water"
   },
   {
     "name": "Barbaracle",
     "number": "235",
-    "pokeType": "Rock,Water"
+    "pokeType": "Rock/Water"
   },
   {
     "name": "Corsola",
@@ -1187,17 +1187,17 @@
   {
     "name": "Impidimp",
     "number": "238",
-    "pokeType": "Dark,Fairy"
+    "pokeType": "Dark/Fairy"
   },
   {
     "name": "Morgrem",
     "number": "239",
-    "pokeType": "Dark,Fairy"
+    "pokeType": "Dark/Fairy"
   },
   {
     "name": "Grimmsnarl",
     "number": "240",
-    "pokeType": "Dark,Fairy"
+    "pokeType": "Dark/Fairy"
   },
   {
     "name": "Hatenna",
@@ -1212,27 +1212,27 @@
   {
     "name": "Hatterene",
     "number": "243",
-    "pokeType": "Psychic,Fairy"
+    "pokeType": "Psychic/Fairy"
   },
   {
     "name": "Salandit",
     "number": "244",
-    "pokeType": "Poison,Fire"
+    "pokeType": "Poison/Fire"
   },
   {
     "name": "Salazzle",
     "number": "245",
-    "pokeType": "Poison,Fire"
+    "pokeType": "Poison/Fire"
   },
   {
     "name": "Pawniard",
     "number": "246",
-    "pokeType": "Dark,Steel"
+    "pokeType": "Dark/Steel"
   },
   {
     "name": "Bisharp",
     "number": "247",
-    "pokeType": "Dark,Steel"
+    "pokeType": "Dark/Steel"
   },
   {
     "name": "Throh",
@@ -1252,7 +1252,7 @@
   {
     "name": "Weezing",
     "number": "251",
-    "pokeType": "Poison,Fairy"
+    "pokeType": "Poison/Fairy"
   },
   {
     "name": "Bonsly",
@@ -1287,12 +1287,12 @@
   {
     "name": "Togetic",
     "number": "258",
-    "pokeType": "Fairy,Flying"
+    "pokeType": "Fairy/Flying"
   },
   {
     "name": "Togekiss",
     "number": "259",
-    "pokeType": "Fairy,Flying"
+    "pokeType": "Fairy/Flying"
   },
   {
     "name": "Munchlax",
@@ -1307,27 +1307,27 @@
   {
     "name": "Cottonee",
     "number": "262",
-    "pokeType": "Grass,Fairy"
+    "pokeType": "Grass/Fairy"
   },
   {
     "name": "Whimsicott",
     "number": "263",
-    "pokeType": "Grass,Fairy"
+    "pokeType": "Grass/Fairy"
   },
   {
     "name": "Rhyhorn",
     "number": "264",
-    "pokeType": "Ground,Rock"
+    "pokeType": "Ground/Rock"
   },
   {
     "name": "Rhydon",
     "number": "265",
-    "pokeType": "Ground,Rock"
+    "pokeType": "Ground/Rock"
   },
   {
     "name": "Rhyperior",
     "number": "266",
-    "pokeType": "Ground,Rock"
+    "pokeType": "Ground/Rock"
   },
   {
     "name": "Gothita",
@@ -1367,7 +1367,7 @@
   {
     "name": "Escavalier",
     "number": "274",
-    "pokeType": "Bug,Steel"
+    "pokeType": "Bug/Steel"
   },
   {
     "name": "Shelmet",
@@ -1402,77 +1402,77 @@
   {
     "name": "Rufflet",
     "number": "281",
-    "pokeType": "Normal,Flying"
+    "pokeType": "Normal/Flying"
   },
   {
     "name": "Braviary",
     "number": "282",
-    "pokeType": "Normal,Flying"
+    "pokeType": "Normal/Flying"
   },
   {
     "name": "Vullaby",
     "number": "283",
-    "pokeType": "Dark,Flying"
+    "pokeType": "Dark/Flying"
   },
   {
     "name": "Mandibuzz",
     "number": "284",
-    "pokeType": "Dark,Flying"
+    "pokeType": "Dark/Flying"
   },
   {
     "name": "Skorupi",
     "number": "285",
-    "pokeType": "Poison,Bug"
+    "pokeType": "Poison/Bug"
   },
   {
     "name": "Drapion",
     "number": "286",
-    "pokeType": "Poison,Dark"
+    "pokeType": "Poison/Dark"
   },
   {
     "name": "Litwick",
     "number": "287",
-    "pokeType": "Ghost,Fire"
+    "pokeType": "Ghost/Fire"
   },
   {
     "name": "Lampent",
     "number": "288",
-    "pokeType": "Ghost,Fire"
+    "pokeType": "Ghost/Fire"
   },
   {
     "name": "Chandelure",
     "number": "289",
-    "pokeType": "Ghost,Fire"
+    "pokeType": "Ghost/Fire"
   },
   {
     "name": "Inkay",
     "number": "290",
-    "pokeType": "Dark,Psychic"
+    "pokeType": "Dark/Psychic"
   },
   {
     "name": "Malamar",
     "number": "291",
-    "pokeType": "Dark,Psychic"
+    "pokeType": "Dark/Psychic"
   },
   {
     "name": "Sneasel",
     "number": "292",
-    "pokeType": "Dark,Ice"
+    "pokeType": "Dark/Ice"
   },
   {
     "name": "Weavile",
     "number": "293",
-    "pokeType": "Dark,Ice"
+    "pokeType": "Dark/Ice"
   },
   {
     "name": "Sableye",
     "number": "294",
-    "pokeType": "Dark,Ghost"
+    "pokeType": "Dark/Ghost"
   },
   {
     "name": "Mawile",
     "number": "295",
-    "pokeType": "Steel,Fairy"
+    "pokeType": "Steel/Fairy"
   },
   {
     "name": "Maractus",
@@ -1482,7 +1482,7 @@
   {
     "name": "Sigilyph",
     "number": "297",
-    "pokeType": "Psychic,Flying"
+    "pokeType": "Psychic/Flying"
   },
   {
     "name": "Riolu",
@@ -1492,7 +1492,7 @@
   {
     "name": "Lucario",
     "number": "299",
-    "pokeType": "Fighting,Steel"
+    "pokeType": "Fighting/Steel"
   },
   {
     "name": "Torkoal",
@@ -1502,7 +1502,7 @@
   {
     "name": "Mimikyu",
     "number": "301",
-    "pokeType": "Ghost,Fairy"
+    "pokeType": "Ghost/Fairy"
   },
   {
     "name": "Cufant",
@@ -1517,42 +1517,42 @@
   {
     "name": "Qwilfish",
     "number": "304",
-    "pokeType": "Water,Poison"
+    "pokeType": "Water/Poison"
   },
   {
     "name": "Frillish",
     "number": "305",
-    "pokeType": "Water,Ghost"
+    "pokeType": "Water/Ghost"
   },
   {
     "name": "Jellicent",
     "number": "306",
-    "pokeType": "Water,Ghost"
+    "pokeType": "Water/Ghost"
   },
   {
     "name": "Mareanie",
     "number": "307",
-    "pokeType": "Poison,Water"
+    "pokeType": "Poison/Water"
   },
   {
     "name": "Toxapex",
     "number": "308",
-    "pokeType": "Poison,Water"
+    "pokeType": "Poison/Water"
   },
   {
     "name": "Cramorant",
     "number": "309",
-    "pokeType": "Flying,Water"
+    "pokeType": "Flying/Water"
   },
   {
     "name": "Toxel",
     "number": "310",
-    "pokeType": "Electric,Poison"
+    "pokeType": "Electric/Poison"
   },
   {
     "name": "Toxtricity",
     "number": "311",
-    "pokeType": "Electric,Poison"
+    "pokeType": "Electric/Poison"
   },
   {
     "name": "Silicobra",
@@ -1577,7 +1577,7 @@
   {
     "name": "Durant",
     "number": "316",
-    "pokeType": "Bug,Steel"
+    "pokeType": "Bug/Steel"
   },
   {
     "name": "Heatmor",
@@ -1587,17 +1587,17 @@
   {
     "name": "Helioptile",
     "number": "318",
-    "pokeType": "Electric,Normal"
+    "pokeType": "Electric/Normal"
   },
   {
     "name": "Heliolisk",
     "number": "319",
-    "pokeType": "Electric,Normal"
+    "pokeType": "Electric/Normal"
   },
   {
     "name": "Hawlucha",
     "number": "320",
-    "pokeType": "Fighting,Flying"
+    "pokeType": "Fighting/Flying"
   },
   {
     "name": "Trapinch",
@@ -1607,12 +1607,12 @@
   {
     "name": "Vibrava",
     "number": "322",
-    "pokeType": "Ground,Dragon"
+    "pokeType": "Ground/Dragon"
   },
   {
     "name": "Flygon",
     "number": "323",
-    "pokeType": "Ground,Dragon"
+    "pokeType": "Ground/Dragon"
   },
   {
     "name": "Axew",
@@ -1632,12 +1632,12 @@
   {
     "name": "Yamask",
     "number": "327",
-    "pokeType": "Ground,Ghost"
+    "pokeType": "Ground/Ghost"
   },
   {
     "name": "Runerigus",
     "number": "328",
-    "pokeType": "Ground,Ghost"
+    "pokeType": "Ground/Ghost"
   },
   {
     "name": "Cofagrigus",
@@ -1647,17 +1647,17 @@
   {
     "name": "Honedge",
     "number": "330",
-    "pokeType": "Steel,Ghost"
+    "pokeType": "Steel/Ghost"
   },
   {
     "name": "Doublade",
     "number": "331",
-    "pokeType": "Steel,Ghost"
+    "pokeType": "Steel/Ghost"
   },
   {
     "name": "Aegislash",
     "number": "332",
-    "pokeType": "Steel,Ghost"
+    "pokeType": "Steel/Ghost"
   },
   {
     "name": "Ponyta",
@@ -1667,7 +1667,7 @@
   {
     "name": "Rapidash",
     "number": "334",
-    "pokeType": "Psychic,Fairy"
+    "pokeType": "Psychic/Fairy"
   },
   {
     "name": "Sinistea",
@@ -1682,32 +1682,32 @@
   {
     "name": "Indeedee",
     "number": "337",
-    "pokeType": "Psychic,Normal"
+    "pokeType": "Psychic/Normal"
   },
   {
     "name": "Phantump",
     "number": "338",
-    "pokeType": "Ghost,Grass"
+    "pokeType": "Ghost/Grass"
   },
   {
     "name": "Trevenant",
     "number": "339",
-    "pokeType": "Ghost,Grass"
+    "pokeType": "Ghost/Grass"
   },
   {
     "name": "Morelull",
     "number": "340",
-    "pokeType": "Grass,Fairy"
+    "pokeType": "Grass/Fairy"
   },
   {
     "name": "Shiinotic",
     "number": "341",
-    "pokeType": "Grass,Fairy"
+    "pokeType": "Grass/Fairy"
   },
   {
     "name": "Oranguru",
     "number": "342",
-    "pokeType": "Normal,Psychic"
+    "pokeType": "Normal/Psychic"
   },
   {
     "name": "Passimian",
@@ -1717,7 +1717,7 @@
   {
     "name": "Morpeko",
     "number": "344",
-    "pokeType": "Electric,Dark"
+    "pokeType": "Electric/Dark"
   },
   {
     "name": "Falinks",
@@ -1727,27 +1727,27 @@
   {
     "name": "Drampa",
     "number": "346",
-    "pokeType": "Normal,Dragon"
+    "pokeType": "Normal/Dragon"
   },
   {
     "name": "Turtonator",
     "number": "347",
-    "pokeType": "Fire,Dragon"
+    "pokeType": "Fire/Dragon"
   },
   {
     "name": "Togedemaru",
     "number": "348",
-    "pokeType": "Electric,Steel"
+    "pokeType": "Electric/Steel"
   },
   {
     "name": "Snom",
     "number": "349",
-    "pokeType": "Ice,Bug"
+    "pokeType": "Ice/Bug"
   },
   {
     "name": "Frosmoth",
     "number": "350",
-    "pokeType": "Ice,Bug"
+    "pokeType": "Ice/Bug"
   },
   {
     "name": "Clobbopus",
@@ -1767,12 +1767,12 @@
   {
     "name": "Mantyke",
     "number": "354",
-    "pokeType": "Water,Flying"
+    "pokeType": "Water/Flying"
   },
   {
     "name": "Mantine",
     "number": "355",
-    "pokeType": "Water,Flying"
+    "pokeType": "Water/Flying"
   },
   {
     "name": "Wailmer",
@@ -1797,37 +1797,37 @@
   {
     "name": "Dhelmise",
     "number": "360",
-    "pokeType": "Ghost,Grass"
+    "pokeType": "Ghost/Grass"
   },
   {
     "name": "Lapras",
     "number": "361",
-    "pokeType": "Water,Ice"
+    "pokeType": "Water/Ice"
   },
   {
     "name": "Lunatone",
     "number": "362",
-    "pokeType": "Rock,Psychic"
+    "pokeType": "Rock/Psychic"
   },
   {
     "name": "Solrock",
     "number": "363",
-    "pokeType": "Rock,Psychic"
+    "pokeType": "Rock/Psychic"
   },
   {
     "name": "Mime Jr.",
     "number": "364",
-    "pokeType": "Psychic,Fairy"
+    "pokeType": "Psychic/Fairy"
   },
   {
     "name": "Mr. Mime",
     "number": "365",
-    "pokeType": "Ice,Psychic"
+    "pokeType": "Ice/Psychic"
   },
   {
     "name": "Mr. Rime",
     "number": "366",
-    "pokeType": "Ice,Psychic"
+    "pokeType": "Ice/Psychic"
   },
   {
     "name": "Darumaka",
@@ -1852,12 +1852,12 @@
   {
     "name": "Duraludon",
     "number": "371",
-    "pokeType": "Steel,Dragon"
+    "pokeType": "Steel/Dragon"
   },
   {
     "name": "Rotom",
     "number": "372",
-    "pokeType": "Electric,Ghost"
+    "pokeType": "Electric/Ghost"
   },
   {
     "name": "Ditto",
@@ -1867,22 +1867,22 @@
   {
     "name": "Dracozolt",
     "number": "374",
-    "pokeType": "Electric,Dragon"
+    "pokeType": "Electric/Dragon"
   },
   {
     "name": "Arctozolt",
     "number": "375",
-    "pokeType": "Electric,Ice"
+    "pokeType": "Electric/Ice"
   },
   {
     "name": "Dracovish",
     "number": "376",
-    "pokeType": "Water,Dragon"
+    "pokeType": "Water/Dragon"
   },
   {
     "name": "Arctovish",
     "number": "377",
-    "pokeType": "Water,Ice"
+    "pokeType": "Water/Ice"
   },
   {
     "name": "Charmander",
@@ -1897,7 +1897,7 @@
   {
     "name": "Charizard",
     "number": "380",
-    "pokeType": "Fire,Flying"
+    "pokeType": "Fire/Flying"
   },
   {
     "name": "Type: Null",
@@ -1912,32 +1912,32 @@
   {
     "name": "Larvitar",
     "number": "383",
-    "pokeType": "Rock,Ground"
+    "pokeType": "Rock/Ground"
   },
   {
     "name": "Pupitar",
     "number": "384",
-    "pokeType": "Rock,Ground"
+    "pokeType": "Rock/Ground"
   },
   {
     "name": "Tyranitar",
     "number": "385",
-    "pokeType": "Rock,Dark"
+    "pokeType": "Rock/Dark"
   },
   {
     "name": "Deino",
     "number": "386",
-    "pokeType": "Dark,Dragon"
+    "pokeType": "Dark/Dragon"
   },
   {
     "name": "Zweilous",
     "number": "387",
-    "pokeType": "Dark,Dragon"
+    "pokeType": "Dark/Dragon"
   },
   {
     "name": "Hydreigon",
     "number": "388",
-    "pokeType": "Dark,Dragon"
+    "pokeType": "Dark/Dragon"
   },
   {
     "name": "Goomy",
@@ -1962,41 +1962,41 @@
   {
     "name": "Hakamo-o",
     "number": "393",
-    "pokeType": "Dragon,Fighting"
+    "pokeType": "Dragon/Fighting"
   },
   {
     "name": "Kommo-o",
     "number": "394",
-    "pokeType": "Dragon,Fighting"
+    "pokeType": "Dragon/Fighting"
   },
   {
     "name": "Dreepy",
     "number": "395",
-    "pokeType": "Dragon,Ghost"
+    "pokeType": "Dragon/Ghost"
   },
   {
     "name": "Drakloak",
     "number": "396",
-    "pokeType": "Dragon,Ghost"
+    "pokeType": "Dragon/Ghost"
   },
   {
     "name": "Dragapult",
     "number": "397",
-    "pokeType": "Dragon,Ghost"
+    "pokeType": "Dragon/Ghost"
   },
   {
     "name": "Zacian",
     "number": "398",
-    "pokeType": "Steel,Fairy"
+    "pokeType": "Steel/Fairy"
   },
   {
     "name": "Zamazenta",
     "number": "399",
-    "pokeType": "Fighting,Steel"
+    "pokeType": "Fighting/Steel"
   },
   {
     "name": "Eternatus",
     "number": "400",
-    "pokeType": "Poison,Dragon"
+    "pokeType": "Poison/Dragon"
   }
 ]

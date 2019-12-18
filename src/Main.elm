@@ -10,6 +10,7 @@ import Json.Decode as JD exposing (decodeString, dict, list, string)
 import List.Extra as LX exposing (find)
 import Maybe.Extra as MX exposing (orElse)
 import String exposing (join, split)
+import Task exposing (perform, succeed)
 import Tuple2 as TX exposing (uncurry)
 
 
@@ -58,7 +59,6 @@ type alias Pokemon =
 
 type Mode
     = TypeInfo
-    | DualTypeMatchup
     | Pokedex
 
 
@@ -68,7 +68,6 @@ type alias Model =
     , searchResults : List Pokemon
     , selectedTypes : ( Maybe String, Maybe String )
     , mode : Mode
-    , currentType : Maybe Type
     , currentTypeDefenses : Defenses
     , currentPokemon : Maybe Pokemon
     }
@@ -76,6 +75,16 @@ type alias Model =
 
 
 -- Loading Data
+
+
+typeToString : PokemonType -> String
+typeToString pokemonType =
+    case pokemonType of
+        Single typeStr ->
+            typeStr
+
+        Dual one two ->
+            one ++ " / " ++ two
 
 
 decodeTypeData : JD.Decoder Type
@@ -134,8 +143,7 @@ initModel =
     , allPokemon = []
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
-    , mode = DualTypeMatchup
-    , currentType = Maybe.Nothing
+    , mode = Pokedex
     , currentTypeDefenses = Defenses [] [] [] [] []
     , currentPokemon = Maybe.Nothing
     }
@@ -160,7 +168,7 @@ update msg model =
             )
 
         ChangeMode mode ->
-            ( { model | mode = mode }, Cmd.none )
+            ( { model | mode = mode, selectedTypes = ( Nothing, Nothing ), searchResults = [] }, Cmd.none )
 
         TypesLoaded result ->
             case result of
@@ -181,19 +189,36 @@ update msg model =
         SearchPokedex searchStr ->
             let
                 results =
-                    model.allPokemon
-                        |> List.filter (\pokemon -> pokemon.name |> String.startsWith searchStr)
+                    case searchStr of
+                        "" ->
+                            []
+
+                        _ ->
+                            model.allPokemon |> findMatchByName searchStr
             in
             ( { model | searchResults = results }, Cmd.none )
-
-        ChangeCurrentType typeName ->
-            ( { model | currentType = LX.find (\t -> t.name == typeName) model.allTypes }, Cmd.none )
 
         SelectType typeName ->
             ( model |> updatedSelectedTypes typeName, Cmd.none )
 
-        BackToTypeList ->
-            ( { model | currentType = Maybe.Nothing }, Cmd.none )
+        SetType pokeType ->
+            let
+                ( newModel, nextType ) =
+                    case pokeType of
+                        Single t ->
+                            ( { model | selectedTypes = ( Nothing, Nothing ) }, t )
+
+                        Dual one two ->
+                            ( { model | selectedTypes = ( Just one, Nothing ) }, two )
+            in
+            ( { newModel | mode = TypeInfo }
+            , nextType
+                |> Task.succeed
+                |> Task.perform SelectType
+            )
+
+        ResetTypeSelections ->
+            ( { model | selectedTypes = ( Nothing, Nothing ) }, Cmd.none )
 
 
 type Msg
@@ -202,10 +227,40 @@ type Msg
     | TypesLoaded (Result Http.Error (List Type))
     | PokemonLoaded (Result Http.Error (List Pokemon))
     | SearchPokedex String
-    | ChangeCurrentType String
     | SelectType String
-    | BackToTypeList
+    | SetType PokemonType
+    | ResetTypeSelections
     | NoOp
+
+
+findMatchByName : String -> List Pokemon -> List Pokemon
+findMatchByName searchTerm pokemonList =
+    let
+        matchFront =
+            pokemonList
+                |> List.filter
+                    (\p ->
+                        String.toLower p.name
+                            |> String.startsWith (String.toLower searchTerm)
+                    )
+
+        matchAnywhere =
+            pokemonList
+                |> List.filter
+                    (\p ->
+                        String.toLower p.name
+                            |> String.contains (String.toLower searchTerm)
+                    )
+    in
+    -- Match on "start of string" first, but show any results
+    case String.length searchTerm of
+        1 ->
+            matchFront
+
+        _ ->
+            matchAnywhere
+                |> List.append matchFront
+                |> LX.uniqueBy (\r -> r.number)
 
 
 updatedSelectedTypes : String -> Model -> Model
@@ -367,32 +422,53 @@ typeIsSelected ( one, two ) typeStr =
             a == typeStr || b == typeStr
 
 
+setTypeColorProps : List String -> String -> String
+setTypeColorProps propsList tStr =
+    let
+        typeStr =
+            String.toLower tStr
+    in
+    propsList
+        |> List.map (\prop -> typeStr ++ "-" ++ prop ++ "-color")
+        |> String.join " "
+
+
+renderTypeBadge : PokemonType -> Html Msg
+renderTypeBadge pokeType =
+    case pokeType of
+        Single t ->
+            a [ class "nes-badge" ]
+                [ span
+                    [ class (String.toLower t ++ "-badge") ]
+                    [ text (pokeType |> typeToString) ]
+                ]
+
+        Dual one two ->
+            a [ class "nes-badge" ]
+                [ span [ class (String.toLower one ++ "-badge") ]
+                    [ text one ]
+                , span [ class (String.toLower two ++ "-badge") ]
+                    [ text two ]
+                ]
+
+
 renderTypeButton : String -> Model -> Html Msg
 renderTypeButton typeStr model =
     let
-        ( tdClass, clickFn ) =
+        ( innerText, clickFn ) =
             case model.mode of
-                DualTypeMatchup ->
+                TypeInfo ->
                     if typeStr |> typeIsSelected model.selectedTypes then
-                        ( "type-link type-selected", SelectType )
+                        ( "> " ++ typeStr ++ " <", SelectType )
 
                     else
-                        ( "type-link", SelectType )
+                        ( typeStr, SelectType )
 
                 _ ->
-                    case model.currentType of
-                        Nothing ->
-                            ( "type-link", ChangeCurrentType )
-
-                        Just a ->
-                            if a.name == typeStr then
-                                ( "type-link type-selected", ChangeCurrentType )
-
-                            else
-                                ( "type-link", ChangeCurrentType )
+                    ( typeStr, SelectType )
     in
-    td [ class tdClass, onClick (clickFn typeStr) ]
-        [ text typeStr ]
+    td [ class "type-link", onClick (clickFn typeStr) ]
+        [ text innerText ]
 
 
 renderTypeList : Model -> Html Msg
@@ -406,8 +482,8 @@ renderTypeList model =
                 grouped =
                     typeData |> LX.groupsOf 2
             in
-            div [ class "types" ]
-                [ table [ class "type-table" ]
+            div [ class "type-table nes-table-responsive" ]
+                [ table [ class "nes-table is-bordered is-centered" ]
                     (List.map
                         (\two ->
                             tr []
@@ -423,19 +499,44 @@ renderTypeList model =
                 ]
 
 
+renderPokemon : Pokemon -> Html Msg
+renderPokemon pokemon =
+    li [ class "search-result-item" ]
+        [ text ("#" ++ pokemon.number ++ " — ")
+        , strong [] [ text pokemon.name ]
+        , div
+            [ class "type-link"
+            , onClick (SetType pokemon.pokeType)
+            ]
+            [ pokemon.pokeType |> renderTypeBadge ]
+        ]
+
+
 renderPokedex : Model -> Html Msg
 renderPokedex model =
     div [ class "pokedex" ]
         [ h1 [] [ text "Pokemon" ]
-        , input
-            [ class "dex-search"
-            , onInput SearchPokedex
-            , height 50
-            , type_ "text"
+        , div [ class "nes-field" ]
+            [ label [ for "search-box" ]
+                [ text "Search:" ]
+            , input
+                [ class "nes-input dex-search"
+                , onInput SearchPokedex
+                , id "search-box"
+                , type_ "text"
+                ]
+                []
             ]
-            []
-        , ul [] (List.map (\result -> li [] [ text result.name ]) model.searchResults)
+        , ul [] (List.map renderPokemon model.searchResults)
         ]
+
+
+renderBadgeList : List String -> Html Msg
+renderBadgeList typeList =
+    div [ class "badge-container" ]
+        (typeList
+            |> List.map (\i -> renderTypeBadge (Single i))
+        )
 
 
 renderDefenseInfoSet : List String -> String -> Html Msg
@@ -445,7 +546,10 @@ renderDefenseInfoSet typeList modifier =
             div [] []
 
         items ->
-            p [] [ text ("Receives " ++ modifier ++ " damage from: " ++ String.join ", " items) ]
+            p []
+                [ strong [] [ text (modifier ++ " damage from: ") ]
+                , renderBadgeList items
+                ]
 
 
 renderDefenses : Model -> Html Msg
@@ -470,9 +574,14 @@ renderSingleInfoSet typeList preText =
 
         items ->
             div []
-                [ h3 [] [ text preText ]
-                , p [] [ text (String.join ", " items) ]
+                [ h4 [] [ text preText ]
+                , renderBadgeList items
                 ]
+
+
+
+-- , p [] [ text (String.join ", " items) ]
+-- ]
 
 
 renderSingleTypeInfo : Model -> String -> Html Msg
@@ -488,12 +597,12 @@ renderSingleTypeInfo model typeName =
             div [] []
 
         Just typeInfo ->
-            div []
-                [ h2 [] [ text (typeName ++ " Type:") ]
+            div [ class "nes-container with-title is-rounded" ]
+                [ p [ class "title" ] [ text (typeName ++ " Type") ]
                 , renderSingleInfoSet typeInfo.strengths "Super effective against:"
                 , renderSingleInfoSet typeInfo.ineffectives "Not very effective against:"
                 , renderSingleInfoSet typeInfo.weaknesses "Weak to:"
-                , renderDefenseInfoSet typeInfo.noEffects "Has no effect on:"
+                , renderSingleInfoSet typeInfo.noEffects "Has no effect on:"
                 ]
 
 
@@ -501,8 +610,8 @@ renderTypeInfo : Model -> Html Msg
 renderTypeInfo model =
     case model.selectedTypes of
         ( Just one, Just two ) ->
-            div []
-                [ h2 [] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
+            div [ class "nes-container with-title is-rounded" ]
+                [ p [ class "title" ] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
                 , renderDefenses model
                 ]
 
@@ -519,28 +628,25 @@ renderTypeInfo model =
 view : Model -> Html Msg
 view model =
     let
-        renderTypeMatchup =
-            case model.currentType of
-                Just typeData ->
-                    renderTypeList model
-
-                Maybe.Nothing ->
-                    renderTypeList model
-
         renderFn =
             case model.mode of
                 TypeInfo ->
-                    renderTypeMatchup
-
-                DualTypeMatchup ->
-                    div []
-                        [ renderTypeList model
-                        , renderTypeInfo model
+                    [ div [ class "btn-container" ]
+                        [ button [ class "nes-btn reset-btn", onClick ResetTypeSelections ] [ text "RESET" ]
+                        , button [ class "nes-btn", onClick (ChangeMode Pokedex) ] [ text "POKEDEX" ]
                         ]
+                    , renderTypeList model
+                    , renderTypeInfo model
+                    ]
 
                 Pokedex ->
-                    renderPokedex model
+                    [ div [ class "btn-container" ]
+                        [ button
+                            [ class "nes-btn", onClick (ChangeMode TypeInfo) ]
+                            [ text "TYPE MATCHUPS" ]
+                        ]
+                    , renderPokedex model
+                    ]
     in
     div [ class "container" ]
-        [ renderFn
-        ]
+        renderFn

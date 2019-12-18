@@ -5324,20 +5324,23 @@ var $author$project$Main$Defenses = F5(
 	function (x4, x2, x0, half, quarter) {
 		return {half: half, quarter: quarter, x0: x0, x2: x2, x4: x4};
 	});
-var $author$project$Main$DualTypeMatchup = {$: 'DualTypeMatchup'};
+var $author$project$Main$Pokedex = {$: 'Pokedex'};
 var $author$project$Main$initModel = {
 	allPokemon: _List_Nil,
 	allTypes: _List_Nil,
 	currentPokemon: $elm$core$Maybe$Nothing,
-	currentType: $elm$core$Maybe$Nothing,
 	currentTypeDefenses: A5($author$project$Main$Defenses, _List_Nil, _List_Nil, _List_Nil, _List_Nil, _List_Nil),
-	mode: $author$project$Main$DualTypeMatchup,
+	mode: $author$project$Main$Pokedex,
 	searchResults: _List_Nil,
 	selectedTypes: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
 };
 var $author$project$Main$PokemonLoaded = function (a) {
 	return {$: 'PokemonLoaded', a: a};
 };
+var $author$project$Main$SelectType = function (a) {
+	return {$: 'SelectType', a: a};
+};
+var $author$project$Main$TypeInfo = {$: 'TypeInfo'};
 var $author$project$Main$TypesLoaded = function (a) {
 	return {$: 'TypesLoaded', a: a};
 };
@@ -5421,6 +5424,14 @@ var $author$project$Main$decodeTypeData = A6(
 		$elm$json$Json$Decode$field,
 		'no_effects',
 		$elm$json$Json$Decode$list($elm$json$Json$Decode$string)));
+var $elm$core$List$append = F2(
+	function (xs, ys) {
+		if (!ys.b) {
+			return xs;
+		} else {
+			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
+		}
+	});
 var $elm$core$List$filter = F2(
 	function (isGood, list) {
 		return A3(
@@ -5432,89 +5443,13 @@ var $elm$core$List$filter = F2(
 			_List_Nil,
 			list);
 	});
-var $elm_community$list_extra$List$Extra$find = F2(
-	function (predicate, list) {
-		find:
-		while (true) {
-			if (!list.b) {
-				return $elm$core$Maybe$Nothing;
-			} else {
-				var first = list.a;
-				var rest = list.b;
-				if (predicate(first)) {
-					return $elm$core$Maybe$Just(first);
-				} else {
-					var $temp$predicate = predicate,
-						$temp$list = rest;
-					predicate = $temp$predicate;
-					list = $temp$list;
-					continue find;
-				}
-			}
-		}
-	});
-var $elm$json$Json$Decode$decodeString = _Json_runOnString;
-var $elm$http$Http$BadStatus_ = F2(
-	function (a, b) {
-		return {$: 'BadStatus_', a: a, b: b};
-	});
-var $elm$http$Http$BadUrl_ = function (a) {
-	return {$: 'BadUrl_', a: a};
+var $elm$core$String$toLower = _String_toLower;
+var $elm$core$Set$Set_elm_builtin = function (a) {
+	return {$: 'Set_elm_builtin', a: a};
 };
-var $elm$http$Http$GoodStatus_ = F2(
-	function (a, b) {
-		return {$: 'GoodStatus_', a: a, b: b};
-	});
-var $elm$http$Http$NetworkError_ = {$: 'NetworkError_'};
-var $elm$http$Http$Receiving = function (a) {
-	return {$: 'Receiving', a: a};
-};
-var $elm$http$Http$Sending = function (a) {
-	return {$: 'Sending', a: a};
-};
-var $elm$http$Http$Timeout_ = {$: 'Timeout_'};
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: 'RBEmpty_elm_builtin'};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
-var $elm$core$Maybe$isJust = function (maybe) {
-	if (maybe.$ === 'Just') {
-		return true;
-	} else {
-		return false;
-	}
-};
-var $elm$core$Platform$sendToSelf = _Platform_sendToSelf;
-var $elm$core$Basics$compare = _Utils_compare;
-var $elm$core$Dict$get = F2(
-	function (targetKey, dict) {
-		get:
-		while (true) {
-			if (dict.$ === 'RBEmpty_elm_builtin') {
-				return $elm$core$Maybe$Nothing;
-			} else {
-				var key = dict.b;
-				var value = dict.c;
-				var left = dict.d;
-				var right = dict.e;
-				var _v1 = A2($elm$core$Basics$compare, targetKey, key);
-				switch (_v1.$) {
-					case 'LT':
-						var $temp$targetKey = targetKey,
-							$temp$dict = left;
-						targetKey = $temp$targetKey;
-						dict = $temp$dict;
-						continue get;
-					case 'EQ':
-						return $elm$core$Maybe$Just(value);
-					default:
-						var $temp$targetKey = targetKey,
-							$temp$dict = right;
-						targetKey = $temp$targetKey;
-						dict = $temp$dict;
-						continue get;
-				}
-			}
-		}
-	});
+var $elm$core$Set$empty = $elm$core$Set$Set_elm_builtin($elm$core$Dict$empty);
 var $elm$core$Dict$Black = {$: 'Black'};
 var $elm$core$Dict$RBNode_elm_builtin = F5(
 	function (a, b, c, d, e) {
@@ -5575,6 +5510,7 @@ var $elm$core$Dict$balance = F5(
 			}
 		}
 	});
+var $elm$core$Basics$compare = _Utils_compare;
 var $elm$core$Dict$insertHelp = F3(
 	function (key, value, dict) {
 		if (dict.$ === 'RBEmpty_elm_builtin') {
@@ -5623,6 +5559,155 @@ var $elm$core$Dict$insert = F3(
 			return x;
 		}
 	});
+var $elm$core$Set$insert = F2(
+	function (key, _v0) {
+		var dict = _v0.a;
+		return $elm$core$Set$Set_elm_builtin(
+			A3($elm$core$Dict$insert, key, _Utils_Tuple0, dict));
+	});
+var $elm$core$Dict$get = F2(
+	function (targetKey, dict) {
+		get:
+		while (true) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
+				return $elm$core$Maybe$Nothing;
+			} else {
+				var key = dict.b;
+				var value = dict.c;
+				var left = dict.d;
+				var right = dict.e;
+				var _v1 = A2($elm$core$Basics$compare, targetKey, key);
+				switch (_v1.$) {
+					case 'LT':
+						var $temp$targetKey = targetKey,
+							$temp$dict = left;
+						targetKey = $temp$targetKey;
+						dict = $temp$dict;
+						continue get;
+					case 'EQ':
+						return $elm$core$Maybe$Just(value);
+					default:
+						var $temp$targetKey = targetKey,
+							$temp$dict = right;
+						targetKey = $temp$targetKey;
+						dict = $temp$dict;
+						continue get;
+				}
+			}
+		}
+	});
+var $elm$core$Dict$member = F2(
+	function (key, dict) {
+		var _v0 = A2($elm$core$Dict$get, key, dict);
+		if (_v0.$ === 'Just') {
+			return true;
+		} else {
+			return false;
+		}
+	});
+var $elm$core$Set$member = F2(
+	function (key, _v0) {
+		var dict = _v0.a;
+		return A2($elm$core$Dict$member, key, dict);
+	});
+var $elm_community$list_extra$List$Extra$uniqueHelp = F4(
+	function (f, existing, remaining, accumulator) {
+		uniqueHelp:
+		while (true) {
+			if (!remaining.b) {
+				return $elm$core$List$reverse(accumulator);
+			} else {
+				var first = remaining.a;
+				var rest = remaining.b;
+				var computedFirst = f(first);
+				if (A2($elm$core$Set$member, computedFirst, existing)) {
+					var $temp$f = f,
+						$temp$existing = existing,
+						$temp$remaining = rest,
+						$temp$accumulator = accumulator;
+					f = $temp$f;
+					existing = $temp$existing;
+					remaining = $temp$remaining;
+					accumulator = $temp$accumulator;
+					continue uniqueHelp;
+				} else {
+					var $temp$f = f,
+						$temp$existing = A2($elm$core$Set$insert, computedFirst, existing),
+						$temp$remaining = rest,
+						$temp$accumulator = A2($elm$core$List$cons, first, accumulator);
+					f = $temp$f;
+					existing = $temp$existing;
+					remaining = $temp$remaining;
+					accumulator = $temp$accumulator;
+					continue uniqueHelp;
+				}
+			}
+		}
+	});
+var $elm_community$list_extra$List$Extra$uniqueBy = F2(
+	function (f, list) {
+		return A4($elm_community$list_extra$List$Extra$uniqueHelp, f, $elm$core$Set$empty, list, _List_Nil);
+	});
+var $author$project$Main$findMatchByName = F2(
+	function (searchTerm, pokemonList) {
+		var matchFront = A2(
+			$elm$core$List$filter,
+			function (p) {
+				return A2(
+					$elm$core$String$startsWith,
+					$elm$core$String$toLower(searchTerm),
+					$elm$core$String$toLower(p.name));
+			},
+			pokemonList);
+		var matchAnywhere = A2(
+			$elm$core$List$filter,
+			function (p) {
+				return A2(
+					$elm$core$String$contains,
+					$elm$core$String$toLower(searchTerm),
+					$elm$core$String$toLower(p.name));
+			},
+			pokemonList);
+		var _v0 = $elm$core$String$length(searchTerm);
+		if (_v0 === 1) {
+			return matchFront;
+		} else {
+			return A2(
+				$elm_community$list_extra$List$Extra$uniqueBy,
+				function (r) {
+					return r.number;
+				},
+				A2($elm$core$List$append, matchFront, matchAnywhere));
+		}
+	});
+var $elm$json$Json$Decode$decodeString = _Json_runOnString;
+var $elm$http$Http$BadStatus_ = F2(
+	function (a, b) {
+		return {$: 'BadStatus_', a: a, b: b};
+	});
+var $elm$http$Http$BadUrl_ = function (a) {
+	return {$: 'BadUrl_', a: a};
+};
+var $elm$http$Http$GoodStatus_ = F2(
+	function (a, b) {
+		return {$: 'GoodStatus_', a: a, b: b};
+	});
+var $elm$http$Http$NetworkError_ = {$: 'NetworkError_'};
+var $elm$http$Http$Receiving = function (a) {
+	return {$: 'Receiving', a: a};
+};
+var $elm$http$Http$Sending = function (a) {
+	return {$: 'Sending', a: a};
+};
+var $elm$http$Http$Timeout_ = {$: 'Timeout_'};
+var $elm$core$Maybe$isJust = function (maybe) {
+	if (maybe.$ === 'Just') {
+		return true;
+	} else {
+		return false;
+	}
+};
+var $elm$core$Platform$sendToSelf = _Platform_sendToSelf;
 var $elm$core$Dict$getMin = function (dict) {
 	getMin:
 	while (true) {
@@ -6252,14 +6337,6 @@ var $author$project$Main$getDataList = F3(
 			});
 	});
 var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $elm$core$List$append = F2(
-	function (xs, ys) {
-		if (!ys.b) {
-			return xs;
-		} else {
-			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
-		}
-	});
 var $author$project$Main$assignByValue = F2(
 	function (_v0, defenses) {
 		var val = _v0.a;
@@ -6552,7 +6629,11 @@ var $author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{mode: mode}),
+						{
+							mode: mode,
+							searchResults: _List_Nil,
+							selectedTypes: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
+						}),
 					$elm$core$Platform$Cmd$none);
 			case 'TypesLoaded':
 				var result = msg.a;
@@ -6582,41 +6663,66 @@ var $author$project$Main$update = F2(
 				}
 			case 'SearchPokedex':
 				var searchStr = msg.a;
-				var results = A2(
-					$elm$core$List$filter,
-					function (pokemon) {
-						return A2($elm$core$String$startsWith, searchStr, pokemon.name);
-					},
-					model.allPokemon);
+				var results = function () {
+					if (searchStr === '') {
+						return _List_Nil;
+					} else {
+						return A2($author$project$Main$findMatchByName, searchStr, model.allPokemon);
+					}
+				}();
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
 						{searchResults: results}),
-					$elm$core$Platform$Cmd$none);
-			case 'ChangeCurrentType':
-				var typeName = msg.a;
-				return _Utils_Tuple2(
-					_Utils_update(
-						model,
-						{
-							currentType: A2(
-								$elm_community$list_extra$List$Extra$find,
-								function (t) {
-									return _Utils_eq(t.name, typeName);
-								},
-								model.allTypes)
-						}),
 					$elm$core$Platform$Cmd$none);
 			case 'SelectType':
 				var typeName = msg.a;
 				return _Utils_Tuple2(
 					A2($author$project$Main$updatedSelectedTypes, typeName, model),
 					$elm$core$Platform$Cmd$none);
+			case 'SetType':
+				var pokeType = msg.a;
+				var _v4 = function () {
+					if (pokeType.$ === 'Single') {
+						var t = pokeType.a;
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{
+									selectedTypes: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
+								}),
+							t);
+					} else {
+						var one = pokeType.a;
+						var two = pokeType.b;
+						return _Utils_Tuple2(
+							_Utils_update(
+								model,
+								{
+									selectedTypes: _Utils_Tuple2(
+										$elm$core$Maybe$Just(one),
+										$elm$core$Maybe$Nothing)
+								}),
+							two);
+					}
+				}();
+				var newModel = _v4.a;
+				var nextType = _v4.b;
+				return _Utils_Tuple2(
+					_Utils_update(
+						newModel,
+						{mode: $author$project$Main$TypeInfo}),
+					A2(
+						$elm$core$Task$perform,
+						$author$project$Main$SelectType,
+						$elm$core$Task$succeed(nextType)));
 			default:
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{currentType: $elm$core$Maybe$Nothing}),
+						{
+							selectedTypes: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
+						}),
 					$elm$core$Platform$Cmd$none);
 		}
 	});
@@ -6628,6 +6734,11 @@ var $elm$core$Platform$Sub$none = $elm$core$Platform$Sub$batch(_List_Nil);
 var $author$project$Main$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$none;
 };
+var $author$project$Main$ChangeMode = function (a) {
+	return {$: 'ChangeMode', a: a};
+};
+var $author$project$Main$ResetTypeSelections = {$: 'ResetTypeSelections'};
+var $elm$html$Html$button = _VirtualDom_node('button');
 var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$html$Html$Attributes$stringProperty = F2(
 	function (key, string) {
@@ -6638,25 +6749,37 @@ var $elm$html$Html$Attributes$stringProperty = F2(
 	});
 var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$html$Html$div = _VirtualDom_node('div');
+var $elm$virtual_dom$VirtualDom$Normal = function (a) {
+	return {$: 'Normal', a: a};
+};
+var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
+var $elm$html$Html$Events$on = F2(
+	function (event, decoder) {
+		return A2(
+			$elm$virtual_dom$VirtualDom$on,
+			event,
+			$elm$virtual_dom$VirtualDom$Normal(decoder));
+	});
+var $elm$html$Html$Events$onClick = function (msg) {
+	return A2(
+		$elm$html$Html$Events$on,
+		'click',
+		$elm$json$Json$Decode$succeed(msg));
+};
 var $author$project$Main$SearchPokedex = function (a) {
 	return {$: 'SearchPokedex', a: a};
 };
+var $elm$html$Html$Attributes$for = $elm$html$Html$Attributes$stringProperty('htmlFor');
 var $elm$html$Html$h1 = _VirtualDom_node('h1');
-var $elm$html$Html$Attributes$height = function (n) {
-	return A2(
-		_VirtualDom_attribute,
-		'height',
-		$elm$core$String$fromInt(n));
-};
+var $elm$html$Html$Attributes$id = $elm$html$Html$Attributes$stringProperty('id');
 var $elm$html$Html$input = _VirtualDom_node('input');
-var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$html$Html$label = _VirtualDom_node('label');
 var $elm$html$Html$Events$alwaysStop = function (x) {
 	return _Utils_Tuple2(x, true);
 };
 var $elm$virtual_dom$VirtualDom$MayStopPropagation = function (a) {
 	return {$: 'MayStopPropagation', a: a};
 };
-var $elm$virtual_dom$VirtualDom$on = _VirtualDom_on;
 var $elm$html$Html$Events$stopPropagationOn = F2(
 	function (event, decoder) {
 		return A2(
@@ -6682,8 +6805,116 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
+var $author$project$Main$SetType = function (a) {
+	return {$: 'SetType', a: a};
+};
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$html$Html$a = _VirtualDom_node('a');
+var $elm$html$Html$span = _VirtualDom_node('span');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
 var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $author$project$Main$typeToString = function (pokemonType) {
+	if (pokemonType.$ === 'Single') {
+		var typeStr = pokemonType.a;
+		return typeStr;
+	} else {
+		var one = pokemonType.a;
+		var two = pokemonType.b;
+		return one + (' / ' + two);
+	}
+};
+var $author$project$Main$renderTypeBadge = function (pokeType) {
+	if (pokeType.$ === 'Single') {
+		var t = pokeType.a;
+		return A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('nes-badge')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$span,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class(
+							$elm$core$String$toLower(t) + '-badge')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(
+							$author$project$Main$typeToString(pokeType))
+						]))
+				]));
+	} else {
+		var one = pokeType.a;
+		var two = pokeType.b;
+		return A2(
+			$elm$html$Html$a,
+			_List_fromArray(
+				[
+					$elm$html$Html$Attributes$class('nes-badge')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$span,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class(
+							$elm$core$String$toLower(one) + '-badge')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(one)
+						])),
+					A2(
+					$elm$html$Html$span,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class(
+							$elm$core$String$toLower(two) + '-badge')
+						]),
+					_List_fromArray(
+						[
+							$elm$html$Html$text(two)
+						]))
+				]));
+	}
+};
+var $elm$html$Html$strong = _VirtualDom_node('strong');
+var $author$project$Main$renderPokemon = function (pokemon) {
+	return A2(
+		$elm$html$Html$li,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('search-result-item')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text('#' + (pokemon.number + ' — ')),
+				A2(
+				$elm$html$Html$strong,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text(pokemon.name)
+					])),
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('type-link'),
+						$elm$html$Html$Events$onClick(
+						$author$project$Main$SetType(pokemon.pokeType))
+					]),
+				_List_fromArray(
+					[
+						$author$project$Main$renderTypeBadge(pokemon.pokeType)
+					]))
+			]));
+};
 var $elm$html$Html$Attributes$type_ = $elm$html$Html$Attributes$stringProperty('type');
 var $elm$html$Html$ul = _VirtualDom_node('ul');
 var $author$project$Main$renderPokedex = function (model) {
@@ -6703,35 +6934,57 @@ var $author$project$Main$renderPokedex = function (model) {
 						$elm$html$Html$text('Pokemon')
 					])),
 				A2(
-				$elm$html$Html$input,
+				$elm$html$Html$div,
 				_List_fromArray(
 					[
-						$elm$html$Html$Attributes$class('dex-search'),
-						$elm$html$Html$Events$onInput($author$project$Main$SearchPokedex),
-						$elm$html$Html$Attributes$height(50),
-						$elm$html$Html$Attributes$type_('text')
+						$elm$html$Html$Attributes$class('nes-field')
 					]),
-				_List_Nil),
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$label,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$for('search-box')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Search:')
+							])),
+						A2(
+						$elm$html$Html$input,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('nes-input dex-search'),
+								$elm$html$Html$Events$onInput($author$project$Main$SearchPokedex),
+								$elm$html$Html$Attributes$id('search-box'),
+								$elm$html$Html$Attributes$type_('text')
+							]),
+						_List_Nil)
+					])),
 				A2(
 				$elm$html$Html$ul,
 				_List_Nil,
-				A2(
-					$elm$core$List$map,
-					function (result) {
-						return A2(
-							$elm$html$Html$li,
-							_List_Nil,
-							_List_fromArray(
-								[
-									$elm$html$Html$text(result.name)
-								]));
-					},
-					model.searchResults))
+				A2($elm$core$List$map, $author$project$Main$renderPokemon, model.searchResults))
 			]));
 };
-var $elm$html$Html$h2 = _VirtualDom_node('h2');
-var $elm$html$Html$h3 = _VirtualDom_node('h3');
 var $elm$html$Html$p = _VirtualDom_node('p');
+var $elm$html$Html$h3 = _VirtualDom_node('h3');
+var $author$project$Main$renderBadgeList = function (typeList) {
+	return A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('badge-container')
+			]),
+		A2(
+			$elm$core$List$map,
+			function (i) {
+				return $author$project$Main$renderTypeBadge(
+					$author$project$Main$Single(i));
+			},
+			typeList));
+};
 var $author$project$Main$renderDefenseInfoSet = F2(
 	function (typeList, modifier) {
 		if (!typeList.b) {
@@ -6743,8 +6996,14 @@ var $author$project$Main$renderDefenseInfoSet = F2(
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text(
-						'Receives ' + (modifier + (' damage from: ' + A2($elm$core$String$join, ', ', items))))
+						A2(
+						$elm$html$Html$strong,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text(modifier + ' damage from: ')
+							])),
+						$author$project$Main$renderBadgeList(items)
 					]));
 		}
 	});
@@ -6791,6 +7050,7 @@ var $elm$core$List$head = function (list) {
 		return $elm$core$Maybe$Nothing;
 	}
 };
+var $elm$html$Html$h4 = _VirtualDom_node('h4');
 var $author$project$Main$renderSingleInfoSet = F2(
 	function (typeList, preText) {
 		if (!typeList.b) {
@@ -6803,20 +7063,13 @@ var $author$project$Main$renderSingleInfoSet = F2(
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$h3,
+						$elm$html$Html$h4,
 						_List_Nil,
 						_List_fromArray(
 							[
 								$elm$html$Html$text(preText)
 							])),
-						A2(
-						$elm$html$Html$p,
-						_List_Nil,
-						_List_fromArray(
-							[
-								$elm$html$Html$text(
-								A2($elm$core$String$join, ', ', items))
-							]))
+						$author$project$Main$renderBadgeList(items)
 					]));
 		}
 	});
@@ -6835,20 +7088,26 @@ var $author$project$Main$renderSingleTypeInfo = F2(
 			var typeInfo = foundType.a;
 			return A2(
 				$elm$html$Html$div,
-				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('nes-container with-title is-rounded')
+					]),
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$h2,
-						_List_Nil,
+						$elm$html$Html$p,
 						_List_fromArray(
 							[
-								$elm$html$Html$text(typeName + ' Type:')
+								$elm$html$Html$Attributes$class('title')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text(typeName + ' Type')
 							])),
 						A2($author$project$Main$renderSingleInfoSet, typeInfo.strengths, 'Super effective against:'),
 						A2($author$project$Main$renderSingleInfoSet, typeInfo.ineffectives, 'Not very effective against:'),
 						A2($author$project$Main$renderSingleInfoSet, typeInfo.weaknesses, 'Weak to:'),
-						A2($author$project$Main$renderDefenseInfoSet, typeInfo.noEffects, 'Has no effect on:')
+						A2($author$project$Main$renderSingleInfoSet, typeInfo.noEffects, 'Has no effect on:')
 					]));
 		}
 	});
@@ -6860,12 +7119,18 @@ var $author$project$Main$renderTypeInfo = function (model) {
 			var two = _v0.b.a;
 			return A2(
 				$elm$html$Html$div,
-				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('nes-container with-title is-rounded')
+					]),
 				_List_fromArray(
 					[
 						A2(
-						$elm$html$Html$h2,
-						_List_Nil,
+						$elm$html$Html$p,
+						_List_fromArray(
+							[
+								$elm$html$Html$Attributes$class('title')
+							]),
 						_List_fromArray(
 							[
 								$elm$html$Html$text('Dual Type: ' + (one + ('/' + two)))
@@ -7051,28 +7316,6 @@ var $elm_community$list_extra$List$Extra$groupsOf = F2(
 	function (size, xs) {
 		return A3($elm_community$list_extra$List$Extra$groupsOfWithStep, size, size, xs);
 	});
-var $author$project$Main$ChangeCurrentType = function (a) {
-	return {$: 'ChangeCurrentType', a: a};
-};
-var $author$project$Main$SelectType = function (a) {
-	return {$: 'SelectType', a: a};
-};
-var $elm$virtual_dom$VirtualDom$Normal = function (a) {
-	return {$: 'Normal', a: a};
-};
-var $elm$html$Html$Events$on = F2(
-	function (event, decoder) {
-		return A2(
-			$elm$virtual_dom$VirtualDom$on,
-			event,
-			$elm$virtual_dom$VirtualDom$Normal(decoder));
-	});
-var $elm$html$Html$Events$onClick = function (msg) {
-	return A2(
-		$elm$html$Html$Events$on,
-		'click',
-		$elm$json$Json$Decode$succeed(msg));
-};
 var $elm$html$Html$td = _VirtualDom_node('td');
 var $author$project$Main$typeIsSelected = F2(
 	function (_v0, typeStr) {
@@ -7105,31 +7348,25 @@ var $author$project$Main$renderTypeButton = F2(
 	function (typeStr, model) {
 		var _v0 = function () {
 			var _v1 = model.mode;
-			if (_v1.$ === 'DualTypeMatchup') {
-				return A2($author$project$Main$typeIsSelected, model.selectedTypes, typeStr) ? _Utils_Tuple2('type-link type-selected', $author$project$Main$SelectType) : _Utils_Tuple2('type-link', $author$project$Main$SelectType);
+			if (_v1.$ === 'TypeInfo') {
+				return A2($author$project$Main$typeIsSelected, model.selectedTypes, typeStr) ? _Utils_Tuple2('> ' + (typeStr + ' <'), $author$project$Main$SelectType) : _Utils_Tuple2(typeStr, $author$project$Main$SelectType);
 			} else {
-				var _v2 = model.currentType;
-				if (_v2.$ === 'Nothing') {
-					return _Utils_Tuple2('type-link', $author$project$Main$ChangeCurrentType);
-				} else {
-					var a = _v2.a;
-					return _Utils_eq(a.name, typeStr) ? _Utils_Tuple2('type-link type-selected', $author$project$Main$ChangeCurrentType) : _Utils_Tuple2('type-link', $author$project$Main$ChangeCurrentType);
-				}
+				return _Utils_Tuple2(typeStr, $author$project$Main$SelectType);
 			}
 		}();
-		var tdClass = _v0.a;
+		var innerText = _v0.a;
 		var clickFn = _v0.b;
 		return A2(
 			$elm$html$Html$td,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$class(tdClass),
+					$elm$html$Html$Attributes$class('type-link'),
 					$elm$html$Html$Events$onClick(
 					clickFn(typeStr))
 				]),
 			_List_fromArray(
 				[
-					$elm$html$Html$text(typeStr)
+					$elm$html$Html$text(innerText)
 				]));
 	});
 var $elm$html$Html$table = _VirtualDom_node('table');
@@ -7145,7 +7382,7 @@ var $author$project$Main$renderTypeList = function (model) {
 			$elm$html$Html$div,
 			_List_fromArray(
 				[
-					$elm$html$Html$Attributes$class('types')
+					$elm$html$Html$Attributes$class('type-table nes-table-responsive')
 				]),
 			_List_fromArray(
 				[
@@ -7153,7 +7390,7 @@ var $author$project$Main$renderTypeList = function (model) {
 					$elm$html$Html$table,
 					_List_fromArray(
 						[
-							$elm$html$Html$Attributes$class('type-table')
+							$elm$html$Html$Attributes$class('nes-table is-bordered is-centered')
 						]),
 					A2(
 						$elm$core$List$map,
@@ -7173,31 +7410,72 @@ var $author$project$Main$renderTypeList = function (model) {
 	}
 };
 var $author$project$Main$view = function (model) {
-	var renderTypeMatchup = function () {
-		var _v1 = model.currentType;
-		if (_v1.$ === 'Just') {
-			var typeData = _v1.a;
-			return $author$project$Main$renderTypeList(model);
-		} else {
-			return $author$project$Main$renderTypeList(model);
-		}
-	}();
 	var renderFn = function () {
 		var _v0 = model.mode;
-		switch (_v0.$) {
-			case 'TypeInfo':
-				return renderTypeMatchup;
-			case 'DualTypeMatchup':
-				return A2(
+		if (_v0.$ === 'TypeInfo') {
+			return _List_fromArray(
+				[
+					A2(
 					$elm$html$Html$div,
-					_List_Nil,
 					_List_fromArray(
 						[
-							$author$project$Main$renderTypeList(model),
-							$author$project$Main$renderTypeInfo(model)
-						]));
-			default:
-				return $author$project$Main$renderPokedex(model);
+							$elm$html$Html$Attributes$class('btn-container')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$button,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('nes-btn reset-btn'),
+									$elm$html$Html$Events$onClick($author$project$Main$ResetTypeSelections)
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('RESET')
+								])),
+							A2(
+							$elm$html$Html$button,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('nes-btn'),
+									$elm$html$Html$Events$onClick(
+									$author$project$Main$ChangeMode($author$project$Main$Pokedex))
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('POKEDEX')
+								]))
+						])),
+					$author$project$Main$renderTypeList(model),
+					$author$project$Main$renderTypeInfo(model)
+				]);
+		} else {
+			return _List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							$elm$html$Html$Attributes$class('btn-container')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$button,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('nes-btn'),
+									$elm$html$Html$Events$onClick(
+									$author$project$Main$ChangeMode($author$project$Main$TypeInfo))
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('TYPE MATCHUPS')
+								]))
+						])),
+					$author$project$Main$renderPokedex(model)
+				]);
 		}
 	}();
 	return A2(
@@ -7206,8 +7484,7 @@ var $author$project$Main$view = function (model) {
 			[
 				$elm$html$Html$Attributes$class('container')
 			]),
-		_List_fromArray(
-			[renderFn]));
+		renderFn);
 };
 var $author$project$Main$main = $elm$browser$Browser$element(
 	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
