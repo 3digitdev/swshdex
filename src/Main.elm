@@ -1,14 +1,12 @@
 module Main exposing (main)
 
 import Browser
-import Dict exposing (Dict)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Http exposing (Error)
-import Json.Decode as JD exposing (decodeString, dict, list, string)
-import List.Extra as LX exposing (find)
-import Maybe.Extra as MX exposing (orElse)
+import Http exposing (Error, expectJson, get)
+import Json.Decode as JD exposing (..)
+import List.Extra as LX exposing (gatherEqualsBy, groupsOf, uniqueBy)
 import String exposing (join, split)
 import Task exposing (perform, succeed)
 import Tuple2 as TX exposing (uncurry)
@@ -578,11 +576,6 @@ renderSingleInfoSet typeList preText =
                 [ h4 [] [ text preText ]
                 , renderBadgeList items
                 ]
-
-
-
--- , p [] [ text (String.join ", " items) ]
--- ]
 
 
 renderSingleTypeInfo : Model -> String -> Html Msg
