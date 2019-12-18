@@ -1,3 +1,12 @@
+{- NOTE TO SELF:   CANNOT CONTINUE THIS RIGHT NOW
+   As of 12/18/19, PokeAPI and Veekun have not updated their data sets to
+   include the Pokemon Sword/Shield additions.  Once they have finished, I can
+   either continue this OR do a fork of this repo and update it to Elm 0.19:
+
+   https://github.com/tuxagon/elm-pokeapi/tree/1.0.1
+-}
+
+
 module PokeApi exposing (Pokemon)
 
 import Dict exposing (Dict)
