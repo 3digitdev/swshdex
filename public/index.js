@@ -6805,6 +6805,7 @@ var $elm$html$Html$Events$onInput = function (tagger) {
 			$elm$html$Html$Events$alwaysStop,
 			A2($elm$json$Json$Decode$map, tagger, $elm$html$Html$Events$targetValue)));
 };
+var $elm$html$Html$p = _VirtualDom_node('p');
 var $author$project$Main$SetType = function (a) {
 	return {$: 'SetType', a: a};
 };
@@ -6963,12 +6964,21 @@ var $author$project$Main$renderPokedex = function (model) {
 						_List_Nil)
 					])),
 				A2(
+				$elm$html$Html$p,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('search-hint')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Hint:  Click a Pokemon\'s type(s) to jump to type matchups!')
+					])),
+				A2(
 				$elm$html$Html$ul,
 				_List_Nil,
 				A2($elm$core$List$map, $author$project$Main$renderPokemon, model.searchResults))
 			]));
 };
-var $elm$html$Html$p = _VirtualDom_node('p');
 var $elm$html$Html$h3 = _VirtualDom_node('h3');
 var $author$project$Main$renderBadgeList = function (typeList) {
 	return A2(

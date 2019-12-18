@@ -527,6 +527,7 @@ renderPokedex model =
                 ]
                 []
             ]
+        , p [ class "search-hint" ] [ text "Hint:  Click a Pokemon's type(s) to jump to type matchups!" ]
         , ul [] (List.map renderPokemon model.searchResults)
         ]
 

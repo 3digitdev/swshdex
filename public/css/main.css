@@ -67,6 +67,12 @@ div.nes-field {
     width: 100%;
 }
 
+p.search-hint {
+    font-style: italic;
+    color: gray;
+    margin-top: 1rem;
+}
+
 div.types {
     /* position: fixed;
     width: 30%;
