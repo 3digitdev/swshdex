@@ -152,7 +152,7 @@ initModel =
     , allPokemon = []
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
-    , mode = Party
+    , mode = Pokedex
     , currentTypeDefenses = { x4 = [], x2 = [], x0 = [], half = [], quarter = [] }
     , currentParty = initParty
     , modalData = Nothing
