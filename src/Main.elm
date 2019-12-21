@@ -163,16 +163,6 @@ initModel =
 
 initParty : PokemonParty
 initParty =
-    -- DEBUGGING
-    -- { pokemonList =
-    --     Array.fromList
-    --         [ Just (Pokemon "Turtonator" "111" (Dual "Fire" "Dragon"))
-    --         , Nothing
-    --         , Nothing
-    --         , Just (Pokemon "Corvisquire" "155" (Dual "Steel" "Flying"))
-    --         , Just (Pokemon "Grookey" "225" (Single "Grass"))
-    --         , Nothing
-    --         ]
     { pokemonList = Array.repeat 6 Nothing
     , total = 0
     }
