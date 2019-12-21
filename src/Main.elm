@@ -1,5 +1,10 @@
+-- TODO:  MAKE A PORT FOR CLICKING OUTSIDE MODAL!
+-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
+
+
 module Main exposing (main)
 
+import Array exposing (get, repeat, set)
 import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -55,9 +60,22 @@ type alias Pokemon =
     }
 
 
+type alias PokemonParty =
+    { pokemonList : Array.Array (Maybe Pokemon)
+    , total : Int
+    }
+
+
+type alias ModalData =
+    { searchText : String
+    , index : Int
+    }
+
+
 type Mode
     = TypeInfo
     | Pokedex
+    | Party
 
 
 type alias Model =
@@ -67,7 +85,10 @@ type alias Model =
     , selectedTypes : ( Maybe String, Maybe String )
     , mode : Mode
     , currentTypeDefenses : Defenses
-    , currentPokemon : Maybe Pokemon
+    , currentParty : PokemonParty
+    , modalData : Maybe ModalData
+    , newPartyMember : Maybe Pokemon
+    , partyModalInputTxt : String
     }
 
 
@@ -131,9 +152,29 @@ initModel =
     , allPokemon = []
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
-    , mode = Pokedex
+    , mode = Party
     , currentTypeDefenses = { x4 = [], x2 = [], x0 = [], half = [], quarter = [] }
-    , currentPokemon = Maybe.Nothing
+    , currentParty = initParty
+    , modalData = Nothing
+    , newPartyMember = Nothing
+    , partyModalInputTxt = ""
+    }
+
+
+initParty : PokemonParty
+initParty =
+    -- DEBUGGING
+    -- { pokemonList =
+    --     Array.fromList
+    --         [ Just (Pokemon "Turtonator" "111" (Dual "Fire" "Dragon"))
+    --         , Nothing
+    --         , Nothing
+    --         , Just (Pokemon "Corvisquire" "155" (Dual "Steel" "Flying"))
+    --         , Just (Pokemon "Grookey" "225" (Single "Grass"))
+    --         , Nothing
+    --         ]
+    { pokemonList = Array.repeat 6 Nothing
+    , total = 0
     }
 
 
@@ -150,6 +191,10 @@ type Msg
     | SelectType String
     | SetType PokemonType
     | ResetTypeSelections
+    | AddPartyMemberAt Int
+    | ConfirmPartyMember (Maybe Pokemon)
+    | ClearPartyMemberAt Int
+    | FindPartyMember String
     | NoOp
 
 
@@ -168,7 +213,7 @@ update msg model =
             )
 
         ChangeMode mode ->
-            ( { model | mode = mode, selectedTypes = ( Nothing, Nothing ), searchResults = [] }, Cmd.none )
+            ( { model | mode = mode, searchResults = [] }, Cmd.none )
 
         TypesLoaded result ->
             case result of
@@ -220,9 +265,109 @@ update msg model =
         ResetTypeSelections ->
             ( { model | selectedTypes = ( Nothing, Nothing ) }, Cmd.none )
 
+        AddPartyMemberAt idx ->
+            ( { model | modalData = Just { index = idx, searchText = "" }, searchResults = [] }, Cmd.none )
+
+        ConfirmPartyMember pokemon ->
+            let
+                index =
+                    case model.modalData of
+                        Nothing ->
+                            0
+
+                        Just data ->
+                            data.index
+
+                oldParty =
+                    model.currentParty
+
+                newList =
+                    oldParty.pokemonList |> Array.set index pokemon
+
+                newParty =
+                    { oldParty | pokemonList = newList }
+            in
+            ( { model
+                | modalData = Nothing
+                , currentParty = newParty
+                , searchResults = []
+              }
+            , Cmd.none
+            )
+
+        ClearPartyMemberAt idx ->
+            let
+                oldParty =
+                    model.currentParty
+
+                newList =
+                    oldParty.pokemonList |> Array.set idx Nothing
+
+                newParty =
+                    { oldParty | pokemonList = newList }
+            in
+            ( { model
+                | modalData = Nothing
+                , currentParty = newParty
+                , searchResults = []
+              }
+            , Cmd.none
+            )
+
+        FindPartyMember searchStr ->
+            let
+                results =
+                    case searchStr of
+                        "" ->
+                            []
+
+                        _ ->
+                            model.allPokemon
+                                |> findMatchByName searchStr
+                                |> List.filter
+                                    (\p ->
+                                        model.currentParty.pokemonList
+                                            |> Array.toList
+                                            |> List.member (Just p)
+                                            |> not
+                                    )
+
+                oldData =
+                    model.modalData
+
+                newData =
+                    case oldData of
+                        Nothing ->
+                            Nothing
+
+                        Just data ->
+                            Just { data | searchText = searchStr }
+            in
+            ( { model | modalData = newData, searchResults = results }, Cmd.none )
+
 
 
 -- Support functions for UPDATE
+
+
+findSingleMatch : Model -> String -> List Pokemon -> Maybe Pokemon
+findSingleMatch model searchTerm pokemonList =
+    case searchTerm |> String.length of
+        1 ->
+            Nothing
+
+        _ ->
+            pokemonList
+                |> List.filter
+                    (\p -> String.toLower p.name |> String.startsWith (String.toLower searchTerm))
+                |> List.filter
+                    (\p ->
+                        model.currentParty.pokemonList
+                            |> Array.toList
+                            |> List.member (Just p)
+                            |> not
+                    )
+                |> List.head
 
 
 findMatchByName : String -> List Pokemon -> List Pokemon
@@ -231,18 +376,12 @@ findMatchByName searchTerm pokemonList =
         matchFront =
             pokemonList
                 |> List.filter
-                    (\p ->
-                        String.toLower p.name
-                            |> String.startsWith (String.toLower searchTerm)
-                    )
+                    (\p -> String.toLower p.name |> String.startsWith (String.toLower searchTerm))
 
         matchAnywhere =
             pokemonList
                 |> List.filter
-                    (\p ->
-                        String.toLower p.name
-                            |> String.contains (String.toLower searchTerm)
-                    )
+                    (\p -> String.toLower p.name |> String.contains (String.toLower searchTerm))
     in
     -- Match on "start of string" first, but show any results
     case String.length searchTerm of
@@ -402,24 +541,117 @@ view model =
             case model.mode of
                 TypeInfo ->
                     [ div [ class "btn-container" ]
-                        [ button [ class "nes-btn reset-btn", onClick ResetTypeSelections ] [ text "RESET" ]
-                        , button [ class "nes-btn", onClick (ChangeMode Pokedex) ] [ text "POKEDEX" ]
+                        [ button [ class "nes-btn", onClick (ChangeMode Pokedex) ] [ text "POKEDEX" ]
+                        , button [ class "nes-btn", onClick (ChangeMode Party) ] [ text "PARTY" ]
                         ]
+                    , div [ class "btn-container" ]
+                        [ button [ class "nes-btn reset-btn", onClick ResetTypeSelections ] [ text "RESET" ] ]
                     , renderTypeList model
                     , renderTypeInfo model
                     ]
 
                 Pokedex ->
                     [ div [ class "btn-container" ]
-                        [ button
-                            [ class "nes-btn", onClick (ChangeMode TypeInfo) ]
-                            [ text "TYPE MATCHUPS" ]
+                        [ button [ class "nes-btn", onClick (ChangeMode TypeInfo) ] [ text "TYPES" ]
+                        , button [ class "nes-btn", onClick (ChangeMode Party) ] [ text "PARTY" ]
                         ]
                     , renderPokedex model
+                    ]
+
+                Party ->
+                    [ div [ class "btn-container" ]
+                        [ button [ class "nes-btn", onClick (ChangeMode Pokedex) ] [ text "POKEDEX" ]
+                        , button [ class "nes-btn", onClick (ChangeMode TypeInfo) ] [ text "TYPES" ]
+                        ]
+                    , h1 [] [ text "Party Planner" ]
+                    , renderPartyMemberModal model
+                    , renderPartyGrid model
                     ]
     in
     div [ class "container" ]
         renderFn
+
+
+
+-- PARTY PLANNER VIEW
+
+
+renderPartyGrid : Model -> Html Msg
+renderPartyGrid model =
+    div [ class "party-list" ]
+        (model.currentParty.pokemonList
+            |> Array.toIndexedList
+            |> List.map renderPartyMember
+        )
+
+
+renderPartyMember : ( Int, Maybe Pokemon ) -> Html Msg
+renderPartyMember ( idx, member ) =
+    case member of
+        Nothing ->
+            div
+                [ class "party-member nes-container is-rounded"
+                , onClick (AddPartyMemberAt idx)
+                ]
+                [ h2 [ class "grayed" ] [ text "Empty" ]
+                , h1 [ class "add-btn" ] [ text "+" ]
+                ]
+
+        Just pokemon ->
+            div
+                [ class "party-member nes-container is-rounded"
+                , onClick (ClearPartyMemberAt idx)
+                ]
+                [ h1 [ class "rm-btn" ] [ text "X" ]
+                , h2 [ class "member-name" ] [ text pokemon.name ]
+                , renderTypeBadge pokemon.pokeType
+                ]
+
+
+renderPartyMemberModal : Model -> Html Msg
+renderPartyMemberModal model =
+    case model.modalData of
+        Nothing ->
+            div [] []
+
+        Just modalData ->
+            div [ class "party-modal", id "add-pokemon-modal" ]
+                [ div [ class "modal-content nes-container is-rounded" ]
+                    [ span
+                        [ class "close"
+                        , onClick (ClearPartyMemberAt modalData.index)
+                        ]
+                        [ text "X" ]
+                    , h2 [ class "modal-header" ]
+                        [ text ("Party Member " ++ String.fromInt (modalData.index + 1)) ]
+                    , hr [ class "modal-sep" ] []
+                    , div [ class "modal-body" ]
+                        [ div [ class "nes-field" ]
+                            [ label [ for "search-box" ]
+                                [ text "Search Pokemon:" ]
+                            , input
+                                [ class "nes-input dex-search"
+                                , onInput FindPartyMember
+                                , type_ "text"
+                                , Html.Attributes.value modalData.searchText
+                                ]
+                                []
+                            ]
+                        , p [ class "search-hint" ] [ text "Hint:  Click to add to party!" ]
+                        , h3 [] (List.map (renderPartySearchResults modalData.index) model.searchResults)
+                        ]
+                    ]
+                ]
+
+
+renderPartySearchResults : Int -> Pokemon -> Html Msg
+renderPartySearchResults idx pokemon =
+    li [ class "search-result-item", onClick (ConfirmPartyMember (Just pokemon)) ]
+        [ strong [] [ text pokemon.name ]
+        , div
+            [ class "type-link" ]
+            [ pokemon.pokeType |> renderTypeBadge ]
+        ]
 
 
 
@@ -626,7 +858,8 @@ renderTypeBadge pokeType =
                 ]
 
         Dual one two ->
-            a [ class "nes-badge" ]
+            -- TODO:  Follow example split badge to make left/right versions of each type badge!
+            a [ class "nes-badge is-splited" ]
                 [ span [ class (String.toLower one ++ "-badge") ]
                     [ text one ]
                 , span [ class (String.toLower two ++ "-badge") ]

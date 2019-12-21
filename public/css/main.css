@@ -7,6 +7,10 @@ div.type-table {
     padding: 2px;
 }
 
+.nes-btn {
+    min-width: 40%;
+}
+
 div.type-table > table {
     width: 99%;
     text-align: center;
@@ -48,6 +52,7 @@ div.container {
 div.btn-container {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 1rem;
 }
 
 p.search-hint {
@@ -78,6 +83,108 @@ a.nes-badge {
     display: inline;
     width: auto;
 }
+
+div.party-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.party-member {
+    display: inline;
+    flex-grow: 1;
+    border: 1px solid black;
+    flex-basis: 48%;
+}
+
+div.party-member > i.close {
+    position: relative;
+    float: left;
+    margin-top: 0.5rem;
+    padding-right: 2rem;
+    color: red;
+}
+
+.nes-container.is-rounded {
+    margin: 6px;
+    padding: 0.5rem;
+}
+
+h2.grayed {
+    color: gray;
+    display: inline;
+    margin-top: 4rem;
+}
+
+h1.add-btn {
+    display: inline;
+    position: relative;
+    float: right;
+    font-size: 3rem;
+    margin-right: 0.5rem;
+}
+
+h1.rm-btn {
+    display: inline;
+    position: relative;
+    float: left;
+    font-size: 3rem;
+    padding-right: 0.5rem;
+    margin-block-end: 0;
+
+}
+
+/* MODAL STUFF */
+.party-modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content.nes-container.is-rounded {
+    margin: auto;
+    padding: 1rem;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 2rem;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    width: 100%;
+    text-align: center;
+}
+
+.modal-sep {
+    width: 90%;
+}
+/* END MODAL STUFF */
 
 @media (pointer:coarse) {
     body {
@@ -124,5 +231,32 @@ a.nes-badge {
         font-size: 2.5rem;
         margin-bottom: 2rem;
         border-width: 8px;
+    }
+
+    div.party-member {
+        flex-basis: 100%;
+        min-height: 7rem;
+    }
+
+    div.party-member > i.close {
+        margin-left: 0.5rem;
+        margin-top: 1rem;
+        transform: scale(5);
+    }
+
+    h1.add-btn {
+        margin-top: 0.75rem;
+    }
+
+    h1.rm-btn {
+        font-size: 4rem;
+    }
+
+    .modal-content {
+        width: 90%
+    }
+
+    .modal-content.nes-container.is-rounded {
+        padding: 2rem;
     }
 }
