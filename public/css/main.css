@@ -110,8 +110,11 @@ div.party-member > i.close {
     padding: 0.5rem;
 }
 
-h2.grayed {
+.grayed {
     color: gray;
+}
+
+h2.grayed {
     display: inline;
     margin-top: 4rem;
 }
