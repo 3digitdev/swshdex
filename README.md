@@ -4,6 +4,11 @@ Pokedex and helper app for Pokemon Sword/Shield
 
 **Hosted at https://dex.3digit.dev**
 
+## TODO
+- Clean up CSS a bit...
+- Add a Port so JS can allow closing the modal by clicking outside the box
+- Add "info" icons to each feature with a modal popup of what it is
+
 ## Credits
 
 CSS Styling was done using [NES.css](https://nostalgic-css.github.io/NES.css/)
