@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Array exposing (get, repeat, set)
 import Browser
+import Browser.Dom as Dom exposing (focus)
 import Dict exposing (Dict)
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -186,7 +187,8 @@ initParty =
 
 
 type Msg
-    = LoadData
+    = NoOp
+    | LoadData
     | TypesLoaded (Result Http.Error (List Type))
     | PokemonLoaded (Result Http.Error (List Pokemon))
     | ChangeMode Mode
@@ -206,6 +208,9 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        NoOp ->
+            ( model, Cmd.none )
+
         LoadData ->
             ( model
             , getDataList "poketypes" decodeTypeData TypesLoaded
@@ -214,10 +219,6 @@ update msg model =
         TypesLoaded result ->
             case result of
                 Err httpError ->
-                    let
-                        foo =
-                            Debug.log "TYPES error" httpError
-                    in
                     ( model, Cmd.none )
 
                 Ok typeData ->
@@ -237,10 +238,6 @@ update msg model =
         PokemonLoaded result ->
             case result of
                 Err httpError ->
-                    let
-                        foo =
-                            Debug.log "POKEMON error" httpError
-                    in
                     ( model, Cmd.none )
 
                 Ok pokeData ->
@@ -284,7 +281,13 @@ update msg model =
             ( { model | selectedTypes = ( Nothing, Nothing ) }, Cmd.none )
 
         AddPartyMemberAt idx ->
-            ( { model | modalData = Just { index = idx, searchText = "" }, searchResults = [] }, Cmd.none )
+            ( { model
+                | modalData = Just { index = idx, searchText = "" }
+                , searchResults = []
+              }
+            , Dom.focus "addMemberInput"
+                |> Task.attempt (\_ -> NoOp)
+            )
 
         ConfirmPartyMember idx pokemon ->
             ( model |> closeModalAndUpdateWith pokemon idx, Cmd.none )
@@ -723,10 +726,10 @@ renderPartyMemberModal model =
                                 [ text "Search Pokemon:" ]
                             , input
                                 [ class "nes-input dex-search"
+                                , id "addMemberInput"
                                 , onInput FindPartyMember
                                 , type_ "text"
                                 , Html.Attributes.value modalData.searchText
-                                , autofocus True
                                 ]
                                 []
                             ]
