@@ -1286,10 +1286,10 @@ renderTypeBadgeWithCmd pokeType =
 
         Dual one two ->
             -- TODO:  Follow example split badge to make left/right versions of each type badge!
-            a [ class "nes-badge type-badge", onClick (SetType pokeType) ]
-                [ span [ class (String.toLower one.name ++ "-badge") ]
+            a [ class "nes-badge is-splited type-badge", onClick (SetType pokeType) ]
+                [ span [ class (String.toLower one.name ++ "-badge-left dual-left") ]
                     [ text one.name ]
-                , span [ class (String.toLower two.name ++ "-badge") ]
+                , span [ class (String.toLower two.name ++ "-badge-right") ]
                     [ text two.name ]
                 ]
 
@@ -1313,10 +1313,9 @@ renderTypeBadge pokeType =
                 ]
 
         Dual one two ->
-            -- TODO:  Follow example split badge to make left/right versions of each type badge!
-            a [ class "nes-badge type-badge" ]
-                [ span [ class (String.toLower one.name ++ "-badge") ]
+            a [ class "nes-badge is-splited type-badge" ]
+                [ span [ class (String.toLower one.name ++ "-badge-left dual-left") ]
                     [ text one.name ]
-                , span [ class (String.toLower two.name ++ "-badge") ]
+                , span [ class (String.toLower two.name ++ "-badge-right") ]
                     [ text two.name ]
                 ]

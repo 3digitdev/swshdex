@@ -70,8 +70,12 @@ div.type-link {
 a.nes-badge > span {
     color: white;
     margin-right: 1rem;
-    padding: 5px;
+    padding: 5px 10px 5px 15px;
     user-select: none;
+}
+
+a.nes-badge > span.dual-left {
+    margin-right: 0;
 }
 
 div.badge-container {
@@ -118,6 +122,7 @@ div.party-member > i.close {
 
 .btm-gap {
     margin-bottom: 1rem;
+    margin-top: 0.5rem;
 }
 
 .inline {
