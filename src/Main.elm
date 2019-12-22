@@ -695,7 +695,7 @@ renderPartyMemberModal model =
             div [] []
 
         Just modalData ->
-            div [ class "party-modal", id "add-pokemon-modal", onClick CloseModal ]
+            div [ class "party-modal", id "add-pokemon-modal" ]
                 [ div [ class "modal-content nes-container is-rounded" ]
                     [ span [ class "close", onClick CloseModal ] [ text "X" ]
                     , h2 [ class "modal-header" ]
