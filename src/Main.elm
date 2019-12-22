@@ -173,11 +173,10 @@ initParty =
 
 
 type Msg
-    = NoOp
-    | LoadData
-    | ChangeMode Mode
+    = LoadData
     | TypesLoaded (Result Http.Error (List Type))
     | PokemonLoaded (Result Http.Error (List Pokemon))
+    | ChangeMode Mode
     | SearchPokedex String
     | SelectType String
     | SetType PokemonType
@@ -194,9 +193,6 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        NoOp ->
-            ( model, Cmd.none )
-
         LoadData ->
             ( model
             , Cmd.batch
@@ -204,9 +200,6 @@ update msg model =
                 , getDataList "pokedex" decodePokemonData PokemonLoaded
                 ]
             )
-
-        ChangeMode mode ->
-            ( { model | mode = mode, searchResults = [] }, Cmd.none )
 
         TypesLoaded result ->
             case result of
@@ -224,6 +217,9 @@ update msg model =
                 Ok pokeData ->
                     ( { model | allPokemon = pokeData }, Cmd.none )
 
+        ChangeMode mode ->
+            ( { model | mode = mode, searchResults = [] }, Cmd.none )
+
         SearchPokedex searchStr ->
             let
                 results =
@@ -237,7 +233,7 @@ update msg model =
             ( { model | searchResults = results }, Cmd.none )
 
         SelectType typeName ->
-            ( model |> updatedSelectedTypes typeName |> suggestFirstPokemon, Cmd.none )
+            ( model |> updateSelectedTypes typeName |> suggestFirstPokemon, Cmd.none )
 
         SetType pokeType ->
             let
@@ -342,26 +338,6 @@ updatePartyWith value idx pokemonParty =
     { pokemonParty | pokemonList = newList, total = newTotal }
 
 
-findSingleMatch : Model -> String -> List Pokemon -> Maybe Pokemon
-findSingleMatch model searchTerm pokemonList =
-    case searchTerm |> String.length of
-        1 ->
-            Nothing
-
-        _ ->
-            pokemonList
-                |> List.filter
-                    (\p -> String.toLower p.name |> String.startsWith (String.toLower searchTerm))
-                |> List.filter
-                    (\p ->
-                        model.currentParty.pokemonList
-                            |> Array.toList
-                            |> List.member (Just p)
-                            |> not
-                    )
-                |> List.head
-
-
 findMatchByName : String -> List Pokemon -> List Pokemon
 findMatchByName searchTerm pokemonList =
     let
@@ -384,8 +360,8 @@ findMatchByName searchTerm pokemonList =
             (matchFront ++ matchAnywhere) |> LX.uniqueBy (\r -> r.number)
 
 
-updatedSelectedTypes : String -> Model -> Model
-updatedSelectedTypes newType model =
+updateSelectedTypes : String -> Model -> Model
+updateSelectedTypes newType model =
     let
         ( one, two ) =
             model.selectedTypes
