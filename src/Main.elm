@@ -1,7 +1,3 @@
--- TODO:  MAKE A PORT FOR CLICKING OUTSIDE MODAL!
--- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
-
-
 module Main exposing (main)
 
 import Array exposing (get, repeat, set)
@@ -699,7 +695,7 @@ renderPartyMemberModal model =
             div [] []
 
         Just modalData ->
-            div [ class "party-modal", id "add-pokemon-modal" ]
+            div [ class "party-modal", id "add-pokemon-modal", onClick CloseModal ]
                 [ div [ class "modal-content nes-container is-rounded" ]
                     [ span [ class "close", onClick CloseModal ] [ text "X" ]
                     , h2 [ class "modal-header" ]

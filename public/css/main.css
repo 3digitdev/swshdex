@@ -71,6 +71,7 @@ a.nes-badge > span {
     color: white;
     margin-right: 1rem;
     padding: 5px;
+    user-select: none;
 }
 
 div.badge-container {
@@ -82,6 +83,7 @@ div.badge-container {
 a.nes-badge.type-badge {
     display: inline;
     width: auto;
+    user-select: none;
 }
 
 div.party-list {
@@ -149,7 +151,6 @@ h1.rm-btn {
     margin-top: 1rem;
 }
 
-/* MODAL STUFF */
 .party-modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
