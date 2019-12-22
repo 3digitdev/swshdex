@@ -12,6 +12,8 @@ import Html.Events exposing (..)
 import Http exposing (Error, expectJson, get)
 import Json.Decode as JD exposing (..)
 import List.Extra as LX exposing (gatherEqualsBy, groupsOf, uniqueBy)
+import Random exposing (generate)
+import Random.List as RandList exposing (choose)
 import String exposing (join, split)
 import Task exposing (perform, succeed)
 import Tuple2 as TX exposing (uncurry)
@@ -63,6 +65,7 @@ type alias Pokemon =
 type alias PokemonParty =
     { pokemonList : Array.Array (Maybe Pokemon)
     , total : Int
+    , suggestedPokemon : Maybe Pokemon
     }
 
 
@@ -83,11 +86,11 @@ type alias Model =
     , allPokemon : List Pokemon
     , searchResults : List Pokemon
     , selectedTypes : ( Maybe String, Maybe String )
+    , suggestedPokemon : Maybe Pokemon
     , mode : Mode
     , currentTypeDefenses : Defenses
     , currentParty : PokemonParty
     , modalData : Maybe ModalData
-    , newPartyMember : Maybe Pokemon
     , partyModalInputTxt : String
     }
 
@@ -152,11 +155,11 @@ initModel =
     , allPokemon = []
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
+    , suggestedPokemon = Nothing
     , mode = Pokedex
     , currentTypeDefenses = { x4 = [], x2 = [], x0 = [], half = [], quarter = [] }
     , currentParty = initParty
     , modalData = Nothing
-    , newPartyMember = Nothing
     , partyModalInputTxt = ""
     }
 
@@ -165,6 +168,7 @@ initParty : PokemonParty
 initParty =
     { pokemonList = Array.repeat 6 Nothing
     , total = 0
+    , suggestedPokemon = Nothing
     }
 
 
@@ -173,7 +177,8 @@ initParty =
 
 
 type Msg
-    = LoadData
+    = NoOp
+    | LoadData
     | ChangeMode Mode
     | TypesLoaded (Result Http.Error (List Type))
     | PokemonLoaded (Result Http.Error (List Pokemon))
@@ -182,10 +187,12 @@ type Msg
     | SetType PokemonType
     | ResetTypeSelections
     | AddPartyMemberAt Int
-    | ConfirmPartyMember (Maybe Pokemon)
+    | ConfirmPartyMember Int (Maybe Pokemon)
     | ClearPartyMemberAt Int
     | FindPartyMember String
-    | NoOp
+    | CloseModal
+    | RandomizeSuggestion
+    | NewSuggestion ( Maybe Pokemon, List Pokemon )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -234,7 +241,7 @@ update msg model =
             ( { model | searchResults = results }, Cmd.none )
 
         SelectType typeName ->
-            ( model |> updatedSelectedTypes typeName, Cmd.none )
+            ( model |> updatedSelectedTypes typeName |> suggestFirstPokemon, Cmd.none )
 
         SetType pokeType ->
             let
@@ -258,51 +265,11 @@ update msg model =
         AddPartyMemberAt idx ->
             ( { model | modalData = Just { index = idx, searchText = "" }, searchResults = [] }, Cmd.none )
 
-        ConfirmPartyMember pokemon ->
-            let
-                index =
-                    case model.modalData of
-                        Nothing ->
-                            0
-
-                        Just data ->
-                            data.index
-
-                oldParty =
-                    model.currentParty
-
-                newList =
-                    oldParty.pokemonList |> Array.set index pokemon
-
-                newParty =
-                    { oldParty | pokemonList = newList }
-            in
-            ( { model
-                | modalData = Nothing
-                , currentParty = newParty
-                , searchResults = []
-              }
-            , Cmd.none
-            )
+        ConfirmPartyMember idx pokemon ->
+            ( model |> closeModalAndUpdateWith pokemon idx, Cmd.none )
 
         ClearPartyMemberAt idx ->
-            let
-                oldParty =
-                    model.currentParty
-
-                newList =
-                    oldParty.pokemonList |> Array.set idx Nothing
-
-                newParty =
-                    { oldParty | pokemonList = newList }
-            in
-            ( { model
-                | modalData = Nothing
-                , currentParty = newParty
-                , searchResults = []
-              }
-            , Cmd.none
-            )
+            ( model |> closeModalAndUpdateWith Nothing idx, Cmd.none )
 
         FindPartyMember searchStr ->
             let
@@ -335,9 +302,48 @@ update msg model =
             in
             ( { model | modalData = newData, searchResults = results }, Cmd.none )
 
+        CloseModal ->
+            ( { model | modalData = Nothing, searchResults = [] }, Cmd.none )
+
+        RandomizeSuggestion ->
+            ( model, Random.generate NewSuggestion (RandList.choose (suggestPokemon model)) )
+
+        NewSuggestion ( pokemon, _ ) ->
+            ( { model | suggestedPokemon = pokemon }, Cmd.none )
+
 
 
 -- Support functions for UPDATE
+
+
+closeModalAndUpdateWith : Maybe Pokemon -> Int -> Model -> Model
+closeModalAndUpdateWith value idx model =
+    { model
+        | modalData = Nothing
+        , currentParty = model.currentParty |> updatePartyWith value idx
+        , searchResults = []
+    }
+
+
+updatePartyWith : Maybe Pokemon -> Int -> PokemonParty -> PokemonParty
+updatePartyWith value idx pokemonParty =
+    let
+        newTotal =
+            case value of
+                Nothing ->
+                    if pokemonParty.total == 0 then
+                        0
+
+                    else
+                        pokemonParty.total - 1
+
+                Just v ->
+                    pokemonParty.total + 1
+
+        newList =
+            Array.set idx value pokemonParty.pokemonList
+    in
+    { pokemonParty | pokemonList = newList, total = newTotal }
 
 
 findSingleMatch : Model -> String -> List Pokemon -> Maybe Pokemon
@@ -425,7 +431,94 @@ updatedSelectedTypes newType model =
                         -- Something went wrong; don't modify anything
                         ( Just a, Just b )
     in
-    newTypes |> calculateDefenses { model | selectedTypes = newTypes }
+    newTypes
+        |> calculateDefenses { model | selectedTypes = newTypes }
+
+
+suggestPokemon : Model -> List Pokemon
+suggestPokemon model =
+    case model.selectedTypes of
+        ( Nothing, Nothing ) ->
+            []
+
+        ( Just type1, Nothing ) ->
+            model |> allSingleTypeMatches type1
+
+        ( Nothing, Just type1 ) ->
+            model |> allSingleTypeMatches type1
+
+        ( Just type1, Just type2 ) ->
+            model.allPokemon
+                |> List.filter
+                    (\pokemon ->
+                        case pokemon.pokeType of
+                            Single one ->
+                                False
+
+                            Dual one two ->
+                                (one == type1 && two == type2) || (one == type2 && two == type1)
+                    )
+
+
+suggestFirstPokemon : Model -> Model
+suggestFirstPokemon model =
+    let
+        suggested =
+            case model.selectedTypes of
+                ( Nothing, Nothing ) ->
+                    Nothing
+
+                ( Just type1, Nothing ) ->
+                    model |> matchFirstSingleType type1
+
+                ( Nothing, Just type1 ) ->
+                    model |> matchFirstSingleType type1
+
+                ( Just type1, Just type2 ) ->
+                    model.allPokemon
+                        |> List.filter
+                            (\pokemon ->
+                                case pokemon.pokeType of
+                                    Single one ->
+                                        False
+
+                                    Dual one two ->
+                                        (one == type1 && two == type2) || (one == type2 && two == type1)
+                            )
+                        |> List.sortWith (\one two -> comparePokemonTypes one.pokeType two.pokeType)
+                        |> List.head
+    in
+    { model | suggestedPokemon = suggested }
+
+
+allSingleTypeMatches : String -> Model -> List Pokemon
+allSingleTypeMatches name model =
+    model.allPokemon
+        |> List.filter
+            (\pokemon ->
+                case pokemon.pokeType of
+                    Single one ->
+                        one == name
+
+                    Dual one two ->
+                        one == name || two == name
+            )
+
+
+matchFirstSingleType : String -> Model -> Maybe Pokemon
+matchFirstSingleType name model =
+    model.allPokemon
+        |> List.filter
+            (\pokemon ->
+                case pokemon.pokeType of
+                    Single one ->
+                        one == name
+
+                    Dual one two ->
+                        one == name || two == name
+            )
+        |> List.sortWith (\one two -> comparePokemonTypes one.pokeType two.pokeType)
+        |> List.head
 
 
 getBoolValue : List String -> String -> Int
@@ -557,6 +650,7 @@ view model =
                     , h4 [ class "grayed" ] [ text "(under construction)" ]
                     , renderPartyMemberModal model
                     , renderPartyGrid model
+                    , evaluateParty model
                     ]
     in
     div [ class "container" ]
@@ -595,7 +689,7 @@ renderPartyMember ( idx, member ) =
                 ]
                 [ h1 [ class "rm-btn" ] [ text "X" ]
                 , h2 [ class "member-name" ] [ text pokemon.name ]
-                , renderTypeBadge pokemon.pokeType
+                , renderTypeBadgeWithCmd pokemon.pokeType
                 ]
 
 
@@ -608,11 +702,7 @@ renderPartyMemberModal model =
         Just modalData ->
             div [ class "party-modal", id "add-pokemon-modal" ]
                 [ div [ class "modal-content nes-container is-rounded" ]
-                    [ span
-                        [ class "close"
-                        , onClick (ClearPartyMemberAt modalData.index)
-                        ]
-                        [ text "X" ]
+                    [ span [ class "close", onClick CloseModal ] [ text "X" ]
                     , h2 [ class "modal-header" ]
                         [ text ("Party Member " ++ String.fromInt (modalData.index + 1)) ]
                     , hr [ class "modal-sep" ] []
@@ -625,6 +715,7 @@ renderPartyMemberModal model =
                                 , onInput FindPartyMember
                                 , type_ "text"
                                 , Html.Attributes.value modalData.searchText
+                                , autofocus True
                                 ]
                                 []
                             ]
@@ -637,11 +728,309 @@ renderPartyMemberModal model =
 
 renderPartySearchResults : Int -> Pokemon -> Html Msg
 renderPartySearchResults idx pokemon =
-    li [ class "search-result-item", onClick (ConfirmPartyMember (Just pokemon)) ]
+    li [ class "search-result-item", onClick (ConfirmPartyMember idx (Just pokemon)) ]
         [ strong [] [ text pokemon.name ]
         , div
             [ class "type-link" ]
             [ pokemon.pokeType |> renderTypeBadge ]
+        ]
+
+
+evaluateParty : Model -> Html Msg
+evaluateParty model =
+    let
+        content =
+            case model.currentParty.total of
+                0 ->
+                    p [] []
+
+                6 ->
+                    evaluateFullParty model
+
+                5 ->
+                    suggestPartyMember model
+
+                _ ->
+                    typeCoverageForParty model
+    in
+    div [ class "eval-container nes-container is-rounded with-title" ]
+        [ p [ class "title" ] [ text "Evaluation" ]
+        , content
+        ]
+
+
+typeCoverageForParty : Model -> Html Msg
+typeCoverageForParty model =
+    -- List of types not covered yet
+    let
+        typeCoverageGaps =
+            model.currentParty
+                |> evaluateTypeCoverage model.allTypes
+                |> List.map (\t -> t.name)
+    in
+    case typeCoverageGaps of
+        [] ->
+            div [ class "type-coverage" ]
+                [ h3 [] [ text "You have every type matchup covered!" ] ]
+
+        typeGaps ->
+            div [ class "type-coverage" ]
+                [ h3 [] [ text "You have no pokemon strong against:" ]
+                , typeGaps |> renderBadgeListWithCmd
+                ]
+
+
+suggestPartyMember : Model -> Html Msg
+suggestPartyMember model =
+    let
+        typeCoverageGaps =
+            model.currentParty |> evaluateTypeCoverage model.allTypes
+
+        possibleTypes =
+            case typeCoverageGaps of
+                [] ->
+                    []
+
+                typeGaps ->
+                    typeGaps
+                        |> getStrengthsOfTypes model
+                        |> List.map
+                            (\curType ->
+                                div
+                                    [ class "type-link btm-gap"
+                                    , onClick (SetType curType)
+                                    ]
+                                    [ curType |> renderTypeBadgeWithCmd ]
+                            )
+    in
+    case possibleTypes of
+        [] ->
+            div [] [ typeCoverageForParty model ]
+
+        types ->
+            div []
+                [ typeCoverageForParty model
+                , h3 [] [ text "Type suggestions for last pokemon:" ]
+                , div [ class "badge-container" ] types
+                ]
+
+
+evaluateFullParty : Model -> Html Msg
+evaluateFullParty model =
+    div []
+        [ typeCoverageForParty model
+        , highPartyWeakness model
+        , overlappedCoverage model
+        ]
+
+
+evaluateTypeCoverage : List Type -> PokemonParty -> List Type
+evaluateTypeCoverage typeList party =
+    -- For a given PokemonParty, evaluate what types you aren't 2x damage against
+    typeList
+        |> List.filter
+            (\curType ->
+                party.pokemonList
+                    |> Array.toList
+                    |> List.filterMap identity
+                    |> List.any (pokemonStrongAgainst curType typeList)
+                    |> not
+            )
+
+
+pokemonStrongAgainst : Type -> List Type -> Pokemon -> Bool
+pokemonStrongAgainst checkType typeList pokemon =
+    typeList
+        |> List.filter
+            (\t ->
+                case pokemon.pokeType of
+                    Single t1 ->
+                        t.name == t1
+
+                    Dual t1 t2 ->
+                        t.name == t1 || t.name == t2
+            )
+        |> List.any (\t -> t.strengths |> List.member checkType.name)
+
+
+getStrengthsOfTypes : Model -> List Type -> List PokemonType
+getStrengthsOfTypes model typeGaps =
+    model.allPokemon
+        |> List.map .pokeType
+        -- Filter only to types that exist in a pokemon
+        |> LX.uniqueBy
+            (\checkType ->
+                case checkType of
+                    Single t1 ->
+                        t1
+
+                    Dual t1 t2 ->
+                        [ t1, t2 ] |> List.sort |> String.join "/"
+            )
+        -- Now lets find the best type combo (or just type!)
+        |> buildAllTypesStrengthLists model.allTypes
+        |> List.map
+            (\( pokeType, strengths ) ->
+                ( pokeType
+                , strengths
+                    |> List.filter
+                        (\st ->
+                            typeGaps
+                                |> List.map .name
+                                |> List.member st
+                        )
+                )
+            )
+        -- Sort by what type(s) have the highest coverage of missing types, then by Single over Dual
+        |> List.sortWith comparePokemonTypeStrengths
+        -- Sort goes backwards from what I actually want...
+        |> List.reverse
+        |> List.map Tuple.first
+        |> List.take 5
+
+
+comparePokemonTypeStrengths : ( PokemonType, List String ) -> ( PokemonType, List String ) -> Order
+comparePokemonTypeStrengths ( type1, strengths1 ) ( type2, strengths2 ) =
+    case compare (List.length strengths1) (List.length strengths2) of
+        GT ->
+            GT
+
+        LT ->
+            LT
+
+        EQ ->
+            comparePokemonTypes type1 type2
+
+
+comparePokemonTypes : PokemonType -> PokemonType -> Order
+comparePokemonTypes type1 type2 =
+    case ( type1, type2 ) of
+        ( Dual _ _, Single _ ) ->
+            LT
+
+        ( Single _, Dual _ _ ) ->
+            GT
+
+        _ ->
+            EQ
+
+
+buildAllTypesStrengthLists : List Type -> List PokemonType -> List ( PokemonType, List String )
+buildAllTypesStrengthLists allTypes existingTypes =
+    existingTypes
+        |> LX.uniqueBy
+            (\pokeType ->
+                case pokeType of
+                    Single t1 ->
+                        t1 |> List.singleton
+
+                    Dual t1 t2 ->
+                        [ t1, t2 ] |> List.sort
+            )
+        |> List.map
+            (\pokeType -> ( pokeType, pokeType |> buildStrengths allTypes ))
+
+
+buildStrengths : List Type -> PokemonType -> List String
+buildStrengths allTypes pokeType =
+    let
+        typeList =
+            case pokeType of
+                Single t1 ->
+                    t1 |> List.singleton
+
+                Dual t1 t2 ->
+                    [ t1, t2 ]
+    in
+    typeList
+        |> List.map (typeNameToType allTypes)
+        |> List.map .strengths
+        |> List.concat
+        |> LX.unique
+
+
+typeNameToType : List Type -> String -> Type
+typeNameToType allTypes typeName =
+    allTypes
+        |> List.filter (\t -> t.name == typeName)
+        |> List.head
+        |> Maybe.withDefault { name = "", strengths = [], weaknesses = [], ineffectives = [], noEffects = [] }
+
+
+highPartyWeakness : Model -> Html Msg
+highPartyWeakness model =
+    div [ class "high-weakness" ]
+        [ h3 [] [ text "3+ Pokemon are weak against these types:" ]
+        , model
+            |> overlappedAttributeCoverage buildTypeWeaknessList
+            |> renderBadgeListWithCmd
+        ]
+
+
+buildTypeWeaknessList : Model -> PokemonType -> List String
+buildTypeWeaknessList model pokemonType =
+    pokemonType
+        |> buildTypeList model
+        |> List.map .weaknesses
+        |> List.concat
+        |> LX.unique
+
+
+buildTypeStrengthList : Model -> PokemonType -> List String
+buildTypeStrengthList model pokemonType =
+    pokemonType
+        |> buildTypeList model
+        |> List.map .strengths
+        |> List.concat
+        |> LX.unique
+
+
+buildTypeList : Model -> PokemonType -> List Type
+buildTypeList model pokemonType =
+    let
+        typeList =
+            case pokemonType of
+                Single type1 ->
+                    type1 |> List.singleton
+
+                Dual type1 type2 ->
+                    [ type1, type2 ]
+    in
+    typeList |> List.map (typeNameToType model.allTypes)
+
+
+overlappedAttributeCoverage : (Model -> PokemonType -> List String) -> Model -> List String
+overlappedAttributeCoverage attrFn model =
+    let
+        partyAttrs =
+            model.currentParty.pokemonList
+                |> Array.toList
+                |> List.filterMap identity
+                |> List.map (\pokemon -> attrFn model pokemon.pokeType)
+    in
+    model.allTypes
+        |> List.map
+            (\curType ->
+                ( curType.name
+                , partyAttrs
+                    |> List.filter (List.member curType.name)
+                    |> List.length
+                )
+            )
+        |> List.filter
+            (\( _, weakCount ) ->
+                weakCount >= 3
+            )
+        |> List.map Tuple.first
+
+
+overlappedCoverage : Model -> Html Msg
+overlappedCoverage model =
+    div [ class "high-weakness" ]
+        [ h3 [] [ text "3+ Pokemon are strong against these types:" ]
+        , model
+            |> overlappedAttributeCoverage buildTypeStrengthList
+            |> renderBadgeListWithCmd
         ]
 
 
@@ -716,16 +1105,25 @@ renderTypeInfo : Model -> Html Msg
 renderTypeInfo model =
     case model.selectedTypes of
         ( Just one, Just two ) ->
-            div [ class "nes-container with-title is-rounded" ]
-                [ p [ class "title" ] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
-                , renderDefenses model
+            div []
+                [ div [ class "nes-container with-title is-rounded" ]
+                    [ p [ class "title" ] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
+                    , renderDefenses model
+                    ]
+                , renderSuggestedPokemon model
                 ]
 
         ( Just typeName, Nothing ) ->
-            typeName |> renderSingleTypeInfo model
+            div []
+                [ typeName |> renderSingleTypeInfo model
+                , renderSuggestedPokemon model
+                ]
 
         ( Nothing, Just typeName ) ->
-            typeName |> renderSingleTypeInfo model
+            div []
+                [ typeName |> renderSingleTypeInfo model
+                , renderSuggestedPokemon model
+                ]
 
         _ ->
             div [] []
@@ -793,6 +1191,30 @@ renderSingleInfoSet typeList preText =
                 ]
 
 
+renderSuggestedPokemon : Model -> Html Msg
+renderSuggestedPokemon model =
+    let
+        innerHtml =
+            case model.suggestedPokemon of
+                Nothing ->
+                    h3 [] [ text "No Pokemon exist with this type" ]
+
+                Just pokemon ->
+                    div [ onClick RandomizeSuggestion ]
+                        [ h3 [ class "inline" ] [ text pokemon.name ]
+                        , h4 [ class "grayed inline" ] [ text "  (click to shuffle)" ]
+                        ]
+    in
+    div [ class "nes-container with-title is-rounded" ]
+        [ p [ class "title" ] [ text "Suggested Pokemon" ]
+        , innerHtml
+        ]
+
+
+
+-- POKEDEX VIEW
+
+
 renderPokedex : Model -> Html Msg
 renderPokedex model =
     div []
@@ -830,6 +1252,34 @@ renderPokemon pokemon =
 -- Rendering Type Badges
 
 
+renderBadgeListWithCmd : List String -> Html Msg
+renderBadgeListWithCmd typeList =
+    div [ class "badge-container" ]
+        (typeList
+            |> List.map (\i -> renderTypeBadgeWithCmd (Single i))
+        )
+
+
+renderTypeBadgeWithCmd : PokemonType -> Html Msg
+renderTypeBadgeWithCmd pokeType =
+    case pokeType of
+        Single t ->
+            a [ class "nes-badge type-badge", onClick (SetType pokeType) ]
+                [ span
+                    [ class (String.toLower t ++ "-badge") ]
+                    [ text t ]
+                ]
+
+        Dual one two ->
+            -- TODO:  Follow example split badge to make left/right versions of each type badge!
+            a [ class "nes-badge type-badge", onClick (SetType pokeType) ]
+                [ span [ class (String.toLower one ++ "-badge") ]
+                    [ text one ]
+                , span [ class (String.toLower two ++ "-badge") ]
+                    [ text two ]
+                ]
+
+
 renderBadgeList : List String -> Html Msg
 renderBadgeList typeList =
     div [ class "badge-container" ]
@@ -842,7 +1292,7 @@ renderTypeBadge : PokemonType -> Html Msg
 renderTypeBadge pokeType =
     case pokeType of
         Single t ->
-            a [ class "nes-badge" ]
+            a [ class "nes-badge type-badge" ]
                 [ span
                     [ class (String.toLower t ++ "-badge") ]
                     [ text t ]
@@ -850,7 +1300,7 @@ renderTypeBadge pokeType =
 
         Dual one two ->
             -- TODO:  Follow example split badge to make left/right versions of each type badge!
-            a [ class "nes-badge is-splited" ]
+            a [ class "nes-badge type-badge" ]
                 [ span [ class (String.toLower one ++ "-badge") ]
                     [ text one ]
                 , span [ class (String.toLower two ++ "-badge") ]

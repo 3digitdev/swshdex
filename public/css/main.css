@@ -79,7 +79,7 @@ div.badge-container {
     flex-wrap: wrap;
 }
 
-a.nes-badge {
+a.nes-badge.type-badge {
     display: inline;
     width: auto;
 }
@@ -114,6 +114,14 @@ div.party-member > i.close {
     color: gray;
 }
 
+.btm-gap {
+    margin-bottom: 1rem;
+}
+
+.inline {
+    display: inline;
+}
+
 h2.grayed {
     display: inline;
     margin-top: 4rem;
@@ -135,6 +143,10 @@ h1.rm-btn {
     padding-right: 0.5rem;
     margin-block-end: 0;
 
+}
+
+.nes-container.is-rounded.eval-container {
+    margin-top: 1rem;
 }
 
 /* MODAL STUFF */
