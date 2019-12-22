@@ -1,0 +1,4 @@
+THOUGHTS:
+    - comparable functions for PokemonType?
+    - comparison for dual type name combos?
+    - check if string is part of a PokemonType .name

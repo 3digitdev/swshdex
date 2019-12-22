@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Array exposing (get, repeat, set)
 import Browser
+import Dict exposing (Dict)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
@@ -29,8 +30,8 @@ main =
 
 
 type PokemonType
-    = Single String
-    | Dual String String
+    = Single Type
+    | Dual Type Type
 
 
 type alias Type =
@@ -79,6 +80,7 @@ type Mode
 
 type alias Model =
     { allTypes : List Type
+    , typeMap : Dict String Type
     , allPokemon : List Pokemon
     , searchResults : List Pokemon
     , selectedTypes : ( Maybe String, Maybe String )
@@ -105,8 +107,8 @@ decodeTypeData =
         (JD.field "no_effects" (JD.list JD.string))
 
 
-decodePokemonData : JD.Decoder Pokemon
-decodePokemonData =
+decodePokemonData : Dict String Type -> JD.Decoder Pokemon
+decodePokemonData typeDict =
     JD.map3 Pokemon
         (JD.field "name" JD.string)
         (JD.field "number" JD.string)
@@ -116,10 +118,20 @@ decodePokemonData =
                     (\typeStr ->
                         case split "/" typeStr of
                             [ typeOne, typeTwo ] ->
-                                JD.succeed (Dual typeOne typeTwo)
+                                case ( Dict.get typeOne typeDict, Dict.get typeTwo typeDict ) of
+                                    ( Just a, Just b ) ->
+                                        JD.succeed (Dual a b)
+
+                                    _ ->
+                                        JD.fail ("Invalid Type in " ++ typeStr)
 
                             [ typeName ] ->
-                                JD.succeed (Single typeName)
+                                case Dict.get typeName typeDict of
+                                    Just a ->
+                                        JD.succeed (Single a)
+
+                                    Nothing ->
+                                        JD.fail ("Invalid Type in " ++ typeStr)
 
                             _ ->
                                 JD.fail ("Invalid PokemonType " ++ typeStr)
@@ -148,6 +160,7 @@ init _ =
 initModel : Model
 initModel =
     { allTypes = []
+    , typeMap = Dict.empty
     , allPokemon = []
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
@@ -173,11 +186,10 @@ initParty =
 
 
 type Msg
-    = NoOp
-    | LoadData
-    | ChangeMode Mode
+    = LoadData
     | TypesLoaded (Result Http.Error (List Type))
     | PokemonLoaded (Result Http.Error (List Pokemon))
+    | ChangeMode Mode
     | SearchPokedex String
     | SelectType String
     | SetType PokemonType
@@ -194,35 +206,48 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        NoOp ->
-            ( model, Cmd.none )
-
         LoadData ->
             ( model
-            , Cmd.batch
-                [ getDataList "poketypes" decodeTypeData TypesLoaded
-                , getDataList "pokedex" decodePokemonData PokemonLoaded
-                ]
+            , getDataList "poketypes" decodeTypeData TypesLoaded
             )
-
-        ChangeMode mode ->
-            ( { model | mode = mode, searchResults = [] }, Cmd.none )
 
         TypesLoaded result ->
             case result of
                 Err httpError ->
+                    let
+                        foo =
+                            Debug.log "TYPES error" httpError
+                    in
                     ( model, Cmd.none )
 
                 Ok typeData ->
-                    ( { model | allTypes = typeData }, Cmd.none )
+                    let
+                        typeMap =
+                            typeData
+                                |> List.map (\td -> ( td.name, td ))
+                                |> Dict.fromList
+                    in
+                    ( { model
+                        | typeMap = typeMap
+                        , allTypes = typeData
+                      }
+                    , getDataList "pokedex" (decodePokemonData typeMap) PokemonLoaded
+                    )
 
         PokemonLoaded result ->
             case result of
                 Err httpError ->
+                    let
+                        foo =
+                            Debug.log "POKEMON error" httpError
+                    in
                     ( model, Cmd.none )
 
                 Ok pokeData ->
                     ( { model | allPokemon = pokeData }, Cmd.none )
+
+        ChangeMode mode ->
+            ( { model | mode = mode, searchResults = [] }, Cmd.none )
 
         SearchPokedex searchStr ->
             let
@@ -237,17 +262,17 @@ update msg model =
             ( { model | searchResults = results }, Cmd.none )
 
         SelectType typeName ->
-            ( model |> updatedSelectedTypes typeName |> suggestFirstPokemon, Cmd.none )
+            ( model |> updateSelectedTypes typeName |> suggestFirstPokemon, Cmd.none )
 
         SetType pokeType ->
             let
                 ( newModel, nextType ) =
                     case pokeType of
                         Single t ->
-                            ( { model | selectedTypes = ( Nothing, Nothing ) }, t )
+                            ( { model | selectedTypes = ( Nothing, Nothing ) }, t.name )
 
                         Dual one two ->
-                            ( { model | selectedTypes = ( Just one, Nothing ) }, two )
+                            ( { model | selectedTypes = ( Just one.name, Nothing ) }, two.name )
             in
             ( { newModel | mode = TypeInfo }
             , nextType
@@ -302,7 +327,16 @@ update msg model =
             ( { model | modalData = Nothing, searchResults = [] }, Cmd.none )
 
         RandomizeSuggestion ->
-            ( model, Random.generate NewSuggestion (RandList.choose (suggestPokemon model)) )
+            let
+                suggestedPokemonList =
+                    case model.suggestedPokemon of
+                        Nothing ->
+                            suggestPokemon model
+
+                        Just pokemon ->
+                            suggestPokemon model |> LX.remove pokemon
+            in
+            ( model, Random.generate NewSuggestion (RandList.choose suggestedPokemonList) )
 
         NewSuggestion ( pokemon, _ ) ->
             ( { model | suggestedPokemon = pokemon }, Cmd.none )
@@ -342,26 +376,6 @@ updatePartyWith value idx pokemonParty =
     { pokemonParty | pokemonList = newList, total = newTotal }
 
 
-findSingleMatch : Model -> String -> List Pokemon -> Maybe Pokemon
-findSingleMatch model searchTerm pokemonList =
-    case searchTerm |> String.length of
-        1 ->
-            Nothing
-
-        _ ->
-            pokemonList
-                |> List.filter
-                    (\p -> String.toLower p.name |> String.startsWith (String.toLower searchTerm))
-                |> List.filter
-                    (\p ->
-                        model.currentParty.pokemonList
-                            |> Array.toList
-                            |> List.member (Just p)
-                            |> not
-                    )
-                |> List.head
-
-
 findMatchByName : String -> List Pokemon -> List Pokemon
 findMatchByName searchTerm pokemonList =
     let
@@ -384,8 +398,8 @@ findMatchByName searchTerm pokemonList =
             (matchFront ++ matchAnywhere) |> LX.uniqueBy (\r -> r.number)
 
 
-updatedSelectedTypes : String -> Model -> Model
-updatedSelectedTypes newType model =
+updateSelectedTypes : String -> Model -> Model
+updateSelectedTypes newType model =
     let
         ( one, two ) =
             model.selectedTypes
@@ -452,7 +466,8 @@ suggestPokemon model =
                                 False
 
                             Dual one two ->
-                                (one == type1 && two == type2) || (one == type2 && two == type1)
+                                (one.name == type1 && two.name == type2)
+                                    || (one.name == type2 && two.name == type1)
                     )
 
 
@@ -479,7 +494,8 @@ suggestFirstPokemon model =
                                         False
 
                                     Dual one two ->
-                                        (one == type1 && two == type2) || (one == type2 && two == type1)
+                                        (one.name == type1 && two.name == type2)
+                                            || (one.name == type2 && two.name == type1)
                             )
                         |> List.sortWith (\one two -> comparePokemonTypes one.pokeType two.pokeType)
                         |> List.head
@@ -494,10 +510,10 @@ allSingleTypeMatches name model =
             (\pokemon ->
                 case pokemon.pokeType of
                     Single one ->
-                        one == name
+                        one.name == name
 
                     Dual one two ->
-                        one == name || two == name
+                        one.name == name || two.name == name
             )
 
 
@@ -508,10 +524,10 @@ matchFirstSingleType name model =
             (\pokemon ->
                 case pokemon.pokeType of
                     Single one ->
-                        one == name
+                        one.name == name
 
                     Dual one two ->
-                        one == name || two == name
+                        one.name == name || two.name == name
             )
         |> List.sortWith (\one two -> comparePokemonTypes one.pokeType two.pokeType)
         |> List.head
@@ -761,7 +777,6 @@ typeCoverageForParty model =
         typeCoverageGaps =
             model.currentParty
                 |> evaluateTypeCoverage model.allTypes
-                |> List.map (\t -> t.name)
     in
     case typeCoverageGaps of
         [] ->
@@ -840,10 +855,10 @@ pokemonStrongAgainst checkType typeList pokemon =
             (\t ->
                 case pokemon.pokeType of
                     Single t1 ->
-                        t.name == t1
+                        t.name == t1.name
 
                     Dual t1 t2 ->
-                        t.name == t1 || t.name == t2
+                        t.name == t1.name || t.name == t2.name
             )
         |> List.any (\t -> t.strengths |> List.member checkType.name)
 
@@ -857,10 +872,10 @@ getStrengthsOfTypes model typeGaps =
             (\checkType ->
                 case checkType of
                     Single t1 ->
-                        t1
+                        t1.name
 
                     Dual t1 t2 ->
-                        [ t1, t2 ] |> List.sort |> String.join "/"
+                        [ t1.name, t2.name ] |> List.sort |> String.join "/"
             )
         -- Now lets find the best type combo (or just type!)
         |> buildAllTypesStrengthLists model.allTypes
@@ -917,10 +932,10 @@ buildAllTypesStrengthLists allTypes existingTypes =
             (\pokeType ->
                 case pokeType of
                     Single t1 ->
-                        t1 |> List.singleton
+                        t1.name |> List.singleton
 
                     Dual t1 t2 ->
-                        [ t1, t2 ] |> List.sort
+                        [ t1.name, t2.name ] |> List.sort
             )
         |> List.map
             (\pokeType -> ( pokeType, pokeType |> buildStrengths allTypes ))
@@ -938,18 +953,9 @@ buildStrengths allTypes pokeType =
                     [ t1, t2 ]
     in
     typeList
-        |> List.map (typeNameToType allTypes)
         |> List.map .strengths
         |> List.concat
         |> LX.unique
-
-
-typeNameToType : List Type -> String -> Type
-typeNameToType allTypes typeName =
-    allTypes
-        |> List.filter (\t -> t.name == typeName)
-        |> List.head
-        |> Maybe.withDefault { name = "", strengths = [], weaknesses = [], ineffectives = [], noEffects = [] }
 
 
 highPartyWeakness : Model -> Html Msg
@@ -982,19 +988,15 @@ buildTypeStrengthList model pokemonType =
 
 buildTypeList : Model -> PokemonType -> List Type
 buildTypeList model pokemonType =
-    let
-        typeList =
-            case pokemonType of
-                Single type1 ->
-                    type1 |> List.singleton
+    case pokemonType of
+        Single type1 ->
+            type1 |> List.singleton
 
-                Dual type1 type2 ->
-                    [ type1, type2 ]
-    in
-    typeList |> List.map (typeNameToType model.allTypes)
+        Dual type1 type2 ->
+            [ type1, type2 ]
 
 
-overlappedAttributeCoverage : (Model -> PokemonType -> List String) -> Model -> List String
+overlappedAttributeCoverage : (Model -> PokemonType -> List String) -> Model -> List Type
 overlappedAttributeCoverage attrFn model =
     let
         partyAttrs =
@@ -1006,7 +1008,7 @@ overlappedAttributeCoverage attrFn model =
     model.allTypes
         |> List.map
             (\curType ->
-                ( curType.name
+                ( curType
                 , partyAttrs
                     |> List.filter (List.member curType.name)
                     |> List.length
@@ -1027,6 +1029,11 @@ overlappedCoverage model =
             |> overlappedAttributeCoverage buildTypeStrengthList
             |> renderBadgeListWithCmd
         ]
+
+
+typeNameToType : Model -> String -> Maybe Type
+typeNameToType model typeName =
+    model.typeMap |> Dict.get typeName
 
 
 
@@ -1128,26 +1135,32 @@ renderDefenses : Model -> Html Msg
 renderDefenses model =
     div []
         [ h3 [] [ text "Weaknesses:" ]
-        , renderDefenseInfoSet model.currentTypeDefenses.x4 "4x"
-        , renderDefenseInfoSet model.currentTypeDefenses.x2 "2x"
+        , model.currentTypeDefenses.x4 |> renderDefenseInfoSet model "4x"
+        , model.currentTypeDefenses.x2 |> renderDefenseInfoSet model "2x"
         , h3 [] [ text "Strengths:" ]
-        , renderDefenseInfoSet model.currentTypeDefenses.half "1/2"
-        , renderDefenseInfoSet model.currentTypeDefenses.quarter "1/4"
+        , model.currentTypeDefenses.half |> renderDefenseInfoSet model "1/2"
+        , model.currentTypeDefenses.quarter |> renderDefenseInfoSet model "1/4"
         , h3 [] [ text "Immunities:" ]
-        , renderDefenseInfoSet model.currentTypeDefenses.x0 "NO"
+        , model.currentTypeDefenses.x0 |> renderDefenseInfoSet model "NO"
         ]
 
 
-renderDefenseInfoSet : List String -> String -> Html Msg
-renderDefenseInfoSet typeList modifier =
+renderDefenseInfoSet : Model -> String -> List String -> Html Msg
+renderDefenseInfoSet model modifier typeNameList =
+    let
+        typeList =
+            typeNameList
+                |> List.map (typeNameToType model)
+                |> List.filterMap identity
+    in
     case typeList of
         [] ->
             div [] []
 
-        items ->
+        types ->
             p []
                 [ strong [] [ text (modifier ++ " damage from: ") ]
-                , renderBadgeList items
+                , renderBadgeList types
                 ]
 
 
@@ -1159,30 +1172,36 @@ renderSingleTypeInfo model typeName =
                 |> List.filter (\t -> t.name == typeName)
                 |> List.head
     in
-    case foundType of
+    case typeName |> typeNameToType model of
         Nothing ->
             div [] []
 
-        Just typeInfo ->
+        Just singleType ->
             div [ class "nes-container with-title is-rounded" ]
                 [ p [ class "title" ] [ text (typeName ++ " Type") ]
-                , renderSingleInfoSet typeInfo.strengths "Super effective against:"
-                , renderSingleInfoSet typeInfo.ineffectives "Not very effective against:"
-                , renderSingleInfoSet typeInfo.weaknesses "Weak to:"
-                , renderSingleInfoSet typeInfo.noEffects "Has no effect on:"
+                , singleType.strengths |> renderSingleInfoSet model "Super effective against:"
+                , singleType.ineffectives |> renderSingleInfoSet model "Not very effective against:"
+                , singleType.weaknesses |> renderSingleInfoSet model "Weak to:"
+                , singleType.noEffects |> renderSingleInfoSet model "Has no effect on:"
                 ]
 
 
-renderSingleInfoSet : List String -> String -> Html Msg
-renderSingleInfoSet typeList preText =
+renderSingleInfoSet : Model -> String -> List String -> Html Msg
+renderSingleInfoSet model preText typeNameList =
+    let
+        typeList =
+            typeNameList
+                |> List.map (typeNameToType model)
+                |> List.filterMap identity
+    in
     case typeList of
         [] ->
             div [] []
 
-        items ->
+        types ->
             div []
                 [ h4 [] [ text preText ]
-                , renderBadgeList items
+                , renderBadgeList types
                 ]
 
 
@@ -1247,7 +1266,7 @@ renderPokemon pokemon =
 -- Rendering Type Badges
 
 
-renderBadgeListWithCmd : List String -> Html Msg
+renderBadgeListWithCmd : List Type -> Html Msg
 renderBadgeListWithCmd typeList =
     div [ class "badge-container" ]
         (typeList
@@ -1261,21 +1280,21 @@ renderTypeBadgeWithCmd pokeType =
         Single t ->
             a [ class "nes-badge type-badge", onClick (SetType pokeType) ]
                 [ span
-                    [ class (String.toLower t ++ "-badge") ]
-                    [ text t ]
+                    [ class (String.toLower t.name ++ "-badge") ]
+                    [ text t.name ]
                 ]
 
         Dual one two ->
             -- TODO:  Follow example split badge to make left/right versions of each type badge!
-            a [ class "nes-badge type-badge", onClick (SetType pokeType) ]
-                [ span [ class (String.toLower one ++ "-badge") ]
-                    [ text one ]
-                , span [ class (String.toLower two ++ "-badge") ]
-                    [ text two ]
+            a [ class "nes-badge is-splited type-badge", onClick (SetType pokeType) ]
+                [ span [ class (String.toLower one.name ++ "-badge-left dual-left") ]
+                    [ text one.name ]
+                , span [ class (String.toLower two.name ++ "-badge-right") ]
+                    [ text two.name ]
                 ]
 
 
-renderBadgeList : List String -> Html Msg
+renderBadgeList : List Type -> Html Msg
 renderBadgeList typeList =
     div [ class "badge-container" ]
         (typeList
@@ -1289,15 +1308,14 @@ renderTypeBadge pokeType =
         Single t ->
             a [ class "nes-badge type-badge" ]
                 [ span
-                    [ class (String.toLower t ++ "-badge") ]
-                    [ text t ]
+                    [ class (String.toLower t.name ++ "-badge") ]
+                    [ text t.name ]
                 ]
 
         Dual one two ->
-            -- TODO:  Follow example split badge to make left/right versions of each type badge!
-            a [ class "nes-badge type-badge" ]
-                [ span [ class (String.toLower one ++ "-badge") ]
-                    [ text one ]
-                , span [ class (String.toLower two ++ "-badge") ]
-                    [ text two ]
+            a [ class "nes-badge is-splited type-badge" ]
+                [ span [ class (String.toLower one.name ++ "-badge-left dual-left") ]
+                    [ text one.name ]
+                , span [ class (String.toLower two.name ++ "-badge-right") ]
+                    [ text two.name ]
                 ]

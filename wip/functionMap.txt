@@ -1,0 +1,110 @@
+MSG:
+    NoOp
+	LoadData
+        getDataList
+        decodeTypeData
+        decodePokemonData
+	ChangeMode
+	TypesLoaded
+	PokemonLoaded
+	SearchPokedex
+        findMatchByName
+	SelectType
+        updateSelectedTypes
+        suggestFirstPokemon
+	SetType
+	ResetTypeSelections
+	AddPartyMemberAt
+	ConfirmPartyMember
+        closeModalAndUpdateWith
+	ClearPartyMemberAt
+        closeModalAndUpdateWith
+	FindPartyMember
+        findMatchByName
+	CloseModal
+	RandomizeSuggestion
+        suggestPokemon
+	NewSuggestion
+
+COMMON FUNCTIONS
+    renderBadgeList
+        used in TypeInfo and Party
+    renderTypeBadge
+        used in TypeInfo, Pokedex, and Party
+
+VIEW:
+---------------- TYPE MATCHUPS
+    renderTypeList
+        renderTypeButton
+            typeIsSelected
+    renderTypeInfo
+        renderDefenses
+            renderDefenseInfoSet
+                renderBadgeList
+                    renderTypeBadge
+        renderSuggestedPokemon
+        renderSingleTypeInfo
+            renderSingleInfoSet
+                renderBadgeList
+                    renderTypeBadge
+---------------- POKEDEX
+    renderPokedex
+        renderPokemon
+            renderTypeBadge
+---------------- PARTY PLANNER
+    renderPartyMemberModal
+        renderPartySearchResults
+            renderTypeBadge
+    renderPartyGrid
+        renderPartyMember
+            renderTypeBadgeWithCmd
+    evaluateParty
+        evaluateFullParty
+            typeCoverageForParty
+                evaluateTypeCoverage
+                    pokemonStrongAgainst
+                renderBadgeListWithCmd
+            highPartyWeakness
+                overlappedAttributeCoverage
+                buildTypeWeaknessList
+                    buildTypeList
+                        typeNameToType
+                renderBadgeListWithCmd
+            overlappedCoverage
+                overlappedAttributeCoverage
+                buildTypeStrengthList
+                    buildTypeList
+                        typeNameToType
+        suggestPartyMember
+            evaluateTypeCoverage
+                pokemonStrongAgainst
+            getStrengthsOfTypes
+                buildAllTypesStrengthLists
+                    buildStrengths
+                        typeNameToType
+                comparePokemonTypeStrengths
+                    comparePokemonTypes
+            renderTypeBadgeWithCmd
+            typeCoverageForParty
+        typeCoverageForParty
+            evaluateTypeCoverage
+                pokemonStrongAgainst
+            renderBadgeListWithCmd
+
+MISC:
+    closeModalAndUpdateWith
+        updatePartyWith
+    findMatchByName
+    updateSelectedTypes
+        calculateDefenses
+    suggestPokemon
+        allSingleTypeMatches
+    suggestFirstPokemon
+        matchFirstSingleType
+    matchFirstSingleType
+        comparePokemonTypes
+    getBoolValue
+    assignByValue
+    calculateDefenses
+        getBoolValue
+        assignByValue

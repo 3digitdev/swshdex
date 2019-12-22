@@ -6,10 +6,7 @@ Pokedex and helper app for Pokemon Sword/Shield
 
 ## TODO
 - Clean up CSS a bit...
-- Add a Port so JS can allow closing the modal by clicking outside the box
 - Add "info" icons to each feature with a modal popup of what it is
-- Add "suggested pokemon" (maybe 5?) to the bottom of the type matchup page
-- Enable the Party Planner to support type-coverage checking of DUAL types.
 - Split up `Main.elm` into separate parts
 
 ## Credits
