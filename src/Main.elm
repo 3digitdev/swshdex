@@ -647,7 +647,6 @@ view model =
                         , button [ class "nes-btn", onClick (ChangeMode TypeInfo) ] [ text "TYPES" ]
                         ]
                     , h1 [] [ text "Party Planner" ]
-                    , h4 [ class "grayed" ] [ text "(under construction)" ]
                     , renderPartyMemberModal model
                     , renderPartyGrid model
                     , evaluateParty model
