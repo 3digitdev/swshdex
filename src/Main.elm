@@ -10,6 +10,7 @@ import Html.Events exposing (..)
 import Http exposing (Error, expectJson, get)
 import Json.Decode as JD exposing (..)
 import List.Extra as LX exposing (gatherEqualsBy, groupsOf, uniqueBy)
+import Pokemon exposing (..)
 import Random exposing (generate)
 import Random.List as RandList exposing (choose)
 import String exposing (join, split)
@@ -22,49 +23,12 @@ main =
         { init = init
         , view = view
         , update = update
-        , subscriptions = subscriptions
+        , subscriptions = \_ -> Sub.none
         }
 
 
 
 -- MODELS/TYPES
-
-
-type PokemonType
-    = Single Type
-    | Dual Type Type
-
-
-type alias Type =
-    { name : String
-    , strengths : List String
-    , weaknesses : List String
-    , ineffectives : List String
-    , noEffects : List String
-    }
-
-
-type alias Defenses =
-    { x4 : List String
-    , x2 : List String
-    , x0 : List String
-    , half : List String
-    , quarter : List String
-    }
-
-
-type alias Pokemon =
-    { name : String
-    , number : String
-    , pokeType : PokemonType
-    }
-
-
-type alias PokemonParty =
-    { pokemonList : Array.Array (Maybe Pokemon)
-    , total : Int
-    , suggestedPokemon : Maybe Pokemon
-    }
 
 
 type alias ModalData =
@@ -90,7 +54,6 @@ type alias Model =
     , currentTypeDefenses : Defenses
     , currentParty : PokemonParty
     , modalData : Maybe ModalData
-    , partyModalInputTxt : String
     }
 
 
@@ -167,18 +130,9 @@ initModel =
     , selectedTypes = ( Nothing, Nothing )
     , suggestedPokemon = Nothing
     , mode = Pokedex
-    , currentTypeDefenses = { x4 = [], x2 = [], x0 = [], half = [], quarter = [] }
-    , currentParty = initParty
+    , currentTypeDefenses = Pokemon.initDefenses
+    , currentParty = Pokemon.initParty
     , modalData = Nothing
-    , partyModalInputTxt = ""
-    }
-
-
-initParty : PokemonParty
-initParty =
-    { pokemonList = Array.repeat 6 Nothing
-    , total = 0
-    , suggestedPokemon = Nothing
     }
 
 
@@ -381,34 +335,19 @@ updatePartyWith value idx pokemonParty =
 
 findMatchByName : String -> List Pokemon -> List Pokemon
 findMatchByName searchTerm pokemonList =
-    let
-        matchFront =
-            pokemonList
-                |> List.filter
-                    (\p -> String.toLower p.name |> String.startsWith (String.toLower searchTerm))
-
-        matchAnywhere =
-            pokemonList
-                |> List.filter
-                    (\p -> String.toLower p.name |> String.contains (String.toLower searchTerm))
-    in
-    -- Match on "start of string" first, but show any results
     case String.length searchTerm of
         1 ->
-            matchFront
+            pokemonList |> Pokemon.findByName searchTerm
 
         _ ->
-            (matchFront ++ matchAnywhere) |> LX.uniqueBy (\r -> r.number)
+            pokemonList |> Pokemon.fuzzyFindByName searchTerm
 
 
 updateSelectedTypes : String -> Model -> Model
 updateSelectedTypes newType model =
     let
-        ( one, two ) =
-            model.selectedTypes
-
         newTypes =
-            case ( one, two ) of
+            case model.selectedTypes of
                 ( Nothing, Nothing ) ->
                     -- No types selected
                     ( Just newType, Nothing )
@@ -450,74 +389,20 @@ updateSelectedTypes newType model =
 
 suggestPokemon : Model -> List Pokemon
 suggestPokemon model =
-    case model.selectedTypes of
-        ( Nothing, Nothing ) ->
-            []
-
-        ( Just type1, Nothing ) ->
-            model |> allSingleTypeMatches type1
-
-        ( Nothing, Just type1 ) ->
-            model |> allSingleTypeMatches type1
-
-        ( Just type1, Just type2 ) ->
-            model.allPokemon
-                |> List.filter
-                    (\pokemon ->
-                        case pokemon.pokeType of
-                            Single one ->
-                                False
-
-                            Dual one two ->
-                                (one.name == type1 && two.name == type2)
-                                    || (one.name == type2 && two.name == type1)
-                    )
+    model.allPokemon
+        |> List.filter (Pokemon.pokemonMatchesTypes model.selectedTypes)
 
 
 suggestFirstPokemon : Model -> Model
 suggestFirstPokemon model =
     let
         suggested =
-            case model.selectedTypes of
-                ( Nothing, Nothing ) ->
-                    Nothing
-
-                ( Just type1, Nothing ) ->
-                    model |> matchFirstSingleType type1
-
-                ( Nothing, Just type1 ) ->
-                    model |> matchFirstSingleType type1
-
-                ( Just type1, Just type2 ) ->
-                    model.allPokemon
-                        |> List.filter
-                            (\pokemon ->
-                                case pokemon.pokeType of
-                                    Single one ->
-                                        False
-
-                                    Dual one two ->
-                                        (one.name == type1 && two.name == type2)
-                                            || (one.name == type2 && two.name == type1)
-                            )
-                        |> List.sortWith (\one two -> comparePokemonTypes one.pokeType two.pokeType)
-                        |> List.head
+            model
+                |> suggestPokemon
+                |> List.sortWith (\one two -> Pokemon.comparePokemonTypes one.pokeType two.pokeType)
+                |> List.head
     in
     { model | suggestedPokemon = suggested }
-
-
-allSingleTypeMatches : String -> Model -> List Pokemon
-allSingleTypeMatches name model =
-    model.allPokemon
-        |> List.filter
-            (\pokemon ->
-                case pokemon.pokeType of
-                    Single one ->
-                        one.name == name
-
-                    Dual one two ->
-                        one.name == name || two.name == name
-            )
 
 
 matchFirstSingleType : String -> Model -> Maybe Pokemon
@@ -532,12 +417,13 @@ matchFirstSingleType name model =
                     Dual one two ->
                         one.name == name || two.name == name
             )
-        |> List.sortWith (\one two -> comparePokemonTypes one.pokeType two.pokeType)
+        |> List.sortWith (\one two -> Pokemon.comparePokemonTypes one.pokeType two.pokeType)
         |> List.head
 
 
 getBoolValue : List String -> String -> Int
 getBoolValue typeList typeName =
+    -- Value is used for calculating "rating" of a Type matchup in `calculateDefenses`
     if typeList |> List.member typeName then
         1
 
@@ -547,6 +433,9 @@ getBoolValue typeList typeName =
 
 assignByValue : ( Int, List String ) -> Defenses -> Defenses
 assignByValue ( val, typeList ) defenses =
+    {- Depending on the "Rating" computed by `calculateDefenses`,
+       Add the data to a specific part of the Defenses
+    -}
     case val of
         0 ->
             { defenses | x4 = typeList }
@@ -569,6 +458,23 @@ assignByValue ( val, typeList ) defenses =
 
 calculateDefenses : Model -> ( Maybe String, Maybe String ) -> Model
 calculateDefenses model bothTypes =
+    {- This is a doozy.  It calculates the defensive matchup for a Pokemon.
+       The tricky part is that for dual types there's additive weakness
+       and even cancelling weaknesses with strengths.
+
+       This function calculates a "Rating" for each existing type against
+       the given type.  This rating changes based on strengths/weaknesses
+       of the two types in conjunction with each other.
+
+       Example:  Bug is weak to Fire (x2 damage), but Fire is "ineffective"
+       against Water.  So a Bug/Water pokemon (like Dewpider) will cancel its
+       "Fire weakness" with a "Fire strength", resulting in Fire not being added
+       (since the pokemon takes normal damage from Fire)
+
+       Example 2:  Bug is weak to Fire, and Steel is ALSO weak to Fire.  So a
+       Bug/Steel pokemon (like Escavalier) will take x4 damage from Fire, resulting
+       in a rating reflecting that.
+    -}
     let
         dualType =
             bothTypes |> Tuple.mapBoth (Maybe.withDefault "") (Maybe.withDefault "")
@@ -578,29 +484,42 @@ calculateDefenses model bothTypes =
                 |> List.map
                     (\curType ->
                         let
+                            -- Rating for whether curType is strong against 1 or both types
+                            -- (Will result in a value of 0-2)
                             bad =
                                 dualType
                                     |> Tuple.mapBoth (getBoolValue curType.strengths) (getBoolValue curType.strengths)
                                     |> TX.uncurry (+)
 
+                            -- Rating for whether curType is ineffective against 1 or both types
+                            -- (Will result in a value of 0-2)
                             good =
                                 dualType
                                     |> Tuple.mapBoth (getBoolValue curType.ineffectives) (getBoolValue curType.ineffectives)
                                     |> TX.uncurry (+)
 
+                            -- Check if the curType has "no effect" on either of the types
+                            -- If this is true, then everything else is cancelled out.
                             noEffect =
                                 dualType
                                     |> Tuple.mapBoth (\a -> List.member a curType.noEffects) (\a -> List.member a curType.noEffects)
                                     |> TX.uncurry (||)
                         in
                         if noEffect then
+                            -- Cancel out the rating, curType can't hurt this type combo
                             ( curType.name, 5 )
 
                         else
+                            -- Take the good rating and cancel out with the bad.
+                            -- Add 2 so the value is kept in the position
+                            -- (Will result in a value of 0-4)
                             ( curType.name, good - bad + 2 )
                     )
+                -- Gather together the similarly-rated types
                 |> LX.gatherEqualsBy Tuple.second
+                -- We now have   List ((String, Int), List (String, Int))
                 |> List.map
+                    -- valueSet is a   ((name, rating), List (name, rating))
                     (\valueSet ->
                         Tuple.pair
                             (Tuple.second
@@ -610,22 +529,15 @@ calculateDefenses model bothTypes =
                                 ++ List.map (\a -> Tuple.first a) (Tuple.second valueSet)
                             )
                     )
+                -- Results in a list of each rating along with the list of types with that rating
                 |> List.sortBy Tuple.first
     in
     { model
         | currentTypeDefenses =
             sortedMap
+                -- Create the Defense object using the ratings to determine where things go
                 |> List.foldl assignByValue (Defenses [] [] [] [] [])
     }
-
-
-
--- SUBSCRIPTIONS
-
-
-subscriptions : Model -> Sub Msg
-subscriptions model =
-    Sub.none
 
 
 
@@ -635,7 +547,7 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
     let
-        renderFn =
+        content =
             case model.mode of
                 TypeInfo ->
                     [ div [ class "btn-container" ]
@@ -666,13 +578,50 @@ view model =
                     , renderPartyGrid model
                     , evaluateParty model
                     ]
+
+        errorSet =
+            case ( model.allPokemon, model.allTypes ) of
+                ( [], [] ) ->
+                    [ "Pokemon", "Types" ]
+
+                ( [], types ) ->
+                    [ "Pokemon" ]
+
+                ( pokemon, [] ) ->
+                    [ "Types" ]
+
+                ( pokemon, types ) ->
+                    []
     in
-    div [ class "container" ]
-        renderFn
+    case errorSet of
+        [] ->
+            div [ class "container" ]
+                content
+
+        errors ->
+            div [ class "container" ]
+                (errors |> List.map renderErrorSection)
+
+
+renderErrorSection : String -> Html Msg
+renderErrorSection jsonName =
+    div [ class "nes-container is-rounded with-title" ]
+        [ span [ class "title" ]
+            [ a [ class "nes-badge" ]
+                [ span [ class "is-error" ] [ text "ERROR" ] ]
+            ]
+        , h2 [] [ text "Something went wrong loading Pokemon JSON!" ]
+        , h3 []
+            [ text "Please report an issue at my "
+            , a [ href "https://github.com/3digitdev/swshdex" ]
+                [ text "GitHub Repo ", i [ class "nes-icon github is-medium" ] [] ]
+            ]
+        ]
 
 
 
 -- PARTY PLANNER VIEW
+-- Party Planner -> Party Section
 
 
 renderPartyGrid : Model -> Html Msg
@@ -705,6 +654,10 @@ renderPartyMember ( idx, member ) =
                 , h2 [ class "member-name" ] [ text pokemon.name ]
                 , renderTypeBadgeWithCmd pokemon.pokeType
                 ]
+
+
+
+-- PartyPlanner -> Modal
 
 
 renderPartyMemberModal : Model -> Html Msg
@@ -750,13 +703,17 @@ renderPartySearchResults idx pokemon =
         ]
 
 
+
+-- Party Planner -> Party Evaluation Section
+
+
 evaluateParty : Model -> Html Msg
 evaluateParty model =
     let
         content =
             case model.currentParty.total of
                 0 ->
-                    p [] []
+                    []
 
                 6 ->
                     evaluateFullParty model
@@ -768,102 +725,69 @@ evaluateParty model =
                     typeCoverageForParty model
     in
     div [ class "eval-container nes-container is-rounded with-title" ]
-        [ p [ class "title" ] [ text "Evaluation" ]
-        , content
-        ]
+        ([ p [ class "title" ] [ text "Evaluation" ] ] ++ content)
 
 
-typeCoverageForParty : Model -> Html Msg
-typeCoverageForParty model =
-    -- List of types not covered yet
-    let
-        typeCoverageGaps =
-            model.currentParty
-                |> evaluateTypeCoverage model.allTypes
-    in
-    case typeCoverageGaps of
-        [] ->
-            div [ class "type-coverage" ]
-                [ h3 [] [ text "You have every type matchup covered!" ] ]
-
-        typeGaps ->
-            div [ class "type-coverage" ]
-                [ h3 [] [ text "You have no pokemon strong against:" ]
-                , typeGaps |> renderBadgeListWithCmd
-                ]
-
-
-suggestPartyMember : Model -> Html Msg
-suggestPartyMember model =
-    let
-        typeCoverageGaps =
-            model.currentParty |> evaluateTypeCoverage model.allTypes
-
-        possibleTypes =
-            case typeCoverageGaps of
-                [] ->
-                    []
-
-                typeGaps ->
-                    typeGaps
-                        |> getStrengthsOfTypes model
-                        |> List.map
-                            (\curType ->
-                                div
-                                    [ class "type-link btm-gap"
-                                    , onClick (SetType curType)
-                                    ]
-                                    [ curType |> renderTypeBadgeWithCmd ]
-                            )
-    in
-    case possibleTypes of
-        [] ->
-            div [] [ typeCoverageForParty model ]
-
-        types ->
-            div []
-                [ typeCoverageForParty model
-                , h3 [] [ text "Type suggestions for last pokemon:" ]
-                , div [ class "badge-container" ] types
-                ]
-
-
-evaluateFullParty : Model -> Html Msg
+evaluateFullParty : Model -> List (Html Msg)
 evaluateFullParty model =
-    div []
+    List.concat
         [ typeCoverageForParty model
-        , highPartyWeakness model
-        , overlappedCoverage model
+        , model |> highAttributeOverlap Pokemon.buildWeaknessList "weak"
+        , model |> highAttributeOverlap Pokemon.buildStrengthList "strong"
         ]
 
 
-evaluateTypeCoverage : List Type -> PokemonParty -> List Type
-evaluateTypeCoverage typeList party =
-    -- For a given PokemonParty, evaluate what types you aren't 2x damage against
-    typeList
+highAttributeOverlap : (PokemonType -> List String) -> String -> Model -> List (Html Msg)
+highAttributeOverlap buildAttrListFn attrStr model =
+    case overlappedAttributeCoverage buildAttrListFn model of
+        [] ->
+            []
+
+        typeList ->
+            [ h3 [] [ text ("3+ Pokemon are " ++ attrStr ++ " against these types:") ]
+            , renderBadgeListWithCmd typeList
+            ]
+
+
+overlappedAttributeCoverage : (PokemonType -> List String) -> Model -> List Type
+overlappedAttributeCoverage attrFn model =
+    let
+        partyAttrs =
+            model.currentParty.pokemonList
+                |> Array.toList
+                |> List.filterMap identity
+                |> List.map (\pokemon -> attrFn pokemon.pokeType)
+    in
+    model.allTypes
         |> List.filter
             (\curType ->
-                party.pokemonList
-                    |> Array.toList
-                    |> List.filterMap identity
-                    |> List.any (pokemonStrongAgainst curType typeList)
-                    |> not
+                partyAttrs
+                    |> List.filter (List.member curType.name)
+                    |> List.length
+                    -- confusing! filters for lists of length >= 3
+                    |> (<) 3
             )
 
 
-pokemonStrongAgainst : Type -> List Type -> Pokemon -> Bool
-pokemonStrongAgainst checkType typeList pokemon =
-    typeList
-        |> List.filter
-            (\t ->
-                case pokemon.pokeType of
-                    Single t1 ->
-                        t.name == t1.name
+suggestPartyMember : Model -> List (Html Msg)
+suggestPartyMember model =
+    case Pokemon.evaluateTypeCoverage model.allTypes model.currentParty of
+        [] ->
+            typeCoverageForParty model
 
-                    Dual t1 t2 ->
-                        t.name == t1.name || t.name == t2.name
-            )
-        |> List.any (\t -> t.strengths |> List.member checkType.name)
+        typeGaps ->
+            typeCoverageForParty model
+                ++ [ h3 [] [ text "Type suggestions for last pokemon:" ]
+                   , div [ class "badge-container" ]
+                        (typeGaps
+                            |> getStrengthsOfTypes model
+                            |> List.map
+                                (\curType ->
+                                    div [ class "type-link btm-gap", onClick (SetType curType) ]
+                                        [ curType |> renderTypeBadgeWithCmd ]
+                                )
+                        )
+                   ]
 
 
 getStrengthsOfTypes : Model -> List Type -> List PokemonType
@@ -873,15 +797,14 @@ getStrengthsOfTypes model typeGaps =
         -- Filter only to types that exist in a pokemon
         |> LX.uniqueBy
             (\checkType ->
-                case checkType of
-                    Single t1 ->
-                        t1.name
-
-                    Dual t1 t2 ->
-                        [ t1.name, t2.name ] |> List.sort |> String.join "/"
+                checkType
+                    |> Pokemon.typeAsList
+                    |> List.map .name
+                    |> List.sort
+                    |> String.join "/"
             )
         -- Now lets find the best type combo (or just type!)
-        |> buildAllTypesStrengthLists model.allTypes
+        |> Pokemon.buildAllTypesStrengthLists model.allTypes
         |> List.map
             (\( pokeType, strengths ) ->
                 ( pokeType
@@ -895,148 +818,29 @@ getStrengthsOfTypes model typeGaps =
                 )
             )
         -- Sort by what type(s) have the highest coverage of missing types, then by Single over Dual
-        |> List.sortWith comparePokemonTypeStrengths
+        |> List.sortWith Pokemon.comparePokemonTypeStrengths
         -- Sort goes backwards from what I actually want...
         |> List.reverse
         |> List.map Tuple.first
         |> List.take 5
 
 
-comparePokemonTypeStrengths : ( PokemonType, List String ) -> ( PokemonType, List String ) -> Order
-comparePokemonTypeStrengths ( type1, strengths1 ) ( type2, strengths2 ) =
-    case compare (List.length strengths1) (List.length strengths2) of
-        GT ->
-            GT
+typeCoverageForParty : Model -> List (Html Msg)
+typeCoverageForParty model =
+    -- List of types not covered yet
+    case Pokemon.evaluateTypeCoverage model.allTypes model.currentParty of
+        [] ->
+            [ h3 []
+                [ i [ class "nes-icon is-medium star" ] []
+                , text "You have every type matchup covered!"
+                , i [ class "nes-icon is-medium star" ] []
+                ]
+            ]
 
-        LT ->
-            LT
-
-        EQ ->
-            comparePokemonTypes type1 type2
-
-
-comparePokemonTypes : PokemonType -> PokemonType -> Order
-comparePokemonTypes type1 type2 =
-    case ( type1, type2 ) of
-        ( Dual _ _, Single _ ) ->
-            LT
-
-        ( Single _, Dual _ _ ) ->
-            GT
-
-        _ ->
-            EQ
-
-
-buildAllTypesStrengthLists : List Type -> List PokemonType -> List ( PokemonType, List String )
-buildAllTypesStrengthLists allTypes existingTypes =
-    existingTypes
-        |> LX.uniqueBy
-            (\pokeType ->
-                case pokeType of
-                    Single t1 ->
-                        t1.name |> List.singleton
-
-                    Dual t1 t2 ->
-                        [ t1.name, t2.name ] |> List.sort
-            )
-        |> List.map
-            (\pokeType -> ( pokeType, pokeType |> buildStrengths allTypes ))
-
-
-buildStrengths : List Type -> PokemonType -> List String
-buildStrengths allTypes pokeType =
-    let
-        typeList =
-            case pokeType of
-                Single t1 ->
-                    t1 |> List.singleton
-
-                Dual t1 t2 ->
-                    [ t1, t2 ]
-    in
-    typeList
-        |> List.map .strengths
-        |> List.concat
-        |> LX.unique
-
-
-highPartyWeakness : Model -> Html Msg
-highPartyWeakness model =
-    div [ class "high-weakness" ]
-        [ h3 [] [ text "3+ Pokemon are weak against these types:" ]
-        , model
-            |> overlappedAttributeCoverage buildTypeWeaknessList
-            |> renderBadgeListWithCmd
-        ]
-
-
-buildTypeWeaknessList : Model -> PokemonType -> List String
-buildTypeWeaknessList model pokemonType =
-    pokemonType
-        |> buildTypeList model
-        |> List.map .weaknesses
-        |> List.concat
-        |> LX.unique
-
-
-buildTypeStrengthList : Model -> PokemonType -> List String
-buildTypeStrengthList model pokemonType =
-    pokemonType
-        |> buildTypeList model
-        |> List.map .strengths
-        |> List.concat
-        |> LX.unique
-
-
-buildTypeList : Model -> PokemonType -> List Type
-buildTypeList model pokemonType =
-    case pokemonType of
-        Single type1 ->
-            type1 |> List.singleton
-
-        Dual type1 type2 ->
-            [ type1, type2 ]
-
-
-overlappedAttributeCoverage : (Model -> PokemonType -> List String) -> Model -> List Type
-overlappedAttributeCoverage attrFn model =
-    let
-        partyAttrs =
-            model.currentParty.pokemonList
-                |> Array.toList
-                |> List.filterMap identity
-                |> List.map (\pokemon -> attrFn model pokemon.pokeType)
-    in
-    model.allTypes
-        |> List.map
-            (\curType ->
-                ( curType
-                , partyAttrs
-                    |> List.filter (List.member curType.name)
-                    |> List.length
-                )
-            )
-        |> List.filter
-            (\( _, weakCount ) ->
-                weakCount >= 3
-            )
-        |> List.map Tuple.first
-
-
-overlappedCoverage : Model -> Html Msg
-overlappedCoverage model =
-    div [ class "high-weakness" ]
-        [ h3 [] [ text "3+ Pokemon are strong against these types:" ]
-        , model
-            |> overlappedAttributeCoverage buildTypeStrengthList
-            |> renderBadgeListWithCmd
-        ]
-
-
-typeNameToType : Model -> String -> Maybe Type
-typeNameToType model typeName =
-    model.typeMap |> Dict.get typeName
+        typeGaps ->
+            [ h3 [] [ text "You have no pokemon strong against:" ]
+            , typeGaps |> renderBadgeListWithCmd
+            ]
 
 
 
@@ -1047,26 +851,27 @@ renderTypeList : Model -> Html Msg
 renderTypeList model =
     case model.allTypes of
         [] ->
-            div [] []
+            div [ class "nes-container is-rounded with-title" ]
+                [ p [ class "title" ]
+                    [ text "ERROR" ]
+                , h2 [] [ text "Something went wrong loading Types JSON!" ]
+                ]
 
         typeData ->
-            let
-                grouped =
-                    typeData |> LX.groupsOf 2
-            in
             div [ class "type-table nes-table-responsive" ]
                 [ table [ class "nes-table is-bordered is-centered" ]
-                    (List.map
-                        (\two ->
-                            tr []
-                                (List.map
-                                    (\one ->
-                                        model |> renderTypeButton one.name
+                    (typeData
+                        |> LX.groupsOf 2
+                        |> List.map
+                            (\two ->
+                                tr []
+                                    (List.map
+                                        (\one ->
+                                            model |> renderTypeButton one.name
+                                        )
+                                        two
                                     )
-                                    two
-                                )
-                        )
-                        grouped
+                            )
                     )
                 ]
 
@@ -1150,36 +955,20 @@ renderDefenses model =
 
 renderDefenseInfoSet : Model -> String -> List String -> Html Msg
 renderDefenseInfoSet model modifier typeNameList =
-    let
-        typeList =
-            typeNameList
-                |> List.map (typeNameToType model)
-                |> List.filterMap identity
-    in
-    case typeList of
-        [] ->
-            div [] []
-
-        types ->
-            p []
-                [ strong [] [ text (modifier ++ " damage from: ") ]
-                , renderBadgeList types
-                ]
+    model
+        |> renderIfNotEmptyTypeList typeNameList
+            (\types ->
+                p []
+                    [ strong [] [ text (modifier ++ " damage from: ") ]
+                    , renderBadgeList types
+                    ]
+            )
 
 
 renderSingleTypeInfo : Model -> String -> Html Msg
 renderSingleTypeInfo model typeName =
-    let
-        foundType =
-            model.allTypes
-                |> List.filter (\t -> t.name == typeName)
-                |> List.head
-    in
-    case typeName |> typeNameToType model of
-        Nothing ->
-            div [] []
-
-        Just singleType ->
+    case Pokemon.namesToTypes model.typeMap [ typeName ] of
+        [ singleType ] ->
             div [ class "nes-container with-title is-rounded" ]
                 [ p [ class "title" ] [ text (typeName ++ " Type") ]
                 , singleType.strengths |> renderSingleInfoSet model "Super effective against:"
@@ -1188,24 +977,30 @@ renderSingleTypeInfo model typeName =
                 , singleType.noEffects |> renderSingleInfoSet model "Has no effect on:"
                 ]
 
+        _ ->
+            div [] []
+
 
 renderSingleInfoSet : Model -> String -> List String -> Html Msg
 renderSingleInfoSet model preText typeNameList =
-    let
-        typeList =
-            typeNameList
-                |> List.map (typeNameToType model)
-                |> List.filterMap identity
-    in
-    case typeList of
+    model
+        |> renderIfNotEmptyTypeList typeNameList
+            (\types ->
+                div []
+                    [ h4 [] [ text preText ]
+                    , renderBadgeList types
+                    ]
+            )
+
+
+renderIfNotEmptyTypeList : List String -> (List Type -> Html Msg) -> Model -> Html Msg
+renderIfNotEmptyTypeList typeNameList renderFn model =
+    case Pokemon.namesToTypes model.typeMap typeNameList of
         [] ->
             div [] []
 
         types ->
-            div []
-                [ h4 [] [ text preText ]
-                , renderBadgeList types
-                ]
+            renderFn types
 
 
 renderSuggestedPokemon : Model -> Html Msg
