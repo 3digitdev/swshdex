@@ -593,14 +593,16 @@ view model =
                 ( pokemon, types ) ->
                     []
     in
-    case errorSet of
-        [] ->
-            div [ class "container" ]
-                content
-
-        errors ->
-            div [ class "container" ]
-                (errors |> List.map renderErrorSection)
+    -- case errorSet of
+    --     [] ->
+    --         div [ class "container" ]
+    --             content
+    --
+    --     errors ->
+    --         div [ class "container" ]
+    --             (errors |> List.map renderErrorSection)
+    div [ class "container" ]
+        content
 
 
 renderErrorSection : String -> Html Msg
