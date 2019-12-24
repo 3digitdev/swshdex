@@ -44,13 +44,14 @@ type Mode
 
 
 type alias Model =
-    { allTypes : List Type
+    { error : Maybe String
+    , mode : Mode
+    , allTypes : List Type
     , typeMap : Dict String Type
     , allPokemon : List Pokemon
     , searchResults : List Pokemon
     , selectedTypes : ( Maybe String, Maybe String )
     , suggestedPokemon : Maybe Pokemon
-    , mode : Mode
     , currentTypeDefenses : Defenses
     , currentParty : PokemonParty
     , modalData : Maybe ModalData
@@ -123,13 +124,14 @@ init _ =
 
 initModel : Model
 initModel =
-    { allTypes = []
+    { error = Nothing
+    , mode = Pokedex
+    , allTypes = []
     , typeMap = Dict.empty
     , allPokemon = []
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
     , suggestedPokemon = Nothing
-    , mode = Pokedex
     , currentTypeDefenses = Pokemon.initDefenses
     , currentParty = Pokemon.initParty
     , modalData = Nothing
@@ -173,7 +175,12 @@ update msg model =
         TypesLoaded result ->
             case result of
                 Err httpError ->
-                    ( model, Cmd.none )
+                    case httpError of
+                        Http.BadBody errStr ->
+                            ( { model | error = Just errStr }, Cmd.none )
+
+                        _ ->
+                            ( model, Cmd.none )
 
                 Ok typeData ->
                     let
@@ -192,7 +199,12 @@ update msg model =
         PokemonLoaded result ->
             case result of
                 Err httpError ->
-                    ( model, Cmd.none )
+                    case httpError of
+                        Http.BadBody errStr ->
+                            ( { model | error = Just errStr }, Cmd.none )
+
+                        _ ->
+                            ( model, Cmd.none )
 
                 Ok pokeData ->
                     ( { model | allPokemon = pokeData }, Cmd.none )
@@ -583,41 +595,26 @@ view model =
                     , renderPartyGrid model
                     , evaluateParty model
                     ]
-
-        errorSet =
-            case ( model.allPokemon, model.allTypes ) of
-                ( [], [] ) ->
-                    [ "Pokemon", "Types" ]
-
-                ( [], types ) ->
-                    [ "Pokemon" ]
-
-                ( pokemon, [] ) ->
-                    [ "Types" ]
-
-                ( pokemon, types ) ->
-                    []
     in
-    -- case errorSet of
-    --     [] ->
-    --         div [ class "container" ]
-    --             content
-    --
-    --     errors ->
-    --         div [ class "container" ]
-    --             (errors |> List.map renderErrorSection)
     div [ class "container" ]
-        content
+        (case model.error of
+            Nothing ->
+                content
+
+            Just error ->
+                [ renderErrorSection error ]
+        )
 
 
 renderErrorSection : String -> Html Msg
-renderErrorSection jsonName =
+renderErrorSection errorStr =
     div [ class "nes-container is-rounded with-title" ]
         [ span [ class "title" ]
             [ a [ class "nes-badge" ]
                 [ span [ class "is-error" ] [ text "ERROR" ] ]
             ]
-        , h2 [] [ text "Something went wrong loading Pokemon JSON!" ]
+        , h2 [] [ text "Something went wrong!" ]
+        , h3 [ class "error-txt" ] [ text errorStr ]
         , h3 []
             [ text "Please report an issue at my "
             , a [ href "https://github.com/3digitdev/swshdex" ]

@@ -5,11 +5,10 @@ Pokedex and helper app for Pokemon Sword/Shield
 **Hosted at https://dex.3digit.dev**
 
 ## TODO
-- Clean up CSS a bit...
 - Add "info" icons to each feature with a modal popup of what it is
-- Setup the loading of the JSON to handle failures and use the new `renderErrorSection` function
-  - Make sure it bases it on values taken from the result of the decoding!
-  - Will need to store this in the `Model`
+  - Before I can do this, I need an "info" icon to use!
+    - Either an `i` or a `?` in a circle.
+    - Needs to match NES.css style!
 
 ## Credits
 

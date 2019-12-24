@@ -7,6 +7,10 @@ div.type-table {
     padding: 2px;
 }
 
+.error-txt {
+    color: #e76e55;
+}
+
 .nes-btn {
     min-width: 40%;
 }
