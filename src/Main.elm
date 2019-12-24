@@ -291,7 +291,12 @@ update msg model =
                             suggestPokemon model
 
                         Just pokemon ->
-                            suggestPokemon model |> LX.remove pokemon
+                            if List.length (suggestPokemon model) > 1 then
+                                suggestPokemon model |> LX.remove pokemon
+
+                            else
+                                -- If its the only pokemon, keep suggesting it
+                                pokemon |> List.singleton
             in
             ( model, Random.generate NewSuggestion (RandList.choose suggestedPokemonList) )
 
@@ -643,8 +648,8 @@ renderPartyMember ( idx, member ) =
                 [ class "party-member nes-container is-rounded"
                 , onClick (AddPartyMemberAt idx)
                 ]
-                [ h2 [ class "grayed" ] [ text "Empty" ]
-                , h1 [ class "add-btn" ] [ text "+" ]
+                [ h2 [ class "grayed inline top-gap" ] [ text "Empty" ]
+                , h1 [ class "party-btn add-btn" ] [ text "+" ]
                 ]
 
         Just pokemon ->
@@ -652,7 +657,7 @@ renderPartyMember ( idx, member ) =
                 [ class "party-member nes-container is-rounded"
                 , onClick (ClearPartyMemberAt idx)
                 ]
-                [ h1 [ class "rm-btn" ] [ text "X" ]
+                [ h1 [ class "party-btn rm-btn" ] [ text "X" ]
                 , h2 [ class "member-name" ] [ text pokemon.name ]
                 , renderTypeBadgeWithCmd pokemon.pokeType
                 ]
@@ -1015,7 +1020,17 @@ renderSuggestedPokemon model =
 
                 Just pokemon ->
                     div [ onClick RandomizeSuggestion ]
-                        [ h3 [ class "inline" ] [ text pokemon.name ]
+                        [ h4 []
+                            [ text
+                                ("Total Pokemon: "
+                                    ++ (model
+                                            |> suggestPokemon
+                                            |> List.length
+                                            |> String.fromInt
+                                       )
+                                )
+                            ]
+                        , h3 [ class "inline" ] [ text pokemon.name ]
                         , h4 [ class "grayed inline" ] [ text "  (click to shuffle)" ]
                         ]
     in

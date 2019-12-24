@@ -1,3 +1,4 @@
+/* MONO-TYPE BADGES */
 .bug-badge {
     background-color: #A8B820;
     box-shadow: 0 0.5em #A8B820, 0 -0.5em #A8B820, 0.5em 0 #A8B820, -0.5em 0 #A8B820;
@@ -88,98 +89,9 @@
     box-shadow: 0 0.5em #6890F0, 0 -0.5em #6890F0, 0.5em 0 #6890F0, -0.5em 0 #6890F0;
 }
 
-/* RIGHT BADGES */
-.bug-badge-right {
-    background-color: #A8B820;
-    box-shadow: 0 0.5em #A8B820, 0 -0.5em #A8B820, 0.5em 0 #A8B820, 0 0 #A8B820;
-}
+/* DUAL-TYPE BADGES */
 
-.dark-badge-right {
-    background-color: #705848;
-    box-shadow: 0 0.5em #705848, 0 -0.5em #705848, 0.5em 0 #705848, 0 0 #705848;
-}
-
-.dragon-badge-right {
-    background-color: #7038F8;
-    box-shadow: 0 0.5em #7038F8, 0 -0.5em #7038F8, 0.5em 0 #7038F8, 0 0 #7038F8;
-}
-
-.electric-badge-right {
-    background-color: #F8D030;
-    box-shadow: 0 0.5em #F8D030, 0 -0.5em #F8D030, 0.5em 0 #F8D030, 0 0 #F8D030;
-}
-
-.fairy-badge-right {
-    background-color: #EE99AC;
-    box-shadow: 0 0.5em #EE99AC, 0 -0.5em #EE99AC, 0.5em 0 #EE99AC, 0 0 #EE99AC;
-}
-
-.fighting-badge-right {
-    background-color: #C03028;
-    box-shadow: 0 0.5em #C03028, 0 -0.5em #C03028, 0.5em 0 #C03028, 0 0 #C03028;
-}
-
-.fire-badge-right {
-    background-color: #F08030;
-    box-shadow: 0 0.5em #F08030, 0 -0.5em #F08030, 0.5em 0 #F08030, 0 0 #F08030;
-}
-
-.flying-badge-right {
-    background-color: #A890F0;
-    box-shadow: 0 0.5em #A890F0, 0 -0.5em #A890F0, 0.5em 0 #A890F0, 0 0 #A890F0;
-}
-
-.ghost-badge-right {
-    background-color: #705898;
-    box-shadow: 0 0.5em #705898, 0 -0.5em #705898, 0.5em 0 #705898, 0 0 #705898;
-}
-
-.grass-badge-right {
-    background-color: #78C850;
-    box-shadow: 0 0.5em #78C850, 0 -0.5em #78C850, 0.5em 0 #78C850, 0 0 #78C850;
-}
-
-.ground-badge-right {
-    background-color: #E0C068;
-    box-shadow: 0 0.5em #E0C068, 0 -0.5em #E0C068, 0.5em 0 #E0C068, 0 0 #E0C068;
-}
-
-.ice-badge-right {
-    background-color: #98D8D8;
-    box-shadow: 0 0.5em #98D8D8, 0 -0.5em #98D8D8, 0.5em 0 #98D8D8, 0 0 #98D8D8;
-}
-
-.normal-badge-right {
-    background-color: #A8A878;
-    box-shadow: 0 0.5em #A8A878, 0 -0.5em #A8A878, 0.5em 0 #A8A878, 0 0 #A8A878;
-}
-
-.poison-badge-right {
-    background-color: #A040A0;
-    box-shadow: 0 0.5em #A040A0, 0 -0.5em #A040A0, 0.5em 0 #A040A0, 0 0 #A040A0;
-}
-
-.psychic-badge-right {
-    background-color: #F85888;
-    box-shadow: 0 0.5em #F85888, 0 -0.5em #F85888, 0.5em 0 #F85888, 0 0 #F85888;
-}
-
-.rock-badge-right {
-    background-color: #B8A038;
-    box-shadow: 0 0.5em #B8A038, 0 -0.5em #B8A038, 0.5em 0 #B8A038, 0 0 #B8A038;
-}
-
-.steel-badge-right {
-    background-color: #B8B8D0;
-    box-shadow: 0 0.5em #B8B8D0, 0 -0.5em #B8B8D0, 0.5em 0 #B8B8D0, 0 0 #B8B8D0;
-}
-
-.water-badge-right {
-    background-color: #6890F0;
-    box-shadow: 0 0.5em #6890F0, 0 -0.5em #6890F0, 0.5em 0 #6890F0, 0 0 #6890F0;
-}
-
-/* LEFT BADGES */
+/* LEFT-SIDE OF BADGES */
 .bug-badge-left {
     background-color: #A8B820;
     box-shadow: 0 0.5em #A8B820, 0 -0.5em #A8B820, 0 0 #A8B820, -0.5em 0 #A8B820;
@@ -268,4 +180,95 @@
 .water-badge-left {
     background-color: #6890F0;
     box-shadow: 0 0.5em #6890F0, 0 -0.5em #6890F0, 0 0 #6890F0, -0.5em 0 #6890F0;
+}
+
+/* RIGHT SIDE OF BADGES */
+.bug-badge-right {
+    background-color: #A8B820;
+    box-shadow: 0 0.5em #A8B820, 0 -0.5em #A8B820, 0.5em 0 #A8B820, 0 0 #A8B820;
+}
+
+.dark-badge-right {
+    background-color: #705848;
+    box-shadow: 0 0.5em #705848, 0 -0.5em #705848, 0.5em 0 #705848, 0 0 #705848;
+}
+
+.dragon-badge-right {
+    background-color: #7038F8;
+    box-shadow: 0 0.5em #7038F8, 0 -0.5em #7038F8, 0.5em 0 #7038F8, 0 0 #7038F8;
+}
+
+.electric-badge-right {
+    background-color: #F8D030;
+    box-shadow: 0 0.5em #F8D030, 0 -0.5em #F8D030, 0.5em 0 #F8D030, 0 0 #F8D030;
+}
+
+.fairy-badge-right {
+    background-color: #EE99AC;
+    box-shadow: 0 0.5em #EE99AC, 0 -0.5em #EE99AC, 0.5em 0 #EE99AC, 0 0 #EE99AC;
+}
+
+.fighting-badge-right {
+    background-color: #C03028;
+    box-shadow: 0 0.5em #C03028, 0 -0.5em #C03028, 0.5em 0 #C03028, 0 0 #C03028;
+}
+
+.fire-badge-right {
+    background-color: #F08030;
+    box-shadow: 0 0.5em #F08030, 0 -0.5em #F08030, 0.5em 0 #F08030, 0 0 #F08030;
+}
+
+.flying-badge-right {
+    background-color: #A890F0;
+    box-shadow: 0 0.5em #A890F0, 0 -0.5em #A890F0, 0.5em 0 #A890F0, 0 0 #A890F0;
+}
+
+.ghost-badge-right {
+    background-color: #705898;
+    box-shadow: 0 0.5em #705898, 0 -0.5em #705898, 0.5em 0 #705898, 0 0 #705898;
+}
+
+.grass-badge-right {
+    background-color: #78C850;
+    box-shadow: 0 0.5em #78C850, 0 -0.5em #78C850, 0.5em 0 #78C850, 0 0 #78C850;
+}
+
+.ground-badge-right {
+    background-color: #E0C068;
+    box-shadow: 0 0.5em #E0C068, 0 -0.5em #E0C068, 0.5em 0 #E0C068, 0 0 #E0C068;
+}
+
+.ice-badge-right {
+    background-color: #98D8D8;
+    box-shadow: 0 0.5em #98D8D8, 0 -0.5em #98D8D8, 0.5em 0 #98D8D8, 0 0 #98D8D8;
+}
+
+.normal-badge-right {
+    background-color: #A8A878;
+    box-shadow: 0 0.5em #A8A878, 0 -0.5em #A8A878, 0.5em 0 #A8A878, 0 0 #A8A878;
+}
+
+.poison-badge-right {
+    background-color: #A040A0;
+    box-shadow: 0 0.5em #A040A0, 0 -0.5em #A040A0, 0.5em 0 #A040A0, 0 0 #A040A0;
+}
+
+.psychic-badge-right {
+    background-color: #F85888;
+    box-shadow: 0 0.5em #F85888, 0 -0.5em #F85888, 0.5em 0 #F85888, 0 0 #F85888;
+}
+
+.rock-badge-right {
+    background-color: #B8A038;
+    box-shadow: 0 0.5em #B8A038, 0 -0.5em #B8A038, 0.5em 0 #B8A038, 0 0 #B8A038;
+}
+
+.steel-badge-right {
+    background-color: #B8B8D0;
+    box-shadow: 0 0.5em #B8B8D0, 0 -0.5em #B8B8D0, 0.5em 0 #B8B8D0, 0 0 #B8B8D0;
+}
+
+.water-badge-right {
+    background-color: #6890F0;
+    box-shadow: 0 0.5em #6890F0, 0 -0.5em #6890F0, 0.5em 0 #6890F0, 0 0 #6890F0;
 }

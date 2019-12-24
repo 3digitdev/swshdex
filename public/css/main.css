@@ -125,37 +125,36 @@ div.party-member > i.close {
     margin-top: 0.5rem;
 }
 
+.top-gap {
+    margin-top: 4rem;
+}
+
 .inline {
     display: inline;
 }
 
-h2.grayed {
+h1.party-btn {
     display: inline;
-    margin-top: 4rem;
+    position: relative;
+    font-size: 3rem;
 }
 
 h1.add-btn {
-    display: inline;
-    position: relative;
     float: right;
-    font-size: 3rem;
     margin-right: 0.5rem;
 }
 
 h1.rm-btn {
-    display: inline;
-    position: relative;
     float: left;
-    font-size: 3rem;
     padding-right: 0.5rem;
     margin-block-end: 0;
-
 }
 
 .nes-container.is-rounded.eval-container {
     margin-top: 1rem;
 }
 
+/* Modal Content */
 .party-modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -169,7 +168,6 @@ h1.rm-btn {
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-/* Modal Content */
 .modal-content {
     background-color: #fefefe;
     margin: auto;
@@ -183,7 +181,6 @@ h1.rm-btn {
     padding: 1rem;
 }
 
-/* The Close Button */
 .close {
     color: #aaaaaa;
     float: right;
