@@ -24,7 +24,7 @@
 		"name": "Electric",
 		"strengths": ["Flying", "Water"],
 		"ineffectives": ["Dragon", "Electric", "Grass"],
-		"no_effects": [],
+		"no_effects": ["Ground"],
 		"weaknesses": ["Ground"]
 	},
 	{
