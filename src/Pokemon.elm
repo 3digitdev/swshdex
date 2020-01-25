@@ -1,5 +1,6 @@
 module Pokemon exposing
     ( Defenses
+    , Offenses
     , Pokemon
     , PokemonParty
     , PokemonType(..)
@@ -13,6 +14,7 @@ module Pokemon exposing
     , findByName
     , fuzzyFindByName
     , initDefenses
+    , initOffenses
     , initParty
     , namesToTypes
     , pokemonMatchesTypes
@@ -223,7 +225,24 @@ typeAsList pokemonType =
 
 
 
---Defenses
+-- Offenses
+
+
+type alias Offenses =
+    { x2 : List String
+    , half : List String
+    }
+
+
+initOffenses : Offenses
+initOffenses =
+    { x2 = []
+    , half = []
+    }
+
+
+
+-- Defenses
 
 
 type alias Defenses =

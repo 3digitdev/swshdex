@@ -51,8 +51,9 @@ type alias Model =
     , allPokemon : List Pokemon
     , searchResults : List Pokemon
     , selectedTypes : ( Maybe String, Maybe String )
-    , suggestedPokemon : Maybe Pokemon
+    , examplePokemon : Maybe Pokemon
     , currentTypeDefenses : Defenses
+    , currentTypeOffenses : Offenses
     , currentParty : PokemonParty
     , modalData : Maybe ModalData
     }
@@ -131,8 +132,9 @@ initModel =
     , allPokemon = []
     , searchResults = []
     , selectedTypes = ( Nothing, Nothing )
-    , suggestedPokemon = Nothing
+    , examplePokemon = Nothing
     , currentTypeDefenses = Pokemon.initDefenses
+    , currentTypeOffenses = Pokemon.initOffenses
     , currentParty = Pokemon.initParty
     , modalData = Nothing
     }
@@ -297,23 +299,23 @@ update msg model =
 
         RandomizeSuggestion ->
             let
-                suggestedPokemonList =
-                    case model.suggestedPokemon of
+                examplePokemonList =
+                    case model.examplePokemon of
                         Nothing ->
-                            suggestPokemon model
+                            getExamplePokemon model
 
                         Just pokemon ->
-                            if List.length (suggestPokemon model) > 1 then
-                                suggestPokemon model |> LX.remove pokemon
+                            if List.length (getExamplePokemon model) > 1 then
+                                getExamplePokemon model |> LX.remove pokemon
 
                             else
                                 -- If its the only pokemon, keep suggesting it
                                 pokemon |> List.singleton
             in
-            ( model, Random.generate NewSuggestion (RandList.choose suggestedPokemonList) )
+            ( model, Random.generate NewSuggestion (RandList.choose examplePokemonList) )
 
         NewSuggestion ( pokemon, _ ) ->
-            ( { model | suggestedPokemon = pokemon }, Cmd.none )
+            ( { model | examplePokemon = pokemon }, Cmd.none )
 
 
 
@@ -401,11 +403,11 @@ updateSelectedTypes newType model =
                         ( Just a, Just b )
     in
     newTypes
-        |> calculateDefenses { model | selectedTypes = newTypes }
+        |> calculateDualTypeStats { model | selectedTypes = newTypes }
 
 
-suggestPokemon : Model -> List Pokemon
-suggestPokemon model =
+getExamplePokemon : Model -> List Pokemon
+getExamplePokemon model =
     model.allPokemon
         |> List.filter (Pokemon.pokemonMatchesTypes model.selectedTypes)
 
@@ -413,13 +415,13 @@ suggestPokemon model =
 suggestFirstPokemon : Model -> Model
 suggestFirstPokemon model =
     let
-        suggested =
+        example =
             model
-                |> suggestPokemon
+                |> getExamplePokemon
                 |> List.sortWith (\one two -> Pokemon.comparePokemonTypes one.pokeType two.pokeType)
                 |> List.head
     in
-    { model | suggestedPokemon = suggested }
+    { model | examplePokemon = example }
 
 
 matchFirstSingleType : String -> Model -> Maybe Pokemon
@@ -440,7 +442,7 @@ matchFirstSingleType name model =
 
 getBoolValue : List String -> String -> Int
 getBoolValue typeList typeName =
-    -- Value is used for calculating "rating" of a Type matchup in `calculateDefenses`
+    -- Value is used for calculating "rating" of a Type matchup in `calculateDualTypeStats`
     if typeList |> List.member typeName then
         1
 
@@ -450,7 +452,7 @@ getBoolValue typeList typeName =
 
 assignByValue : ( Int, List String ) -> Defenses -> Defenses
 assignByValue ( val, typeList ) defenses =
-    {- Depending on the "Rating" computed by `calculateDefenses`,
+    {- Depending on the "Rating" computed by `calculateDualTypeStats`,
        Add the data to a specific part of the Defenses
     -}
     case val of
@@ -473,12 +475,18 @@ assignByValue ( val, typeList ) defenses =
             defenses
 
 
-calculateDefenses : Model -> ( Maybe String, Maybe String ) -> Model
-calculateDefenses model bothTypes =
-    {- This is a doozy.  It calculates the defensive matchup for a Pokemon.
-       The tricky part is that for dual types there's additive weakness
-       and even cancelling weaknesses with strengths.
+calculateDualTypeStats : Model -> ( Maybe String, Maybe String ) -> Model
+calculateDualTypeStats model bothTypes =
+    {- This is a doozy.  It calculates the offensive and defensive matchup for
+       a Pokemon. The tricky part is that for dual types there's additive
+       weakness and even cancelling weaknesses with strengths.
 
+       OFFENSES:
+       This function simply creates a uniqued set of all "strengths" each type
+       in the dual type has, and shares that as the types a pokemon with this
+       dual-type will have.
+
+       DEFENSES:
        This function calculates a "Rating" for each existing type against
        the given type.  This rating changes based on strengths/weaknesses
        of the two types in conjunction with each other.
@@ -495,6 +503,13 @@ calculateDefenses model bothTypes =
     let
         dualType =
             bothTypes |> Tuple.mapBoth (Maybe.withDefault "") (Maybe.withDefault "")
+
+        offenses =
+            model.allTypes
+                |> List.filter (\t -> t.name == (dualType |> Tuple.first) || t.name == (dualType |> Tuple.second))
+                |> List.map (\t -> t.strengths)
+                |> List.concat
+                |> LX.unique
 
         sortedMap =
             model.allTypes
@@ -534,9 +549,9 @@ calculateDefenses model bothTypes =
                     )
                 -- Gather together the similarly-rated types
                 |> LX.gatherEqualsBy Tuple.second
-                -- We now have   List ((String, Int), List (String, Int))
+                -- We now have List ((String, Int), List (String, Int))
                 |> List.map
-                    -- valueSet is a   ((name, rating), List (name, rating))
+                    -- Each valueSet is a ((name, rating), List (name, rating))
                     (\valueSet ->
                         Tuple.pair
                             (Tuple.second
@@ -554,6 +569,7 @@ calculateDefenses model bothTypes =
             sortedMap
                 -- Create the Defense object using the ratings to determine where things go
                 |> List.foldl assignByValue (Defenses [] [] [] [] [])
+        , currentTypeOffenses = { x2 = offenses, half = [] }
     }
 
 
@@ -922,38 +938,50 @@ renderTypeInfo model =
             div []
                 [ div [ class "nes-container with-title is-rounded" ]
                     [ p [ class "title" ] [ text ("Dual Type: " ++ one ++ "/" ++ two) ]
-                    , renderDefenses model
+                    , renderDualTypeInfo model
                     ]
-                , renderSuggestedPokemon model
+                , renderExamplePokemon model
                 ]
 
         ( Just typeName, Nothing ) ->
             div []
                 [ typeName |> renderSingleTypeInfo model
-                , renderSuggestedPokemon model
+                , renderExamplePokemon model
                 ]
 
         ( Nothing, Just typeName ) ->
             div []
                 [ typeName |> renderSingleTypeInfo model
-                , renderSuggestedPokemon model
+                , renderExamplePokemon model
                 ]
 
         _ ->
             div [] []
 
 
-renderDefenses : Model -> Html Msg
-renderDefenses model =
+renderDualTypeInfo : Model -> Html Msg
+renderDualTypeInfo model =
+    let
+        immunities =
+            case model.currentTypeDefenses.x0 |> List.length of
+                0 ->
+                    h3 [] [ strong [] [ text "None" ] ]
+
+                _ ->
+                    model.currentTypeDefenses.x0 |> renderDefenseInfoSet model "NO"
+    in
     div []
-        [ h3 [] [ text "Weaknesses:" ]
+        [ h3 [] [ text "Defense Weaknesses:" ]
         , model.currentTypeDefenses.x4 |> renderDefenseInfoSet model "4x"
         , model.currentTypeDefenses.x2 |> renderDefenseInfoSet model "2x"
-        , h3 [] [ text "Strengths:" ]
+        , h3 [] [ text "Defense Strengths:" ]
         , model.currentTypeDefenses.half |> renderDefenseInfoSet model "1/2"
         , model.currentTypeDefenses.quarter |> renderDefenseInfoSet model "1/4"
         , h3 [] [ text "Immunities:" ]
-        , model.currentTypeDefenses.x0 |> renderDefenseInfoSet model "NO"
+        , immunities
+        , hr [] []
+        , h3 [] [ text "Offense Strengths:" ]
+        , model.currentTypeOffenses.x2 |> renderOffenseInfoSet model "2x"
         ]
 
 
@@ -963,7 +991,19 @@ renderDefenseInfoSet model modifier typeNameList =
         |> renderIfNotEmptyTypeList typeNameList
             (\types ->
                 p []
-                    [ strong [] [ text (modifier ++ " damage from: ") ]
+                    [ strong [] [ text (modifier ++ " damage from:") ]
+                    , renderBadgeList types
+                    ]
+            )
+
+
+renderOffenseInfoSet : Model -> String -> List String -> Html Msg
+renderOffenseInfoSet model modifier typeNameList =
+    model
+        |> renderIfNotEmptyTypeList typeNameList
+            (\types ->
+                p []
+                    [ strong [] [ text (modifier ++ " damage against:") ]
                     , renderBadgeList types
                     ]
             )
@@ -1007,11 +1047,11 @@ renderIfNotEmptyTypeList typeNameList renderFn model =
             renderFn types
 
 
-renderSuggestedPokemon : Model -> Html Msg
-renderSuggestedPokemon model =
+renderExamplePokemon : Model -> Html Msg
+renderExamplePokemon model =
     let
         innerHtml =
-            case model.suggestedPokemon of
+            case model.examplePokemon of
                 Nothing ->
                     h3 [] [ text "No Pokemon exist with this type" ]
 
@@ -1021,7 +1061,7 @@ renderSuggestedPokemon model =
                             [ text
                                 ("Total Pokemon: "
                                     ++ (model
-                                            |> suggestPokemon
+                                            |> getExamplePokemon
                                             |> List.length
                                             |> String.fromInt
                                        )
@@ -1032,7 +1072,7 @@ renderSuggestedPokemon model =
                         ]
     in
     div [ class "nes-container with-title is-rounded" ]
-        [ p [ class "title" ] [ text "Suggested Pokemon" ]
+        [ p [ class "title" ] [ text "Example Pokemon" ]
         , innerHtml
         ]
 
