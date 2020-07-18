@@ -1125,7 +1125,7 @@ renderPokemon pokemon =
                     ]
 
         exclusiveIcon =
-            case Debug.log "exclusive" pokemon.exclusive of
+            case pokemon.exclusive of
                 "Shield" ->
                     span [] [ img [ class "exclusive-icon", src "shield.png" ] [] ]
 
