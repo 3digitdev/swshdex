@@ -197,7 +197,7 @@ update msg model =
                         | typeMap = typeMap
                         , allTypes = typeData
                       }
-                    , getDataList "galar_dex" (decodePokemonData typeMap) PokemonLoaded
+                    , getDataList "pokedex" (decodePokemonData typeMap) PokemonLoaded
                     )
 
         PokemonLoaded result ->
