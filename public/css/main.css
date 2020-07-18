@@ -67,7 +67,7 @@ p.search-hint {
 
 div.type-link {
     display: inline;
-    margin-left: 1.25rem;
+    margin-left: 0.5rem;
     cursor: pointer;
 }
 
@@ -89,7 +89,7 @@ div.badge-container {
 }
 
 a.nes-badge.type-badge {
-    display: inline;
+    display: inline-block;
     width: auto;
     user-select: none;
 }
@@ -156,6 +156,29 @@ h1.rm-btn {
 
 .nes-container.is-rounded.eval-container {
     margin-top: 1rem;
+}
+
+img.expac-icon, img.exclusive-icon {
+    margin-left: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+}
+
+img.expac-icon {
+    margin-right: 0.25rem;
+}
+
+span.no-exclusive {
+    min-height: 2rem;
+    min-width: 2rem;
+}
+
+strong.galar-name {
+    color: #A040A0;
+}
+
+strong.alola-name {
+    color: #6890F0;
 }
 
 /* Modal Content */
@@ -229,7 +252,7 @@ h1.rm-btn {
     }
 
     li.search-result-item {
-        margin: 2rem;
+        margin: 0.75rem;
         font-size: 1.5rem;
     }
 
@@ -239,6 +262,11 @@ h1.rm-btn {
 
     td.type-link {
         padding: 1.5rem 1rem 1.5rem 1rem;
+    }
+
+    div.type-link {
+        display: block;
+        margin: 0.75rem 0 0 8rem;
     }
 
     div.nes-container.with-title > p.title {

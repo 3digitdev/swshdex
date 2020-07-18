@@ -68,6 +68,8 @@ type alias Pokemon =
     { name : String
     , number : String
     , pokeType : PokemonType
+    , armorNum : String
+    , exclusive : String
     }
 
 
@@ -88,7 +90,7 @@ fuzzyFindByName searchTerm pokemonList =
     pokemonList
         |> findWithMethod searchTerm String.contains
         |> List.append (pokemonList |> findByName searchTerm)
-        |> LX.uniqueBy .number
+        |> LX.uniqueBy .name
 
 
 pokemonMatchesTypes : ( Maybe String, Maybe String ) -> Pokemon -> Bool

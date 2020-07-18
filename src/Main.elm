@@ -75,7 +75,7 @@ decodeTypeData =
 
 decodePokemonData : Dict String Type -> JD.Decoder Pokemon
 decodePokemonData typeDict =
-    JD.map3 Pokemon
+    JD.map5 Pokemon
         (JD.field "name" JD.string)
         (JD.field "number" JD.string)
         (JD.field "pokeType"
@@ -89,7 +89,7 @@ decodePokemonData typeDict =
                                         JD.succeed (Dual a b)
 
                                     _ ->
-                                        JD.fail ("Invalid Type in " ++ typeStr)
+                                        JD.fail ("Invalid Type in " ++ typeOne ++ " " ++ typeTwo)
 
                             [ typeName ] ->
                                 case Dict.get typeName typeDict of
@@ -104,6 +104,8 @@ decodePokemonData typeDict =
                     )
             )
         )
+        (JD.field "armorNum" JD.string)
+        (JD.field "exclusive" JD.string)
 
 
 getDataList : String -> JD.Decoder a -> (Result Http.Error (List a) -> Msg) -> Cmd Msg
@@ -195,7 +197,7 @@ update msg model =
                         | typeMap = typeMap
                         , allTypes = typeData
                       }
-                    , getDataList "pokedex" (decodePokemonData typeMap) PokemonLoaded
+                    , getDataList "galar_dex" (decodePokemonData typeMap) PokemonLoaded
                     )
 
         PokemonLoaded result ->
@@ -1097,15 +1099,57 @@ renderPokedex model =
                 []
             ]
         , p [ class "search-hint" ] [ text "Hint:  Click a Pokemon's type(s) to jump to type matchups!" ]
+        , p [ class "search-hint" ] [ text "Legend:  Purple is Galarian variant, Blue is Alolan" ]
         , ul [] (List.map renderPokemon model.searchResults)
         ]
 
 
 renderPokemon : Pokemon -> Html Msg
 renderPokemon pokemon =
+    let
+        galarDexNum =
+            if pokemon.number == "" then
+                "N/A: "
+
+            else
+                pokemon.number ++ ": "
+
+        armorDexNum =
+            if pokemon.armorNum == "" then
+                span [] []
+
+            else
+                span [ class "expac-num" ]
+                    [ img [ class "expac-icon", src "armor.png" ] []
+                    , text pokemon.armorNum
+                    ]
+
+        exclusiveIcon =
+            case Debug.log "exclusive" pokemon.exclusive of
+                "Shield" ->
+                    span [] [ img [ class "exclusive-icon", src "shield.png" ] [] ]
+
+                "Sword" ->
+                    span [] [ img [ class "exclusive-icon", src "sword.png" ] [] ]
+
+                _ ->
+                    span [ class "no-exclusive" ] [ text "" ]
+
+        name =
+            if String.contains "Galarian" pokemon.name then
+                strong [ class "galar-name" ] [ text (pokemon.name |> String.replace "Galarian " "") ]
+
+            else if String.contains "Alolan" pokemon.name then
+                strong [ class "alola-name" ] [ text (pokemon.name |> String.replace "Alolan " "") ]
+
+            else
+                strong [] [ text pokemon.name ]
+    in
     li [ class "search-result-item" ]
-        [ text (pokemon.number ++ ": ")
-        , strong [] [ text pokemon.name ]
+        [ text galarDexNum
+        , name
+        , exclusiveIcon
+        , armorDexNum
         , div
             [ class "type-link"
             , onClick (SetType pokemon.pokeType)
