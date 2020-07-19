@@ -20,9 +20,14 @@
     </div>
     <script src="./elm.js"></script>
     <script type="text/javascript">
-        var app = Elm.Main.init({
-            node: document.getElementById("root")
-        });
+        try {
+            var app = Elm.Main.init({
+                node: document.getElementById("root")
+            });
+        } catch (ReferenceError) {
+            document.write("<h1>Something went wrong!</h1><h2>Please hard-refresh (Shift+Refresh) to try again</h2>");
+            document.write("<p>If this error persists, please contact me at <a href=\"https://github.com/3digitdev/swshdex/issues\">My GitHub</a></p>")
+        }
     </script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/7.6.0/firebase-app.js"></script>

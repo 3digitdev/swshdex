@@ -2,4 +2,4 @@ elm-stuff/
 .firebase/
 .firebaserc
 
-public/index.js
+public/elm.js
