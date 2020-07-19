@@ -15,7 +15,7 @@ jobs:
         uses: jorelali/setup-elm@v2
         with:
           elm-version: 0.19.1
-      - run: elm make src/Main.elm --optimize --output=public/index.js
+      - run: bash buildElm.sh
       - name: Archive Production Artifact
         uses: actions/upload-artifact@master
         with:
