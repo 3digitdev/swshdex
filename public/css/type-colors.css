@@ -24,7 +24,7 @@
     box-shadow: 0 0.5em #EE99AC, 0 -0.5em #EE99AC, 0.5em 0 #EE99AC, -0.5em 0 #EE99AC;
 }
 
-.fight-badge {
+.fighting-badge {
     background-color: #C03028;
     box-shadow: 0 0.5em #C03028, 0 -0.5em #C03028, 0.5em 0 #C03028, -0.5em 0 #C03028;
 }
@@ -34,7 +34,7 @@
     box-shadow: 0 0.5em #F08030, 0 -0.5em #F08030, 0.5em 0 #F08030, -0.5em 0 #F08030;
 }
 
-.fly-badge {
+.flying-badge {
     background-color: #A890F0;
     box-shadow: 0 0.5em #A890F0, 0 -0.5em #A890F0, 0.5em 0 #A890F0, -0.5em 0 #A890F0;
 }
@@ -117,7 +117,7 @@
     box-shadow: 0 0.5em #EE99AC, 0 -0.5em #EE99AC, 0 0 #EE99AC, -0.5em 0 #EE99AC;
 }
 
-.fight-badge-left {
+.fighting-badge-left {
     background-color: #C03028;
     box-shadow: 0 0.5em #C03028, 0 -0.5em #C03028, 0 0 #C03028, -0.5em 0 #C03028;
 }
@@ -127,7 +127,7 @@
     box-shadow: 0 0.5em #F08030, 0 -0.5em #F08030, 0 0 #F08030, -0.5em 0 #F08030;
 }
 
-.fly-badge-left {
+.flying-badge-left {
     background-color: #A890F0;
     box-shadow: 0 0.5em #A890F0, 0 -0.5em #A890F0, 0 0 #A890F0, -0.5em 0 #A890F0;
 }
@@ -208,7 +208,7 @@
     box-shadow: 0 0.5em #EE99AC, 0 -0.5em #EE99AC, 0.5em 0 #EE99AC, 0 0 #EE99AC;
 }
 
-.fight-badge-right {
+.fighting-badge-right {
     background-color: #C03028;
     box-shadow: 0 0.5em #C03028, 0 -0.5em #C03028, 0.5em 0 #C03028, 0 0 #C03028;
 }
@@ -218,7 +218,7 @@
     box-shadow: 0 0.5em #F08030, 0 -0.5em #F08030, 0.5em 0 #F08030, 0 0 #F08030;
 }
 
-.fly-badge-right {
+.flying-badge-right {
     background-color: #A890F0;
     box-shadow: 0 0.5em #A890F0, 0 -0.5em #A890F0, 0.5em 0 #A890F0, 0 0 #A890F0;
 }
