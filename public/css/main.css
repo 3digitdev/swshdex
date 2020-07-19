@@ -269,6 +269,10 @@ strong.alola-name {
         margin: 0.75rem 0 0 8rem;
     }
 
+    div.type-link-no-indent {
+        margin: 0;
+    }
+
     div.nes-container.with-title > p.title {
         font-size: 1.5rem;
     }

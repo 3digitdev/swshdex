@@ -805,7 +805,7 @@ suggestPartyMember model =
                             |> getStrengthsOfTypes model
                             |> List.map
                                 (\curType ->
-                                    div [ class "type-link btm-gap", onClick (SetType curType) ]
+                                    div [ class "type-link-no-indent btm-gap", onClick (SetType curType) ]
                                         [ curType |> renderTypeBadgeWithCmd ]
                                 )
                         )
