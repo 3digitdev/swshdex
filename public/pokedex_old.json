@@ -3,3216 +3,2814 @@
         "name": "Grookey",
         "number": "001",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Thwackey",
         "number": "002",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Rillaboom",
         "number": "003",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Scorbunny",
         "number": "004",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Raboot",
         "number": "005",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cinderace",
         "number": "006",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Sobble",
         "number": "007",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Drizzile",
         "number": "008",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Inteleon",
         "number": "009",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Blipbug",
         "number": "010",
         "pokeType": "Bug",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "014",
+        "exclusive": ""
     },
     {
         "name": "Dottler",
         "number": "011",
         "pokeType": "Bug/Psychic",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "015",
+        "exclusive": ""
     },
     {
         "name": "Orbeetle",
         "number": "012",
         "pokeType": "Bug/Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Caterpie",
         "number": "013",
         "pokeType": "Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Metapod",
         "number": "014",
         "pokeType": "Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Butterfree",
         "number": "015",
         "pokeType": "Bug/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Grubbin",
         "number": "016",
         "pokeType": "Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Charjabug",
         "number": "017",
         "pokeType": "Bug/Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vikavolt",
         "number": "018",
         "pokeType": "Bug/Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hoothoot",
         "number": "019",
         "pokeType": "Normal/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Noctowl",
         "number": "020",
         "pokeType": "Normal/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Rookidee",
         "number": "021",
         "pokeType": "Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Corvisquire",
         "number": "022",
         "pokeType": "Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Corviknight",
         "number": "023",
         "pokeType": "Flying/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Skwovet",
         "number": "024",
         "pokeType": "Normal",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "009",
+        "exclusive": ""
     },
     {
         "name": "Greedent",
         "number": "025",
         "pokeType": "Normal",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "010",
+        "exclusive": ""
     },
     {
         "name": "Pidove",
         "number": "026",
         "pokeType": "Normal/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Tranquill",
         "number": "027",
         "pokeType": "Normal/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Unfezant",
         "number": "028",
         "pokeType": "Normal/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Nickit",
         "number": "029",
         "pokeType": "Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Thievul",
         "number": "030",
         "pokeType": "Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Zigzagoon",
         "number": "031",
         "pokeType": "Dark/Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Linoone",
         "number": "032",
         "pokeType": "Dark/Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Obstagoon",
         "number": "033",
         "pokeType": "Dark/Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Wooloo",
         "number": "034",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dubwool",
         "number": "035",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Lotad",
         "number": "036",
         "pokeType": "Water/Grass",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Lombre",
         "number": "037",
         "pokeType": "Water/Grass",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Ludicolo",
         "number": "038",
         "pokeType": "Water/Grass",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Seedot",
         "number": "039",
         "pokeType": "Grass",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Nuzleaf",
         "number": "040",
         "pokeType": "Grass/Dark",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Shiftry",
         "number": "041",
         "pokeType": "Grass/Dark",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Chewtle",
         "number": "042",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "056",
+        "exclusive": ""
     },
     {
         "name": "Drednaw",
         "number": "043",
         "pokeType": "Water/Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "057",
+        "exclusive": ""
     },
     {
         "name": "Purrloin",
         "number": "044",
         "pokeType": "Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Liepard",
         "number": "045",
         "pokeType": "Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Yamper",
         "number": "046",
         "pokeType": "Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Boltund",
         "number": "047",
         "pokeType": "Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Bunnelby",
         "number": "048",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Diggersby",
         "number": "049",
         "pokeType": "Normal/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Minccino",
         "number": "050",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cinccino",
         "number": "051",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Bounsweet",
         "number": "052",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Steenee",
         "number": "053",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Tsareena",
         "number": "054",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Oddish",
         "number": "055",
         "pokeType": "Grass/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Gloom",
         "number": "056",
         "pokeType": "Grass/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vileplume",
         "number": "057",
         "pokeType": "Grass/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Bellossom",
         "number": "058",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Budew",
         "number": "059",
         "pokeType": "Grass/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Roselia",
         "number": "060",
         "pokeType": "Grass/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Roserade",
         "number": "061",
         "pokeType": "Grass/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Wingull",
         "number": "062",
         "pokeType": "Water/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "048",
+        "exclusive": ""
     },
     {
         "name": "Pelipper",
         "number": "063",
         "pokeType": "Water/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "049",
+        "exclusive": ""
     },
     {
         "name": "Joltik",
         "number": "064",
         "pokeType": "Bug/Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Galvantula",
         "number": "065",
         "pokeType": "Bug/Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Electrike",
         "number": "066",
         "pokeType": "Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Manectric",
         "number": "067",
         "pokeType": "Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vulpix",
         "number": "068",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ninetales",
         "number": "069",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Growlithe",
         "number": "070",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Arcanine",
         "number": "071",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vanillite",
         "number": "072",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vanillish",
         "number": "073",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vanilluxe",
         "number": "074",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Swinub",
         "number": "075",
         "pokeType": "Ice/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Piloswine",
         "number": "076",
         "pokeType": "Ice/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Mamoswine",
         "number": "077",
         "pokeType": "Ice/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Delibird",
         "number": "078",
         "pokeType": "Ice/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Snorunt",
         "number": "079",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Glalie",
         "number": "080",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Froslass",
         "number": "081",
         "pokeType": "Ice/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Baltoy",
         "number": "082",
         "pokeType": "Ground/Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Claydol",
         "number": "083",
         "pokeType": "Ground/Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Mudbray",
         "number": "084",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Mudsdale",
         "number": "085",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dwebble",
         "number": "086",
         "pokeType": "Bug/Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "122",
+        "exclusive": ""
     },
     {
         "name": "Crustle",
         "number": "087",
         "pokeType": "Bug/Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "123",
+        "exclusive": ""
     },
     {
         "name": "Golett",
         "number": "088",
         "pokeType": "Ground/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Golurk",
         "number": "089",
         "pokeType": "Ground/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Munna",
         "number": "090",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Musharna",
         "number": "091",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Natu",
         "number": "092",
         "pokeType": "Psychic/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Xatu",
         "number": "093",
         "pokeType": "Psychic/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Stufful",
         "number": "094",
         "pokeType": "Normal/Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Bewear",
         "number": "095",
         "pokeType": "Normal/Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Snover",
         "number": "096",
         "pokeType": "Grass/Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Abomasnow",
         "number": "097",
         "pokeType": "Grass/Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Krabby",
         "number": "098",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "038",
+        "exclusive": ""
     },
     {
         "name": "Kingler",
         "number": "099",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "039",
+        "exclusive": ""
     },
     {
         "name": "Wooper",
         "number": "100",
         "pokeType": "Water/Ground",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "058",
+        "exclusive": ""
     },
     {
         "name": "Quagsire",
         "number": "101",
         "pokeType": "Water/Ground",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "059",
+        "exclusive": ""
     },
     {
         "name": "Corphish",
         "number": "102",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "091",
+        "exclusive": ""
     },
     {
         "name": "Crawdaunt",
         "number": "103",
         "pokeType": "Water/Dark",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "092",
+        "exclusive": ""
     },
     {
         "name": "Nincada",
         "number": "104",
         "pokeType": "Bug/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ninjask",
         "number": "105",
         "pokeType": "Bug/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Shedinja",
         "number": "106",
         "pokeType": "Bug/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Tyrogue",
         "number": "107",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hitmonlee",
         "number": "108",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hitmonchan",
         "number": "109",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hitmontop",
         "number": "110",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Pancham",
         "number": "111",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Pangoro",
         "number": "112",
         "pokeType": "Fighting/Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Klink",
         "number": "113",
         "pokeType": "Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Klang",
         "number": "114",
         "pokeType": "Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Klinklang",
         "number": "115",
         "pokeType": "Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Combee",
         "number": "116",
         "pokeType": "Bug/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "203",
+        "exclusive": ""
     },
     {
         "name": "Vespiquen",
         "number": "117",
         "pokeType": "Bug/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "204",
+        "exclusive": ""
     },
     {
         "name": "Bronzor",
         "number": "118",
         "pokeType": "Steel/Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Bronzong",
         "number": "119",
         "pokeType": "Steel/Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ralts",
         "number": "120",
         "pokeType": "Psychic/Fairy",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "034",
+        "exclusive": ""
     },
     {
         "name": "Kirlia",
         "number": "121",
         "pokeType": "Psychic/Fairy",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "035",
+        "exclusive": ""
     },
     {
         "name": "Gardevoir",
         "number": "122",
         "pokeType": "Psychic/Fairy",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "036",
+        "exclusive": ""
     },
     {
         "name": "Gallade",
         "number": "123",
         "pokeType": "Psychic/Fighting",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "037",
+        "exclusive": ""
     },
     {
         "name": "Drifloon",
         "number": "124",
         "pokeType": "Ghost/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "135",
+        "exclusive": ""
     },
     {
         "name": "Drifblim",
         "number": "125",
         "pokeType": "Ghost/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "136",
+        "exclusive": ""
     },
     {
         "name": "Gossifleur",
         "number": "126",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Eldegoss",
         "number": "127",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cherubi",
         "number": "128",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cherrim",
         "number": "129",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Stunky",
         "number": "130",
         "pokeType": "Poison/Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Skuntank",
         "number": "131",
         "pokeType": "Poison/Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Tympole",
         "number": "132",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Palpitoad",
         "number": "133",
         "pokeType": "Water/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Seismitoad",
         "number": "134",
         "pokeType": "Water/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Duskull",
         "number": "135",
         "pokeType": "Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dusclops",
         "number": "136",
         "pokeType": "Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dusknoir",
         "number": "137",
         "pokeType": "Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Machop",
         "number": "138",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Machoke",
         "number": "139",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Machamp",
         "number": "140",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Gastly",
         "number": "141",
         "pokeType": "Ghost/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Haunter",
         "number": "142",
         "pokeType": "Ghost/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Gengar",
         "number": "143",
         "pokeType": "Ghost/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Magikarp",
         "number": "144",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "042",
+        "exclusive": ""
     },
     {
         "name": "Gyarados",
         "number": "145",
         "pokeType": "Water/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "043",
+        "exclusive": ""
     },
     {
         "name": "Goldeen",
         "number": "146",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "094",
+        "exclusive": ""
     },
     {
         "name": "Seaking",
         "number": "147",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "095",
+        "exclusive": ""
     },
     {
         "name": "Remoraid",
         "number": "148",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "044",
+        "exclusive": ""
     },
     {
         "name": "Octillery",
         "number": "149",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "045",
+        "exclusive": ""
     },
     {
         "name": "Shellder",
         "number": "150",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "131",
+        "exclusive": ""
     },
     {
         "name": "Cloyster",
         "number": "151",
         "pokeType": "Water/Ice",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "132",
+        "exclusive": ""
     },
     {
         "name": "Feebas",
         "number": "152",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Milotic",
         "number": "153",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Basculin",
         "number": "154",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Wishiwashi",
         "number": "155",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "110",
+        "exclusive": ""
     },
     {
         "name": "Pyukumuku",
         "number": "156",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Trubbish",
         "number": "157",
         "pokeType": "Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Garbodor",
         "number": "158",
         "pokeType": "Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Sizzlipede",
         "number": "159",
         "pokeType": "Fire/Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Centiskorch",
         "number": "160",
         "pokeType": "Fire/Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Rolycoly",
         "number": "161",
         "pokeType": "Rock",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Carkol",
         "number": "162",
         "pokeType": "Rock/Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Coalossal",
         "number": "163",
         "pokeType": "Rock/Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Diglett",
         "number": "164",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dugtrio",
         "number": "165",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Drilbur",
         "number": "166",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Excadrill",
         "number": "167",
         "pokeType": "Ground/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Roggenrola",
         "number": "168",
         "pokeType": "Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "154",
+        "exclusive": ""
     },
     {
         "name": "Boldore",
         "number": "169",
         "pokeType": "Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "155",
+        "exclusive": ""
     },
     {
         "name": "Gigalith",
         "number": "170",
         "pokeType": "Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "156",
+        "exclusive": ""
     },
     {
         "name": "Timburr",
         "number": "171",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Gurdurr",
         "number": "172",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Conkeldurr",
         "number": "173",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Woobat",
         "number": "174",
         "pokeType": "Psychic/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "151",
+        "exclusive": ""
     },
     {
         "name": "Swoobat",
         "number": "175",
         "pokeType": "Psychic/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "152",
+        "exclusive": ""
     },
     {
         "name": "Noibat",
         "number": "176",
         "pokeType": "Flying/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Noivern",
         "number": "177",
         "pokeType": "Flying/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Onix",
         "number": "178",
         "pokeType": "Rock/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Steelix",
         "number": "179",
         "pokeType": "Steel/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Arrokuda",
         "number": "180",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "096",
+        "exclusive": ""
     },
     {
         "name": "Barraskewda",
         "number": "181",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "097",
+        "exclusive": ""
     },
     {
         "name": "Meowth",
         "number": "182",
         "pokeType": "Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Perrserker",
         "number": "183",
         "pokeType": "Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Persian",
         "number": "184",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Milcery",
         "number": "185",
         "pokeType": "Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Alcremie",
         "number": "186",
         "pokeType": "Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cutiefly",
         "number": "187",
         "pokeType": "Bug/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ribombee",
         "number": "188",
         "pokeType": "Bug/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ferroseed",
         "number": "189",
         "pokeType": "Grass/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ferrothorn",
         "number": "190",
         "pokeType": "Grass/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Pumpkaboo",
         "number": "191",
         "pokeType": "Ghost/Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Gourgeist",
         "number": "192",
         "pokeType": "Ghost/Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Pichu",
         "number": "193",
         "pokeType": "Electric",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "084",
+        "exclusive": ""
     },
     {
         "name": "Pikachu",
         "number": "194",
         "pokeType": "Electric",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "085",
+        "exclusive": ""
     },
     {
         "name": "Raichu",
         "number": "195",
         "pokeType": "Electric",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "086",
+        "exclusive": ""
     },
     {
         "name": "Eevee",
         "number": "196",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vaporeon",
         "number": "197",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Jolteon",
         "number": "198",
         "pokeType": "Electric",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Flareon",
         "number": "199",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Espeon",
         "number": "200",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Umbreon",
         "number": "201",
         "pokeType": "Dark",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Leafeon",
         "number": "202",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Glaceon",
         "number": "203",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Sylveon",
         "number": "204",
         "pokeType": "Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Applin",
         "number": "205",
         "pokeType": "Grass/Dragon",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "019",
+        "exclusive": ""
     },
     {
         "name": "Flapple",
         "number": "206",
         "pokeType": "Grass/Dragon",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "020",
+        "exclusive": "Sword"
     },
     {
         "name": "Appletun",
         "number": "207",
         "pokeType": "Grass/Dragon",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "021",
+        "exclusive": "Shield"
     },
     {
         "name": "Espurr",
         "number": "208",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Meowstic",
         "number": "209",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Swirlix",
         "number": "210",
         "pokeType": "Fairy",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Slurpuff",
         "number": "211",
         "pokeType": "Fairy",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Spritzee",
         "number": "212",
         "pokeType": "Fairy",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Aromatisse",
         "number": "213",
         "pokeType": "Fairy",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Dewpider",
         "number": "214",
         "pokeType": "Water/Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Araquanid",
         "number": "215",
         "pokeType": "Water/Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Wynaut",
         "number": "216",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Wobbuffet",
         "number": "217",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Farfetch'd",
         "number": "218",
         "pokeType": "Fighting",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Sirfetch'd",
         "number": "219",
         "pokeType": "Fighting",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Chinchou",
         "number": "220",
         "pokeType": "Water/Electric",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "188",
+        "exclusive": ""
     },
     {
         "name": "Lanturn",
         "number": "221",
         "pokeType": "Water/Electric",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "189",
+        "exclusive": ""
     },
     {
         "name": "Croagunk",
         "number": "222",
         "pokeType": "Poison/Fighting",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "082",
+        "exclusive": "Shield"
     },
     {
         "name": "Toxicroak",
         "number": "223",
         "pokeType": "Poison/Fighting",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "083",
+        "exclusive": "Shield"
     },
     {
         "name": "Scraggy",
         "number": "224",
         "pokeType": "Dark/Fighting",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "161",
+        "exclusive": "Sword"
     },
     {
         "name": "Scrafty",
         "number": "225",
         "pokeType": "Dark/Fighting",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "162",
+        "exclusive": "Sword"
     },
     {
         "name": "Stunfisk",
         "number": "226",
         "pokeType": "Ground/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Shuckle",
         "number": "227",
         "pokeType": "Bug/Rock",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Barboach",
         "number": "228",
         "pokeType": "Water/Ground",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "137",
+        "exclusive": ""
     },
     {
         "name": "Whiscash",
         "number": "229",
         "pokeType": "Water/Ground",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "138",
+        "exclusive": ""
     },
     {
         "name": "Shellos",
         "number": "230",
         "pokeType": "Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Gastrodon",
         "number": "231",
         "pokeType": "Water/Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Wimpod",
         "number": "232",
         "pokeType": "Bug/Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "124",
+        "exclusive": ""
     },
     {
         "name": "Golisopod",
         "number": "233",
         "pokeType": "Bug/Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "125",
+        "exclusive": ""
     },
     {
         "name": "Binacle",
         "number": "234",
         "pokeType": "Rock/Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Barbaracle",
         "number": "235",
         "pokeType": "Rock/Water",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Corsola",
         "number": "236",
         "pokeType": "Ghost",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Cursola",
         "number": "237",
         "pokeType": "Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Impidimp",
         "number": "238",
         "pokeType": "Dark/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Morgrem",
         "number": "239",
         "pokeType": "Dark/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Grimmsnarl",
         "number": "240",
         "pokeType": "Dark/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hatenna",
         "number": "241",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hattrem",
         "number": "242",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hatterene",
         "number": "243",
         "pokeType": "Psychic/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Salandit",
         "number": "244",
         "pokeType": "Poison/Fire",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "159",
+        "exclusive": ""
     },
     {
         "name": "Salazzle",
         "number": "245",
         "pokeType": "Poison/Fire",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "160",
+        "exclusive": ""
     },
     {
         "name": "Pawniard",
         "number": "246",
         "pokeType": "Dark/Steel",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "029",
+        "exclusive": ""
     },
     {
         "name": "Bisharp",
         "number": "247",
         "pokeType": "Dark/Steel",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "030",
+        "exclusive": ""
     },
     {
         "name": "Throh",
         "number": "248",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Sawk",
         "number": "249",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Koffing",
         "number": "250",
         "pokeType": "Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Weezing",
         "number": "251",
         "pokeType": "Poison/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Bonsly",
         "number": "252",
         "pokeType": "Rock",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Sudowoodo",
         "number": "253",
         "pokeType": "Rock",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cleffa",
         "number": "254",
         "pokeType": "Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Clefairy",
         "number": "255",
         "pokeType": "Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Clefable",
         "number": "256",
         "pokeType": "Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Togepi",
         "number": "257",
         "pokeType": "Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Togetic",
         "number": "258",
         "pokeType": "Fairy/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Togekiss",
         "number": "259",
         "pokeType": "Fairy/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Munchlax",
         "number": "260",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Snorlax",
         "number": "261",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cottonee",
         "number": "262",
         "pokeType": "Grass/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Whimsicott",
         "number": "263",
         "pokeType": "Grass/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Rhyhorn",
         "number": "264",
         "pokeType": "Ground/Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "183",
+        "exclusive": ""
     },
     {
         "name": "Rhydon",
         "number": "265",
         "pokeType": "Ground/Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "184",
+        "exclusive": ""
     },
     {
         "name": "Rhyperior",
         "number": "266",
         "pokeType": "Ground/Rock",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "185",
+        "exclusive": ""
     },
     {
         "name": "Gothita",
         "number": "267",
         "pokeType": "Psychic",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Gothorita",
         "number": "268",
         "pokeType": "Psychic",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Gothitelle",
         "number": "269",
         "pokeType": "Psychic",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Solosis",
         "number": "270",
         "pokeType": "Psychic",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Duosion",
         "number": "271",
         "pokeType": "Psychic",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Reuniclus",
         "number": "272",
         "pokeType": "Psychic",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Karrablast",
         "number": "273",
         "pokeType": "Bug",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "066",
+        "exclusive": ""
     },
     {
         "name": "Escavalier",
         "number": "274",
         "pokeType": "Bug/Steel",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "067",
+        "exclusive": ""
     },
     {
         "name": "Shelmet",
         "number": "275",
         "pokeType": "Bug",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "064",
+        "exclusive": ""
     },
     {
         "name": "Accelgor",
         "number": "276",
         "pokeType": "Bug",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "065",
+        "exclusive": ""
     },
     {
         "name": "Elgyem",
         "number": "277",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Beheeyem",
         "number": "278",
         "pokeType": "Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cubchoo",
         "number": "279",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Beartic",
         "number": "280",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Rufflet",
         "number": "281",
         "pokeType": "Normal/Flying",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "179",
+        "exclusive": "Sword"
     },
     {
         "name": "Braviary",
         "number": "282",
         "pokeType": "Normal/Flying",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "180",
+        "exclusive": "Sword"
     },
     {
         "name": "Vullaby",
         "number": "283",
         "pokeType": "Dark/Flying",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "181",
+        "exclusive": "Shield"
     },
     {
         "name": "Mandibuzz",
         "number": "284",
         "pokeType": "Dark/Flying",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "182",
+        "exclusive": "Shield"
     },
     {
         "name": "Skorupi",
         "number": "285",
         "pokeType": "Poison/Bug",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "050",
+        "exclusive": ""
     },
     {
         "name": "Drapion",
         "number": "286",
         "pokeType": "Poison/Dark",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "051",
+        "exclusive": ""
     },
     {
         "name": "Litwick",
         "number": "287",
         "pokeType": "Ghost/Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Lampent",
         "number": "288",
         "pokeType": "Ghost/Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Chandelure",
         "number": "289",
         "pokeType": "Ghost/Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Inkay",
         "number": "290",
         "pokeType": "Dark/Psychic",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "108",
+        "exclusive": ""
     },
     {
         "name": "Malamar",
         "number": "291",
         "pokeType": "Dark/Psychic",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "109",
+        "exclusive": ""
     },
     {
         "name": "Sneasel",
         "number": "292",
         "pokeType": "Dark/Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Weavile",
         "number": "293",
         "pokeType": "Dark/Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Sableye",
         "number": "294",
         "pokeType": "Dark/Ghost",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Mawile",
         "number": "295",
         "pokeType": "Steel/Fairy",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Maractus",
         "number": "296",
         "pokeType": "Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Sigilyph",
         "number": "297",
         "pokeType": "Psychic/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Riolu",
         "number": "298",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Lucario",
         "number": "299",
         "pokeType": "Fighting/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Torkoal",
         "number": "300",
         "pokeType": "Fire",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "173",
+        "exclusive": ""
     },
     {
         "name": "Mimikyu",
         "number": "301",
         "pokeType": "Ghost/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cufant",
         "number": "302",
         "pokeType": "Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Copperajah",
         "number": "303",
         "pokeType": "Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Qwilfish",
         "number": "304",
         "pokeType": "Water/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Frillish",
         "number": "305",
         "pokeType": "Water/Ghost",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "192",
+        "exclusive": ""
     },
     {
         "name": "Jellicent",
         "number": "306",
         "pokeType": "Water/Ghost",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "193",
+        "exclusive": ""
     },
     {
         "name": "Mareanie",
         "number": "307",
         "pokeType": "Poison/Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "127",
+        "exclusive": ""
     },
     {
         "name": "Toxapex",
         "number": "308",
         "pokeType": "Poison/Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "128",
+        "exclusive": ""
     },
     {
         "name": "Cramorant",
         "number": "309",
         "pokeType": "Flying/Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "093",
+        "exclusive": ""
     },
     {
         "name": "Toxel",
         "number": "310",
         "pokeType": "Electric/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Toxtricity",
         "number": "311",
         "pokeType": "Electric/Poison",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Silicobra",
         "number": "312",
         "pokeType": "Ground",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "174",
+        "exclusive": ""
     },
     {
         "name": "Sandaconda",
         "number": "313",
         "pokeType": "Ground",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "175",
+        "exclusive": ""
     },
     {
         "name": "Hippopotas",
         "number": "314",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hippowdon",
         "number": "315",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Durant",
         "number": "316",
         "pokeType": "Bug/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Heatmor",
         "number": "317",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Helioptile",
         "number": "318",
         "pokeType": "Electric/Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Heliolisk",
         "number": "319",
         "pokeType": "Electric/Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Hawlucha",
         "number": "320",
         "pokeType": "Fighting/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Trapinch",
         "number": "321",
         "pokeType": "Ground",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Vibrava",
         "number": "322",
         "pokeType": "Ground/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Flygon",
         "number": "323",
         "pokeType": "Ground/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Axew",
         "number": "324",
         "pokeType": "Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Fraxure",
         "number": "325",
         "pokeType": "Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Haxorus",
         "number": "326",
         "pokeType": "Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Yamask",
         "number": "327",
         "pokeType": "Ground/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Runerigus",
         "number": "328",
         "pokeType": "Ground/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Cofagrigus",
         "number": "329",
         "pokeType": "Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Honedge",
         "number": "330",
         "pokeType": "Steel/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Doublade",
         "number": "331",
         "pokeType": "Steel/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Aegislash",
         "number": "332",
         "pokeType": "Steel/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ponyta",
         "number": "333",
         "pokeType": "Psychic",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Rapidash",
         "number": "334",
         "pokeType": "Psychic/Fairy",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Sinistea",
         "number": "335",
         "pokeType": "Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Polteageist",
         "number": "336",
         "pokeType": "Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Indeedee",
         "number": "337",
         "pokeType": "Psychic/Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Phantump",
         "number": "338",
         "pokeType": "Ghost/Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Trevenant",
         "number": "339",
         "pokeType": "Ghost/Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Morelull",
         "number": "340",
         "pokeType": "Grass/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Shiinotic",
         "number": "341",
         "pokeType": "Grass/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Oranguru",
         "number": "342",
         "pokeType": "Normal/Psychic",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "089",
+        "exclusive": "Shield"
     },
     {
         "name": "Passimian",
         "number": "343",
         "pokeType": "Fighting",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "090",
+        "exclusive": "Sword"
     },
     {
         "name": "Morpeko",
         "number": "344",
         "pokeType": "Electric/Dark",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "104",
+        "exclusive": ""
     },
     {
         "name": "Falinks",
         "number": "345",
         "pokeType": "Fighting",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Drampa",
         "number": "346",
         "pokeType": "Normal/Dragon",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Turtonator",
         "number": "347",
         "pokeType": "Fire/Dragon",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Togedemaru",
         "number": "348",
         "pokeType": "Electric/Steel",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Snom",
         "number": "349",
         "pokeType": "Ice/Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Frosmoth",
         "number": "350",
         "pokeType": "Ice/Bug",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Clobbopus",
         "number": "351",
         "pokeType": "Fighting",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "129",
+        "exclusive": ""
     },
     {
         "name": "Grapploct",
         "number": "352",
         "pokeType": "Fighting",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "130",
+        "exclusive": ""
     },
     {
         "name": "Pincurchin",
         "number": "353",
         "pokeType": "Electric",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "126",
+        "exclusive": ""
     },
     {
         "name": "Mantyke",
         "number": "354",
         "pokeType": "Water/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Mantine",
         "number": "355",
         "pokeType": "Water/Flying",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "047",
+        "exclusive": ""
     },
     {
         "name": "Wailmer",
         "number": "356",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "190",
+        "exclusive": ""
     },
     {
         "name": "Wailord",
         "number": "357",
         "pokeType": "Water",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "191",
+        "exclusive": ""
     },
     {
         "name": "Bergmite",
         "number": "358",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Avalugg",
         "number": "359",
         "pokeType": "Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dhelmise",
         "number": "360",
         "pokeType": "Ghost/Grass",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Lapras",
         "number": "361",
         "pokeType": "Water/Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Lunatone",
         "number": "362",
         "pokeType": "Rock/Psychic",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Solrock",
         "number": "363",
         "pokeType": "Rock/Psychic",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Mime Jr.",
         "number": "364",
         "pokeType": "Psychic/Fairy",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Mr. Mime",
         "number": "365",
         "pokeType": "Ice/Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Mr. Rime",
         "number": "366",
         "pokeType": "Ice/Psychic",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Darumaka",
         "number": "367",
         "pokeType": "Ice",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Darmanitan",
         "number": "368",
         "pokeType": "Ice",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Stonjourner",
         "number": "369",
         "pokeType": "Rock",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Eiscue",
         "number": "370",
         "pokeType": "Ice",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Duraludon",
         "number": "371",
         "pokeType": "Steel/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Rotom",
         "number": "372",
         "pokeType": "Electric/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Ditto",
         "number": "373",
         "pokeType": "Normal",
-        "exclusive": "",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "207",
+        "exclusive": ""
     },
     {
         "name": "Dracozolt",
         "number": "374",
         "pokeType": "Electric/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Arctozolt",
         "number": "375",
         "pokeType": "Electric/Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dracovish",
         "number": "376",
         "pokeType": "Water/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Arctovish",
         "number": "377",
         "pokeType": "Water/Ice",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Charmander",
         "number": "378",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Charmeleon",
         "number": "379",
         "pokeType": "Fire",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Charizard",
         "number": "380",
         "pokeType": "Fire/Flying",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Type: Null",
         "number": "381",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Silvally",
         "number": "382",
         "pokeType": "Normal",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Larvitar",
         "number": "383",
         "pokeType": "Rock/Ground",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Pupitar",
         "number": "384",
         "pokeType": "Rock/Ground",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Tyranitar",
         "number": "385",
         "pokeType": "Rock/Dark",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Deino",
         "number": "386",
         "pokeType": "Dark/Dragon",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Zweilous",
         "number": "387",
         "pokeType": "Dark/Dragon",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Hydreigon",
         "number": "388",
         "pokeType": "Dark/Dragon",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Goomy",
         "number": "389",
         "pokeType": "Dragon",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "060",
+        "exclusive": "Shield"
     },
     {
         "name": "Sliggoo",
         "number": "390",
         "pokeType": "Dragon",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "061",
+        "exclusive": "Shield"
     },
     {
         "name": "Goodra",
         "number": "391",
         "pokeType": "Dragon",
-        "exclusive": "Shield",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "062",
+        "exclusive": "Shield"
     },
     {
         "name": "Jangmo-o",
         "number": "392",
         "pokeType": "Dragon",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "165",
+        "exclusive": "Sword"
     },
     {
         "name": "Hakamo-o",
         "number": "393",
         "pokeType": "Dragon/Fighting",
-        "exclusive": "Sword",
-        "armorNum": "",
-        "crownNum": ""
+        "armorNum": "166",
+        "exclusive": "Sword"
     },
     {
         "name": "Kommo-o",
         "number": "394",
         "pokeType": "Dragon/Fighting",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Dreepy",
         "number": "395",
         "pokeType": "Dragon/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Drakloak",
         "number": "396",
         "pokeType": "Dragon/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Dragapult",
         "number": "397",
         "pokeType": "Dragon/Ghost",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Zacian",
         "number": "398",
         "pokeType": "Steel/Fairy",
-        "exclusive": "Sword",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Sword"
     },
     {
         "name": "Zamazenta",
         "number": "399",
         "pokeType": "Fighting/Steel",
-        "exclusive": "Shield",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": "Shield"
     },
     {
         "name": "Eternatus",
         "number": "400",
         "pokeType": "Poison/Dragon",
-        "exclusive": "",
         "armorNum": "",
-        "crownNum": ""
+        "exclusive": ""
     },
     {
         "name": "Galarian Slowpoke",
         "number": "",
         "pokeType": "Psychic",
         "armorNum": "001",
-        "crownNum": "",
         "exclusive": ""
     },
     {
         "name": "Slowpoke",
         "number": "",
         "pokeType": "Water/Psychic",
-        "armorNum": "001",
-        "crownNum": "",
+        "armorNum": "001.1",
         "exclusive": ""
     },
     {
@@ -3220,15 +2818,13 @@
         "number": "",
         "pokeType": "Poison/Psychic",
         "armorNum": "002",
-        "crownNum": "",
         "exclusive": ""
     },
     {
         "name": "Slowbro",
         "number": "",
         "pokeType": "Water/Psychic",
-        "armorNum": "002",
-        "crownNum": "",
+        "armorNum": "002.1",
         "exclusive": ""
     },
     {
@@ -3236,7 +2832,6 @@
         "number": "",
         "pokeType": "Water/Psychic",
         "armorNum": "003",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3244,7 +2839,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "004",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3252,7 +2846,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "005",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3260,7 +2853,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "006",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3268,7 +2860,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "007",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3276,7 +2867,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "008",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3284,7 +2874,6 @@
         "number": "",
         "pokeType": "Normal/Fairy",
         "armorNum": "011",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3292,7 +2881,6 @@
         "number": "",
         "pokeType": "Normal/Fairy",
         "armorNum": "012",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3300,7 +2888,6 @@
         "number": "",
         "pokeType": "Normal/Fairy",
         "armorNum": "013",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3308,7 +2895,6 @@
         "number": "",
         "pokeType": "Grass",
         "armorNum": "017",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3316,7 +2902,6 @@
         "number": "",
         "pokeType": "Grass",
         "armorNum": "018",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3324,7 +2909,6 @@
         "number": "",
         "pokeType": "Normal/Flying",
         "armorNum": "022",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3332,7 +2916,6 @@
         "number": "",
         "pokeType": "Fire/Flying",
         "armorNum": "023",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3340,7 +2923,6 @@
         "number": "",
         "pokeType": "Fire/Flying",
         "armorNum": "024",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3348,7 +2930,6 @@
         "number": "",
         "pokeType": "Electric",
         "armorNum": "025",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3356,7 +2937,6 @@
         "number": "",
         "pokeType": "Electric",
         "armorNum": "026",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3364,7 +2944,6 @@
         "number": "",
         "pokeType": "Electric",
         "armorNum": "027",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3372,7 +2951,6 @@
         "number": "",
         "pokeType": "Steel/Fairy",
         "armorNum": "028",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3380,7 +2958,6 @@
         "number": "",
         "pokeType": "Psychic",
         "armorNum": "031",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3388,7 +2965,6 @@
         "number": "",
         "pokeType": "Psychic",
         "armorNum": "032",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3396,7 +2972,6 @@
         "number": "",
         "pokeType": "Psychic",
         "armorNum": "033",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3404,7 +2979,6 @@
         "number": "",
         "pokeType": "Water/Poison",
         "armorNum": "040",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3412,7 +2986,6 @@
         "number": "",
         "pokeType": "Water/Poison",
         "armorNum": "041",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3420,7 +2993,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "052",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3428,7 +3000,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "053",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3436,7 +3007,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "054",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3444,7 +3014,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "055",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3452,7 +3021,48 @@
         "number": "",
         "pokeType": "Dragon",
         "armorNum": "063",
-        "crownNum": "",
+        "exclusive": ""
+    },
+    {
+        "name": "Bulbasaur",
+        "number": "",
+        "pokeType": "Grass/Poison",
+        "armorNum": "068",
+        "exclusive": ""
+    },
+    {
+        "name": "Ivysaur",
+        "number": "",
+        "pokeType": "Grass/Poison",
+        "armorNum": "069",
+        "exclusive": ""
+    },
+    {
+        "name": "Venusaur",
+        "number": "",
+        "pokeType": "Grass/Poison",
+        "armorNum": "070",
+        "exclusive": ""
+    },
+    {
+        "name": "Squirtle",
+        "number": "",
+        "pokeType": "Water",
+        "armorNum": "071",
+        "exclusive": ""
+    },
+    {
+        "name": "Wartortle",
+        "number": "",
+        "pokeType": "Water",
+        "armorNum": "072",
+        "exclusive": ""
+    },
+    {
+        "name": "Blastoise",
+        "number": "",
+        "pokeType": "Water",
+        "armorNum": "073",
         "exclusive": ""
     },
     {
@@ -3460,7 +3070,6 @@
         "number": "",
         "pokeType": "Bug/Poison",
         "armorNum": "074",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3468,7 +3077,6 @@
         "number": "",
         "pokeType": "Bug/Poison",
         "armorNum": "075",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3476,7 +3084,6 @@
         "number": "",
         "pokeType": "Bug/Poison",
         "armorNum": "076",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3484,7 +3091,6 @@
         "number": "",
         "pokeType": "Grass/Poison",
         "armorNum": "077",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3492,7 +3098,6 @@
         "number": "",
         "pokeType": "Grass/Poison",
         "armorNum": "078",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3500,7 +3105,6 @@
         "number": "",
         "pokeType": "Fairy",
         "armorNum": "079",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3508,7 +3112,6 @@
         "number": "",
         "pokeType": "Grass",
         "armorNum": "080",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3516,7 +3119,6 @@
         "number": "",
         "pokeType": "Grass",
         "armorNum": "081",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3524,7 +3126,6 @@
         "number": "",
         "pokeType": "Dark",
         "armorNum": "087",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3532,7 +3133,6 @@
         "number": "",
         "pokeType": "Dark",
         "armorNum": "088",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3540,7 +3140,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "098",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3548,15 +3147,13 @@
         "number": "",
         "pokeType": "Water/Psychic",
         "armorNum": "099",
-        "crownNum": "",
         "exclusive": ""
     },
     {
         "name": "Kubfu",
         "number": "",
         "pokeType": "Fighting",
-        "armorNum": "100",
-        "crownNum": "",
+        "armorNum": "010",
         "exclusive": ""
     },
     {
@@ -3564,7 +3161,6 @@
         "number": "",
         "pokeType": "Fighting/Water",
         "armorNum": "101",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3572,7 +3168,6 @@
         "number": "",
         "pokeType": "Fighting/Dark",
         "armorNum": "101.1",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3580,7 +3175,6 @@
         "number": "",
         "pokeType": "Electric/Flying",
         "armorNum": "102",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3588,7 +3182,6 @@
         "number": "",
         "pokeType": "Electric/Fairy",
         "armorNum": "103",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3596,7 +3189,6 @@
         "number": "",
         "pokeType": "Electric/Steel",
         "armorNum": "105",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3604,7 +3196,6 @@
         "number": "",
         "pokeType": "Electric/Steel",
         "armorNum": "106",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3612,7 +3203,6 @@
         "number": "",
         "pokeType": "Electric/Steel",
         "armorNum": "107",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3620,7 +3210,6 @@
         "number": "",
         "pokeType": "Water/Dark",
         "armorNum": "111",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3628,7 +3217,6 @@
         "number": "",
         "pokeType": "Water/Dark",
         "armorNum": "112",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3636,7 +3224,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "113",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3644,7 +3231,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "114",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3652,7 +3238,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "115",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3660,7 +3245,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "116",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3668,7 +3252,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "117",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3676,7 +3259,6 @@
         "number": "",
         "pokeType": "Bug/Flying",
         "armorNum": "118",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3684,7 +3266,6 @@
         "number": "",
         "pokeType": "Bug/Steel",
         "armorNum": "119",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3692,7 +3273,6 @@
         "number": "",
         "pokeType": "Bug",
         "armorNum": "120",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3700,7 +3280,6 @@
         "number": "",
         "pokeType": "Bug/Fighting",
         "armorNum": "121",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3708,7 +3287,6 @@
         "number": "",
         "pokeType": "Ghost/Ground",
         "armorNum": "133",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3716,7 +3294,6 @@
         "number": "",
         "pokeType": "Ghost/Ground",
         "armorNum": "134",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3724,7 +3301,6 @@
         "number": "",
         "pokeType": "Normal/Fairy",
         "armorNum": "139",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3732,7 +3308,6 @@
         "number": "",
         "pokeType": "Water/Fairy",
         "armorNum": "140",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3740,7 +3315,6 @@
         "number": "",
         "pokeType": "Water/Fairy",
         "armorNum": "141",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3748,7 +3322,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "142",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3756,7 +3329,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "143",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3764,7 +3336,6 @@
         "number": "",
         "pokeType": "Water/Fighting",
         "armorNum": "144",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3772,7 +3343,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "145",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3780,7 +3350,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "146",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3788,7 +3357,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "147",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3796,7 +3364,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "148",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3804,7 +3371,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "149",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3812,7 +3378,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "150",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3820,7 +3385,6 @@
         "number": "",
         "pokeType": "Steel/Flying",
         "armorNum": "153",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3828,15 +3392,13 @@
         "number": "",
         "pokeType": "Rock",
         "armorNum": "157",
-        "crownNum": "",
         "exclusive": ""
     },
     {
-        "name": "Lycanroc",
+        "name": "Lycanroc (Midnight Form)",
         "number": "",
         "pokeType": "Rock",
         "armorNum": "158",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3844,7 +3406,6 @@
         "number": "",
         "pokeType": "Fighting",
         "armorNum": "163",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3852,7 +3413,13 @@
         "number": "",
         "pokeType": "Fighting",
         "armorNum": "164",
-        "crownNum": "",
+        "exclusive": ""
+    },
+    {
+        "name": "Komo-o",
+        "number": "",
+        "pokeType": "Dragon/Fighting",
+        "armorNum": "167",
         "exclusive": ""
     },
     {
@@ -3860,15 +3427,13 @@
         "number": "",
         "pokeType": "Ground",
         "armorNum": "168",
-        "crownNum": "",
         "exclusive": ""
     },
     {
         "name": "Alolan Sandshrew",
         "number": "",
         "pokeType": "Ice/Steel",
-        "armorNum": "168",
-        "crownNum": "",
+        "armorNum": "168.1",
         "exclusive": ""
     },
     {
@@ -3876,15 +3441,13 @@
         "number": "",
         "pokeType": "Ground",
         "armorNum": "169",
-        "crownNum": "",
         "exclusive": ""
     },
     {
         "name": "Alolan Sandslash",
         "number": "",
         "pokeType": "Ice/Steel",
-        "armorNum": "169",
-        "crownNum": "",
+        "armorNum": "169.1",
         "exclusive": ""
     },
     {
@@ -3892,7 +3455,6 @@
         "number": "",
         "pokeType": "Ground",
         "armorNum": "170",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3900,15 +3462,13 @@
         "number": "",
         "pokeType": "Ground",
         "armorNum": "171",
-        "crownNum": "",
         "exclusive": ""
     },
     {
         "name": "Alolan Marowak",
         "number": "",
         "pokeType": "Fire/Ghost",
-        "armorNum": "171",
-        "crownNum": "",
+        "armorNum": "171.1",
         "exclusive": ""
     },
     {
@@ -3916,7 +3476,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "172",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3924,7 +3483,6 @@
         "number": "",
         "pokeType": "Ground/Dark",
         "armorNum": "176",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3932,7 +3490,6 @@
         "number": "",
         "pokeType": "Ground/Dark",
         "armorNum": "177",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3940,7 +3497,6 @@
         "number": "",
         "pokeType": "Ground/Dark",
         "armorNum": "178",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3948,7 +3504,6 @@
         "number": "",
         "pokeType": "Bug/Fire",
         "armorNum": "186",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3956,7 +3511,6 @@
         "number": "",
         "pokeType": "Bug/Fire",
         "armorNum": "187",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3964,7 +3518,6 @@
         "number": "",
         "pokeType": "Poison/Water",
         "armorNum": "194",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3972,7 +3525,6 @@
         "number": "",
         "pokeType": "Poison/Dragon",
         "armorNum": "195",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3980,7 +3532,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "196",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3988,7 +3539,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "197",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -3996,7 +3546,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "198",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4004,7 +3553,6 @@
         "number": "",
         "pokeType": "Water",
         "armorNum": "199",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4012,7 +3560,6 @@
         "number": "",
         "pokeType": "Water/Dragon",
         "armorNum": "200",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4020,7 +3567,6 @@
         "number": "",
         "pokeType": "Grass",
         "armorNum": "201",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4028,7 +3574,6 @@
         "number": "",
         "pokeType": "Grass",
         "armorNum": "202",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4036,7 +3581,6 @@
         "number": "",
         "pokeType": "Grass/Psychic",
         "armorNum": "205",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4044,15 +3588,13 @@
         "number": "",
         "pokeType": "Grass/Psychic",
         "armorNum": "206",
-        "crownNum": "",
         "exclusive": ""
     },
     {
         "name": "Alolan Exegutor",
         "number": "",
         "pokeType": "Grass/Dragon",
-        "armorNum": "206",
-        "crownNum": "",
+        "armorNum": "206.1",
         "exclusive": ""
     },
     {
@@ -4060,7 +3602,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "208",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4068,7 +3609,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "209",
-        "crownNum": "",
         "exclusive": ""
     },
     {
@@ -4076,1079 +3616,6 @@
         "number": "",
         "pokeType": "Normal",
         "armorNum": "210",
-        "crownNum": "",
         "exclusive": ""
-    },
-    {
-        "name": "Galarian Slowking",
-        "crownNum": "003",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison/Psychic"
-    },
-    {
-        "name": "Nidoran \u2640",
-        "crownNum": "0065",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison"
-    },
-    {
-        "name": "Nidorina",
-        "crownNum": "0066",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison"
-    },
-    {
-        "name": "Nidoqueen",
-        "crownNum": "0067",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison/Ground"
-    },
-    {
-        "name": "Nidoran \u2642",
-        "crownNum": "0068",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison"
-    },
-    {
-        "name": "Nidorino",
-        "crownNum": "0069",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison"
-    },
-    {
-        "name": "Nidoking",
-        "crownNum": "0070",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison/Ground"
-    },
-    {
-        "name": "Zubat",
-        "crownNum": "144",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison/Flying"
-    },
-    {
-        "name": "Golbat",
-        "crownNum": "145",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison/Flying"
-    },
-    {
-        "name": "Jynx",
-        "crownNum": "0014",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice/Psychic"
-    },
-    {
-        "name": "Electabuzz",
-        "crownNum": "0016",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric"
-    },
-    {
-        "name": "Magmar",
-        "crownNum": "0019",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire"
-    },
-    {
-        "name": "Omanyte",
-        "crownNum": "123",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Water"
-    },
-    {
-        "name": "Omastar",
-        "crownNum": "124",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Water"
-    },
-    {
-        "name": "Kabuto",
-        "crownNum": "125",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Water"
-    },
-    {
-        "name": "Kabutops",
-        "crownNum": "126",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Water"
-    },
-    {
-        "name": "Aerodactyl",
-        "crownNum": "127",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Flying"
-    },
-    {
-        "name": "Articuno",
-        "crownNum": "202",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice/Flying"
-    },
-    {
-        "name": "Galarian Articuno",
-        "crownNum": "202",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic/Flying"
-    },
-    {
-        "name": "Zapdos",
-        "crownNum": "203",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric/Flying"
-    },
-    {
-        "name": "Galarian Zapdos",
-        "crownNum": "203",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fighting/Flying"
-    },
-    {
-        "name": "Moltres",
-        "crownNum": "204",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire/Flying"
-    },
-    {
-        "name": "Galarian Moltres",
-        "crownNum": "204",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dark/Flying"
-    },
-    {
-        "name": "Dratini",
-        "crownNum": "194",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon"
-    },
-    {
-        "name": "Dragonair",
-        "crownNum": "195",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon"
-    },
-    {
-        "name": "Dragonite",
-        "crownNum": "196",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Flying"
-    },
-    {
-        "name": "Crobat",
-        "crownNum": "146",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison/Flying"
-    },
-    {
-        "name": "Smoochum",
-        "crownNum": "0013",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice/Psychic"
-    },
-    {
-        "name": "Elekid",
-        "crownNum": "0015",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric"
-    },
-    {
-        "name": "Magby",
-        "crownNum": "0018",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire"
-    },
-    {
-        "name": "Raikou",
-        "crownNum": "243",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric"
-    },
-    {
-        "name": "Entei",
-        "crownNum": "244",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire"
-    },
-    {
-        "name": "Suicune",
-        "crownNum": "245",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water"
-    },
-    {
-        "name": "Lugia",
-        "crownNum": "249",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic/Flying"
-    },
-    {
-        "name": "Ho-Oh",
-        "crownNum": "250",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire/Flying"
-    },
-    {
-        "name": "Treecko",
-        "crownNum": "252",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Grass"
-    },
-    {
-        "name": "Grovyle",
-        "crownNum": "253",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Grass"
-    },
-    {
-        "name": "Sceptile",
-        "crownNum": "254",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Grass"
-    },
-    {
-        "name": "Torchic",
-        "crownNum": "255",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire"
-    },
-    {
-        "name": "Combusken",
-        "crownNum": "256",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire/Fighting"
-    },
-    {
-        "name": "Blaziken",
-        "crownNum": "257",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire/Fighting"
-    },
-    {
-        "name": "Mudkip",
-        "crownNum": "258",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water"
-    },
-    {
-        "name": "Marshtomp",
-        "crownNum": "259",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Ground"
-    },
-    {
-        "name": "Swampert",
-        "crownNum": "260",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Ground"
-    },
-    {
-        "name": "Aron",
-        "crownNum": "191",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Rock"
-    },
-    {
-        "name": "Lairon",
-        "crownNum": "192",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Rock"
-    },
-    {
-        "name": "Aggron",
-        "crownNum": "193",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Rock"
-    },
-    {
-        "name": "Swablu",
-        "crownNum": "0035",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Normal/Flying"
-    },
-    {
-        "name": "Altaria",
-        "crownNum": "0036",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Flying"
-    },
-    {
-        "name": "Lileep",
-        "crownNum": "183",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Grass"
-    },
-    {
-        "name": "Cradily",
-        "crownNum": "184",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Grass"
-    },
-    {
-        "name": "Anorith",
-        "crownNum": "185",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Bug"
-    },
-    {
-        "name": "Armaldo",
-        "crownNum": "186",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Bug"
-    },
-    {
-        "name": "Absol",
-        "crownNum": "107",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dark"
-    },
-    {
-        "name": "Spheal",
-        "crownNum": "159",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice/Water"
-    },
-    {
-        "name": "Sealeo",
-        "crownNum": "160",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice/Water"
-    },
-    {
-        "name": "Walrein",
-        "crownNum": "161",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice/Water"
-    },
-    {
-        "name": "Relicanth",
-        "crownNum": "187",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Rock"
-    },
-    {
-        "name": "Bagon",
-        "crownNum": "113",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon"
-    },
-    {
-        "name": "Shelgon",
-        "crownNum": "114",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon"
-    },
-    {
-        "name": "Salamence",
-        "crownNum": "115",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Flying"
-    },
-    {
-        "name": "Beldum",
-        "crownNum": "129",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Psychic"
-    },
-    {
-        "name": "Metang",
-        "crownNum": "130",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Psychic"
-    },
-    {
-        "name": "Metagross",
-        "crownNum": "131",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Psychic"
-    },
-    {
-        "name": "Regirock",
-        "crownNum": "197",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock"
-    },
-    {
-        "name": "Regice",
-        "crownNum": "198",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice"
-    },
-    {
-        "name": "Registeel",
-        "crownNum": "199",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel"
-    },
-    {
-        "name": "Latias",
-        "crownNum": "380",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Psychic"
-    },
-    {
-        "name": "Latios",
-        "crownNum": "381",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Psychic"
-    },
-    {
-        "name": "Kyogre",
-        "crownNum": "382",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water"
-    },
-    {
-        "name": "Groudon",
-        "crownNum": "383",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ground"
-    },
-    {
-        "name": "Rayquaza",
-        "crownNum": "384",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Flying"
-    },
-    {
-        "name": "Spiritomb",
-        "crownNum": "0047",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ghost/Dark"
-    },
-    {
-        "name": "Gible",
-        "crownNum": "116",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Ground"
-    },
-    {
-        "name": "Gabite",
-        "crownNum": "117",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Ground"
-    },
-    {
-        "name": "Garchomp",
-        "crownNum": "118",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Ground"
-    },
-    {
-        "name": "Electivire",
-        "crownNum": "0017",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric"
-    },
-    {
-        "name": "Magmortar",
-        "crownNum": "0020",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire"
-    },
-    {
-        "name": "Uxie",
-        "crownNum": "480",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic"
-    },
-    {
-        "name": "Mesprit",
-        "crownNum": "481",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic"
-    },
-    {
-        "name": "Azelf",
-        "crownNum": "482",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic"
-    },
-    {
-        "name": "Dialga",
-        "crownNum": "483",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Dragon"
-    },
-    {
-        "name": "Palkia",
-        "crownNum": "484",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Dragon"
-    },
-    {
-        "name": "Heatran",
-        "crownNum": "485",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire/Steel"
-    },
-    {
-        "name": "Regigigas",
-        "crownNum": "486",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Normal"
-    },
-    {
-        "name": "Giratina",
-        "crownNum": "487",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ghost/Dragon"
-    },
-    {
-        "name": "Cresselia",
-        "crownNum": "488",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic"
-    },
-    {
-        "name": "Victini",
-        "crownNum": "494",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic/Fire"
-    },
-    {
-        "name": "Audino",
-        "crownNum": "0021",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Normal"
-    },
-    {
-        "name": "Tirtouga",
-        "crownNum": "147",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Rock"
-    },
-    {
-        "name": "Carracosta",
-        "crownNum": "148",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Rock"
-    },
-    {
-        "name": "Archen",
-        "crownNum": "149",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Flying"
-    },
-    {
-        "name": "Archeops",
-        "crownNum": "150",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Flying"
-    },
-    {
-        "name": "Cryogonal",
-        "crownNum": "0030",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice"
-    },
-    {
-        "name": "Cobalion",
-        "crownNum": "205",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Fighting"
-    },
-    {
-        "name": "Terrakion",
-        "crownNum": "206",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Fighting"
-    },
-    {
-        "name": "Virizion",
-        "crownNum": "207",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Grass/Fighting"
-    },
-    {
-        "name": "Tornadus",
-        "crownNum": "641",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Flying"
-    },
-    {
-        "name": "Thundurus",
-        "crownNum": "642",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric/Flying"
-    },
-    {
-        "name": "Landorus",
-        "crownNum": "645",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ground/Flying"
-    },
-    {
-        "name": "Keldeo",
-        "crownNum": "647",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Fighting"
-    },
-    {
-        "name": "Genesect",
-        "crownNum": "649",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Bug/Steel"
-    },
-    {
-        "name": "Tyrunt",
-        "crownNum": "0083",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Dragon"
-    },
-    {
-        "name": "Tyrantrum",
-        "crownNum": "0084",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Dragon"
-    },
-    {
-        "name": "Amaura",
-        "crownNum": "0085",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Ice"
-    },
-    {
-        "name": "Aurorus",
-        "crownNum": "0086",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Ice"
-    },
-    {
-        "name": "Carbink",
-        "crownNum": "128",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Fairy"
-    },
-    {
-        "name": "Xerneas",
-        "crownNum": "716",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fairy"
-    },
-    {
-        "name": "Yveltal",
-        "crownNum": "717",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dark/Flying"
-    },
-    {
-        "name": "Zygarde",
-        "crownNum": "718",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon/Ground"
-    },
-    {
-        "name": "Diancie",
-        "crownNum": "719",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Fairy"
-    },
-    {
-        "name": "Volcanion",
-        "crownNum": "721",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire/Water"
-    },
-    {
-        "name": "TapuKoko",
-        "crownNum": "785",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric/Fairy"
-    },
-    {
-        "name": "TapuLele",
-        "crownNum": "786",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic/Fairy"
-    },
-    {
-        "name": "TapuBulu",
-        "crownNum": "787",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Grass/Fairy"
-    },
-    {
-        "name": "TapuFini",
-        "crownNum": "788",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Water/Fairy"
-    },
-    {
-        "name": "Nihilego",
-        "crownNum": "793",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Poison"
-    },
-    {
-        "name": "Buzzwole",
-        "crownNum": "794",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Bug/Fighting"
-    },
-    {
-        "name": "Pheromosa",
-        "crownNum": "795",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Bug/Fighting"
-    },
-    {
-        "name": "Xurkitree",
-        "crownNum": "796",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric"
-    },
-    {
-        "name": "Celesteela",
-        "crownNum": "797",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Steel/Flying"
-    },
-    {
-        "name": "Kartana",
-        "crownNum": "798",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Grass/Steel"
-    },
-    {
-        "name": "Guzzlord",
-        "crownNum": "799",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dark/Dragon"
-    },
-    {
-        "name": "Poipole",
-        "crownNum": "803",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison"
-    },
-    {
-        "name": "Naganadel",
-        "crownNum": "804",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Poison/Dragon"
-    },
-    {
-        "name": "Stakataka",
-        "crownNum": "805",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Rock/Steel"
-    },
-    {
-        "name": "Blacephalon",
-        "crownNum": "806",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Fire/Ghost"
-    },
-    {
-        "name": "Calyrex",
-        "crownNum": "210",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic/Grass"
-    },
-    {
-        "name": "Ice-Rider Calyrex",
-        "crownNum": "210",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic/Ice"
-    },
-    {
-        "name": "Shadow-Rider Calyrex",
-        "crownNum": "210",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Psychic/Ghost"
-    },
-    {
-        "name": "Spectrier",
-        "crownNum": "209",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ghost"
-    },
-    {
-        "name": "Glastrier",
-        "crownNum": "208",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Ice"
-    },
-    {
-        "name": "Regieleki",
-        "crownNum": "200",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Electric"
-    },
-    {
-        "name": "Regidrago",
-        "crownNum": "201",
-        "armorNum": "",
-        "number": "",
-        "exclusive": "",
-        "pokeType": "Dragon"
     }
 ]

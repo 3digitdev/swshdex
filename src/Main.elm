@@ -75,7 +75,7 @@ decodeTypeData =
 
 decodePokemonData : Dict String Type -> JD.Decoder Pokemon
 decodePokemonData typeDict =
-    JD.map5 Pokemon
+    JD.map6 Pokemon
         (JD.field "name" JD.string)
         (JD.field "number" JD.string)
         (JD.field "pokeType"
@@ -105,6 +105,7 @@ decodePokemonData typeDict =
             )
         )
         (JD.field "armorNum" JD.string)
+        (JD.field "crownNum" JD.string)
         (JD.field "exclusive" JD.string)
 
 
@@ -1087,6 +1088,7 @@ renderPokedex : Model -> Html Msg
 renderPokedex model =
     div []
         [ h1 [] [ text "Pokemon" ]
+        , p [ class "search-hint" ] [ text "Now updated for Isle of Armor/Crown Tundra!"]
         , div [ class "nes-field" ]
             [ label [ for "search-box" ]
                 [ text "Search:" ]
@@ -1124,6 +1126,16 @@ renderPokemon pokemon =
                     , text pokemon.armorNum
                     ]
 
+        crownDexNum =
+            if pokemon.crownNum == "" then
+                span [] []
+
+            else
+                span [ class "expac-num" ]
+                    [ img [ class "expac-icon", src "crown.png" ] []
+                    , text pokemon.crownNum
+                    ]
+
         exclusiveIcon =
             case pokemon.exclusive of
                 "Shield" ->
@@ -1150,6 +1162,7 @@ renderPokemon pokemon =
         , name
         , exclusiveIcon
         , armorDexNum
+        , crownDexNum
         , div
             [ class "type-link"
             , onClick (SetType pokemon.pokeType)

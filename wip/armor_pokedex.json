@@ -6,7 +6,7 @@
 	},
 	{
 		"name": "Slowpoke",
-		"number": "1.1",
+		"number": "1",
 		"pokeType": "Water/Psychic"
 	},
 	{
@@ -16,7 +16,7 @@
 	},
 	{
 		"name": "Slowbro",
-		"number": "2.1",
+		"number": "2",
 		"pokeType": "Water/Psychic"
 	},
 	{
@@ -50,16 +50,6 @@
 		"pokeType": "Normal"
 	},
 	{
-		"name": "Skwovet",
-		"number": "9",
-		"pokeType": "Normal"
-	},
-	{
-		"name": "Greedent",
-		"number": "10",
-		"pokeType": "Normal"
-	},
-	{
 		"name": "Igglybuff",
 		"number": "11",
 		"pokeType": "Normal/Fairy"
@@ -75,16 +65,6 @@
 		"pokeType": "Normal/Fairy"
 	},
 	{
-		"name": "Blipbug",
-		"number": "14",
-		"pokeType": "Bug"
-	},
-	{
-		"name": "Dottler",
-		"number": "15",
-		"pokeType": "Bug/Psychic"
-	},
-	{
 		"name": "Fomantis",
 		"number": "17",
 		"pokeType": "Grass"
@@ -93,21 +73,6 @@
 		"name": "Lurantis",
 		"number": "18",
 		"pokeType": "Grass"
-	},
-	{
-		"name": "Applin",
-		"number": "19",
-		"pokeType": "Grass/Dragon"
-	},
-	{
-		"name": "Flapple",
-		"number": "20",
-		"pokeType": "Grass/Dragon"
-	},
-	{
-		"name": "Appletun",
-		"number": "21",
-		"pokeType": "Grass/Dragon"
 	},
 	{
 		"name": "Fletchling",
@@ -145,16 +110,6 @@
 		"pokeType": "Steel/Fairy"
 	},
 	{
-		"name": "Pawniard",
-		"number": "29",
-		"pokeType": "Dark/Steel"
-	},
-	{
-		"name": "Bisharp",
-		"number": "30",
-		"pokeType": "Dark/Steel"
-	},
-	{
 		"name": "Abra",
 		"number": "31",
 		"pokeType": "Psychic"
@@ -170,36 +125,6 @@
 		"pokeType": "Psychic"
 	},
 	{
-		"name": "Ralts",
-		"number": "34",
-		"pokeType": "Psychic/Fairy"
-	},
-	{
-		"name": "Kirlia",
-		"number": "35",
-		"pokeType": "Psychic/Fairy"
-	},
-	{
-		"name": "Gardevoir",
-		"number": "36",
-		"pokeType": "Psychic/Fairy"
-	},
-	{
-		"name": "Gallade",
-		"number": "37",
-		"pokeType": "Psychic/Fighting"
-	},
-	{
-		"name": "Krabby",
-		"number": "38",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Kingler",
-		"number": "39",
-		"pokeType": "Water"
-	},
-	{
 		"name": "Tentacool",
 		"number": "40",
 		"pokeType": "Water/Poison"
@@ -208,51 +133,6 @@
 		"name": "Tentacruel",
 		"number": "41",
 		"pokeType": "Water/Poison"
-	},
-	{
-		"name": "Magikarp",
-		"number": "42",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Gyarados",
-		"number": "43",
-		"pokeType": "Water/Flying"
-	},
-	{
-		"name": "Remoraid",
-		"number": "44",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Octillery",
-		"number": "45",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Mantine",
-		"number": "47",
-		"pokeType": "Water/Flying"
-	},
-	{
-		"name": "Wingull",
-		"number": "48",
-		"pokeType": "Water/Flying"
-	},
-	{
-		"name": "Pelipper",
-		"number": "49",
-		"pokeType": "Water/Flying"
-	},
-	{
-		"name": "Skorupi",
-		"number": "50",
-		"pokeType": "Poison/Bug"
-	},
-	{
-		"name": "Drapion",
-		"number": "51",
-		"pokeType": "Poison/Dark"
 	},
 	{
 		"name": "Dunsparce",
@@ -275,94 +155,9 @@
 		"pokeType": "Normal"
 	},
 	{
-		"name": "Chewtle",
-		"number": "56",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Drednaw",
-		"number": "57",
-		"pokeType": "Water/Rock"
-	},
-	{
-		"name": "Wooper",
-		"number": "58",
-		"pokeType": "Water/Ground"
-	},
-	{
-		"name": "Quagsire",
-		"number": "59",
-		"pokeType": "Water/Ground"
-	},
-	{
-		"name": "Goomy",
-		"number": "60",
-		"pokeType": "Dragon"
-	},
-	{
-		"name": "Sliggoo",
-		"number": "61",
-		"pokeType": "Dragon"
-	},
-	{
-		"name": "Goodra",
-		"number": "62",
-		"pokeType": "Dragon"
-	},
-	{
 		"name": "Druddigon",
 		"number": "63",
 		"pokeType": "Dragon"
-	},
-	{
-		"name": "Shelmet",
-		"number": "64",
-		"pokeType": "Bug"
-	},
-	{
-		"name": "Accelgor",
-		"number": "65",
-		"pokeType": "Bug"
-	},
-	{
-		"name": "Karrablast",
-		"number": "66",
-		"pokeType": "Bug"
-	},
-	{
-		"name": "Escavalier",
-		"number": "67",
-		"pokeType": "Bug/Steel"
-	},
-	{
-		"name": "Bulbasaur",
-		"number": "68",
-		"pokeType": "Grass/Poison"
-	},
-	{
-		"name": "Ivysaur",
-		"number": "69",
-		"pokeType": "Grass/Poison"
-	},
-	{
-		"name": "Venusaur",
-		"number": "70",
-		"pokeType": "Grass/Poison"
-	},
-	{
-		"name": "Squirtle",
-		"number": "71",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Wartortle",
-		"number": "72",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Blastoise",
-		"number": "73",
-		"pokeType": "Water"
 	},
 	{
 		"name": "Venipede",
@@ -405,31 +200,6 @@
 		"pokeType": "Grass"
 	},
 	{
-		"name": "Croagunk",
-		"number": "82",
-		"pokeType": "Poison/Fighting"
-	},
-	{
-		"name": "Toxicroak",
-		"number": "83",
-		"pokeType": "Poison/Fighting"
-	},
-	{
-		"name": "Pichu",
-		"number": "84",
-		"pokeType": "Electric"
-	},
-	{
-		"name": "Pikachu",
-		"number": "85",
-		"pokeType": "Electric"
-	},
-	{
-		"name": "Raichu",
-		"number": "86",
-		"pokeType": "Electric"
-	},
-	{
 		"name": "Zorua",
 		"number": "87",
 		"pokeType": "Dark"
@@ -438,51 +208,6 @@
 		"name": "Zoroark",
 		"number": "88",
 		"pokeType": "Dark"
-	},
-	{
-		"name": "Oranguru",
-		"number": "89",
-		"pokeType": "Normal/Psychic"
-	},
-	{
-		"name": "Passimian",
-		"number": "90",
-		"pokeType": "Fighting"
-	},
-	{
-		"name": "Corphish",
-		"number": "91",
-		"pokeType": "Water/Dark"
-	},
-	{
-		"name": "Crawdaunt",
-		"number": "92",
-		"pokeType": "Water/Dark"
-	},
-	{
-		"name": "Cramorant",
-		"number": "93",
-		"pokeType": "Flying/Water"
-	},
-	{
-		"name": "Goldeen",
-		"number": "94",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Seaking",
-		"number": "95",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Arrokuda",
-		"number": "96",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Barraskewda",
-		"number": "97",
-		"pokeType": "Water"
 	},
 	{
 		"name": "Staryu",
@@ -496,7 +221,7 @@
 	},
 	{
 		"name": "Kubfu",
-		"number": "10",
+		"number": "100",
 		"pokeType": "Fighting"
 	},
 	{
@@ -520,11 +245,6 @@
 		"pokeType": "Electric/Fairy"
 	},
 	{
-		"name": "Morpeko",
-		"number": "104",
-		"pokeType": "Electric/Dark"
-	},
-	{
 		"name": "Magnemite",
 		"number": "105",
 		"pokeType": "Electric/Steel"
@@ -538,21 +258,6 @@
 		"name": "Magnezone",
 		"number": "107",
 		"pokeType": "Electric/Steel"
-	},
-	{
-		"name": "Inkay",
-		"number": "108",
-		"pokeType": "Dark/Psychic"
-	},
-	{
-		"name": "Malamar",
-		"number": "109",
-		"pokeType": "Dark/Psychic"
-	},
-	{
-		"name": "Wishiwashi",
-		"number": "110",
-		"pokeType": "Water"
 	},
 	{
 		"name": "Carvanha",
@@ -610,61 +315,6 @@
 		"pokeType": "Bug/Fighting"
 	},
 	{
-		"name": "Dwebble",
-		"number": "122",
-		"pokeType": "Bug/Rock"
-	},
-	{
-		"name": "Crustle",
-		"number": "123",
-		"pokeType": "Bug/Rock"
-	},
-	{
-		"name": "Wimpod",
-		"number": "124",
-		"pokeType": "Bug/Water"
-	},
-	{
-		"name": "Golisopod",
-		"number": "125",
-		"pokeType": "Bug/Water"
-	},
-	{
-		"name": "Pincurchin",
-		"number": "126",
-		"pokeType": "Electric"
-	},
-	{
-		"name": "Mareanie",
-		"number": "127",
-		"pokeType": "Poison/Water"
-	},
-	{
-		"name": "Toxapex",
-		"number": "128",
-		"pokeType": "Poison/Water"
-	},
-	{
-		"name": "Clobbopus",
-		"number": "129",
-		"pokeType": "Fighting"
-	},
-	{
-		"name": "Grapploct",
-		"number": "130",
-		"pokeType": "Fighting"
-	},
-	{
-		"name": "Shellder",
-		"number": "131",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Cloyster",
-		"number": "132",
-		"pokeType": "Water/Ice"
-	},
-	{
 		"name": "Sandygast",
 		"number": "133",
 		"pokeType": "Ghost/Ground"
@@ -673,26 +323,6 @@
 		"name": "Palossand",
 		"number": "134",
 		"pokeType": "Ghost/Ground"
-	},
-	{
-		"name": "Drifloon",
-		"number": "135",
-		"pokeType": "Ghost/Flying"
-	},
-	{
-		"name": "Drifblim",
-		"number": "136",
-		"pokeType": "Ghost/Flying"
-	},
-	{
-		"name": "Barboach",
-		"number": "137",
-		"pokeType": "Water/Ground"
-	},
-	{
-		"name": "Whiscash",
-		"number": "138",
-		"pokeType": "Water/Ground"
 	},
 	{
 		"name": "Azurill",
@@ -755,34 +385,9 @@
 		"pokeType": "Normal"
 	},
 	{
-		"name": "Woobat",
-		"number": "151",
-		"pokeType": "Psychic/Flying"
-	},
-	{
-		"name": "Swoobat",
-		"number": "152",
-		"pokeType": "Psychic/Flying"
-	},
-	{
 		"name": "Skarmory",
 		"number": "153",
 		"pokeType": "Steel/Flying"
-	},
-	{
-		"name": "Roggenrola",
-		"number": "154",
-		"pokeType": "Rock"
-	},
-	{
-		"name": "Boldore",
-		"number": "155",
-		"pokeType": "Rock"
-	},
-	{
-		"name": "Gigalith",
-		"number": "156",
-		"pokeType": "Rock"
 	},
 	{
 		"name": "Rockruff",
@@ -795,26 +400,6 @@
         "pokeType": "Rock"
     },
 	{
-		"name": "Salandit",
-		"number": "159",
-		"pokeType": "Poison/Fire"
-	},
-	{
-		"name": "Salazzle",
-		"number": "160",
-		"pokeType": "Poison/Fire"
-	},
-	{
-		"name": "Scraggy",
-		"number": "161",
-		"pokeType": "Dark/Fighting"
-	},
-	{
-		"name": "Scrafty",
-		"number": "162",
-		"pokeType": "Dark/Fighting"
-	},
-	{
 		"name": "Mienfoo",
 		"number": "163",
 		"pokeType": "Fighting"
@@ -825,28 +410,13 @@
 		"pokeType": "Fighting"
 	},
 	{
-		"name": "Jangmo-o",
-		"number": "165",
-		"pokeType": "Dragon"
-	},
-	{
-		"name": "Hakamo-o",
-		"number": "166",
-		"pokeType": "Dragon/Fighting"
-	},
-	{
-		"name": "Komo-o",
-		"number": "167",
-		"pokeType": "Dragon/Fighting"
-	},
-	{
 		"name": "Sandshrew",
 		"number": "168",
 		"pokeType": "Ground"
 	},
 	{
 		"name": "Alolan Sandshrew",
-		"number": "168.1",
+		"number": "168",
 		"pokeType": "Ice/Steel"
 	},
 	{
@@ -856,7 +426,7 @@
 	},
 	{
 		"name": "Alolan Sandslash",
-		"number": "169.1",
+		"number": "169",
 		"pokeType": "Ice/Steel"
 	},
 	{
@@ -871,28 +441,13 @@
 	},
 	{
 		"name": "Alolan Marowak",
-		"number": "171.1",
+		"number": "171",
 		"pokeType": "Fire/Ghost"
 	},
 	{
 		"name": "Kangaskhan",
 		"number": "172",
 		"pokeType": "Normal"
-	},
-	{
-		"name": "Torkoal",
-		"number": "173",
-		"pokeType": "Fire"
-	},
-	{
-		"name": "Silicobra",
-		"number": "174",
-		"pokeType": "Ground"
-	},
-	{
-		"name": "Sandaconda",
-		"number": "175",
-		"pokeType": "Ground"
 	},
 	{
 		"name": "Sandile",
@@ -910,41 +465,6 @@
 		"pokeType": "Ground/Dark"
 	},
 	{
-		"name": "Rufflet",
-		"number": "179",
-		"pokeType": "Normal/Flying"
-	},
-	{
-		"name": "Braviary",
-		"number": "180",
-		"pokeType": "Normal/Flying"
-	},
-	{
-		"name": "Vullaby",
-		"number": "181",
-		"pokeType": "Dark/Flying"
-	},
-	{
-		"name": "Mandibuzz",
-		"number": "182",
-		"pokeType": "Dark/Flying"
-	},
-	{
-		"name": "Rhyhorn",
-		"number": "183",
-		"pokeType": "Ground/Rock"
-	},
-	{
-		"name": "Rhydon",
-		"number": "184",
-		"pokeType": "Ground/Rock"
-	},
-	{
-		"name": "Rhyperior",
-		"number": "185",
-		"pokeType": "Ground/Rock"
-	},
-	{
 		"name": "Larvesta",
 		"number": "186",
 		"pokeType": "Bug/Fire"
@@ -953,36 +473,6 @@
 		"name": "Volcarona",
 		"number": "187",
 		"pokeType": "Bug/Fire"
-	},
-	{
-		"name": "Chinchou",
-		"number": "188",
-		"pokeType": "Water/Electric"
-	},
-	{
-		"name": "Lanturn",
-		"number": "189",
-		"pokeType": "Water/Electric"
-	},
-	{
-		"name": "Wailmer",
-		"number": "190",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Wailord",
-		"number": "191",
-		"pokeType": "Water"
-	},
-	{
-		"name": "Frillish",
-		"number": "192",
-		"pokeType": "Water/Ghost"
-	},
-	{
-		"name": "Jellicent",
-		"number": "193",
-		"pokeType": "Water/Ghost"
 	},
 	{
 		"name": "Skrelp",
@@ -1030,16 +520,6 @@
 		"pokeType": "Grass"
 	},
 	{
-		"name": "Combee",
-		"number": "203",
-		"pokeType": "Bug/Flying"
-	},
-	{
-		"name": "Vespiquen",
-		"number": "204",
-		"pokeType": "Bug/Flying"
-	},
-	{
 		"name": "Exeggcute",
 		"number": "205",
 		"pokeType": "Grass/Psychic"
@@ -1051,13 +531,8 @@
 	},
 	{
 		"name": "Alolan Exegutor",
-		"number": "206.1",
+		"number": "206",
 		"pokeType": "Grass/Dragon"
-	},
-	{
-		"name": "Ditto",
-		"number": "207",
-		"pokeType": "Normal"
 	},
 	{
 		"name": "Porygon",

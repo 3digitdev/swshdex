@@ -784,11 +784,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.ae.L === region.al.L)
+	if (region.ae.L === region.am.L)
 	{
 		return 'on line ' + region.ae.L;
 	}
-	return 'on lines ' + region.ae.L + ' through ' + region.al.L;
+	return 'on lines ' + region.ae.L + ' through ' + region.am.L;
 }
 
 
@@ -1857,9 +1857,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a2,
-		impl.bf,
-		impl.bc,
+		impl.a3,
+		impl.bg,
+		impl.bd,
 		function() { return function() {} }
 	);
 });
@@ -3928,11 +3928,11 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a2,
-		impl.bf,
-		impl.bc,
+		impl.a3,
+		impl.bg,
+		impl.bd,
 		function(sendToApp, initialModel) {
-			var view = impl.bh;
+			var view = impl.bi;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -3964,12 +3964,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a2,
-		impl.bf,
-		impl.bc,
+		impl.a3,
+		impl.bg,
+		impl.bd,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.ad && impl.ad(sendToApp)
-			var view = impl.bh;
+			var view = impl.bi;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -3977,12 +3977,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aV);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.aW);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.be) && (_VirtualDom_doc.title = title = doc.be);
+				(title !== doc.bf) && (_VirtualDom_doc.title = title = doc.bf);
 			});
 		}
 	);
@@ -4038,8 +4038,8 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.a4;
-	var onUrlRequest = impl.a5;
+	var onUrlChange = impl.a5;
+	var onUrlRequest = impl.a6;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
@@ -4059,9 +4059,9 @@ function _Browser_application(impl)
 					var next = $elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.aA === next.aA
-							&& curr.aq === next.aq
-							&& curr.ax.a === next.ax.a
+							&& curr.aB === next.aB
+							&& curr.ar === next.ar
+							&& curr.ay.a === next.ay.a
 						)
 							? $elm$browser$Browser$Internal(next)
 							: $elm$browser$Browser$External(href)
@@ -4069,13 +4069,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		a2: function(flags)
+		a3: function(flags)
 		{
-			return A3(impl.a2, flags, _Browser_getUrl(), key);
+			return A3(impl.a3, flags, _Browser_getUrl(), key);
 		},
-		bh: impl.bh,
-		bf: impl.bf,
-		bc: impl.bc
+		bi: impl.bi,
+		bg: impl.bg,
+		bd: impl.bd
 	});
 }
 
@@ -4141,17 +4141,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { a0: 'hidden', aW: 'visibilitychange' }
+		? { a1: 'hidden', aX: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { a0: 'mozHidden', aW: 'mozvisibilitychange' }
+		? { a1: 'mozHidden', aX: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { a0: 'msHidden', aW: 'msvisibilitychange' }
+		? { a1: 'msHidden', aX: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { a0: 'webkitHidden', aW: 'webkitvisibilitychange' }
-		: { a0: 'hidden', aW: 'visibilitychange' };
+		? { a1: 'webkitHidden', aX: 'webkitvisibilitychange' }
+		: { a1: 'hidden', aX: 'visibilitychange' };
 }
 
 
@@ -4232,12 +4232,12 @@ var _Browser_call = F2(function(functionName, id)
 function _Browser_getViewport()
 {
 	return {
-		aH: _Browser_getScene(),
-		aN: {
-			aP: _Browser_window.pageXOffset,
-			aR: _Browser_window.pageYOffset,
-			aO: _Browser_doc.documentElement.clientWidth,
-			ap: _Browser_doc.documentElement.clientHeight
+		aI: _Browser_getScene(),
+		aO: {
+			aQ: _Browser_window.pageXOffset,
+			aS: _Browser_window.pageYOffset,
+			aP: _Browser_doc.documentElement.clientWidth,
+			aq: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4247,8 +4247,8 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		aO: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		ap: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		aP: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		aq: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4271,15 +4271,15 @@ function _Browser_getViewportOf(id)
 	return _Browser_withNode(id, function(node)
 	{
 		return {
-			aH: {
-				aO: node.scrollWidth,
-				ap: node.scrollHeight
+			aI: {
+				aP: node.scrollWidth,
+				aq: node.scrollHeight
 			},
-			aN: {
-				aP: node.scrollLeft,
-				aR: node.scrollTop,
-				aO: node.clientWidth,
-				ap: node.clientHeight
+			aO: {
+				aQ: node.scrollLeft,
+				aS: node.scrollTop,
+				aP: node.clientWidth,
+				aq: node.clientHeight
 			}
 		};
 	});
@@ -4309,18 +4309,18 @@ function _Browser_getElement(id)
 		var x = _Browser_window.pageXOffset;
 		var y = _Browser_window.pageYOffset;
 		return {
-			aH: _Browser_getScene(),
-			aN: {
-				aP: x,
-				aR: y,
-				aO: _Browser_doc.documentElement.clientWidth,
-				ap: _Browser_doc.documentElement.clientHeight
+			aI: _Browser_getScene(),
+			aO: {
+				aQ: x,
+				aS: y,
+				aP: _Browser_doc.documentElement.clientWidth,
+				aq: _Browser_doc.documentElement.clientHeight
 			},
-			aY: {
-				aP: x + rect.left,
-				aR: y + rect.top,
-				aO: rect.width,
-				ap: rect.height
+			aZ: {
+				aQ: x + rect.left,
+				aS: y + rect.top,
+				aP: rect.width,
+				aq: rect.height
 			}
 		};
 	});
@@ -4448,25 +4448,25 @@ var _Http_toTask = F3(function(router, toTask, request)
 	return _Scheduler_binding(function(callback)
 	{
 		function done(response) {
-			callback(toTask(request.a_.a(response)));
+			callback(toTask(request.a$.a(response)));
 		}
 
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener('error', function() { done($elm$http$Http$NetworkError_); });
 		xhr.addEventListener('timeout', function() { done($elm$http$Http$Timeout_); });
-		xhr.addEventListener('load', function() { done(_Http_toResponse(request.a_.b, xhr)); });
-		$elm$core$Maybe$isJust(request.aM) && _Http_track(router, xhr, request.aM.a);
+		xhr.addEventListener('load', function() { done(_Http_toResponse(request.a$.b, xhr)); });
+		$elm$core$Maybe$isJust(request.aN) && _Http_track(router, xhr, request.aN.a);
 
 		try {
-			xhr.open(request.a3, request.bg, true);
+			xhr.open(request.a4, request.bh, true);
 		} catch (e) {
-			return done($elm$http$Http$BadUrl_(request.bg));
+			return done($elm$http$Http$BadUrl_(request.bh));
 		}
 
 		_Http_configureRequest(xhr, request);
 
-		request.aV.a && xhr.setRequestHeader('Content-Type', request.aV.a);
-		xhr.send(request.aV.b);
+		request.aW.a && xhr.setRequestHeader('Content-Type', request.aW.a);
+		xhr.send(request.aW.b);
 
 		return function() { xhr.c = true; xhr.abort(); };
 	});
@@ -4477,13 +4477,13 @@ var _Http_toTask = F3(function(router, toTask, request)
 
 function _Http_configureRequest(xhr, request)
 {
-	for (var headers = request.ao; headers.b; headers = headers.b) // WHILE_CONS
+	for (var headers = request.ap; headers.b; headers = headers.b) // WHILE_CONS
 	{
 		xhr.setRequestHeader(headers.a.a, headers.a.b);
 	}
-	xhr.timeout = request.bd.a || 0;
-	xhr.responseType = request.a_.d;
-	xhr.withCredentials = request.aT;
+	xhr.timeout = request.be.a || 0;
+	xhr.responseType = request.a$.d;
+	xhr.withCredentials = request.aU;
 }
 
 
@@ -4504,10 +4504,10 @@ function _Http_toResponse(toBody, xhr)
 function _Http_toMetadata(xhr)
 {
 	return {
-		bg: xhr.responseURL,
-		ba: xhr.status,
-		bb: xhr.statusText,
-		ao: _Http_parseHeaders(xhr.getAllResponseHeaders())
+		bh: xhr.responseURL,
+		bb: xhr.status,
+		bc: xhr.statusText,
+		ap: _Http_parseHeaders(xhr.getAllResponseHeaders())
 	};
 }
 
@@ -4602,15 +4602,15 @@ function _Http_track(router, xhr, tracker)
 	xhr.upload.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2($elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, $elm$http$Http$Sending({
-			a9: event.loaded,
-			aI: event.total
+			ba: event.loaded,
+			aJ: event.total
 		}))));
 	});
 	xhr.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2($elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, $elm$http$Http$Receiving({
-			a7: event.loaded,
-			aI: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
+			a8: event.loaded,
+			aJ: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
 		}))));
 	});
 }var $elm$core$Basics$EQ = 1;
@@ -5117,7 +5117,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {an: fragment, aq: host, av: path, ax: port_, aA: protocol, aC: query};
+		return {ao: fragment, ar: host, aw: path, ay: port_, aB: protocol, aD: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -5400,7 +5400,7 @@ var $author$project$Main$LoadData = {$: 1};
 var $author$project$Main$Pokedex = 1;
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
-var $author$project$Pokemon$initDefenses = {Y: _List_Nil, aB: _List_Nil, ag: _List_Nil, X: _List_Nil, aQ: _List_Nil};
+var $author$project$Pokemon$initDefenses = {Y: _List_Nil, aC: _List_Nil, ag: _List_Nil, X: _List_Nil, aR: _List_Nil};
 var $author$project$Pokemon$initOffenses = {Y: _List_Nil, X: _List_Nil};
 var $elm$core$Array$repeat = F2(
 	function (n, e) {
@@ -5413,7 +5413,7 @@ var $elm$core$Array$repeat = F2(
 	});
 var $author$project$Pokemon$initParty = {
 	M: A2($elm$core$Array$repeat, 6, $elm$core$Maybe$Nothing),
-	aK: $elm$core$Maybe$Nothing,
+	aL: $elm$core$Maybe$Nothing,
 	P: 0
 };
 var $author$project$Main$initModel = {
@@ -5817,9 +5817,9 @@ var $author$project$Pokemon$Dual = F2(
 	function (a, b) {
 		return {$: 1, a: a, b: b};
 	});
-var $author$project$Pokemon$Pokemon = F5(
-	function (name, number, pokeType, armorNum, exclusive) {
-		return {ai: armorNum, aZ: exclusive, a: name, at: number, k: pokeType};
+var $author$project$Pokemon$Pokemon = F6(
+	function (name, number, pokeType, armorNum, crownNum, exclusive) {
+		return {ai: armorNum, ak: crownNum, a_: exclusive, a: name, au: number, k: pokeType};
 	});
 var $author$project$Pokemon$Single = function (a) {
 	return {$: 0, a: a};
@@ -5859,11 +5859,11 @@ var $elm$core$Dict$get = F2(
 			}
 		}
 	});
-var $elm$json$Json$Decode$map5 = _Json_map5;
+var $elm$json$Json$Decode$map6 = _Json_map6;
 var $elm$json$Json$Decode$string = _Json_decodeString;
 var $author$project$Main$decodePokemonData = function (typeDict) {
-	return A6(
-		$elm$json$Json$Decode$map5,
+	return A7(
+		$elm$json$Json$Decode$map6,
 		$author$project$Pokemon$Pokemon,
 		A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string),
 		A2($elm$json$Json$Decode$field, 'number', $elm$json$Json$Decode$string),
@@ -5915,13 +5915,15 @@ var $author$project$Main$decodePokemonData = function (typeDict) {
 				},
 				$elm$json$Json$Decode$string)),
 		A2($elm$json$Json$Decode$field, 'armorNum', $elm$json$Json$Decode$string),
+		A2($elm$json$Json$Decode$field, 'crownNum', $elm$json$Json$Decode$string),
 		A2($elm$json$Json$Decode$field, 'exclusive', $elm$json$Json$Decode$string));
 };
 var $author$project$Pokemon$Type = F5(
 	function (name, strengths, weaknesses, ineffectives, noEffects) {
-		return {Z: ineffectives, a: name, aa: noEffects, W: strengths, bi: weaknesses};
+		return {Z: ineffectives, a: name, aa: noEffects, W: strengths, bj: weaknesses};
 	});
 var $elm$json$Json$Decode$list = _Json_decodeList;
+var $elm$json$Json$Decode$map5 = _Json_map5;
 var $author$project$Main$decodeTypeData = A6(
 	$elm$json$Json$Decode$map5,
 	$author$project$Pokemon$Type,
@@ -6696,7 +6698,7 @@ var $elm$http$Http$resolve = F2(
 			case 3:
 				var metadata = response.a;
 				return $elm$core$Result$Err(
-					$elm$http$Http$BadStatus(metadata.ba));
+					$elm$http$Http$BadStatus(metadata.bb));
 			default:
 				var body = response.b;
 				return A2(
@@ -6724,7 +6726,7 @@ var $elm$http$Http$Request = function (a) {
 };
 var $elm$http$Http$State = F2(
 	function (reqs, subs) {
-		return {aE: reqs, aJ: subs};
+		return {aF: reqs, aK: subs};
 	});
 var $elm$http$Http$init = $elm$core$Task$succeed(
 	A2($elm$http$Http$State, $elm$core$Dict$empty, _List_Nil));
@@ -6768,7 +6770,7 @@ var $elm$http$Http$updateReqs = F3(
 					return A2(
 						$elm$core$Task$andThen,
 						function (pid) {
-							var _v4 = req.aM;
+							var _v4 = req.aN;
 							if (_v4.$ === 1) {
 								return A3($elm$http$Http$updateReqs, router, otherCmds, reqs);
 							} else {
@@ -6798,7 +6800,7 @@ var $elm$http$Http$onEffects = F4(
 				return $elm$core$Task$succeed(
 					A2($elm$http$Http$State, reqs, subs));
 			},
-			A3($elm$http$Http$updateReqs, router, cmds, state.aE));
+			A3($elm$http$Http$updateReqs, router, cmds, state.aF));
 	});
 var $elm$core$List$maybeCons = F3(
 	function (f, mx, xs) {
@@ -6841,7 +6843,7 @@ var $elm$http$Http$onSelfMsg = F3(
 				A2(
 					$elm$core$List$filterMap,
 					A3($elm$http$Http$maybeSend, router, tracker, progress),
-					state.aJ)));
+					state.aK)));
 	});
 var $elm$http$Http$Cancel = function (a) {
 	return {$: 0, a: a};
@@ -6855,14 +6857,14 @@ var $elm$http$Http$cmdMap = F2(
 			var r = cmd.a;
 			return $elm$http$Http$Request(
 				{
-					aT: r.aT,
-					aV: r.aV,
-					a_: A2(_Http_mapExpect, func, r.a_),
-					ao: r.ao,
-					a3: r.a3,
-					bd: r.bd,
-					aM: r.aM,
-					bg: r.bg
+					aU: r.aU,
+					aW: r.aW,
+					a$: A2(_Http_mapExpect, func, r.a$),
+					ap: r.ap,
+					a4: r.a4,
+					be: r.be,
+					aN: r.aN,
+					bh: r.bh
 				});
 		}
 	});
@@ -6885,21 +6887,21 @@ var $elm$http$Http$subscription = _Platform_leaf('Http');
 var $elm$http$Http$request = function (r) {
 	return $elm$http$Http$command(
 		$elm$http$Http$Request(
-			{aT: false, aV: r.aV, a_: r.a_, ao: r.ao, a3: r.a3, bd: r.bd, aM: r.aM, bg: r.bg}));
+			{aU: false, aW: r.aW, a$: r.a$, ap: r.ap, a4: r.a4, be: r.be, aN: r.aN, bh: r.bh}));
 };
 var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
-		{aV: $elm$http$Http$emptyBody, a_: r.a_, ao: _List_Nil, a3: 'GET', bd: $elm$core$Maybe$Nothing, aM: $elm$core$Maybe$Nothing, bg: r.bg});
+		{aW: $elm$http$Http$emptyBody, a$: r.a$, ap: _List_Nil, a4: 'GET', be: $elm$core$Maybe$Nothing, aN: $elm$core$Maybe$Nothing, bh: r.bh});
 };
 var $author$project$Main$getDataList = F3(
 	function (fileName, decoder, cmd) {
 		return $elm$http$Http$get(
 			{
-				a_: A2(
+				a$: A2(
 					$elm$http$Http$expectJson,
 					cmd,
 					$elm$json$Json$Decode$list(decoder)),
-				bg: fileName + '.json'
+				bh: fileName + '.json'
 			});
 	});
 var $elm$core$List$any = F2(
@@ -7044,7 +7046,7 @@ var $author$project$Main$suggestFirstPokemon = function (model) {
 };
 var $author$project$Pokemon$Defenses = F5(
 	function (x4, x2, x0, half, quarter) {
-		return {Y: half, aB: quarter, ag: x0, X: x2, aQ: x4};
+		return {Y: half, aC: quarter, ag: x0, X: x2, aR: x4};
 	});
 var $author$project$Main$assignByValue = F2(
 	function (_v0, defenses) {
@@ -7054,7 +7056,7 @@ var $author$project$Main$assignByValue = F2(
 			case 0:
 				return _Utils_update(
 					defenses,
-					{aQ: typeList});
+					{aR: typeList});
 			case 1:
 				return _Utils_update(
 					defenses,
@@ -7066,7 +7068,7 @@ var $author$project$Main$assignByValue = F2(
 			case 4:
 				return _Utils_update(
 					defenses,
-					{aB: typeList});
+					{aC: typeList});
 			case 5:
 				return _Utils_update(
 					defenses,
@@ -7589,7 +7591,7 @@ var $author$project$Pokemon$buildWeaknessList = function (pokemonType) {
 			A2(
 				$elm$core$List$map,
 				function ($) {
-					return $.bi;
+					return $.bj;
 				},
 				$author$project$Pokemon$typeAsList(pokemonType))));
 };
@@ -8509,9 +8511,9 @@ var $author$project$Main$renderPokemon = function (pokemon) {
 			[
 				$elm$html$Html$text(pokemon.a)
 			])));
-	var galarDexNum = (pokemon.at === '') ? 'N/A: ' : (pokemon.at + ': ');
+	var galarDexNum = (pokemon.au === '') ? 'N/A: ' : (pokemon.au + ': ');
 	var exclusiveIcon = function () {
-		var _v0 = pokemon.aZ;
+		var _v0 = pokemon.a_;
 		switch (_v0) {
 			case 'Shield':
 				return A2(
@@ -8556,6 +8558,24 @@ var $author$project$Main$renderPokemon = function (pokemon) {
 						]));
 		}
 	}();
+	var crownDexNum = (pokemon.ak === '') ? A2($elm$html$Html$span, _List_Nil, _List_Nil) : A2(
+		$elm$html$Html$span,
+		_List_fromArray(
+			[
+				$elm$html$Html$Attributes$class('expac-num')
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$img,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('expac-icon'),
+						$elm$html$Html$Attributes$src('crown.png')
+					]),
+				_List_Nil),
+				$elm$html$Html$text(pokemon.ak)
+			]));
 	var armorDexNum = (pokemon.ai === '') ? A2($elm$html$Html$span, _List_Nil, _List_Nil) : A2(
 		$elm$html$Html$span,
 		_List_fromArray(
@@ -8586,6 +8606,7 @@ var $author$project$Main$renderPokemon = function (pokemon) {
 				name,
 				exclusiveIcon,
 				armorDexNum,
+				crownDexNum,
 				A2(
 				$elm$html$Html$div,
 				_List_fromArray(
@@ -8613,6 +8634,16 @@ var $author$project$Main$renderPokedex = function (model) {
 				_List_fromArray(
 					[
 						$elm$html$Html$text('Pokemon')
+					])),
+				A2(
+				$elm$html$Html$p,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('search-hint')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text('Now updated for Isle of Armor/Crown Tundra!')
 					])),
 				A2(
 				$elm$html$Html$div,
@@ -8785,7 +8816,7 @@ var $author$project$Main$renderDualTypeInfo = function (model) {
 					[
 						$elm$html$Html$text('Defense Weaknesses:')
 					])),
-				A3($author$project$Main$renderDefenseInfoSet, model, '4x', model.r.aQ),
+				A3($author$project$Main$renderDefenseInfoSet, model, '4x', model.r.aR),
 				A3($author$project$Main$renderDefenseInfoSet, model, '2x', model.r.X),
 				A2(
 				$elm$html$Html$h3,
@@ -8795,7 +8826,7 @@ var $author$project$Main$renderDualTypeInfo = function (model) {
 						$elm$html$Html$text('Defense Strengths:')
 					])),
 				A3($author$project$Main$renderDefenseInfoSet, model, '1/2', model.r.Y),
-				A3($author$project$Main$renderDefenseInfoSet, model, '1/4', model.r.aB),
+				A3($author$project$Main$renderDefenseInfoSet, model, '1/4', model.r.aC),
 				A2(
 				$elm$html$Html$h3,
 				_List_Nil,
@@ -8944,7 +8975,7 @@ var $author$project$Main$renderSingleTypeInfo = F2(
 							])),
 						A3($author$project$Main$renderSingleInfoSet, model, 'Super effective against:', singleType.W),
 						A3($author$project$Main$renderSingleInfoSet, model, 'Not very effective against:', singleType.Z),
-						A3($author$project$Main$renderSingleInfoSet, model, 'Weak to:', singleType.bi),
+						A3($author$project$Main$renderSingleInfoSet, model, 'Weak to:', singleType.bj),
 						A3($author$project$Main$renderSingleInfoSet, model, 'Has no effect on:', singleType.aa)
 					]));
 		} else {
@@ -9318,12 +9349,12 @@ var $author$project$Main$view = function (model) {
 };
 var $author$project$Main$main = $elm$browser$Browser$element(
 	{
-		a2: $author$project$Main$init,
-		bc: function (_v0) {
+		a3: $author$project$Main$init,
+		bd: function (_v0) {
 			return $elm$core$Platform$Sub$none;
 		},
-		bf: $author$project$Main$update,
-		bh: $author$project$Main$view
+		bg: $author$project$Main$update,
+		bi: $author$project$Main$view
 	});
 _Platform_export({'Main':{'init':$author$project$Main$main(
 	$elm$json$Json$Decode$succeed(0))(0)}});}(this));

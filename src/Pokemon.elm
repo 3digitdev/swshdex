@@ -69,6 +69,7 @@ type alias Pokemon =
     , number : String
     , pokeType : PokemonType
     , armorNum : String
+    , crownNum : String
     , exclusive : String
     }
 
