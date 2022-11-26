@@ -314,7 +314,7 @@
     {
         "name": "Wooper",
         "number": "053",
-        "pokeType": "Water/Ground",
+        "pokeType": "Poison/Ground",
         "exclusive": ""
     },
     {
@@ -681,13 +681,13 @@
         "name": "Misdreavus",
         "number": "114",
         "pokeType": "Ghost",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Mismagius",
         "number": "115",
         "pokeType": "Ghost",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Makuhita",
@@ -831,13 +831,13 @@
         "name": "Gulpin",
         "number": "139",
         "pokeType": "Poison",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Swalot",
         "number": "140",
         "pokeType": "Poison",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Meowth",
@@ -855,13 +855,13 @@
         "name": "Drifloon",
         "number": "143",
         "pokeType": "Ghost/Flying",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Drifblim",
         "number": "144",
         "pokeType": "Ghost/Flying",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Flabébé",
@@ -993,13 +993,13 @@
         "name": "Armarouge",
         "number": "166",
         "pokeType": "Fire/Psychic",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Ceruledge",
         "number": "167",
         "pokeType": "Fire/Ghost",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Barboach",
@@ -1334,8 +1334,20 @@
     {
         "name": "Tauros",
         "number": "223",
-        "pokeType": "Normal",
+        "pokeType": "Fighting",
         "exclusive": ""
+    },
+    {
+        "name": "Tauros (Blaze)",
+        "number": "223",
+        "pokeType": "Fighting/Fire",
+        "exclusive": "Scarlet"
+    },
+    {
+        "name": "Tauros (Aqua)",
+        "number": "223",
+        "pokeType": "Fighting/Water",
+        "exclusive": "Violet"
     },
     {
         "name": "Litleo",
@@ -1353,13 +1365,13 @@
         "name": "Stunky",
         "number": "226",
         "pokeType": "Poison/Dark",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Skuntank",
         "number": "227",
         "pokeType": "Poison/Dark",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Zorua",
@@ -1653,19 +1665,19 @@
         "name": "Bagon",
         "number": "276",
         "pokeType": "Dragon",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Shelgon",
         "number": "277",
         "pokeType": "Dragon",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Salamence",
         "number": "278",
         "pokeType": "Dragon/Flying",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Tinkatink",
@@ -1827,19 +1839,19 @@
         "name": "Dreepy",
         "number": "305",
         "pokeType": "Dragon/Ghost",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Drakloak",
         "number": "306",
         "pokeType": "Dragon/Ghost",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Dragapult",
         "number": "307",
         "pokeType": "Dragon/Ghost",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Glimmet",
@@ -1875,13 +1887,13 @@
         "name": "Oranguru",
         "number": "313",
         "pokeType": "Normal/Psychic",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Passimian",
         "number": "314",
         "pokeType": "Fighting",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Komala",
@@ -1893,31 +1905,31 @@
         "name": "Larvitar",
         "number": "316",
         "pokeType": "Rock/Ground",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Pupitar",
         "number": "317",
         "pokeType": "Rock/Ground",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Tyranitar",
         "number": "318",
         "pokeType": "Rock/Dark",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Stonjourner",
         "number": "319",
         "pokeType": "Rock",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Eiscue",
         "number": "320",
         "pokeType": "Ice",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Pincurchin",
@@ -2019,25 +2031,25 @@
         "name": "Skrelp",
         "number": "337",
         "pokeType": "Poison/Water",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Dragalge",
         "number": "338",
         "pokeType": "Poison/Dragon",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Clauncher",
         "number": "339",
         "pokeType": "Water",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Clawitzer",
         "number": "340",
         "pokeType": "Water",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Tynamo",
@@ -2217,19 +2229,19 @@
         "name": "Deino",
         "number": "370",
         "pokeType": "Dark/Dragon",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Zweilous",
         "number": "371",
         "pokeType": "Dark/Dragon",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Hydreigon",
         "number": "372",
         "pokeType": "Dark/Dragon",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Veluza",
@@ -2253,73 +2265,73 @@
         "name": "Great Tusk",
         "number": "376",
         "pokeType": "Ground/Fighting",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Scream Tail",
         "number": "377",
         "pokeType": "Fairy/Psychic",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Brute Bonnet",
         "number": "378",
         "pokeType": "Grass/Dark",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Flutter Mane",
         "number": "379",
         "pokeType": "Ghost/Fairy",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Slither Wing",
         "number": "380",
         "pokeType": "Bug/Fighting",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Sandy Shocks",
         "number": "381",
         "pokeType": "Electric/Ground",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Iron Treads",
         "number": "382",
         "pokeType": "Ground/Steel",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Iron Bundle",
         "number": "383",
         "pokeType": "Ice/Water",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Iron Hands",
         "number": "384",
         "pokeType": "Fighting/Electric",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Iron Jugulis",
         "number": "385",
         "pokeType": "Dark/Flying",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Iron Moth",
         "number": "386",
         "pokeType": "Fire/Poison",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Iron Thorns",
         "number": "387",
         "pokeType": "Rock/Electric",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Frigibax",
@@ -2379,24 +2391,24 @@
         "name": "Roaring Moon",
         "number": "397",
         "pokeType": "Dragon/Dark",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Iron Valiant",
         "number": "398",
         "pokeType": "Fairy/Fighting",
-        "exclusive": ""
+        "exclusive": "Violet"
     },
     {
         "name": "Koraidon",
         "number": "399",
         "pokeType": "Fighting/Dragon",
-        "exclusive": ""
+        "exclusive": "Scarlet"
     },
     {
         "name": "Miraidon",
         "number": "400",
         "pokeType": "Electric/Dragon",
-        "exclusive": ""
+        "exclusive": "Violet"
     }
 ]
