@@ -1099,7 +1099,7 @@ renderPokedex model =
                 []
             ]
         , p [ class "search-hint" ] [ text "Hint:  Click a Pokemon's type(s) to jump to type matchups!" ]
-        , p [ class "search-hint" ] [ text "Legend:  Purple is Galarian variant, Blue is Alolan" ]
+        -- , p [ class "search-hint" ] [ text "Legend:  Purple is Galarian variant, Blue is Alolan" ]
         , ul [] (List.map renderPokemon model.searchResults)
         ]
 

@@ -3,7 +3,7 @@
 # Standard building
 
 # Compile Elm
-elm make src/Main.elm --optimize --output=public/elm.316.js
+elm make src/Main.elm --optimize --output=public/elm.317.js
 
 # Debug Commands
 # elm make src/Main.elm --output=public/elm.js

@@ -8635,16 +8635,6 @@ var $author$project$Main$renderPokedex = function (model) {
 						$elm$html$Html$text('Hint:  Click a Pokemon\'s type(s) to jump to type matchups!')
 					])),
 				A2(
-				$elm$html$Html$p,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$class('search-hint')
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Legend:  Purple is Galarian variant, Blue is Alolan')
-					])),
-				A2(
 				$elm$html$Html$ul,
 				_List_Nil,
 				A2($elm$core$List$map, $author$project$Main$renderPokemon, model.p))
