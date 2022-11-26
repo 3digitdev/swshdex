@@ -1,0 +1,2402 @@
+[
+    {
+        "name": "Sprigatito",
+        "number": "001",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Floragato",
+        "number": "002",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Meowscarada",
+        "number": "003",
+        "pokeType": "Grass/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Fuecoco",
+        "number": "004",
+        "pokeType": "Fire/",
+        "exclusive": ""
+    },
+    {
+        "name": "Crocalor",
+        "number": "005",
+        "pokeType": "Fire/",
+        "exclusive": ""
+    },
+    {
+        "name": "Skeledirge",
+        "number": "006",
+        "pokeType": "Fire/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Quaxly",
+        "number": "007",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Quaxwell",
+        "number": "008",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Quaquaval",
+        "number": "009",
+        "pokeType": "Water/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Lechonk",
+        "number": "010",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Oinkologne",
+        "number": "011",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Tarountula",
+        "number": "012",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Spidops",
+        "number": "013",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Nymble",
+        "number": "014",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Lokix",
+        "number": "015",
+        "pokeType": "Bug/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Hoppip",
+        "number": "016",
+        "pokeType": "Grass/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Skiploom",
+        "number": "017",
+        "pokeType": "Grass/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Jumpluff",
+        "number": "018",
+        "pokeType": "Grass/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Fletchling",
+        "number": "019",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Fletchinder",
+        "number": "020",
+        "pokeType": "Fire/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Talonflame",
+        "number": "021",
+        "pokeType": "Fire/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Pawmi",
+        "number": "022",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Pawmo",
+        "number": "023",
+        "pokeType": "Electric/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Pawmot",
+        "number": "024",
+        "pokeType": "Electric/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Houndour",
+        "number": "025",
+        "pokeType": "Dark/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Houndoom",
+        "number": "026",
+        "pokeType": "Dark/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Yungoos",
+        "number": "027",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gumshoos",
+        "number": "028",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Skwovet",
+        "number": "029",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Greedent",
+        "number": "030",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sunkern",
+        "number": "031",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sunflora",
+        "number": "032",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Kricketot",
+        "number": "033",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Kricketune",
+        "number": "034",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Scatterbug",
+        "number": "035",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Spewpa",
+        "number": "036",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Vivillon",
+        "number": "037",
+        "pokeType": "Bug/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Combee",
+        "number": "038",
+        "pokeType": "Bug/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Vespiquen",
+        "number": "039",
+        "pokeType": "Bug/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Rookidee",
+        "number": "040",
+        "pokeType": "Flying/",
+        "exclusive": ""
+    },
+    {
+        "name": "Corvisquire",
+        "number": "041",
+        "pokeType": "Flying/",
+        "exclusive": ""
+    },
+    {
+        "name": "Corviknight",
+        "number": "042",
+        "pokeType": "Flying/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Happiny",
+        "number": "043",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Chansey",
+        "number": "044",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Blissey",
+        "number": "045",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Azurill",
+        "number": "046",
+        "pokeType": "Normal/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Marill",
+        "number": "047",
+        "pokeType": "Water/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Azumarill",
+        "number": "048",
+        "pokeType": "Water/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Surskit",
+        "number": "049",
+        "pokeType": "Bug/Water",
+        "exclusive": ""
+    },
+    {
+        "name": "Masquerain",
+        "number": "050",
+        "pokeType": "Bug/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Buizel",
+        "number": "051",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Floatzel",
+        "number": "052",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Wooper",
+        "number": "053",
+        "pokeType": "Water/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Clodsire",
+        "number": "054",
+        "pokeType": "Poison/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Psyduck",
+        "number": "055",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Golduck",
+        "number": "056",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Chewtle",
+        "number": "057",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Drednaw",
+        "number": "058",
+        "pokeType": "Water/Rock",
+        "exclusive": ""
+    },
+    {
+        "name": "Igglybuff",
+        "number": "059",
+        "pokeType": "Normal/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Jigglypuff",
+        "number": "060",
+        "pokeType": "Normal/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Wigglytuff",
+        "number": "061",
+        "pokeType": "Normal/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Ralts",
+        "number": "062",
+        "pokeType": "Psychic/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Kirlia",
+        "number": "063",
+        "pokeType": "Psychic/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Gardevoir",
+        "number": "064",
+        "pokeType": "Psychic/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Gallade",
+        "number": "065",
+        "pokeType": "Psychic/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Drowzee",
+        "number": "066",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Hypno",
+        "number": "067",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gastly",
+        "number": "068",
+        "pokeType": "Ghost/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Haunter",
+        "number": "069",
+        "pokeType": "Ghost/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Gengar",
+        "number": "070",
+        "pokeType": "Ghost/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Tandemaus",
+        "number": "071",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Maushold",
+        "number": "072",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Pichu",
+        "number": "073",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Pikachu",
+        "number": "074",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Raichu",
+        "number": "075",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Fidough",
+        "number": "076",
+        "pokeType": "Fairy/",
+        "exclusive": ""
+    },
+    {
+        "name": "Dachsbun",
+        "number": "077",
+        "pokeType": "Fairy/",
+        "exclusive": ""
+    },
+    {
+        "name": "Slakoth",
+        "number": "078",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Vigoroth",
+        "number": "079",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Slaking",
+        "number": "080",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Bounsweet",
+        "number": "081",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Steenee",
+        "number": "082",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Tsareena",
+        "number": "083",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Smoliv",
+        "number": "084",
+        "pokeType": "Grass/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Dolliv",
+        "number": "085",
+        "pokeType": "Grass/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Arboliva",
+        "number": "086",
+        "pokeType": "Grass/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Bonsly",
+        "number": "087",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sudowoodo",
+        "number": "088",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Rockruff",
+        "number": "089",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Lycanroc",
+        "number": "090",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Rolycoly",
+        "number": "091",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Carkol",
+        "number": "092",
+        "pokeType": "Rock/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Coalossal",
+        "number": "093",
+        "pokeType": "Rock/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Shinx",
+        "number": "094",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Luxio",
+        "number": "095",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Luxray",
+        "number": "096",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Starly",
+        "number": "097",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Staravia",
+        "number": "098",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Staraptor",
+        "number": "099",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Oricorio",
+        "number": "100",
+        "pokeType": "Fire/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Mareep",
+        "number": "101",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Flaaffy",
+        "number": "102",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Ampharos",
+        "number": "103",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Petilil",
+        "number": "104",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Lilligant",
+        "number": "105",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Shroomish",
+        "number": "106",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Breloom",
+        "number": "107",
+        "pokeType": "Grass/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Applin",
+        "number": "108",
+        "pokeType": "Grass/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Flapple",
+        "number": "109",
+        "pokeType": "Grass/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Appletun",
+        "number": "110",
+        "pokeType": "Grass/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Spoink",
+        "number": "111",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Grumpig",
+        "number": "112",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Squawkabilly",
+        "number": "113",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Misdreavus",
+        "number": "114",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Mismagius",
+        "number": "115",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Makuhita",
+        "number": "116",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Hariyama",
+        "number": "117",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Crabrawler",
+        "number": "118",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Crabominable",
+        "number": "119",
+        "pokeType": "Fighting/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Salandit",
+        "number": "120",
+        "pokeType": "Poison/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Salazzle",
+        "number": "121",
+        "pokeType": "Poison/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Phanpy",
+        "number": "122",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Donphan",
+        "number": "123",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Cufant",
+        "number": "124",
+        "pokeType": "Steel/",
+        "exclusive": ""
+    },
+    {
+        "name": "Copperajah",
+        "number": "125",
+        "pokeType": "Steel/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gible",
+        "number": "126",
+        "pokeType": "Dragon/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Gabite",
+        "number": "127",
+        "pokeType": "Dragon/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Garchomp",
+        "number": "128",
+        "pokeType": "Dragon/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Nacli",
+        "number": "129",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Naclstack",
+        "number": "130",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Garganacl",
+        "number": "131",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Wingull",
+        "number": "132",
+        "pokeType": "Water/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Pelipper",
+        "number": "133",
+        "pokeType": "Water/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Magikarp",
+        "number": "134",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gyarados",
+        "number": "135",
+        "pokeType": "Water/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Arrokuda",
+        "number": "136",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Barraskewda",
+        "number": "137",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Basculin",
+        "number": "138",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gulpin",
+        "number": "139",
+        "pokeType": "Poison/",
+        "exclusive": ""
+    },
+    {
+        "name": "Swalot",
+        "number": "140",
+        "pokeType": "Poison/",
+        "exclusive": ""
+    },
+    {
+        "name": "Meowth",
+        "number": "141",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Persian",
+        "number": "142",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Drifloon",
+        "number": "143",
+        "pokeType": "Ghost/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Drifblim",
+        "number": "144",
+        "pokeType": "Ghost/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Flabébé",
+        "number": "145",
+        "pokeType": "Fairy/",
+        "exclusive": ""
+    },
+    {
+        "name": "Floette",
+        "number": "146",
+        "pokeType": "Fairy/",
+        "exclusive": ""
+    },
+    {
+        "name": "Florges",
+        "number": "147",
+        "pokeType": "Fairy/",
+        "exclusive": ""
+    },
+    {
+        "name": "Diglett",
+        "number": "148",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Dugtrio",
+        "number": "149",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Torkoal",
+        "number": "150",
+        "pokeType": "Fire/",
+        "exclusive": ""
+    },
+    {
+        "name": "Numel",
+        "number": "151",
+        "pokeType": "Fire/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Camerupt",
+        "number": "152",
+        "pokeType": "Fire/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Bronzor",
+        "number": "153",
+        "pokeType": "Steel/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Bronzong",
+        "number": "154",
+        "pokeType": "Steel/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Axew",
+        "number": "155",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Fraxure",
+        "number": "156",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Haxorus",
+        "number": "157",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Mankey",
+        "number": "158",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Primeape",
+        "number": "159",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Annihilape",
+        "number": "160",
+        "pokeType": "Fighting/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Meditite",
+        "number": "161",
+        "pokeType": "Fighting/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Medicham",
+        "number": "162",
+        "pokeType": "Fighting/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Riolu",
+        "number": "163",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Lucario",
+        "number": "164",
+        "pokeType": "Fighting/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Charcadet",
+        "number": "165",
+        "pokeType": "Fire/",
+        "exclusive": ""
+    },
+    {
+        "name": "Armarouge",
+        "number": "166",
+        "pokeType": "Fire/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Ceruledge",
+        "number": "167",
+        "pokeType": "Fire/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Barboach",
+        "number": "168",
+        "pokeType": "Water/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Whiscash",
+        "number": "169",
+        "pokeType": "Water/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Tadbulb",
+        "number": "170",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Bellibolt",
+        "number": "171",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Goomy",
+        "number": "172",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sliggoo",
+        "number": "173",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Goodra",
+        "number": "174",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Croagunk",
+        "number": "175",
+        "pokeType": "Poison/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Toxicroak",
+        "number": "176",
+        "pokeType": "Poison/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Wattrel",
+        "number": "177",
+        "pokeType": "Electric/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Kilowattrel",
+        "number": "178",
+        "pokeType": "Electric/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Eevee",
+        "number": "179",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Vaporeon",
+        "number": "180",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Jolteon",
+        "number": "181",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Flareon",
+        "number": "182",
+        "pokeType": "Fire/",
+        "exclusive": ""
+    },
+    {
+        "name": "Espeon",
+        "number": "183",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Umbreon",
+        "number": "184",
+        "pokeType": "Dark/",
+        "exclusive": ""
+    },
+    {
+        "name": "Leafeon",
+        "number": "185",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Glaceon",
+        "number": "186",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sylveon",
+        "number": "187",
+        "pokeType": "Fairy/",
+        "exclusive": ""
+    },
+    {
+        "name": "Dunsparce",
+        "number": "188",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Dudunsparce",
+        "number": "189",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Deerling",
+        "number": "190",
+        "pokeType": "Normal/Grass",
+        "exclusive": ""
+    },
+    {
+        "name": "Sawsbuck",
+        "number": "191",
+        "pokeType": "Normal/Grass",
+        "exclusive": ""
+    },
+    {
+        "name": "Girafarig",
+        "number": "192",
+        "pokeType": "Normal/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Farigiraf",
+        "number": "193",
+        "pokeType": "Normal/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Grimer",
+        "number": "194",
+        "pokeType": "Poison/",
+        "exclusive": ""
+    },
+    {
+        "name": "Muk",
+        "number": "195",
+        "pokeType": "Poison/",
+        "exclusive": ""
+    },
+    {
+        "name": "Maschiff",
+        "number": "196",
+        "pokeType": "Dark/",
+        "exclusive": ""
+    },
+    {
+        "name": "Mabosstiff",
+        "number": "197",
+        "pokeType": "Dark/",
+        "exclusive": ""
+    },
+    {
+        "name": "Toxel",
+        "number": "198",
+        "pokeType": "Electric/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Toxtricity",
+        "number": "199",
+        "pokeType": "Electric/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Dedenne",
+        "number": "200",
+        "pokeType": "Electric/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Pachirisu",
+        "number": "201",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Shroodle",
+        "number": "202",
+        "pokeType": "Poison/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Grafaiai",
+        "number": "203",
+        "pokeType": "Poison/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Stantler",
+        "number": "204",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Foongus",
+        "number": "205",
+        "pokeType": "Grass/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Amoonguss",
+        "number": "206",
+        "pokeType": "Grass/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Voltorb",
+        "number": "207",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Electrode",
+        "number": "208",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Magnemite",
+        "number": "209",
+        "pokeType": "Electric/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Magneton",
+        "number": "210",
+        "pokeType": "Electric/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Magnezone",
+        "number": "211",
+        "pokeType": "Electric/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Ditto",
+        "number": "212",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Growlithe",
+        "number": "213",
+        "pokeType": "Fire/",
+        "exclusive": ""
+    },
+    {
+        "name": "Arcanine",
+        "number": "214",
+        "pokeType": "Fire/",
+        "exclusive": ""
+    },
+    {
+        "name": "Teddiursa",
+        "number": "215",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Ursaring",
+        "number": "216",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Zangoose",
+        "number": "217",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Seviper",
+        "number": "218",
+        "pokeType": "Poison/",
+        "exclusive": ""
+    },
+    {
+        "name": "Swablu",
+        "number": "219",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Altaria",
+        "number": "220",
+        "pokeType": "Dragon/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Skiddo",
+        "number": "221",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gogoat",
+        "number": "222",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Tauros",
+        "number": "223",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Litleo",
+        "number": "224",
+        "pokeType": "Fire/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Pyroar",
+        "number": "225",
+        "pokeType": "Fire/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Stunky",
+        "number": "226",
+        "pokeType": "Poison/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Skuntank",
+        "number": "227",
+        "pokeType": "Poison/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Zorua",
+        "number": "228",
+        "pokeType": "Dark/",
+        "exclusive": ""
+    },
+    {
+        "name": "Zoroark",
+        "number": "229",
+        "pokeType": "Dark/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sneasel",
+        "number": "230",
+        "pokeType": "Dark/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Weavile",
+        "number": "231",
+        "pokeType": "Dark/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Murkrow",
+        "number": "232",
+        "pokeType": "Dark/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Honchkrow",
+        "number": "233",
+        "pokeType": "Dark/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Gothita",
+        "number": "234",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gothorita",
+        "number": "235",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gothitelle",
+        "number": "236",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sinistea",
+        "number": "237",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Polteageist",
+        "number": "238",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Mimikyu",
+        "number": "239",
+        "pokeType": "Ghost/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Klefki",
+        "number": "240",
+        "pokeType": "Steel/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Indeedee",
+        "number": "241",
+        "pokeType": "Psychic/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Bramblin",
+        "number": "242",
+        "pokeType": "Grass/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Brambleghast",
+        "number": "243",
+        "pokeType": "Grass/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Toedscool",
+        "number": "244",
+        "pokeType": "Ground/Grass",
+        "exclusive": ""
+    },
+    {
+        "name": "Toedscruel",
+        "number": "245",
+        "pokeType": "Ground/Grass",
+        "exclusive": ""
+    },
+    {
+        "name": "Tropius",
+        "number": "246",
+        "pokeType": "Grass/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Fomantis",
+        "number": "247",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Lurantis",
+        "number": "248",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Klawf",
+        "number": "249",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Capsakid",
+        "number": "250",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Scovillain",
+        "number": "251",
+        "pokeType": "Grass/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Cacnea",
+        "number": "252",
+        "pokeType": "Grass/",
+        "exclusive": ""
+    },
+    {
+        "name": "Cacturne",
+        "number": "253",
+        "pokeType": "Grass/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Rellor",
+        "number": "254",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Rabsca",
+        "number": "255",
+        "pokeType": "Bug/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Venonat",
+        "number": "256",
+        "pokeType": "Bug/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Venomoth",
+        "number": "257",
+        "pokeType": "Bug/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Pineco",
+        "number": "258",
+        "pokeType": "Bug/",
+        "exclusive": ""
+    },
+    {
+        "name": "Forretress",
+        "number": "259",
+        "pokeType": "Bug/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Scyther",
+        "number": "260",
+        "pokeType": "Bug/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Scizor",
+        "number": "261",
+        "pokeType": "Bug/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Heracross",
+        "number": "262",
+        "pokeType": "Bug/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Flittle",
+        "number": "263",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Espathra",
+        "number": "264",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Hippopotas",
+        "number": "265",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Hippowdon",
+        "number": "266",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sandile",
+        "number": "267",
+        "pokeType": "Ground/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Krokorok",
+        "number": "268",
+        "pokeType": "Ground/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Krookodile",
+        "number": "269",
+        "pokeType": "Ground/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Silicobra",
+        "number": "270",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sandaconda",
+        "number": "271",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Mudbray",
+        "number": "272",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Mudsdale",
+        "number": "273",
+        "pokeType": "Ground/",
+        "exclusive": ""
+    },
+    {
+        "name": "Larvesta",
+        "number": "274",
+        "pokeType": "Bug/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Volcarona",
+        "number": "275",
+        "pokeType": "Bug/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Bagon",
+        "number": "276",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Shelgon",
+        "number": "277",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Salamence",
+        "number": "278",
+        "pokeType": "Dragon/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Tinkatink",
+        "number": "279",
+        "pokeType": "Fairy/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Tinkatuff",
+        "number": "280",
+        "pokeType": "Fairy/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Tinkaton",
+        "number": "281",
+        "pokeType": "Fairy/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Hatenna",
+        "number": "282",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Hattrem",
+        "number": "283",
+        "pokeType": "Psychic/",
+        "exclusive": ""
+    },
+    {
+        "name": "Hatterene",
+        "number": "284",
+        "pokeType": "Psychic/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Impidimp",
+        "number": "285",
+        "pokeType": "Dark/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Morgrem",
+        "number": "286",
+        "pokeType": "Dark/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Grimmsnarl",
+        "number": "287",
+        "pokeType": "Dark/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Wiglett",
+        "number": "288",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Wugtrio",
+        "number": "289",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Bombirdier",
+        "number": "290",
+        "pokeType": "Flying/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Finizen",
+        "number": "291",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Palafin",
+        "number": "292",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Varoom",
+        "number": "293",
+        "pokeType": "Steel/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Revavroom",
+        "number": "294",
+        "pokeType": "Steel/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Cyclizar",
+        "number": "295",
+        "pokeType": "Dragon/Normal",
+        "exclusive": ""
+    },
+    {
+        "name": "Orthworm",
+        "number": "296",
+        "pokeType": "Steel/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sableye",
+        "number": "297",
+        "pokeType": "Dark/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Shuppet",
+        "number": "298",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Banette",
+        "number": "299",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Falinks",
+        "number": "300",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Hawlucha",
+        "number": "301",
+        "pokeType": "Fighting/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Spiritomb",
+        "number": "302",
+        "pokeType": "Ghost/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Noibat",
+        "number": "303",
+        "pokeType": "Flying/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Noivern",
+        "number": "304",
+        "pokeType": "Flying/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Dreepy",
+        "number": "305",
+        "pokeType": "Dragon/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Drakloak",
+        "number": "306",
+        "pokeType": "Dragon/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Dragapult",
+        "number": "307",
+        "pokeType": "Dragon/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Glimmet",
+        "number": "308",
+        "pokeType": "Rock/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Glimmora",
+        "number": "309",
+        "pokeType": "Rock/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Rotom",
+        "number": "310",
+        "pokeType": "Electric/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Greavard",
+        "number": "311",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Houndstone",
+        "number": "312",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Oranguru",
+        "number": "313",
+        "pokeType": "Normal/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Passimian",
+        "number": "314",
+        "pokeType": "Fighting/",
+        "exclusive": ""
+    },
+    {
+        "name": "Komala",
+        "number": "315",
+        "pokeType": "Normal/",
+        "exclusive": ""
+    },
+    {
+        "name": "Larvitar",
+        "number": "316",
+        "pokeType": "Rock/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Pupitar",
+        "number": "317",
+        "pokeType": "Rock/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Tyranitar",
+        "number": "318",
+        "pokeType": "Rock/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Stonjourner",
+        "number": "319",
+        "pokeType": "Rock/",
+        "exclusive": ""
+    },
+    {
+        "name": "Eiscue",
+        "number": "320",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Pincurchin",
+        "number": "321",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Sandygast",
+        "number": "322",
+        "pokeType": "Ghost/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Palossand",
+        "number": "323",
+        "pokeType": "Ghost/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Slowpoke",
+        "number": "324",
+        "pokeType": "Water/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Slowbro",
+        "number": "325",
+        "pokeType": "Water/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Slowking",
+        "number": "326",
+        "pokeType": "Water/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Shellos",
+        "number": "327",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gastrodon",
+        "number": "328",
+        "pokeType": "Water/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Shellder",
+        "number": "329",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Cloyster",
+        "number": "330",
+        "pokeType": "Water/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Qwilfish",
+        "number": "331",
+        "pokeType": "Water/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Luvdisc",
+        "number": "332",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Finneon",
+        "number": "333",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Lumineon",
+        "number": "334",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Bruxish",
+        "number": "335",
+        "pokeType": "Water/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Alomomola",
+        "number": "336",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Skrelp",
+        "number": "337",
+        "pokeType": "Poison/Water",
+        "exclusive": ""
+    },
+    {
+        "name": "Dragalge",
+        "number": "338",
+        "pokeType": "Poison/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Clauncher",
+        "number": "339",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Clawitzer",
+        "number": "340",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Tynamo",
+        "number": "341",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Eelektrik",
+        "number": "342",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Eelektross",
+        "number": "343",
+        "pokeType": "Electric/",
+        "exclusive": ""
+    },
+    {
+        "name": "Mareanie",
+        "number": "344",
+        "pokeType": "Poison/Water",
+        "exclusive": ""
+    },
+    {
+        "name": "Toxapex",
+        "number": "345",
+        "pokeType": "Poison/Water",
+        "exclusive": ""
+    },
+    {
+        "name": "Flamigo",
+        "number": "346",
+        "pokeType": "Flying/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Dratini",
+        "number": "347",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Dragonair",
+        "number": "348",
+        "pokeType": "Dragon/",
+        "exclusive": ""
+    },
+    {
+        "name": "Dragonite",
+        "number": "349",
+        "pokeType": "Dragon/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Snom",
+        "number": "350",
+        "pokeType": "Ice/Bug",
+        "exclusive": ""
+    },
+    {
+        "name": "Frosmoth",
+        "number": "351",
+        "pokeType": "Ice/Bug",
+        "exclusive": ""
+    },
+    {
+        "name": "Snover",
+        "number": "352",
+        "pokeType": "Grass/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Abomasnow",
+        "number": "353",
+        "pokeType": "Grass/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Delibird",
+        "number": "354",
+        "pokeType": "Ice/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Cubchoo",
+        "number": "355",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Beartic",
+        "number": "356",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Snorunt",
+        "number": "357",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Glalie",
+        "number": "358",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Froslass",
+        "number": "359",
+        "pokeType": "Ice/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Cryogonal",
+        "number": "360",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Cetoddle",
+        "number": "361",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Cetitan",
+        "number": "362",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Bergmite",
+        "number": "363",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Avalugg",
+        "number": "364",
+        "pokeType": "Ice/",
+        "exclusive": ""
+    },
+    {
+        "name": "Rufflet",
+        "number": "365",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Braviary",
+        "number": "366",
+        "pokeType": "Normal/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Pawniard",
+        "number": "367",
+        "pokeType": "Dark/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Bisharp",
+        "number": "368",
+        "pokeType": "Dark/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Kingambit",
+        "number": "369",
+        "pokeType": "Dark/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Deino",
+        "number": "370",
+        "pokeType": "Dark/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Zweilous",
+        "number": "371",
+        "pokeType": "Dark/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Hydreigon",
+        "number": "372",
+        "pokeType": "Dark/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Veluza",
+        "number": "373",
+        "pokeType": "Water/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Dondozo",
+        "number": "374",
+        "pokeType": "Water/",
+        "exclusive": ""
+    },
+    {
+        "name": "Tatsugiri",
+        "number": "375",
+        "pokeType": "Dragon/Water",
+        "exclusive": ""
+    },
+    {
+        "name": "Great Tusk",
+        "number": "376",
+        "pokeType": "Ground/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Scream Tail",
+        "number": "377",
+        "pokeType": "Fairy/Psychic",
+        "exclusive": ""
+    },
+    {
+        "name": "Brute Bonnet",
+        "number": "378",
+        "pokeType": "Grass/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Flutter Mane",
+        "number": "379",
+        "pokeType": "Ghost/Fairy",
+        "exclusive": ""
+    },
+    {
+        "name": "Slither Wing",
+        "number": "380",
+        "pokeType": "Bug/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Sandy Shocks",
+        "number": "381",
+        "pokeType": "Electric/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Iron Treads",
+        "number": "382",
+        "pokeType": "Ground/Steel",
+        "exclusive": ""
+    },
+    {
+        "name": "Iron Bundle",
+        "number": "383",
+        "pokeType": "Ice/Water",
+        "exclusive": ""
+    },
+    {
+        "name": "Iron Hands",
+        "number": "384",
+        "pokeType": "Fighting/Electric",
+        "exclusive": ""
+    },
+    {
+        "name": "Iron Jugulis",
+        "number": "385",
+        "pokeType": "Dark/Flying",
+        "exclusive": ""
+    },
+    {
+        "name": "Iron Moth",
+        "number": "386",
+        "pokeType": "Fire/Poison",
+        "exclusive": ""
+    },
+    {
+        "name": "Iron Thorns",
+        "number": "387",
+        "pokeType": "Rock/Electric",
+        "exclusive": ""
+    },
+    {
+        "name": "Frigibax",
+        "number": "388",
+        "pokeType": "Dragon/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Arctibax",
+        "number": "389",
+        "pokeType": "Dragon/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Baxcalibur",
+        "number": "390",
+        "pokeType": "Dragon/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Gimmighoul",
+        "number": "391",
+        "pokeType": "Ghost/",
+        "exclusive": ""
+    },
+    {
+        "name": "Gholdengo",
+        "number": "392",
+        "pokeType": "Steel/Ghost",
+        "exclusive": ""
+    },
+    {
+        "name": "Wo-Chien",
+        "number": "393",
+        "pokeType": "Dark/Grass",
+        "exclusive": ""
+    },
+    {
+        "name": "Chien-Pao",
+        "number": "394",
+        "pokeType": "Dark/Ice",
+        "exclusive": ""
+    },
+    {
+        "name": "Ting-Lu",
+        "number": "395",
+        "pokeType": "Dark/Ground",
+        "exclusive": ""
+    },
+    {
+        "name": "Chi-Yu",
+        "number": "396",
+        "pokeType": "Dark/Fire",
+        "exclusive": ""
+    },
+    {
+        "name": "Roaring Moon",
+        "number": "397",
+        "pokeType": "Dragon/Dark",
+        "exclusive": ""
+    },
+    {
+        "name": "Iron Valiant",
+        "number": "398",
+        "pokeType": "Fairy/Fighting",
+        "exclusive": ""
+    },
+    {
+        "name": "Koraidon",
+        "number": "399",
+        "pokeType": "Fighting/Dragon",
+        "exclusive": ""
+    },
+    {
+        "name": "Miraidon",
+        "number": "400",
+        "pokeType": "Electric/Dragon",
+        "exclusive": ""
+    },
+]

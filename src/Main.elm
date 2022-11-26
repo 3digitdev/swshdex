@@ -75,7 +75,7 @@ decodeTypeData =
 
 decodePokemonData : Dict String Type -> JD.Decoder Pokemon
 decodePokemonData typeDict =
-    JD.map6 Pokemon
+    JD.map4 Pokemon
         (JD.field "name" JD.string)
         (JD.field "number" JD.string)
         (JD.field "pokeType"
@@ -104,8 +104,6 @@ decodePokemonData typeDict =
                     )
             )
         )
-        (JD.field "armorNum" JD.string)
-        (JD.field "crownNum" JD.string)
         (JD.field "exclusive" JD.string)
 
 
@@ -198,7 +196,7 @@ update msg model =
                         | typeMap = typeMap
                         , allTypes = typeData
                       }
-                    , getDataList "pokedex" (decodePokemonData typeMap) PokemonLoaded
+                    , getDataList "pokedex_sv" (decodePokemonData typeMap) PokemonLoaded
                     )
 
         PokemonLoaded result ->
@@ -1088,7 +1086,7 @@ renderPokedex : Model -> Html Msg
 renderPokedex model =
     div []
         [ h1 [] [ text "Pokemon" ]
-        , p [ class "search-hint" ] [ text "Now updated for Isle of Armor/Crown Tundra!"]
+        -- , p [ class "search-hint" ] [ text "Now updated for Isle of Armor/Crown Tundra!" ]
         , div [ class "nes-field" ]
             [ label [ for "search-box" ]
                 [ text "Search:" ]
@@ -1109,32 +1107,32 @@ renderPokedex model =
 renderPokemon : Pokemon -> Html Msg
 renderPokemon pokemon =
     let
-        galarDexNum =
+        dexNum =
             if pokemon.number == "" then
                 "N/A: "
 
             else
                 pokemon.number ++ ": "
 
-        armorDexNum =
-            if pokemon.armorNum == "" then
-                span [] []
+        -- armorDexNum =
+        --     if pokemon.armorNum == "" then
+        --         span [] []
 
-            else
-                span [ class "expac-num" ]
-                    [ img [ class "expac-icon", src "armor.png" ] []
-                    , text pokemon.armorNum
-                    ]
+        --     else
+        --         span [ class "expac-num" ]
+        --             [ img [ class "expac-icon", src "armor.png" ] []
+        --             , text pokemon.armorNum
+        --             ]
 
-        crownDexNum =
-            if pokemon.crownNum == "" then
-                span [] []
+        -- crownDexNum =
+        --     if pokemon.crownNum == "" then
+        --         span [] []
 
-            else
-                span [ class "expac-num" ]
-                    [ img [ class "expac-icon", src "crown.png" ] []
-                    , text pokemon.crownNum
-                    ]
+        --     else
+        --         span [ class "expac-num" ]
+        --             [ img [ class "expac-icon", src "crown.png" ] []
+        --             , text pokemon.crownNum
+        --             ]
 
         exclusiveIcon =
             case pokemon.exclusive of
@@ -1158,11 +1156,11 @@ renderPokemon pokemon =
                 strong [] [ text pokemon.name ]
     in
     li [ class "search-result-item" ]
-        [ text galarDexNum
+        [ text dexNum
         , name
         , exclusiveIcon
-        , armorDexNum
-        , crownDexNum
+        -- , armorDexNum
+        -- , crownDexNum
         , div
             [ class "type-link"
             , onClick (SetType pokemon.pokeType)

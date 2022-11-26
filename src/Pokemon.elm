@@ -68,8 +68,8 @@ type alias Pokemon =
     { name : String
     , number : String
     , pokeType : PokemonType
-    , armorNum : String
-    , crownNum : String
+    -- , armorNum : String
+    -- , crownNum : String
     , exclusive : String
     }
 
