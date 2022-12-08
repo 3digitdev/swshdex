@@ -65,12 +65,14 @@ type alias Model =
 
 decodeTypeData : JD.Decoder Type
 decodeTypeData =
-    JD.map5 Type
+    JD.map7 Type
         (JD.field "name" JD.string)
         (JD.field "strengths" (JD.list JD.string))
         (JD.field "weaknesses" (JD.list JD.string))
         (JD.field "ineffectives" (JD.list JD.string))
         (JD.field "no_effects" (JD.list JD.string))
+        (JD.field "defenses" (JD.list JD.string))
+        (JD.field "immune" (JD.list JD.string))
 
 
 decodePokemonData : Dict String Type -> JD.Decoder Pokemon
@@ -476,6 +478,24 @@ assignByValue ( val, typeList ) defenses =
             defenses
 
 
+getOffenses : Model -> String -> List String
+getOffenses model pokemonType =
+    model.allTypes
+        |> List.filter (\t -> t.name == pokemonType)
+        |> List.map (\t -> t.strengths)
+        |> List.concat
+        |> LX.unique
+
+
+getIneffectives : Model -> String -> List String
+getIneffectives model pokemonType =
+    model.allTypes
+        |> List.filter (\t -> t.name == pokemonType)
+        |> List.map (\t -> t.ineffectives)
+        |> List.concat
+        |> LX.unique
+
+
 calculateDualTypeStats : Model -> ( Maybe String, Maybe String ) -> Model
 calculateDualTypeStats model bothTypes =
     {- This is a doozy.  It calculates the offensive and defensive matchup for
@@ -493,24 +513,27 @@ calculateDualTypeStats model bothTypes =
        of the two types in conjunction with each other.
 
        Example:  Bug is weak to Fire (x2 damage), but Fire is "ineffective"
-       against Water.  So a Bug/Water pokemon (like Dewpider) will cancel its
-       "Fire weakness" with a "Fire strength", resulting in Fire not being added
-       (since the pokemon takes normal damage from Fire)
+       against Water.  So a Bug/Water pokemon will cancel its "Fire weakness"
+       with a "Fire strength", resulting in Fire not being added (since the
+       pokemon takes normal damage from Fire)
 
        Example 2:  Bug is weak to Fire, and Steel is ALSO weak to Fire.  So a
-       Bug/Steel pokemon (like Escavalier) will take x4 damage from Fire, resulting
-       in a rating reflecting that.
+       Bug/Steel pokemon will take x4 damage from Fire, resulting in a rating
+       reflecting that.
     -}
     let
         dualType =
             bothTypes |> Tuple.mapBoth (Maybe.withDefault "") (Maybe.withDefault "")
 
-        offenses =
-            model.allTypes
-                |> List.filter (\t -> t.name == (dualType |> Tuple.first) || t.name == (dualType |> Tuple.second))
-                |> List.map (\t -> t.strengths)
-                |> List.concat
-                |> LX.unique
+        doubles =
+            ( dualType |> Tuple.first |> getOffenses model
+            , dualType |> Tuple.second |> getOffenses model
+            )
+
+        halves =
+            ( dualType |> Tuple.first |> getIneffectives model
+            , dualType |> Tuple.second |> getIneffectives model
+            )
 
         sortedMap =
             model.allTypes
@@ -570,7 +593,7 @@ calculateDualTypeStats model bothTypes =
             sortedMap
                 -- Create the Defense object using the ratings to determine where things go
                 |> List.foldl assignByValue (Defenses [] [] [] [] [])
-        , currentTypeOffenses = { x2 = offenses, half = [] }
+        , currentTypeOffenses = { x2 = doubles, half = halves, none = [] }
     }
 
 
@@ -969,20 +992,26 @@ renderDualTypeInfo model =
                     h3 [] [ strong [] [ text "None" ] ]
 
                 _ ->
-                    model.currentTypeDefenses.x0 |> renderDefenseInfoSet model "NO"
+                    model.currentTypeDefenses.x0 |> renderDefenseInfoSet model "No"
+
+        ( typeOne, typeTwo ) =
+            model.selectedTypes |> Tuple.mapBoth (Maybe.withDefault "") (Maybe.withDefault "")
     in
     div []
-        [ h3 [] [ text "Defense Weaknesses:" ]
+        [ h3 [] [ text "Offense:" ]
+        , h4 [ class ((typeOne |> String.toLower) ++ "-color type-label") ] [ text typeOne ]
+        , model.currentTypeOffenses.x2 |> Tuple.first |> renderOffenseInfoSet model "2x"
+        , model.currentTypeOffenses.half |> Tuple.first |> renderOffenseInfoSet model "1/2"
+        , h4 [ class ((typeTwo |> String.toLower) ++ "-color type-label") ] [ text typeTwo ]
+        , model.currentTypeOffenses.x2 |> Tuple.second |> renderOffenseInfoSet model "2x"
+        , model.currentTypeOffenses.half |> Tuple.second |> renderOffenseInfoSet model "1/2"
+        , hr [] []
+        , h3 [] [ text "Defense:" ]
         , model.currentTypeDefenses.x4 |> renderDefenseInfoSet model "4x"
         , model.currentTypeDefenses.x2 |> renderDefenseInfoSet model "2x"
-        , h3 [] [ text "Defense Strengths:" ]
         , model.currentTypeDefenses.half |> renderDefenseInfoSet model "1/2"
         , model.currentTypeDefenses.quarter |> renderDefenseInfoSet model "1/4"
-        , h3 [] [ text "Immunities:" ]
         , immunities
-        , hr [] []
-        , h3 [] [ text "Offense Strengths:" ]
-        , model.currentTypeOffenses.x2 |> renderOffenseInfoSet model "2x"
         ]
 
 
@@ -1016,10 +1045,15 @@ renderSingleTypeInfo model typeName =
         [ singleType ] ->
             div [ class "nes-container with-title is-rounded" ]
                 [ p [ class "title" ] [ text (typeName ++ " Type") ]
-                , singleType.strengths |> renderSingleInfoSet model "Super effective against:"
-                , singleType.ineffectives |> renderSingleInfoSet model "Not very effective against:"
-                , singleType.weaknesses |> renderSingleInfoSet model "Weak to:"
-                , singleType.noEffects |> renderSingleInfoSet model "Has no effect on:"
+                , h3 [] [ text "Offense:" ]
+                , singleType.strengths |> renderSingleInfoSet model "2x damage to:"
+                , singleType.ineffectives |> renderSingleInfoSet model "1/2 damage to:"
+                , singleType.noEffects |> renderSingleInfoSet model "Does not affect:"
+                , hr [] []
+                , h3 [] [ text "Defense:" ]
+                , singleType.weaknesses |> renderSingleInfoSet model "2x damage from:"
+                , singleType.defenses |> renderSingleInfoSet model "1/2 damage from:"
+                , singleType.immune |> renderSingleInfoSet model "Immune to:"
                 ]
 
         _ ->
@@ -1086,6 +1120,7 @@ renderPokedex : Model -> Html Msg
 renderPokedex model =
     div []
         [ h1 [] [ text "Pokemon" ]
+
         -- , p [ class "search-hint" ] [ text "Now updated for Isle of Armor/Crown Tundra!" ]
         , div [ class "nes-field" ]
             [ label [ for "search-box" ]
@@ -1099,6 +1134,7 @@ renderPokedex model =
                 []
             ]
         , p [ class "search-hint" ] [ text "Hint:  Click a Pokemon's type(s) to jump to type matchups!" ]
+
         -- , p [ class "search-hint" ] [ text "Legend:  Purple is Galarian variant, Blue is Alolan" ]
         , ul [] (List.map renderPokemon model.searchResults)
         ]
@@ -1117,23 +1153,19 @@ renderPokemon pokemon =
         -- armorDexNum =
         --     if pokemon.armorNum == "" then
         --         span [] []
-
         --     else
         --         span [ class "expac-num" ]
         --             [ img [ class "expac-icon", src "armor.png" ] []
         --             , text pokemon.armorNum
         --             ]
-
         -- crownDexNum =
         --     if pokemon.crownNum == "" then
         --         span [] []
-
         --     else
         --         span [ class "expac-num" ]
         --             [ img [ class "expac-icon", src "crown.png" ] []
         --             , text pokemon.crownNum
         --             ]
-
         exclusiveIcon =
             case pokemon.exclusive of
                 "Shield" ->
@@ -1141,6 +1173,12 @@ renderPokemon pokemon =
 
                 "Sword" ->
                     span [] [ img [ class "exclusive-icon", src "sword.png" ] [] ]
+
+                "Scarlet" ->
+                    span [] [ img [ class "exclusive-icon", src "scarlet.svg" ] [] ]
+
+                "Violet" ->
+                    span [] [ img [ class "exclusive-icon", src "violet.svg" ] [] ]
 
                 _ ->
                     span [ class "no-exclusive" ] [ text "" ]
@@ -1159,6 +1197,7 @@ renderPokemon pokemon =
         [ text dexNum
         , name
         , exclusiveIcon
+
         -- , armorDexNum
         -- , crownDexNum
         , div

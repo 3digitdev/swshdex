@@ -1,128 +1,164 @@
 [
 	{
 		"name": "Bug",
-		"strengths": ["Grass", "Dark", "Psychic"],
-		"ineffectives": ["Fire", "Fighting", "Poison", "Flying", "Ghost", "Steel", "Fairy"],
+		"strengths": ["Dark", "Grass", "Psychic"],
+		"ineffectives": ["Fairy", "Fighting", "Fire", "Flying", "Ghost", "Poison", "Steel"],
 		"no_effects": [],
-		"weaknesses": ["Fire", "Flying", "Rock"]
+		"weaknesses": ["Fire", "Flying", "Rock"],
+		"defenses": ["Fighting", "Grass", "Ground"],
+		"immune": []
 	},
 	{
 		"name": "Dark",
 		"strengths": ["Ghost", "Psychic"],
-		"ineffectives": ["Fighting", "Dark", "Fairy"],
+		"ineffectives": ["Dark", "Fairy", "Fighting"],
 		"no_effects": [],
-		"weaknesses": ["Bug", "Fairy", "Fighting"]
+		"weaknesses": ["Bug", "Fairy", "Fighting"],
+		"defenses": ["Dark", "Ghost"],
+		"immune": ["Psychic"]
 	},
 	{
 		"name": "Dragon",
 		"strengths": ["Dragon"],
 		"ineffectives": ["Steel"],
 		"no_effects": ["Fairy"],
-		"weaknesses": ["Dragon", "Fairy", "Ice"]
+		"weaknesses": ["Dragon", "Fairy", "Ice"],
+		"defenses": ["Fire", "Water", "Electric", "Grass"],
+		"immune": []
 	},
 	{
 		"name": "Electric",
 		"strengths": ["Flying", "Water"],
 		"ineffectives": ["Dragon", "Electric", "Grass"],
 		"no_effects": ["Ground"],
-		"weaknesses": ["Ground"]
+		"weaknesses": ["Ground"],
+		"defenses": ["Electric", "Flying", "Steel"],
+		"immune": []
 	},
 	{
 		"name": "Fairy",
-		"strengths": ["Fighting", "Dark", "Dragon"],
+		"strengths": ["Dark", "Dragon", "Fighting"],
 		"ineffectives": ["Fire", "Poison", "Steel"],
 		"no_effects": [],
-		"weaknesses": ["Poison", "Steel"]
+		"weaknesses": ["Poison", "Steel"],
+		"defenses": ["Bug", "Dark", "Fighting"],
+		"immune": ["Dragon"]
 	},
 	{
 		"name": "Fighting",
 		"strengths": ["Dark", "Ice", "Normal", "Rock", "Steel"],
-		"ineffectives": ["Poison", "Flying", "Psychic", "Bug", "Fairy"],
+		"ineffectives": ["Bug", "Fairy", "Flying", "Poison", "Psychic"],
 		"no_effects": ["Ghost"],
-		"weaknesses": ["Fairy", "Flying", "Psychic"]
+		"weaknesses": ["Fairy", "Flying", "Psychic"],
+		"defenses": ["Bug", "Dark", "Rock"],
+		"immune": []
 	},
 	{
 		"name": "Fire",
 		"strengths": ["Bug", "Grass", "Ice", "Steel"],
-		"ineffectives": ["Fire", "Water", "Rock", "Dragon"],
+		"ineffectives": ["Dragon", "Fire", "Rock", "Water"],
 		"no_effects": [],
-		"weaknesses": ["Ground", "Rock", "Water"]
+		"weaknesses": ["Ground", "Rock", "Water"],
+		"defenses": ["Bug", "Fairy", "Fire", "Grass", "Ice", "Steel"],
+		"immune": []
 	},
 	{
 		"name": "Flying",
 		"strengths": ["Bug", "Fighting", "Grass"],
 		"ineffectives": ["Electric", "Rock", "Steel"],
 		"no_effects": [],
-		"weaknesses": ["Electric", "Ice", "Rock"]
+		"weaknesses": ["Electric", "Ice", "Rock"],
+		"defenses": ["Bug", "Fighting", "Grass"],
+		"immune": ["Ground"]
 	},
 	{
 		"name": "Ghost",
 		"strengths": ["Ghost", "Psychic"],
 		"ineffectives": ["Dark"],
 		"no_effects": ["Normal"],
-		"weaknesses": ["Dark", "Ghost"]
+		"weaknesses": ["Dark", "Ghost"],
+		"defenses": ["Poison", "Bug"],
+		"immune": ["Normal", "Fighting"]
 	},
 	{
 		"name": "Grass",
 		"strengths": ["Ground", "Rock", "Water"],
-		"ineffectives": ["Fire", "Grass", "Poison", "Flying", "Bug", "Dragon", "Steel"],
+		"ineffectives": ["Bug", "Dragon", "Fire", "Flying", "Grass", "Poison", "Steel"],
 		"no_effects": [],
-		"weaknesses": ["Bug", "Fire", "Flying", "Ice", "Poison"]
+		"weaknesses": ["Bug", "Fire", "Flying", "Ice", "Poison"],
+		"defenses": ["Water", "Electric", "Grass", "Ground"],
+		"immune": []
 	},
 	{
 		"name": "Ground",
 		"strengths": ["Electric", "Fire", "Poison", "Rock", "Steel"],
-		"ineffectives": ["Grass", "Bug"],
+		"ineffectives": ["Bug", "Grass"],
 		"no_effects": ["Flying"],
-		"weaknesses": ["Grass", "Ice", "Water"]
+		"weaknesses": ["Grass", "Ice", "Water"],
+		"defenses": ["Poison", "Rock"],
+		"immune": ["Electric"]
 	},
 	{
 		"name": "Ice",
 		"strengths": ["Dragon", "Flying", "Grass", "Ground"],
-		"ineffectives": ["Fire", "Water", "Ice", "Steel"],
+		"ineffectives": ["Fire", "Ice", "Steel", "Water"],
 		"no_effects": [],
-		"weaknesses": ["Fighting", "Fire", "Rock", "Steel"]
+		"weaknesses": ["Fighting", "Fire", "Rock", "Steel"],
+		"defenses": ["Ice"],
+		"immune": []
 	},
 	{
 		"name": "Normal",
 		"strengths": [],
 		"ineffectives": ["Rock", "Steel"],
 		"no_effects": ["Ghost"],
-		"weaknesses": ["Fighting"]
+		"weaknesses": ["Fighting"],
+		"defenses": [],
+		"immune": ["Ghost"]
 	},
 	{
 		"name": "Poison",
 		"strengths": ["Fairy", "Grass"],
-		"ineffectives": ["Poison", "Ground", "Rock", "Ghost"],
+		"ineffectives": ["Ghost", "Ground", "Poison", "Rock"],
 		"no_effects": ["Steel"],
-		"weaknesses": ["Ground", "Psychic"]
+		"weaknesses": ["Ground", "Psychic"],
+		"defenses": ["Bug", "Fairy", "Fighting", "Grass", "Poison"],
+		"immune": []
 	},
 	{
 		"name": "Psychic",
 		"strengths": ["Fighting", "Poison"],
 		"ineffectives": ["Psychic", "Steel"],
 		"no_effects": ["Dark"],
-		"weaknesses": ["Bug", "Dark", "Ghost"]
+		"weaknesses": ["Bug", "Dark", "Ghost"],
+		"defenses": ["Fighting", "Psychic"],
+		"immune": []
 	},
 	{
 		"name": "Rock",
 		"strengths": ["Bug", "Fire", "Flying", "Ice"],
 		"ineffectives": ["Fighting", "Ground", "Steel"],
 		"no_effects": [],
-		"weaknesses": ["Fighting", "Grass", "Ground", "Steel", "Water"]
+		"weaknesses": ["Fighting", "Grass", "Ground", "Steel", "Water"],
+		"defenses": ["Fire", "Flying", "Normal", "Poison"],
+		"immune": []
 	},
 	{
 		"name": "Steel",
 		"strengths": ["Fairy", "Ice", "Rock"],
-		"ineffectives": ["Fire", "Water", "Electric", "Steel"],
+		"ineffectives": ["Electric", "Fire", "Steel", "Water"],
 		"no_effects": [],
-		"weaknesses": ["Fighting", "Fire", "Ground"]
+		"weaknesses": ["Fighting", "Fire", "Ground"],
+		"defenses": ["Bug", "Dragon", "Fairy", "Flying", "Grass", "Ice", "Normal", "Psychic", "Rock", "Steel"],
+		"immune": ["Poison"]
 	},
 	{
 		"name": "Water",
 		"strengths": ["Fire", "Ground", "Rock"],
-		"ineffectives": ["Water", "Grass", "Dragon"],
+		"ineffectives": ["Dragon", "Grass", "Water"],
 		"no_effects": [],
-		"weaknesses": ["Electric", "Grass"]
+		"weaknesses": ["Electric", "Grass"],
+		"defenses": ["Fire", "Ice", "Steel", "Water"],
+		"immune": []
 	}
 ]

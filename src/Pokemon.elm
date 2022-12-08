@@ -6,6 +6,9 @@ module Pokemon exposing
     , PokemonType(..)
     , Type
     , buildAllTypesStrengthLists
+    , buildDefensesList
+    , buildImmunityList
+    , buildIneffectivesList
     , buildStrengthList
     , buildWeaknessList
     , comparePokemonTypeStrengths
@@ -68,6 +71,7 @@ type alias Pokemon =
     { name : String
     , number : String
     , pokeType : PokemonType
+
     -- , armorNum : String
     -- , crownNum : String
     , exclusive : String
@@ -167,38 +171,41 @@ buildAllTypesStrengthLists allTypes existingTypes =
     existingTypes
         |> LX.uniqueBy (\pokeType -> pokeType |> typeAsList |> List.map .name |> List.sort)
         |> List.map
-            (\pokeType -> ( pokeType, pokeType |> buildTypeStrengths allTypes ))
+            (\pokeType -> ( pokeType, pokeType |> buildStrengthList ))
 
 
-buildTypeStrengths : List Type -> PokemonType -> List String
-buildTypeStrengths allTypes pokeType =
-    pokeType
+buildDatapointList : (Type -> List String) -> PokemonType -> List String
+buildDatapointList datapoint pokemonType =
+    pokemonType
         |> typeAsList
-        |> List.map .strengths
+        |> List.map datapoint
         |> List.concat
         |> LX.unique
 
 
 buildWeaknessList : PokemonType -> List String
 buildWeaknessList pokemonType =
-    pokemonType
-        |> typeAsList
-        |> List.map .weaknesses
-        |> List.concat
-        |> LX.unique
+    pokemonType |> buildDatapointList .weaknesses
 
 
 buildStrengthList : PokemonType -> List String
 buildStrengthList pokemonType =
-    pokemonType
-        |> typeAsList
-        |> List.map .strengths
-        |> List.concat
-        |> LX.unique
+    pokemonType |> buildDatapointList .strengths
 
 
+buildIneffectivesList : PokemonType -> List String
+buildIneffectivesList pokemonType =
+    pokemonType |> buildDatapointList .ineffectives
 
--- Type
+
+buildDefensesList : PokemonType -> List String
+buildDefensesList pokemonType =
+    pokemonType |> buildDatapointList .defenses
+
+
+buildImmunityList : PokemonType -> List String
+buildImmunityList pokemonType =
+    pokemonType |> buildDatapointList .immune
 
 
 type alias Type =
@@ -207,6 +214,8 @@ type alias Type =
     , weaknesses : List String
     , ineffectives : List String
     , noEffects : List String
+    , defenses : List String
+    , immune : List String
     }
 
 
@@ -232,15 +241,17 @@ typeAsList pokemonType =
 
 
 type alias Offenses =
-    { x2 : List String
-    , half : List String
+    { x2 : ( List String, List String )
+    , half : ( List String, List String )
+    , none : List String
     }
 
 
 initOffenses : Offenses
 initOffenses =
-    { x2 = []
-    , half = []
+    { x2 = ( [], [] )
+    , half = ( [], [] )
+    , none = []
     }
 
 

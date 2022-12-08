@@ -89,6 +89,78 @@
     box-shadow: 0 0.5em #6890F0, 0 -0.5em #6890F0, 0.5em 0 #6890F0, -0.5em 0 #6890F0;
 }
 
+.bug-color {
+    color: #A8B820;
+}
+
+.dark-color {
+    color: #705848;
+}
+
+.dragon-color {
+    color: #7038F8;
+}
+
+.electric-color {
+    color: #F8D030;
+}
+
+.fairy-color {
+    color: #EE99AC;
+}
+
+.fighting-color {
+    color: #C03028;
+}
+
+.fire-color {
+    color: #F08030;
+}
+
+.flying-color {
+    color: #A890F0;
+}
+
+.ghost-color {
+    color: #705898;
+}
+
+.grass-color {
+    color: #78C850;
+}
+
+.ground-color {
+    color: #E0C068;
+}
+
+.ice-color {
+    color: #98D8D8;
+}
+
+.normal-color {
+    color: #A8A878;
+}
+
+.poison-color {
+    color: #A040A0;
+}
+
+.psychic-color {
+    color: #F85888;
+}
+
+.rock-color {
+    color: #B8A038;
+}
+
+.steel-color {
+    color: #B8B8D0;
+}
+
+.water-color {
+    color: #6890F0;
+}
+
 /* DUAL-TYPE BADGES */
 
 /* LEFT-SIDE OF BADGES */

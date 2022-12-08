@@ -784,11 +784,11 @@ function _Debug_crash_UNUSED(identifier, fact1, fact2, fact3, fact4)
 
 function _Debug_regionToString(region)
 {
-	if (region.ae.L === region.ak.L)
+	if (region.ae.N === region.ak.N)
 	{
-		return 'on line ' + region.ae.L;
+		return 'on line ' + region.ae.N;
 	}
-	return 'on lines ' + region.ae.L + ' through ' + region.ak.L;
+	return 'on lines ' + region.ae.N + ' through ' + region.ak.N;
 }
 
 
@@ -1857,9 +1857,9 @@ var _Platform_worker = F4(function(impl, flagDecoder, debugMetadata, args)
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a1,
+		impl.a3,
+		impl.bh,
 		impl.be,
-		impl.bb,
 		function() { return function() {} }
 	);
 });
@@ -3928,11 +3928,11 @@ var _Browser_element = _Debugger_element || F4(function(impl, flagDecoder, debug
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a1,
+		impl.a3,
+		impl.bh,
 		impl.be,
-		impl.bb,
 		function(sendToApp, initialModel) {
-			var view = impl.bg;
+			var view = impl.bj;
 			/**/
 			var domNode = args['node'];
 			//*/
@@ -3964,12 +3964,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 	return _Platform_initialize(
 		flagDecoder,
 		args,
-		impl.a1,
+		impl.a3,
+		impl.bh,
 		impl.be,
-		impl.bb,
 		function(sendToApp, initialModel) {
 			var divertHrefToApp = impl.ad && impl.ad(sendToApp)
-			var view = impl.bg;
+			var view = impl.bj;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
 			var currNode = _VirtualDom_virtualize(bodyNode);
@@ -3982,7 +3982,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.bd) && (_VirtualDom_doc.title = title = doc.bd);
+				(title !== doc.bg) && (_VirtualDom_doc.title = title = doc.bg);
 			});
 		}
 	);
@@ -4038,8 +4038,8 @@ function _Browser_makeAnimator(model, draw)
 
 function _Browser_application(impl)
 {
-	var onUrlChange = impl.a3;
-	var onUrlRequest = impl.a4;
+	var onUrlChange = impl.a6;
+	var onUrlRequest = impl.a7;
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
@@ -4069,13 +4069,13 @@ function _Browser_application(impl)
 				}
 			});
 		},
-		a1: function(flags)
+		a3: function(flags)
 		{
-			return A3(impl.a1, flags, _Browser_getUrl(), key);
+			return A3(impl.a3, flags, _Browser_getUrl(), key);
 		},
-		bg: impl.bg,
-		be: impl.be,
-		bb: impl.bb
+		bj: impl.bj,
+		bh: impl.bh,
+		be: impl.be
 	});
 }
 
@@ -4141,17 +4141,17 @@ var _Browser_decodeEvent = F2(function(decoder, event)
 function _Browser_visibilityInfo()
 {
 	return (typeof _VirtualDom_doc.hidden !== 'undefined')
-		? { a$: 'hidden', aV: 'visibilitychange' }
+		? { a0: 'hidden', aV: 'visibilitychange' }
 		:
 	(typeof _VirtualDom_doc.mozHidden !== 'undefined')
-		? { a$: 'mozHidden', aV: 'mozvisibilitychange' }
+		? { a0: 'mozHidden', aV: 'mozvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.msHidden !== 'undefined')
-		? { a$: 'msHidden', aV: 'msvisibilitychange' }
+		? { a0: 'msHidden', aV: 'msvisibilitychange' }
 		:
 	(typeof _VirtualDom_doc.webkitHidden !== 'undefined')
-		? { a$: 'webkitHidden', aV: 'webkitvisibilitychange' }
-		: { a$: 'hidden', aV: 'visibilitychange' };
+		? { a0: 'webkitHidden', aV: 'webkitvisibilitychange' }
+		: { a0: 'hidden', aV: 'visibilitychange' };
 }
 
 
@@ -4316,7 +4316,7 @@ function _Browser_getElement(id)
 				aN: _Browser_doc.documentElement.clientWidth,
 				ao: _Browser_doc.documentElement.clientHeight
 			},
-			aX: {
+			aY: {
 				aO: x + rect.left,
 				aQ: y + rect.top,
 				aN: rect.width,
@@ -4448,19 +4448,19 @@ var _Http_toTask = F3(function(router, toTask, request)
 	return _Scheduler_binding(function(callback)
 	{
 		function done(response) {
-			callback(toTask(request.aZ.a(response)));
+			callback(toTask(request.a_.a(response)));
 		}
 
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener('error', function() { done($elm$http$Http$NetworkError_); });
 		xhr.addEventListener('timeout', function() { done($elm$http$Http$Timeout_); });
-		xhr.addEventListener('load', function() { done(_Http_toResponse(request.aZ.b, xhr)); });
+		xhr.addEventListener('load', function() { done(_Http_toResponse(request.a_.b, xhr)); });
 		$elm$core$Maybe$isJust(request.aL) && _Http_track(router, xhr, request.aL.a);
 
 		try {
-			xhr.open(request.a2, request.bf, true);
+			xhr.open(request.a4, request.bi, true);
 		} catch (e) {
-			return done($elm$http$Http$BadUrl_(request.bf));
+			return done($elm$http$Http$BadUrl_(request.bi));
 		}
 
 		_Http_configureRequest(xhr, request);
@@ -4481,8 +4481,8 @@ function _Http_configureRequest(xhr, request)
 	{
 		xhr.setRequestHeader(headers.a.a, headers.a.b);
 	}
-	xhr.timeout = request.bc.a || 0;
-	xhr.responseType = request.aZ.d;
+	xhr.timeout = request.bf.a || 0;
+	xhr.responseType = request.a_.d;
 	xhr.withCredentials = request.aS;
 }
 
@@ -4504,9 +4504,9 @@ function _Http_toResponse(toBody, xhr)
 function _Http_toMetadata(xhr)
 {
 	return {
-		bf: xhr.responseURL,
-		a9: xhr.status,
-		ba: xhr.statusText,
+		bi: xhr.responseURL,
+		bc: xhr.status,
+		bd: xhr.statusText,
 		an: _Http_parseHeaders(xhr.getAllResponseHeaders())
 	};
 }
@@ -4602,14 +4602,14 @@ function _Http_track(router, xhr, tracker)
 	xhr.upload.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2($elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, $elm$http$Http$Sending({
-			a8: event.loaded,
+			bb: event.loaded,
 			aH: event.total
 		}))));
 	});
 	xhr.addEventListener('progress', function(event) {
 		if (xhr.c) { return; }
 		_Scheduler_rawSpawn(A2($elm$core$Platform$sendToSelf, router, _Utils_Tuple2(tracker, $elm$http$Http$Receiving({
-			a6: event.loaded,
+			a9: event.loaded,
 			aH: event.lengthComputable ? $elm$core$Maybe$Just(event.total) : $elm$core$Maybe$Nothing
 		}))));
 	});
@@ -5400,8 +5400,12 @@ var $author$project$Main$LoadData = {$: 1};
 var $author$project$Main$Pokedex = 1;
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
-var $author$project$Pokemon$initDefenses = {Y: _List_Nil, aA: _List_Nil, ag: _List_Nil, X: _List_Nil, aP: _List_Nil};
-var $author$project$Pokemon$initOffenses = {Y: _List_Nil, X: _List_Nil};
+var $author$project$Pokemon$initDefenses = {M: _List_Nil, aA: _List_Nil, ag: _List_Nil, V: _List_Nil, aP: _List_Nil};
+var $author$project$Pokemon$initOffenses = {
+	M: _Utils_Tuple2(_List_Nil, _List_Nil),
+	a5: _List_Nil,
+	V: _Utils_Tuple2(_List_Nil, _List_Nil)
+};
 var $elm$core$Array$repeat = F2(
 	function (n, e) {
 		return A2(
@@ -5412,23 +5416,23 @@ var $elm$core$Array$repeat = F2(
 			});
 	});
 var $author$project$Pokemon$initParty = {
-	M: A2($elm$core$Array$repeat, 6, $elm$core$Maybe$Nothing),
+	O: A2($elm$core$Array$repeat, 6, $elm$core$Maybe$Nothing),
 	aJ: $elm$core$Maybe$Nothing,
-	P: 0
+	R: 0
 };
 var $author$project$Main$initModel = {
 	u: _List_Nil,
-	l: _List_Nil,
-	m: $author$project$Pokemon$initParty,
+	j: _List_Nil,
+	n: $author$project$Pokemon$initParty,
 	r: $author$project$Pokemon$initDefenses,
-	T: $author$project$Pokemon$initOffenses,
-	K: $elm$core$Maybe$Nothing,
-	F: $elm$core$Maybe$Nothing,
+	A: $author$project$Pokemon$initOffenses,
+	L: $elm$core$Maybe$Nothing,
+	G: $elm$core$Maybe$Nothing,
 	x: $elm$core$Maybe$Nothing,
-	G: 1,
-	p: _List_Nil,
-	q: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing),
-	Q: $elm$core$Dict$empty
+	H: 1,
+	q: _List_Nil,
+	m: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing),
+	S: $elm$core$Dict$empty
 };
 var $author$project$Main$NewSuggestion = function (a) {
 	return {$: 15, a: a};
@@ -5792,25 +5796,25 @@ var $author$project$Main$updatePartyWith = F3(
 	function (value, idx, pokemonParty) {
 		var newTotal = function () {
 			if (value.$ === 1) {
-				return (!pokemonParty.P) ? 0 : (pokemonParty.P - 1);
+				return (!pokemonParty.R) ? 0 : (pokemonParty.R - 1);
 			} else {
 				var v = value.a;
-				return pokemonParty.P + 1;
+				return pokemonParty.R + 1;
 			}
 		}();
-		var newList = A3($elm$core$Array$set, idx, value, pokemonParty.M);
+		var newList = A3($elm$core$Array$set, idx, value, pokemonParty.O);
 		return _Utils_update(
 			pokemonParty,
-			{M: newList, P: newTotal});
+			{O: newList, R: newTotal});
 	});
 var $author$project$Main$closeModalAndUpdateWith = F3(
 	function (value, idx, model) {
 		return _Utils_update(
 			model,
 			{
-				m: A3($author$project$Main$updatePartyWith, value, idx, model.m),
+				n: A3($author$project$Main$updatePartyWith, value, idx, model.n),
 				x: $elm$core$Maybe$Nothing,
-				p: _List_Nil
+				q: _List_Nil
 			});
 	});
 var $author$project$Pokemon$Dual = F2(
@@ -5819,7 +5823,7 @@ var $author$project$Pokemon$Dual = F2(
 	});
 var $author$project$Pokemon$Pokemon = F4(
 	function (name, number, pokeType, exclusive) {
-		return {aY: exclusive, a: name, as: number, k: pokeType};
+		return {aZ: exclusive, a: name, as: number, l: pokeType};
 	});
 var $author$project$Pokemon$Single = function (a) {
 	return {$: 0, a: a};
@@ -5916,14 +5920,14 @@ var $author$project$Main$decodePokemonData = function (typeDict) {
 				$elm$json$Json$Decode$string)),
 		A2($elm$json$Json$Decode$field, 'exclusive', $elm$json$Json$Decode$string));
 };
-var $author$project$Pokemon$Type = F5(
-	function (name, strengths, weaknesses, ineffectives, noEffects) {
-		return {Z: ineffectives, a: name, aa: noEffects, W: strengths, bh: weaknesses};
+var $author$project$Pokemon$Type = F7(
+	function (name, strengths, weaknesses, ineffectives, noEffects, defenses, immune) {
+		return {aW: defenses, a1: immune, X: ineffectives, a: name, aa: noEffects, Z: strengths, bk: weaknesses};
 	});
 var $elm$json$Json$Decode$list = _Json_decodeList;
-var $elm$json$Json$Decode$map5 = _Json_map5;
-var $author$project$Main$decodeTypeData = A6(
-	$elm$json$Json$Decode$map5,
+var $elm$json$Json$Decode$map7 = _Json_map7;
+var $author$project$Main$decodeTypeData = A8(
+	$elm$json$Json$Decode$map7,
 	$author$project$Pokemon$Type,
 	A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string),
 	A2(
@@ -5941,6 +5945,14 @@ var $author$project$Main$decodeTypeData = A6(
 	A2(
 		$elm$json$Json$Decode$field,
 		'no_effects',
+		$elm$json$Json$Decode$list($elm$json$Json$Decode$string)),
+	A2(
+		$elm$json$Json$Decode$field,
+		'defenses',
+		$elm$json$Json$Decode$list($elm$json$Json$Decode$string)),
+	A2(
+		$elm$json$Json$Decode$field,
+		'immune',
 		$elm$json$Json$Decode$list($elm$json$Json$Decode$string)));
 var $elm$core$List$filter = F2(
 	function (isGood, list) {
@@ -6696,7 +6708,7 @@ var $elm$http$Http$resolve = F2(
 			case 3:
 				var metadata = response.a;
 				return $elm$core$Result$Err(
-					$elm$http$Http$BadStatus(metadata.a9));
+					$elm$http$Http$BadStatus(metadata.bc));
 			default:
 				var body = response.b;
 				return A2(
@@ -6857,12 +6869,12 @@ var $elm$http$Http$cmdMap = F2(
 				{
 					aS: r.aS,
 					aU: r.aU,
-					aZ: A2(_Http_mapExpect, func, r.aZ),
+					a_: A2(_Http_mapExpect, func, r.a_),
 					an: r.an,
-					a2: r.a2,
-					bc: r.bc,
+					a4: r.a4,
+					bf: r.bf,
 					aL: r.aL,
-					bf: r.bf
+					bi: r.bi
 				});
 		}
 	});
@@ -6885,21 +6897,21 @@ var $elm$http$Http$subscription = _Platform_leaf('Http');
 var $elm$http$Http$request = function (r) {
 	return $elm$http$Http$command(
 		$elm$http$Http$Request(
-			{aS: false, aU: r.aU, aZ: r.aZ, an: r.an, a2: r.a2, bc: r.bc, aL: r.aL, bf: r.bf}));
+			{aS: false, aU: r.aU, a_: r.a_, an: r.an, a4: r.a4, bf: r.bf, aL: r.aL, bi: r.bi}));
 };
 var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
-		{aU: $elm$http$Http$emptyBody, aZ: r.aZ, an: _List_Nil, a2: 'GET', bc: $elm$core$Maybe$Nothing, aL: $elm$core$Maybe$Nothing, bf: r.bf});
+		{aU: $elm$http$Http$emptyBody, a_: r.a_, an: _List_Nil, a4: 'GET', bf: $elm$core$Maybe$Nothing, aL: $elm$core$Maybe$Nothing, bi: r.bi});
 };
 var $author$project$Main$getDataList = F3(
 	function (fileName, decoder, cmd) {
 		return $elm$http$Http$get(
 			{
-				aZ: A2(
+				a_: A2(
 					$elm$http$Http$expectJson,
 					cmd,
 					$elm$json$Json$Decode$list(decoder)),
-				bf: fileName + '.json'
+				bi: fileName + '.json'
 			});
 	});
 var $elm$core$List$any = F2(
@@ -6942,7 +6954,7 @@ var $elm$core$List$member = F2(
 	});
 var $author$project$Pokemon$matchesPokemonType = F2(
 	function (pokemon, typeName) {
-		var _v0 = pokemon.k;
+		var _v0 = pokemon.l;
 		if (!_v0.$) {
 			var t1 = _v0.a;
 			return _Utils_eq(t1.a, typeName);
@@ -6983,7 +6995,7 @@ var $author$project$Pokemon$pokemonMatchesTypes = F2(
 var $author$project$Main$getExamplePokemon = function (model) {
 	return A2(
 		$elm$core$List$filter,
-		$author$project$Pokemon$pokemonMatchesTypes(model.q),
+		$author$project$Pokemon$pokemonMatchesTypes(model.m),
 		model.u);
 };
 var $elm$core$Platform$Cmd$batch = _Platform_batch;
@@ -7035,16 +7047,16 @@ var $author$project$Main$suggestFirstPokemon = function (model) {
 			$elm$core$List$sortWith,
 			F2(
 				function (one, two) {
-					return A2($author$project$Pokemon$comparePokemonTypes, one.k, two.k);
+					return A2($author$project$Pokemon$comparePokemonTypes, one.l, two.l);
 				}),
 			$author$project$Main$getExamplePokemon(model)));
 	return _Utils_update(
 		model,
-		{F: example});
+		{G: example});
 };
 var $author$project$Pokemon$Defenses = F5(
 	function (x4, x2, x0, half, quarter) {
-		return {Y: half, aA: quarter, ag: x0, X: x2, aP: x4};
+		return {M: half, aA: quarter, ag: x0, V: x2, aP: x4};
 	});
 var $author$project$Main$assignByValue = F2(
 	function (_v0, defenses) {
@@ -7058,11 +7070,11 @@ var $author$project$Main$assignByValue = F2(
 			case 1:
 				return _Utils_update(
 					defenses,
-					{X: typeList});
+					{V: typeList});
 			case 3:
 				return _Utils_update(
 					defenses,
-					{Y: typeList});
+					{M: typeList});
 			case 4:
 				return _Utils_update(
 					defenses,
@@ -7075,9 +7087,6 @@ var $author$project$Main$assignByValue = F2(
 				return defenses;
 		}
 	});
-var $elm$core$List$concat = function (lists) {
-	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
-};
 var $elm$core$List$partition = F2(
 	function (pred, list) {
 		var step = F2(
@@ -7138,6 +7147,44 @@ var $author$project$Main$getBoolValue = F2(
 	function (typeList, typeName) {
 		return A2($elm$core$List$member, typeName, typeList) ? 1 : 0;
 	});
+var $elm$core$List$concat = function (lists) {
+	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
+};
+var $elm_community$list_extra$List$Extra$unique = function (list) {
+	return A4($elm_community$list_extra$List$Extra$uniqueHelp, $elm$core$Basics$identity, $elm$core$Set$empty, list, _List_Nil);
+};
+var $author$project$Main$getIneffectives = F2(
+	function (model, pokemonType) {
+		return $elm_community$list_extra$List$Extra$unique(
+			$elm$core$List$concat(
+				A2(
+					$elm$core$List$map,
+					function (t) {
+						return t.X;
+					},
+					A2(
+						$elm$core$List$filter,
+						function (t) {
+							return _Utils_eq(t.a, pokemonType);
+						},
+						model.j))));
+	});
+var $author$project$Main$getOffenses = F2(
+	function (model, pokemonType) {
+		return $elm_community$list_extra$List$Extra$unique(
+			$elm$core$List$concat(
+				A2(
+					$elm$core$List$map,
+					function (t) {
+						return t.Z;
+					},
+					A2(
+						$elm$core$List$filter,
+						function (t) {
+							return _Utils_eq(t.a, pokemonType);
+						},
+						model.j))));
+	});
 var $elm$core$Tuple$mapBoth = F3(
 	function (funcA, funcB, _v0) {
 		var x = _v0.a;
@@ -7161,9 +7208,6 @@ var $TSFoster$elm_tuple_extra$Tuple2$uncurry = F2(
 		var b = _v0.b;
 		return A2(fn, a, b);
 	});
-var $elm_community$list_extra$List$Extra$unique = function (list) {
-	return A4($elm_community$list_extra$List$Extra$uniqueHelp, $elm$core$Basics$identity, $elm$core$Set$empty, list, _List_Nil);
-};
 var $elm$core$Maybe$withDefault = F2(
 	function (_default, maybe) {
 		if (!maybe.$) {
@@ -7180,19 +7224,9 @@ var $author$project$Main$calculateDualTypeStats = F2(
 			$elm$core$Maybe$withDefault(''),
 			$elm$core$Maybe$withDefault(''),
 			bothTypes);
-		var offenses = $elm_community$list_extra$List$Extra$unique(
-			$elm$core$List$concat(
-				A2(
-					$elm$core$List$map,
-					function (t) {
-						return t.W;
-					},
-					A2(
-						$elm$core$List$filter,
-						function (t) {
-							return _Utils_eq(t.a, dualType.a) || _Utils_eq(t.a, dualType.b);
-						},
-						model.l))));
+		var halves = _Utils_Tuple2(
+			A2($author$project$Main$getIneffectives, model, dualType.a),
+			A2($author$project$Main$getIneffectives, model, dualType.b));
 		var sortedMap = A2(
 			$elm$core$List$sortBy,
 			$elm$core$Tuple$first,
@@ -7235,20 +7269,23 @@ var $author$project$Main$calculateDualTypeStats = F2(
 								$elm$core$Basics$add,
 								A3(
 									$elm$core$Tuple$mapBoth,
-									$author$project$Main$getBoolValue(curType.Z),
-									$author$project$Main$getBoolValue(curType.Z),
+									$author$project$Main$getBoolValue(curType.X),
+									$author$project$Main$getBoolValue(curType.X),
 									dualType));
 							var bad = A2(
 								$TSFoster$elm_tuple_extra$Tuple2$uncurry,
 								$elm$core$Basics$add,
 								A3(
 									$elm$core$Tuple$mapBoth,
-									$author$project$Main$getBoolValue(curType.W),
-									$author$project$Main$getBoolValue(curType.W),
+									$author$project$Main$getBoolValue(curType.Z),
+									$author$project$Main$getBoolValue(curType.Z),
 									dualType));
 							return noEffect ? _Utils_Tuple2(curType.a, 5) : _Utils_Tuple2(curType.a, (good - bad) + 2);
 						},
-						model.l))));
+						model.j))));
+		var doubles = _Utils_Tuple2(
+			A2($author$project$Main$getOffenses, model, dualType.a),
+			A2($author$project$Main$getOffenses, model, dualType.b));
 		return _Utils_update(
 			model,
 			{
@@ -7257,13 +7294,13 @@ var $author$project$Main$calculateDualTypeStats = F2(
 					$author$project$Main$assignByValue,
 					A5($author$project$Pokemon$Defenses, _List_Nil, _List_Nil, _List_Nil, _List_Nil, _List_Nil),
 					sortedMap),
-				T: {Y: _List_Nil, X: offenses}
+				A: {M: halves, a5: _List_Nil, V: doubles}
 			});
 	});
 var $author$project$Main$updateSelectedTypes = F2(
 	function (newType, model) {
 		var newTypes = function () {
-			var _v0 = model.q;
+			var _v0 = model.m;
 			if (_v0.a.$ === 1) {
 				if (_v0.b.$ === 1) {
 					var _v1 = _v0.a;
@@ -7302,7 +7339,7 @@ var $author$project$Main$updateSelectedTypes = F2(
 			$author$project$Main$calculateDualTypeStats,
 			_Utils_update(
 				model,
-				{q: newTypes}),
+				{m: newTypes}),
 			newTypes);
 	});
 var $author$project$Main$update = F2(
@@ -7324,7 +7361,7 @@ var $author$project$Main$update = F2(
 							_Utils_update(
 								model,
 								{
-									K: $elm$core$Maybe$Just(errStr)
+									L: $elm$core$Maybe$Just(errStr)
 								}),
 							$elm$core$Platform$Cmd$none);
 					} else {
@@ -7342,7 +7379,7 @@ var $author$project$Main$update = F2(
 					return _Utils_Tuple2(
 						_Utils_update(
 							model,
-							{l: typeData, Q: typeMap}),
+							{j: typeData, S: typeMap}),
 						A3(
 							$author$project$Main$getDataList,
 							'pokedex_sv',
@@ -7359,7 +7396,7 @@ var $author$project$Main$update = F2(
 							_Utils_update(
 								model,
 								{
-									K: $elm$core$Maybe$Just(errStr)
+									L: $elm$core$Maybe$Just(errStr)
 								}),
 							$elm$core$Platform$Cmd$none);
 					} else {
@@ -7378,7 +7415,7 @@ var $author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{G: mode, p: _List_Nil}),
+						{H: mode, q: _List_Nil}),
 					$elm$core$Platform$Cmd$none);
 			case 5:
 				var searchStr = msg.a;
@@ -7392,7 +7429,7 @@ var $author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{p: results}),
+						{q: results}),
 					$elm$core$Platform$Cmd$none);
 			case 6:
 				var typeName = msg.a;
@@ -7409,7 +7446,7 @@ var $author$project$Main$update = F2(
 							_Utils_update(
 								model,
 								{
-									q: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
+									m: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
 								}),
 							t.a);
 					} else {
@@ -7419,7 +7456,7 @@ var $author$project$Main$update = F2(
 							_Utils_update(
 								model,
 								{
-									q: _Utils_Tuple2(
+									m: _Utils_Tuple2(
 										$elm$core$Maybe$Just(one.a),
 										$elm$core$Maybe$Nothing)
 								}),
@@ -7431,7 +7468,7 @@ var $author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						newModel,
-						{G: 0}),
+						{H: 0}),
 					A2(
 						$elm$core$Task$perform,
 						$author$project$Main$SelectType,
@@ -7441,7 +7478,7 @@ var $author$project$Main$update = F2(
 					_Utils_update(
 						model,
 						{
-							q: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
+							m: _Utils_Tuple2($elm$core$Maybe$Nothing, $elm$core$Maybe$Nothing)
 						}),
 					$elm$core$Platform$Cmd$none);
 			case 9:
@@ -7451,8 +7488,8 @@ var $author$project$Main$update = F2(
 						model,
 						{
 							x: $elm$core$Maybe$Just(
-								{U: idx, V: ''}),
-							p: _List_Nil
+								{W: idx, Y: ''}),
+							q: _List_Nil
 						}),
 					A2(
 						$elm$core$Task$attempt,
@@ -7483,7 +7520,7 @@ var $author$project$Main$update = F2(
 								return !A2(
 									$elm$core$List$member,
 									$elm$core$Maybe$Just(p),
-									$elm$core$Array$toList(model.m.M));
+									$elm$core$Array$toList(model.n.O));
 							},
 							A2($author$project$Main$findMatchByName, searchStr, model.u));
 					}
@@ -7497,23 +7534,23 @@ var $author$project$Main$update = F2(
 						return $elm$core$Maybe$Just(
 							_Utils_update(
 								data,
-								{V: searchStr}));
+								{Y: searchStr}));
 					}
 				}();
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{x: newData, p: results}),
+						{x: newData, q: results}),
 					$elm$core$Platform$Cmd$none);
 			case 13:
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{x: $elm$core$Maybe$Nothing, p: _List_Nil}),
+						{x: $elm$core$Maybe$Nothing, q: _List_Nil}),
 					$elm$core$Platform$Cmd$none);
 			case 14:
 				var examplePokemonList = function () {
-					var _v11 = model.F;
+					var _v11 = model.G;
 					if (_v11.$ === 1) {
 						return $author$project$Main$getExamplePokemon(model);
 					} else {
@@ -7537,7 +7574,7 @@ var $author$project$Main$update = F2(
 				return _Utils_Tuple2(
 					_Utils_update(
 						model,
-						{F: pokemon}),
+						{G: pokemon}),
 					$elm$core$Platform$Cmd$none);
 		}
 	});
@@ -7573,25 +7610,30 @@ var $author$project$Pokemon$typeAsList = function (pokemonType) {
 			[type1, type2]);
 	}
 };
+var $author$project$Pokemon$buildDatapointList = F2(
+	function (datapoint, pokemonType) {
+		return $elm_community$list_extra$List$Extra$unique(
+			$elm$core$List$concat(
+				A2(
+					$elm$core$List$map,
+					datapoint,
+					$author$project$Pokemon$typeAsList(pokemonType))));
+	});
 var $author$project$Pokemon$buildStrengthList = function (pokemonType) {
-	return $elm_community$list_extra$List$Extra$unique(
-		$elm$core$List$concat(
-			A2(
-				$elm$core$List$map,
-				function ($) {
-					return $.W;
-				},
-				$author$project$Pokemon$typeAsList(pokemonType))));
+	return A2(
+		$author$project$Pokemon$buildDatapointList,
+		function ($) {
+			return $.Z;
+		},
+		pokemonType);
 };
 var $author$project$Pokemon$buildWeaknessList = function (pokemonType) {
-	return $elm_community$list_extra$List$Extra$unique(
-		$elm$core$List$concat(
-			A2(
-				$elm$core$List$map,
-				function ($) {
-					return $.bh;
-				},
-				$author$project$Pokemon$typeAsList(pokemonType))));
+	return A2(
+		$author$project$Pokemon$buildDatapointList,
+		function ($) {
+			return $.bk;
+		},
+		pokemonType);
 };
 var $elm$html$Html$h3 = _VirtualDom_node('h3');
 var $author$project$Main$overlappedAttributeCoverage = F2(
@@ -7599,12 +7641,12 @@ var $author$project$Main$overlappedAttributeCoverage = F2(
 		var partyAttrs = A2(
 			$elm$core$List$map,
 			function (pokemon) {
-				return attrFn(pokemon.k);
+				return attrFn(pokemon.l);
 			},
 			A2(
 				$elm$core$List$filterMap,
 				$elm$core$Basics$identity,
-				$elm$core$Array$toList(model.m.M)));
+				$elm$core$Array$toList(model.n.O)));
 		return A2(
 			$elm$core$List$filter,
 			function (curType) {
@@ -7614,7 +7656,7 @@ var $author$project$Main$overlappedAttributeCoverage = F2(
 						$elm$core$List$member(curType.a),
 						partyAttrs));
 			},
-			model.l);
+			model.j);
 	});
 var $author$project$Main$SetType = function (a) {
 	return {$: 7, a: a};
@@ -7743,12 +7785,12 @@ var $author$project$Pokemon$isStrongAgainst = F3(
 		return A2(
 			$elm$core$List$any,
 			function (t) {
-				return A2($elm$core$List$member, checkType.a, t.W);
+				return A2($elm$core$List$member, checkType.a, t.Z);
 			},
 			A2(
 				$elm$core$List$filter,
 				function (t) {
-					var _v0 = pokemon.k;
+					var _v0 = pokemon.l;
 					if (!_v0.$) {
 						var t1 = _v0.a;
 						return _Utils_eq(t.a, t1.a);
@@ -7771,13 +7813,13 @@ var $author$project$Pokemon$evaluateTypeCoverage = F2(
 					A2(
 						$elm$core$List$filterMap,
 						$elm$core$Basics$identity,
-						$elm$core$Array$toList(party.M)));
+						$elm$core$Array$toList(party.O)));
 			},
 			typeList);
 	});
 var $elm$html$Html$i = _VirtualDom_node('i');
 var $author$project$Main$typeCoverageForParty = function (model) {
-	var _v0 = A2($author$project$Pokemon$evaluateTypeCoverage, model.l, model.m);
+	var _v0 = A2($author$project$Pokemon$evaluateTypeCoverage, model.j, model.n);
 	if (!_v0.b) {
 		return _List_fromArray(
 			[
@@ -7828,17 +7870,6 @@ var $author$project$Main$evaluateFullParty = function (model) {
 			]));
 };
 var $elm$html$Html$p = _VirtualDom_node('p');
-var $author$project$Pokemon$buildTypeStrengths = F2(
-	function (allTypes, pokeType) {
-		return $elm_community$list_extra$List$Extra$unique(
-			$elm$core$List$concat(
-				A2(
-					$elm$core$List$map,
-					function ($) {
-						return $.W;
-					},
-					$author$project$Pokemon$typeAsList(pokeType))));
-	});
 var $elm$core$List$sort = function (xs) {
 	return A2($elm$core$List$sortBy, $elm$core$Basics$identity, xs);
 };
@@ -7849,7 +7880,7 @@ var $author$project$Pokemon$buildAllTypesStrengthLists = F2(
 			function (pokeType) {
 				return _Utils_Tuple2(
 					pokeType,
-					A2($author$project$Pokemon$buildTypeStrengths, allTypes, pokeType));
+					$author$project$Pokemon$buildStrengthList(pokeType));
 			},
 			A2(
 				$elm_community$list_extra$List$Extra$uniqueBy,
@@ -7914,7 +7945,7 @@ var $author$project$Main$getStrengthsOfTypes = F2(
 							},
 							A2(
 								$author$project$Pokemon$buildAllTypesStrengthLists,
-								model.l,
+								model.j,
 								A2(
 									$elm_community$list_extra$List$Extra$uniqueBy,
 									function (checkType) {
@@ -7932,12 +7963,12 @@ var $author$project$Main$getStrengthsOfTypes = F2(
 									A2(
 										$elm$core$List$map,
 										function ($) {
-											return $.k;
+											return $.l;
 										},
 										model.u))))))));
 	});
 var $author$project$Main$suggestPartyMember = function (model) {
-	var _v0 = A2($author$project$Pokemon$evaluateTypeCoverage, model.l, model.m);
+	var _v0 = A2($author$project$Pokemon$evaluateTypeCoverage, model.j, model.n);
 	if (!_v0.b) {
 		return $author$project$Main$typeCoverageForParty(model);
 	} else {
@@ -7981,7 +8012,7 @@ var $author$project$Main$suggestPartyMember = function (model) {
 };
 var $author$project$Main$evaluateParty = function (model) {
 	var content = function () {
-		var _v0 = model.m.P;
+		var _v0 = model.n.R;
 		switch (_v0) {
 			case 0:
 				return _List_Nil;
@@ -8176,7 +8207,7 @@ var $author$project$Main$renderPartyMember = function (_v0) {
 						[
 							$elm$html$Html$text(pokemon.a)
 						])),
-					$author$project$Main$renderTypeBadgeWithCmd(pokemon.k)
+					$author$project$Main$renderTypeBadgeWithCmd(pokemon.l)
 				]));
 	}
 };
@@ -8209,7 +8240,7 @@ var $author$project$Main$renderPartyGrid = function (model) {
 		A2(
 			$elm$core$List$map,
 			$author$project$Main$renderPartyMember,
-			$elm$core$Array$toIndexedList(model.m.M)));
+			$elm$core$Array$toIndexedList(model.n.O)));
 };
 var $author$project$Main$CloseModal = {$: 13};
 var $author$project$Main$FindPartyMember = function (a) {
@@ -8346,7 +8377,7 @@ var $author$project$Main$renderPartySearchResults = F2(
 						]),
 					_List_fromArray(
 						[
-							$author$project$Main$renderTypeBadge(pokemon.k)
+							$author$project$Main$renderTypeBadge(pokemon.l)
 						]))
 				]));
 	});
@@ -8395,7 +8426,7 @@ var $author$project$Main$renderPartyMemberModal = function (model) {
 							_List_fromArray(
 								[
 									$elm$html$Html$text(
-									'Party Member ' + $elm$core$String$fromInt(modalData.U + 1))
+									'Party Member ' + $elm$core$String$fromInt(modalData.W + 1))
 								])),
 							A2(
 							$elm$html$Html$hr,
@@ -8438,7 +8469,7 @@ var $author$project$Main$renderPartyMemberModal = function (model) {
 													$elm$html$Html$Attributes$id('addMemberInput'),
 													$elm$html$Html$Events$onInput($author$project$Main$FindPartyMember),
 													$elm$html$Html$Attributes$type_('text'),
-													$elm$html$Html$Attributes$value(modalData.V)
+													$elm$html$Html$Attributes$value(modalData.Y)
 												]),
 											_List_Nil)
 										])),
@@ -8457,8 +8488,8 @@ var $author$project$Main$renderPartyMemberModal = function (model) {
 									_List_Nil,
 									A2(
 										$elm$core$List$map,
-										$author$project$Main$renderPartySearchResults(modalData.U),
-										model.p))
+										$author$project$Main$renderPartySearchResults(modalData.W),
+										model.q))
 								]))
 						]))
 				]));
@@ -8510,7 +8541,7 @@ var $author$project$Main$renderPokemon = function (pokemon) {
 				$elm$html$Html$text(pokemon.a)
 			])));
 	var exclusiveIcon = function () {
-		var _v0 = pokemon.aY;
+		var _v0 = pokemon.aZ;
 		switch (_v0) {
 			case 'Shield':
 				return A2(
@@ -8539,6 +8570,36 @@ var $author$project$Main$renderPokemon = function (pokemon) {
 								[
 									$elm$html$Html$Attributes$class('exclusive-icon'),
 									$elm$html$Html$Attributes$src('sword.png')
+								]),
+							_List_Nil)
+						]));
+			case 'Scarlet':
+				return A2(
+					$elm$html$Html$span,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$img,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('exclusive-icon'),
+									$elm$html$Html$Attributes$src('scarlet.svg')
+								]),
+							_List_Nil)
+						]));
+			case 'Violet':
+				return A2(
+					$elm$html$Html$span,
+					_List_Nil,
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$img,
+							_List_fromArray(
+								[
+									$elm$html$Html$Attributes$class('exclusive-icon'),
+									$elm$html$Html$Attributes$src('violet.svg')
 								]),
 							_List_Nil)
 						]));
@@ -8573,11 +8634,11 @@ var $author$project$Main$renderPokemon = function (pokemon) {
 					[
 						$elm$html$Html$Attributes$class('type-link'),
 						$elm$html$Html$Events$onClick(
-						$author$project$Main$SetType(pokemon.k))
+						$author$project$Main$SetType(pokemon.l))
 					]),
 				_List_fromArray(
 					[
-						$author$project$Main$renderTypeBadge(pokemon.k)
+						$author$project$Main$renderTypeBadge(pokemon.l)
 					]))
 			]));
 };
@@ -8637,9 +8698,10 @@ var $author$project$Main$renderPokedex = function (model) {
 				A2(
 				$elm$html$Html$ul,
 				_List_Nil,
-				A2($elm$core$List$map, $author$project$Main$renderPokemon, model.p))
+				A2($elm$core$List$map, $author$project$Main$renderPokemon, model.q))
 			]));
 };
+var $elm$html$Html$h4 = _VirtualDom_node('h4');
 var $author$project$Main$renderBadgeList = function (typeList) {
 	return A2(
 		$elm$html$Html$div,
@@ -8669,7 +8731,7 @@ var $author$project$Pokemon$namesToTypes = F2(
 	});
 var $author$project$Main$renderIfNotEmptyTypeList = F3(
 	function (typeNameList, renderFn, model) {
-		var _v0 = A2($author$project$Pokemon$namesToTypes, model.Q, typeNameList);
+		var _v0 = A2($author$project$Pokemon$namesToTypes, model.S, typeNameList);
 		if (!_v0.b) {
 			return A2($elm$html$Html$div, _List_Nil, _List_Nil);
 		} else {
@@ -8725,8 +8787,8 @@ var $author$project$Main$renderOffenseInfoSet = F3(
 	});
 var $author$project$Main$renderDualTypeInfo = function (model) {
 	var immunities = function () {
-		var _v0 = $elm$core$List$length(model.r.ag);
-		if (!_v0) {
+		var _v1 = $elm$core$List$length(model.r.ag);
+		if (!_v1) {
 			return A2(
 				$elm$html$Html$h3,
 				_List_Nil,
@@ -8741,9 +8803,16 @@ var $author$project$Main$renderDualTypeInfo = function (model) {
 							]))
 					]));
 		} else {
-			return A3($author$project$Main$renderDefenseInfoSet, model, 'NO', model.r.ag);
+			return A3($author$project$Main$renderDefenseInfoSet, model, 'No', model.r.ag);
 		}
 	}();
+	var _v0 = A3(
+		$elm$core$Tuple$mapBoth,
+		$elm$core$Maybe$withDefault(''),
+		$elm$core$Maybe$withDefault(''),
+		model.m);
+	var typeOne = _v0.a;
+	var typeTwo = _v0.b;
 	return A2(
 		$elm$html$Html$div,
 		_List_Nil,
@@ -8754,43 +8823,53 @@ var $author$project$Main$renderDualTypeInfo = function (model) {
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Defense Weaknesses:')
+						$elm$html$Html$text('Offense:')
 					])),
-				A3($author$project$Main$renderDefenseInfoSet, model, '4x', model.r.aP),
-				A3($author$project$Main$renderDefenseInfoSet, model, '2x', model.r.X),
 				A2(
-				$elm$html$Html$h3,
-				_List_Nil,
+				$elm$html$Html$h4,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Defense Strengths:')
-					])),
-				A3($author$project$Main$renderDefenseInfoSet, model, '1/2', model.r.Y),
-				A3($author$project$Main$renderDefenseInfoSet, model, '1/4', model.r.aA),
-				A2(
-				$elm$html$Html$h3,
-				_List_Nil,
+						$elm$html$Html$Attributes$class(
+						$elm$core$String$toLower(typeOne) + '-color type-label')
+					]),
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Immunities:')
+						$elm$html$Html$text(typeOne)
 					])),
-				immunities,
+				A3($author$project$Main$renderOffenseInfoSet, model, '2x', model.A.V.a),
+				A3($author$project$Main$renderOffenseInfoSet, model, '1/2', model.A.M.a),
+				A2(
+				$elm$html$Html$h4,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class(
+						$elm$core$String$toLower(typeTwo) + '-color type-label')
+					]),
+				_List_fromArray(
+					[
+						$elm$html$Html$text(typeTwo)
+					])),
+				A3($author$project$Main$renderOffenseInfoSet, model, '2x', model.A.V.b),
+				A3($author$project$Main$renderOffenseInfoSet, model, '1/2', model.A.M.b),
 				A2($elm$html$Html$hr, _List_Nil, _List_Nil),
 				A2(
 				$elm$html$Html$h3,
 				_List_Nil,
 				_List_fromArray(
 					[
-						$elm$html$Html$text('Offense Strengths:')
+						$elm$html$Html$text('Defense:')
 					])),
-				A3($author$project$Main$renderOffenseInfoSet, model, '2x', model.T.X)
+				A3($author$project$Main$renderDefenseInfoSet, model, '4x', model.r.aP),
+				A3($author$project$Main$renderDefenseInfoSet, model, '2x', model.r.V),
+				A3($author$project$Main$renderDefenseInfoSet, model, '1/2', model.r.M),
+				A3($author$project$Main$renderDefenseInfoSet, model, '1/4', model.r.aA),
+				immunities
 			]));
 };
 var $author$project$Main$RandomizeSuggestion = {$: 14};
-var $elm$html$Html$h4 = _VirtualDom_node('h4');
 var $author$project$Main$renderExamplePokemon = function (model) {
 	var innerHtml = function () {
-		var _v0 = model.F;
+		var _v0 = model.G;
 		if (_v0.$ === 1) {
 			return A2(
 				$elm$html$Html$h3,
@@ -8890,7 +8969,7 @@ var $author$project$Main$renderSingleTypeInfo = F2(
 	function (model, typeName) {
 		var _v0 = A2(
 			$author$project$Pokemon$namesToTypes,
-			model.Q,
+			model.S,
 			_List_fromArray(
 				[typeName]));
 		if (_v0.b && (!_v0.b.b)) {
@@ -8913,17 +8992,34 @@ var $author$project$Main$renderSingleTypeInfo = F2(
 							[
 								$elm$html$Html$text(typeName + ' Type')
 							])),
-						A3($author$project$Main$renderSingleInfoSet, model, 'Super effective against:', singleType.W),
-						A3($author$project$Main$renderSingleInfoSet, model, 'Not very effective against:', singleType.Z),
-						A3($author$project$Main$renderSingleInfoSet, model, 'Weak to:', singleType.bh),
-						A3($author$project$Main$renderSingleInfoSet, model, 'Has no effect on:', singleType.aa)
+						A2(
+						$elm$html$Html$h3,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Offense:')
+							])),
+						A3($author$project$Main$renderSingleInfoSet, model, '2x damage to:', singleType.Z),
+						A3($author$project$Main$renderSingleInfoSet, model, '1/2 damage to:', singleType.X),
+						A3($author$project$Main$renderSingleInfoSet, model, 'Does not affect:', singleType.aa),
+						A2($elm$html$Html$hr, _List_Nil, _List_Nil),
+						A2(
+						$elm$html$Html$h3,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Defense:')
+							])),
+						A3($author$project$Main$renderSingleInfoSet, model, '2x damage from:', singleType.bk),
+						A3($author$project$Main$renderSingleInfoSet, model, '1/2 damage from:', singleType.aW),
+						A3($author$project$Main$renderSingleInfoSet, model, 'Immune to:', singleType.a1)
 					]));
 		} else {
 			return A2($elm$html$Html$div, _List_Nil, _List_Nil);
 		}
 	});
 var $author$project$Main$renderTypeInfo = function (model) {
-	var _v0 = model.q;
+	var _v0 = model.m;
 	if (!_v0.a.$) {
 		if (!_v0.b.$) {
 			var one = _v0.a.a;
@@ -9032,9 +9128,9 @@ var $author$project$Main$typeIsSelected = F2(
 var $author$project$Main$renderTypeButton = F2(
 	function (typeStr, model) {
 		var _v0 = function () {
-			var _v1 = model.G;
+			var _v1 = model.H;
 			if (!_v1) {
-				return A2($author$project$Main$typeIsSelected, model.q, typeStr) ? _Utils_Tuple2('> ' + (typeStr + ' <'), $author$project$Main$SelectType) : _Utils_Tuple2(typeStr, $author$project$Main$SelectType);
+				return A2($author$project$Main$typeIsSelected, model.m, typeStr) ? _Utils_Tuple2('> ' + (typeStr + ' <'), $author$project$Main$SelectType) : _Utils_Tuple2(typeStr, $author$project$Main$SelectType);
 			} else {
 				return _Utils_Tuple2(typeStr, $author$project$Main$SelectType);
 			}
@@ -9057,7 +9153,7 @@ var $author$project$Main$renderTypeButton = F2(
 var $elm$html$Html$table = _VirtualDom_node('table');
 var $elm$html$Html$tr = _VirtualDom_node('tr');
 var $author$project$Main$renderTypeList = function (model) {
-	var _v0 = model.l;
+	var _v0 = model.j;
 	if (!_v0.b) {
 		return A2(
 			$elm$html$Html$div,
@@ -9120,7 +9216,7 @@ var $author$project$Main$renderTypeList = function (model) {
 };
 var $author$project$Main$view = function (model) {
 	var content = function () {
-		var _v1 = model.G;
+		var _v1 = model.H;
 		switch (_v1) {
 			case 0:
 				return _List_fromArray(
@@ -9275,7 +9371,7 @@ var $author$project$Main$view = function (model) {
 				$elm$html$Html$Attributes$class('container')
 			]),
 		function () {
-			var _v0 = model.K;
+			var _v0 = model.L;
 			if (_v0.$ === 1) {
 				return content;
 			} else {
@@ -9289,12 +9385,12 @@ var $author$project$Main$view = function (model) {
 };
 var $author$project$Main$main = $elm$browser$Browser$element(
 	{
-		a1: $author$project$Main$init,
-		bb: function (_v0) {
+		a3: $author$project$Main$init,
+		be: function (_v0) {
 			return $elm$core$Platform$Sub$none;
 		},
-		be: $author$project$Main$update,
-		bg: $author$project$Main$view
+		bh: $author$project$Main$update,
+		bj: $author$project$Main$view
 	});
 _Platform_export({'Main':{'init':$author$project$Main$main(
 	$elm$json$Json$Decode$succeed(0))(0)}});}(this));
